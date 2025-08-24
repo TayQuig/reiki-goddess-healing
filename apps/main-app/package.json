@@ -1,0 +1,27 @@
+{
+  "name": "reiki-goddess-main-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.1",
+    "@reiki-goddess/shared-components": "*",
+    "@reiki-goddess/shared-utils": "*",
+    "@reiki-goddess/design-system": "*",
+    "@reiki-goddess/shared-assets": "*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "typescript": "^5.3.3",
+    "vite": "^6.0.0",
+    "@vitejs/plugin-react": "^4.2.0"
+  }
+}

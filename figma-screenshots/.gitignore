@@ -1,0 +1,14 @@
+# Ignore all images by default
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+
+# But track the README
+!README.md
+
+# Track any design specs if added
+!*.json
+!*.md

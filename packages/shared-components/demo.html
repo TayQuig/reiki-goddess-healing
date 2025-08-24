@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reiki Goddess - Component Progress</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Figma Design System Colors */
+        :root {
+            --variable-collection-color-duplicate: rgba(2, 5, 183, 1);
+            --variable-collection-color: rgba(2, 5, 183, 1);
+            --variable-collection-color-2: rgba(165, 147, 224, 1);
+            --variable-collection-color-3: rgba(255, 198, 165, 1);
+            --variable-collection-color-4: rgba(99, 213, 249, 1);
+            --variable-collection-color-5: rgba(94, 94, 94, 1);
+            --variable-collection-color-6: rgba(255, 255, 255, 1);
+        }
+        
+        /* Figtree Font (fallback to system fonts) */
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Progress Overview -->
+    <div class="bg-white border-b shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <h1 class="text-2xl font-bold text-gray-900">🎨 Figma → Code Progress</h1>
+            <p class="text-gray-600 mt-1">Live preview of extracted components</p>
+        </div>
+    </div>
+
+    <!-- Status Cards -->
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-green-50 border-2 border-green-200 rounded-lg p-4">
+                <h3 class="font-bold text-green-900">✅ Completed (2)</h3>
+                <ul class="mt-2 text-sm text-green-700 space-y-1">
+                    <li>• Header/Navigation (Frame 1)</li>
+                    <li>• Hero with Overlay (Frame 9)</li>
+                </ul>
+            </div>
+            
+            <div class="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4">
+                <h3 class="font-bold text-yellow-900">🚧 Ready for Extraction</h3>
+                <ul class="mt-2 text-sm text-yellow-700 space-y-1">
+                    <li>• Services Section</li>
+                    <li>• About Preview</li>
+                </ul>
+            </div>
+            
+            <div class="bg-gray-50 border-2 border-gray-200 rounded-lg p-4">
+                <h3 class="font-bold text-gray-900">⏳ Pending</h3>
+                <ul class="mt-2 text-sm text-gray-700 space-y-1">
+                    <li>• Testimonials</li>
+                    <li>• Footer</li>
+                    <li>• Full Page Composition</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Component Preview -->
+    <div class="max-w-[1440px] mx-auto bg-white shadow-2xl">
+        
+        <!-- Header Component -->
+        <div class="relative" style="height: 93px; background: #ffffff;">
+            <div class="absolute top-0 left-0 bg-blue-600 text-white text-xs px-2 py-1 z-20 rounded-br">
+                Frame 1: Header
+            </div>
+            
+            <!-- Actual Header -->
+            <header class="absolute w-[716px] h-[93px] top-0 left-0 rounded-[9px] overflow-hidden bg-white">
+                <nav class="absolute w-[716px] h-[19px] top-[37px] right-[65px]">
+                    <div class="inline-flex items-center gap-[84px] relative">
+                        <a href="/" class="text-[16px] font-semibold text-[#0205B7] hover:opacity-80 transition-opacity">Home</a>
+                        <a href="/about" class="text-[16px] font-semibold text-[#0205B7] hover:opacity-80 transition-opacity">About</a>
+                        <a href="/services" class="text-[16px] font-semibold text-[#0205B7] hover:opacity-80 transition-opacity">Services</a>
+                        <a href="/blog" class="text-[16px] font-semibold text-[#0205B7] hover:opacity-80 transition-opacity">Blog</a>
+                        <a href="/contact" class="text-[16px] font-semibold text-[#0205B7] hover:opacity-80 transition-opacity">Contact</a>
+                    </div>
+                </nav>
+                
+                <!-- Logo Placeholder -->
+                <div class="absolute w-[248px] h-[92px] top-[1px] left-[49px] bg-gradient-to-r from-purple-400 to-blue-400 rounded flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">LOGO</span>
+                </div>
+            </header>
+        </div>
+
+        <!-- Hero Component -->
+        <div class="relative h-[810px] overflow-hidden">
+            <div class="absolute top-0 left-0 bg-green-600 text-white text-xs px-2 py-1 z-20 rounded-br">
+                Frame 9: Hero Overlay
+            </div>
+            
+            <!-- Background Image (using gradient as placeholder) -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-800 to-indigo-900">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            
+            <!-- Overlay Content -->
+            <div class="relative z-10 h-full flex items-center justify-center px-8">
+                <div class="text-center max-w-[825px]">
+                    <h1 class="font-bold text-white mb-6" style="font-size: 63.55px; line-height: 76px;">
+                        The Reiki Goddess Healing
+                    </h1>
+                    
+                    <p class="text-white mb-10 max-w-[533px] mx-auto" style="font-size: 16px; line-height: 24px;">
+                        Energy Healing for Optimal Mental Health & Wellness. Ground your energy, reduce stress, and restore balance.
+                    </p>
+                    
+                    <div class="flex gap-4 justify-center">
+                        <a href="/book" class="inline-flex items-center justify-center px-6 py-3 bg-[#0205B7] text-white rounded-full font-medium hover:opacity-90 transition-opacity" style="min-width: 169px; height: 44px;">
+                            Book a Session
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </a>
+                        <a href="/about" class="inline-flex items-center justify-center px-6 py-3 bg-white/10 text-white border border-white rounded-full font-medium hover:bg-white/20 transition-all" style="min-width: 169px; height: 44px;">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placeholder Sections -->
+        <div class="h-96 bg-gray-100 border-t-4 border-gray-300 flex items-center justify-center">
+            <div class="text-center">
+                <p class="text-gray-500 text-2xl font-semibold">Services Section</p>
+                <p class="text-gray-400 mt-2">Screenshots available in figma-screenshots/homepage/sections/</p>
+            </div>
+        </div>
+
+        <div class="h-96 bg-gray-50 border-t-4 border-gray-300 flex items-center justify-center">
+            <div class="text-center">
+                <p class="text-gray-500 text-2xl font-semibold">About Preview</p>
+                <p class="text-gray-400 mt-2">Ready for extraction</p>
+            </div>
+        </div>
+
+        <div class="h-96 bg-gray-100 border-t-4 border-gray-300 flex items-center justify-center">
+            <div class="text-center">
+                <p class="text-gray-500 text-2xl font-semibold">Testimonials</p>
+                <p class="text-gray-400 mt-2">Awaiting screenshots</p>
+            </div>
+        </div>
+
+        <div class="h-64 bg-gray-800 border-t-4 border-gray-600 flex items-center justify-center">
+            <div class="text-center">
+                <p class="text-gray-300 text-2xl font-semibold">Footer</p>
+                <p class="text-gray-400 mt-2">Awaiting screenshots</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Summary -->
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="bg-gray-900 text-white rounded-lg p-6">
+            <h3 class="text-lg font-bold mb-4">📊 Extraction Summary</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-green-400 font-semibold mb-2">✅ What's Done:</h4>
+                    <ul class="text-sm space-y-1 text-gray-300">
+                        <li>• Header with exact Figma dimensions (716×93px)</li>
+                        <li>• Navigation with 84px gaps between items</li>
+                        <li>• Hero with centered overlay (810px height)</li>
+                        <li>• Typography: Figtree, 63.55px heading</li>
+                        <li>• CTA buttons with proper styling</li>
+                        <li>• Responsive wrappers for mobile</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 font-semibold mb-2">🚧 What's Next:</h4>
+                    <ul class="text-sm space-y-1 text-gray-300">
+                        <li>• Extract Services section from screenshots</li>
+                        <li>• Extract About preview section</li>
+                        <li>• Extract Testimonials</li>
+                        <li>• Extract Footer</li>
+                        <li>• Compose full Homepage</li>
+                        <li>• Add routing between pages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

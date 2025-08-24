@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --variable-collection-color: rgba(2, 5, 183, 1);
+  --variable-collection-color-2: rgba(165, 147, 224, 1);
+  --variable-collection-color-3: rgba(255, 198, 165, 1);
+  --variable-collection-color-4: rgba(99, 213, 249, 1);
+  --variable-collection-color-4-duplicate: rgba(99, 213, 249, 1);
+  --variable-collection-color-5: rgba(94, 94, 94, 1);
+  --variable-collection-color-6: rgba(255, 255, 255, 1);
+  --variable-collection-color-6-duplicate: rgba(255, 255, 255, 1);
+  --variable-collection-color-duplicate: rgba(2, 5, 183, 1);
+}

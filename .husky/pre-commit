@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Security scan for sensitive data
+node scripts/security-scan.js
+
+# Run lint-staged for changed files
+npx lint-staged
+
+# Run type checking
+npm run type-check
+
+# Security audit (only warn, don't block)
+npm audit --audit-level=moderate || echo "⚠️  Security vulnerabilities detected. Run 'npm audit' for details."
