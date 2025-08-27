@@ -1,5 +1,5 @@
 // Shared assets for The Reiki Goddess Healing website
-export * from './images';
+export * from "./images";
 
 // Asset types
 export interface ImageAsset {

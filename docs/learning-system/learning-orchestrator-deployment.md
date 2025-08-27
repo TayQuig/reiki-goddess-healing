@@ -1,9 +1,11 @@
 # Learning Orchestrator Enhancement - Deployment Prompt
 
 ## Objective
+
 Enhance the orchestrator/executor in The Reiki Goddess Healing project with advanced self-reflection and learning capabilities to improve execution quality over time.
 
 ## Prerequisites
+
 - Completed Phase 1 deployment (7/7 agents)
 - Access to `learning-loop/` directory structure
 - Existing orchestrator implementation
@@ -11,6 +13,7 @@ Enhance the orchestrator/executor in The Reiki Goddess Healing project with adva
 ## Implementation Tasks
 
 ### Task 1: Create Learning Memory Structure
+
 ```bash
 # Create enhanced directory structure for learning storage
 mkdir -p learning-loop/memory/{short-term,long-term,working-memory}
@@ -42,10 +45,10 @@ class ExecutionScoreCard:
             'task_type': None,
             'execution_time': None
         }
-    
+
     def calculate_overall_score(self):
         return sum(self.scores.values()) / len(self.scores)
-    
+
     def trigger_reflection(self):
         """Auto-trigger based on thresholds"""
         overall = self.calculate_overall_score()
@@ -79,7 +82,7 @@ class PatternExtractor:
             'performance_patterns': [],
             'dependency_patterns': []
         }
-    
+
     def capture_execution_metadata(self, task_id, phase):
         """
         Capture metadata at different execution phases
@@ -90,7 +93,7 @@ class PatternExtractor:
             'timestamp': datetime.now().isoformat(),
             'data': {}
         }
-        
+
         if phase == 'pre':
             metadata['data'] = {
                 'initial_state': self.capture_state(),
@@ -109,9 +112,9 @@ class PatternExtractor:
                 'deviations': [],
                 'discoveries': []
             }
-        
+
         return metadata
-    
+
     def extract_patterns(self, execution_history):
         """
         Identify recurring patterns from execution history
@@ -119,11 +122,11 @@ class PatternExtractor:
         # Analyze for success patterns
         successful_tasks = [t for t in execution_history if t.score > 80]
         self.patterns['success_patterns'] = self.find_commonalities(successful_tasks)
-        
-        # Analyze for failure patterns  
+
+        # Analyze for failure patterns
         failed_tasks = [t for t in execution_history if t.score < 60]
         self.patterns['failure_patterns'] = self.find_commonalities(failed_tasks)
-        
+
         return self.patterns
 ```
 
@@ -139,7 +142,7 @@ class LearningQueryInterface:
     def __init__(self, memory_path="learning-loop/memory"):
         self.memory_path = memory_path
         self.index = self.build_index()
-    
+
     def query(self, query_string):
         """
         Natural language query interface
@@ -150,13 +153,13 @@ class LearningQueryInterface:
         """
         # Parse query intent
         intent = self.parse_query_intent(query_string)
-        
+
         # Search relevant memories
         results = self.search_memories(intent)
-        
+
         # Format response with actionable insights
         return self.format_insights(results)
-    
+
     def get_similar_executions(self, current_task):
         """
         Find similar past executions for current task
@@ -189,7 +192,7 @@ class LearningOrchestrator:
             'agent_performance': {}    # Which agents are most effective
         }
         self.current_sprint = None
-    
+
     def execute_with_learning(self, task):
         """
         Main execution loop with learning integration
@@ -199,51 +202,51 @@ class LearningOrchestrator:
         similar_tasks = self.query_interface.get_similar_executions(task)
         if similar_tasks:
             self.apply_past_learnings(task, similar_tasks)
-        
+
         # 2. Capture pre-execution state
         pre_metadata = self.pattern_extractor.capture_execution_metadata(task.id, 'pre')
         self.save_metadata(pre_metadata)
-        
+
         # 3. Execute with monitoring
         print(f"[EXECUTING] Task: {task.id}")
         start_time = datetime.now()
         result = self.execute_task(task, monitor=True)
         execution_time = (datetime.now() - start_time).seconds
-        
+
         # 4. Score the execution
         score_card = ExecutionScoreCard(task.id)
         score_card.scores = self.calculate_scores(result, execution_time)
-        
+
         # 5. Post-execution reflection
         post_metadata = self.pattern_extractor.capture_execution_metadata(task.id, 'post')
         post_metadata['data']['outcomes'] = result
         self.save_metadata(post_metadata)
-        
+
         # 6. Extract learnings
         learnings = self.extract_learnings(result, score_card)
         self.update_memory(learnings)
-        
+
         # 7. Check if reflection needed
         action, reason = score_card.trigger_reflection()
         if action:
             self.perform_reflection(action, reason, task, result)
-        
+
         # 8. Generate improvement suggestions
         improvements = self.suggest_next_improvements(learnings)
-        
+
         return {
             'result': result,
             'score': score_card.calculate_overall_score(),
             'learnings': learnings,
             'improvements': improvements
         }
-    
+
     def perform_reflection(self, action, reason, task, result):
         """
         Execute reflection based on trigger
         """
         print(f"[REFLECTION] {action}: {reason}")
-        
+
         if action == "mandatory_reflection":
             # Perform root cause analysis
             self.root_cause_analysis(task, result)
@@ -253,25 +256,25 @@ class LearningOrchestrator:
         elif action == "update_architecture":
             # Review architectural assumptions
             self.update_assumptions(task, result)
-    
+
     def weekly_learning_synthesis(self):
         """
         Aggregate learnings and update orchestrator rules
         """
         print("[SYNTHESIS] Running weekly learning synthesis...")
-        
+
         # 1. Aggregate all reflection points
         weekly_learnings = self.aggregate_weekly_learnings()
-        
+
         # 2. Identify top patterns
         top_patterns = self.identify_top_patterns(weekly_learnings)
-        
+
         # 3. Update orchestrator rules
         self.update_rules(top_patterns)
-        
+
         # 4. Archive obsolete patterns
         self.archive_obsolete_patterns()
-        
+
         return {
             'patterns_identified': len(top_patterns),
             'rules_updated': True,
@@ -296,12 +299,12 @@ class LearningDashboard:
             'pattern_stability': 0,        # How often best practices need updating
             'overall_improvement': 0       # Trend of execution scores over time
         }
-    
+
     def update_metrics(self, execution_result):
         """Update metrics after each execution"""
         # Update relevant metrics based on execution
         pass
-    
+
     def generate_report(self):
         """Generate weekly improvement report"""
         return {
@@ -314,6 +317,7 @@ class LearningDashboard:
 ## Deployment Steps
 
 ### Step 1: Initial Setup
+
 ```bash
 # Navigate to project root
 cd reiki-goddess-healing
@@ -327,6 +331,7 @@ echo "from .learning_orchestrator import LearningOrchestrator" > learning-loop/o
 ```
 
 ### Step 2: Integration with Existing System
+
 ```python
 # In your main execution file, replace existing orchestrator with:
 from learning_loop.orchestrator import LearningOrchestrator
@@ -343,6 +348,7 @@ for task in current_tasks:
 ```
 
 ### Step 3: Configure Automated Triggers
+
 ```yaml
 # Create learning-loop/config/triggers.yaml
 reflection_triggers:
@@ -351,18 +357,19 @@ reflection_triggers:
     - mid_task: true
     - post_task: true
     - sprint_review: true
-  
+
   thresholds:
     low_performance: 60
     high_performance: 90
     high_surprise: 70
-  
+
   synthesis_schedule:
     weekly: "sunday_23:00"
     monthly: "last_friday"
 ```
 
 ### Step 4: Initialize Learning Memory
+
 ```python
 # Run this once to initialize the learning system
 from learning_loop.orchestrator import LearningOrchestrator
@@ -428,18 +435,21 @@ print(f'Test execution score: {result['score']}')
 ## Anti-Pattern Monitoring
 
 The system will automatically flag:
+
 - Same error occurring 3+ times → Forces architecture review
-- Execution time increasing → Checks for memory/complexity bloat  
+- Execution time increasing → Checks for memory/complexity bloat
 - Low reuse rate → Identifies over-specialization
 - High surprise factor repeatedly → Indicates incomplete domain understanding
 
 ## Support & Troubleshooting
 
 If scoring consistently below 60:
+
 - Review assumptions in `learning-loop/memory/working-memory/current-assumptions.md`
 - Check agent performance metrics in dashboard
 - Run root cause analysis: `orchestrator.root_cause_analysis(task_id)`
 
 For questions about patterns:
+
 - Query: `orchestrator.query_interface.query("show all failure patterns")`
 - Review: `learning-loop/memory/long-term/architectural-decisions/`

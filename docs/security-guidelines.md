@@ -9,15 +9,17 @@
 ### Implementation Guidelines
 
 #### 1. Frontend API Calls
+
 ```typescript
 // ✅ CORRECT
-const API_BASE = 'https://api.reikigoddesshealing.com';
+const API_BASE = "https://api.reikigoddesshealing.com";
 
 // ❌ NEVER DO THIS
-const API_BASE = 'http://api.reikigoddesshealing.com';
+const API_BASE = "http://api.reikigoddesshealing.com";
 ```
 
 #### 2. Environment Variables
+
 ```env
 # .env.production
 API_URL=https://api.reikigoddesshealing.com
@@ -25,12 +27,14 @@ PAYMENT_GATEWAY=https://secure.payment-provider.com
 ```
 
 #### 3. Form Actions
+
 ```tsx
 // Contact forms must submit to HTTPS endpoints
 <form action="https://api.reikigoddesshealing.com/contact" method="POST">
 ```
 
 #### 4. Image and Asset Loading
+
 ```tsx
 // CDN assets should use HTTPS
 <img src="https://cdn.reikigoddesshealing.com/images/hero.jpg" />
@@ -44,18 +48,21 @@ Add these headers to your server configuration:
 // Express.js example
 app.use((req, res, next) => {
   // Force HTTPS
-  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-  
+  res.setHeader(
+    "Strict-Transport-Security",
+    "max-age=31536000; includeSubDomains"
+  );
+
   // Prevent clickjacking
-  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
-  
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+
   // XSS Protection
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-XSS-Protection', '1; mode=block');
-  
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-XSS-Protection", "1; mode=block");
+
   // Content Security Policy
-  res.setHeader('Content-Security-Policy', "default-src 'self' https:;");
-  
+  res.setHeader("Content-Security-Policy", "default-src 'self' https:;");
+
   next();
 });
 ```
@@ -63,6 +70,7 @@ app.use((req, res, next) => {
 ### Redirect HTTP to HTTPS
 
 #### Netlify Configuration
+
 ```toml
 # netlify.toml
 [[redirects]]
@@ -73,6 +81,7 @@ app.use((req, res, next) => {
 ```
 
 #### Vercel Configuration
+
 ```json
 // vercel.json
 {
@@ -89,17 +98,20 @@ app.use((req, res, next) => {
 ## Data Protection
 
 ### Customer Information
+
 - **Never log** customer PII (names, emails, phone numbers)
 - **Always validate** input on both client and server
 - **Sanitize** all user inputs before storage
 - **Encrypt** sensitive data at rest
 
 ### Payment Information
+
 - **Never store** credit card numbers
 - **Use tokenization** via payment providers (Stripe, Square)
 - **PCI compliance** is handled by payment provider
 
 ### Health Information
+
 - **Minimize collection** of health data
 - **Separate storage** from general contact forms
 - **Explicit consent** required before collection
@@ -143,15 +155,18 @@ If sensitive data is accidentally committed:
 ## Regular Security Tasks
 
 ### Weekly
+
 - [ ] Run `npm audit` and review findings
 - [ ] Check for dependency updates
 
 ### Monthly
+
 - [ ] Review access logs for suspicious activity
 - [ ] Update dependencies with security patches
 - [ ] Test backup and recovery procedures
 
 ### Quarterly
+
 - [ ] Security training/awareness review
 - [ ] Update security documentation
 - [ ] Review and rotate API keys
@@ -164,5 +179,6 @@ If sensitive data is accidentally committed:
 - [npm Security Best Practices](https://docs.npmjs.com/packages-and-modules/securing-your-code)
 
 ---
-*Last Updated*: 2025-08-24
-*Next Review*: 2025-09-24
+
+_Last Updated_: 2025-08-24
+_Next Review_: 2025-09-24

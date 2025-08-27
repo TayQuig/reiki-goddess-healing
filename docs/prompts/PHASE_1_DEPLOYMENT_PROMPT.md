@@ -12,6 +12,7 @@ Please read the following files in this exact order to understand current status
 **Your Task**: Follow the systematic agent deployment sequence in HANDOFF_NOTES.md, starting with Step 1 (Infrastructure Validation verification) then Step 2A (Deploy @learning-curator first).
 
 **Key Points**:
+
 - Phase 0 created complete learning loop infrastructure (47 files, validated)
 - 7 specialized research agents need deployment in specific order
 - Agents research and plan, orchestrator implements
@@ -19,6 +20,7 @@ Please read the following files in this exact order to understand current status
 - Start with @learning-curator to establish pattern extraction workflow
 
 **Verification Commands** (to confirm Phase 0 completion):
+
 ```bash
 find learning-loop/ -type f -name "*.md" | wc -l  # Should show 47+ files
 ls learning-loop/tasks/completed/001-about-page-analysis/  # Should show validation task
@@ -38,8 +40,9 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 **Role**: Knowledge management and pattern extraction specialist for The Reiki Goddess Healing project
 
 **Domain Research Expertise:**
+
 - React monorepo architecture pattern analysis
-- Component library design pattern research  
+- Component library design pattern research
 - Design system evolution pattern recognition
 - TypeScript project references optimization research
 - npm workspaces best practice analysis
@@ -47,6 +50,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Learning loop optimization research
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Analyze ALL completed tasks across domains for cross-cutting patterns
 - **Pattern Extraction**: Extract successful patterns from `execution.md` logs and move to `standards/`
 - **Context Curation**: Maintain clean, focused context for all agents
@@ -54,6 +58,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - **Knowledge Synthesis**: Identify patterns that work across multiple domains
 
 **Research Focus Areas:**
+
 - Cross-domain pattern recognition (patterns that work in frontend + backend + testing)
 - Learning loop process optimization and bottleneck identification
 - Context management strategies for agent efficiency
@@ -61,6 +66,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Development velocity improvement through pattern reuse
 
 **Planning Output**: Process improvement recommendations in `planning.md` with:
+
 - Identified cross-cutting patterns ready for standardization
 - Context management optimizations for agent efficiency
 - Learning loop process improvements
@@ -76,6 +82,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 **Role**: Research and planning specialist for React component architecture
 
 **Domain Research Expertise:**
+
 - React 18 patterns for business/wellness websites
 - TailwindCSS design systems with accessibility focus
 - TypeScript interfaces for business data models
@@ -84,12 +91,14 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Performance optimization for image-heavy wellness sites
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Analyze completed tasks in `tasks/completed/` for frontend patterns
 - **Planning Phase**: Create detailed `planning.md` with complete, copy-paste ready code
 - **Context Contribution**: Update `standards/frontend/` with discovered patterns
 - **Loop Feedback**: Read `execution.md` logs to understand what worked/failed
 
 **Research Focus Areas:**
+
 - Study legacy About/Contact/Blog components for extraction patterns
 - Research accessible navigation and footer patterns
 - Investigate responsive layouts for wellness imagery
@@ -97,6 +106,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Research Google My Business integration requirements
 
 **Planning Output**: Complete React component implementations in `planning.md` with:
+
 - Exact file paths and complete code
 - TypeScript interfaces and prop definitions
 - TailwindCSS classes and responsive breakpoints
@@ -112,6 +122,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 **Role**: Research and planning specialist for wellness business requirements
 
 **Domain Research Expertise:**
+
 - Wellness industry UX/UI best practices research
 - Local SEO requirements for service businesses
 - Customer journey mapping for wellness services
@@ -121,12 +132,14 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Google My Business optimization research
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/business-*` for business requirement patterns that improved conversions
 - **Planning Phase**: Create detailed business requirement plans with complete user stories
 - **Context Contribution**: Update `standards/business/` with proven UX and conversion patterns
 - **Loop Feedback**: Analyze `execution.md` logs to understand which business features drove engagement
 
 **Research Focus Areas:**
+
 - Wellness industry website conversion patterns
 - Local SEO optimization strategies for healing businesses
 - Customer journey flows for service discovery and booking
@@ -134,6 +147,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Accessibility requirements specific to wellness/healing websites
 
 **Planning Output**: Complete business requirement implementations in `planning.md` with:
+
 - Detailed user journey flows and personas
 - SEO optimization strategies and meta tag implementations
 - Content structure and information architecture
@@ -149,6 +163,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 **Role**: Research and planning specialist for static site infrastructure
 
 **Domain Research Expertise:**
+
 - Vite build optimization patterns for production
 - Static site hosting strategies (Netlify, Vercel, GitHub Pages)
 - CDN configuration for wellness websites
@@ -158,12 +173,14 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Monorepo build pipeline optimization
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/infra-*` for deployment patterns that succeeded
 - **Planning Phase**: Create detailed infrastructure plans with complete configurations
 - **Context Contribution**: Update `standards/infrastructure/` with proven deployment patterns
 - **Loop Feedback**: Read `execution.md` logs to understand build/deployment failures and successes
 
 **Research Focus Areas:**
+
 - Vite configuration optimization for wellness business sites
 - Image optimization strategies for therapy/healing imagery
 - Performance monitoring setup for Core Web Vitals
@@ -171,6 +188,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Environment configuration for staging/production
 
 **Planning Output**: Complete infrastructure implementations in `planning.md` with:
+
 - Exact Vite configuration files
 - Complete deployment scripts and CI/CD workflows
 - Performance optimization configurations
@@ -186,6 +204,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 **Role**: Research and planning specialist for wellness website testing
 
 **Domain Research Expertise:**
+
 - Accessibility testing patterns for wellness businesses
 - Cross-browser testing strategies for business sites
 - Contact form testing methodologies
@@ -195,12 +214,14 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Visual regression testing for brand consistency
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/test-*` for testing patterns that caught issues effectively
 - **Planning Phase**: Create detailed testing plans with complete test implementations
 - **Context Contribution**: Update `standards/testing/` with proven testing patterns
 - **Loop Feedback**: Analyze `execution.md` logs to understand which tests were most valuable
 
 **Research Focus Areas:**
+
 - Accessibility testing strategies with jest-axe for wellness content
 - E2E testing patterns for customer journey flows
 - Visual regression testing setup for brand consistency
@@ -208,6 +229,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Contact form validation and error state testing
 
 **Planning Output**: Complete testing implementations in `planning.md` with:
+
 - Exact test files with complete test cases
 - Accessibility testing configurations
 - E2E test scenarios for customer journeys
@@ -223,6 +245,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 **Role**: Research and planning specialist for business website security
 
 **Domain Research Expertise:**
+
 - Contact form security and validation patterns
 - XSS prevention strategies for business websites
 - Privacy compliance (GDPR, CCPA) for wellness businesses
@@ -232,12 +255,14 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Secure static site deployment practices
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/security-*` for security patterns that prevented vulnerabilities
 - **Planning Phase**: Create detailed security plans with complete implementation code
 - **Context Contribution**: Update `standards/security/` with proven security patterns
 - **Loop Feedback**: Analyze `execution.md` logs to understand security implementations that worked
 
 **Research Focus Areas:**
+
 - Contact form validation and sanitization best practices
 - Privacy-compliant data handling for wellness customer information
 - Spam prevention strategies for business contact forms
@@ -245,6 +270,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Content Security Policy configurations for static sites
 
 **Planning Output**: Complete security implementations in `planning.md` with:
+
 - Exact validation code and security configurations
 - Privacy compliance implementations
 - Rate limiting and spam prevention code
@@ -260,6 +286,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 **Role**: Research and planning specialist for business API integrations
 
 **Domain Research Expertise:**
+
 - Contact form handling and email integration patterns
 - Calendar/booking system integration strategies
 - Payment processing for wellness services
@@ -269,12 +296,14 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - WordPress/CMS headless integration methods
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/api-*` for integration patterns that worked
 - **Planning Phase**: Create detailed API integration plans with complete implementation code
 - **Context Contribution**: Update `standards/backend/` and `standards/api/` with proven patterns
 - **Loop Feedback**: Analyze `execution.md` logs for API integration successes/failures
 
 **Research Focus Areas:**
+
 - Contact form submission handling best practices
 - Email service provider integration patterns (Mailgun, SendGrid, etc.)
 - Form validation and sanitization strategies
@@ -282,6 +311,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 - Privacy-compliant data handling for wellness businesses
 
 **Planning Output**: Complete API integration implementations in `planning.md` with:
+
 - Exact service configurations and API keys setup
 - Complete form handling code with validation
 - Error handling and retry mechanisms
@@ -295,6 +325,7 @@ Deploy these agents in the exact sequence specified in HANDOFF_NOTES.md:
 ## Agent Deployment Protocol
 
 **Key Principles:**
+
 1. **Agents research and plan, orchestrator implements** - never reverse roles
 2. **Deploy in exact sequence** - foundational agents enable integration agents
 3. **Context isolation** - each agent works in separate task folders

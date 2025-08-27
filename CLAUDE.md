@@ -5,13 +5,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## ⚠️ CRITICAL: Design Source of Truth
 
 **FIGMA SCREENSHOTS ARE THE PRIMARY DESIGN REFERENCE:**
+
 - `/figma-screenshots/homepage/` - Contains all homepage design specifications
 - Components, overlays, sections, and images from Figma
 - All styling decisions must match these designs exactly
 
 **LEGACY ANIMA-GENERATED FOLDERS (Reference Only):**
+
 - `/Home Page/` - Original landing page structure
-- `/About/` - Original about page structure  
+- `/About/` - Original about page structure
 - `/Contact/` - Original contact page structure
 - `/BLog/` - Original blog structure
 
@@ -22,12 +24,14 @@ This repository is currently undergoing migration from separate React applicatio
 **Migration Status: Phase 2A In Progress - Homepage Perfection & Style Guide Creation**
 
 ### Original Structure
+
 - **About/** - About page with business information and founder details
-- **Contact/** - Contact page with form and contact information  
+- **Contact/** - Contact page with form and contact information
 - **Home Page/** - Landing page (appears to be a design wireframe)
 - **BLog/** - Blog section (duplicate structure of About)
 
 ### New Monorepo Structure (In Progress)
+
 - **apps/** - Individual application packages
 - **packages/** - Shared packages and libraries
   - `@reiki-goddess/shared-components` - Reusable React components
@@ -163,8 +167,9 @@ PageName/
 ### Component Architecture
 
 **Shared Components (New Monorepo)**
+
 - **Homepage Components**: Header, HeroV2, FeaturesBar, MeetTheGoddess, ServicesSection, CommunityEvents, Testimonials, LetsConnect, Footer
-- **Design System**: 
+- **Design System**:
   - Colors: Brand palette with primary blue (#0205B7), cream background (#FFFBF5)
   - Layout: 1440px max width, 66px universal padding, precise component dimensions
   - Typography: Figtree font family with defined scales
@@ -173,6 +178,7 @@ PageName/
 - **Type Safety**: Full TypeScript coverage with strict configuration
 
 **Legacy Architecture**
+
 - **Single Page Components**: Each directory contains one main screen component
 - **Section-based Design**: Contact page uses modular sections (HeaderSection, ContactFormSection, etc.)
 - **Static Assets**: Images stored in `/static/img/` directory
@@ -181,6 +187,7 @@ PageName/
 ### Key Conventions
 
 **New Monorepo Standards**
+
 - Components use TypeScript with proper interface definitions
 - Shared packages follow `@reiki-goddess/package-name` naming convention
 - All packages have TypeScript project references configured
@@ -189,6 +196,7 @@ PageName/
 - ESLint + Prettier for code quality
 
 **Legacy Conventions**
+
 - Components use TypeScript with JSX.Element return types
 - Styling uses TailwindCSS utility classes
 - Custom colors defined as `variable-collection-color-*` variables
@@ -220,6 +228,7 @@ PageName/
 ### Current Migration Status
 
 **✅ Phase 1 Complete: Monorepo Foundation**
+
 - Workspace configuration with npm workspaces
 - Shared tooling setup (TypeScript, ESLint, Prettier, Vitest)
 - Basic shared packages with initial components
@@ -228,6 +237,7 @@ PageName/
 - TypeScript project references for build optimization
 
 **🚧 Next Phases (Planned)**
+
 - Phase 2: Extract and consolidate shared assets
 - Phase 3: Migrate individual applications to apps/ directory
 - Phase 4: Implement unified routing and integration
@@ -235,6 +245,7 @@ PageName/
 ### Development Workflow
 
 **For New Monorepo Development:**
+
 1. Work from the root directory
 2. Use `npm install` to install all dependencies
 3. Use `npm run dev` to start all development servers
@@ -245,6 +256,7 @@ PageName/
 8. Use conventional commit format: `type(scope): description`
 
 **For Legacy Page Development:**
+
 1. Navigate to the specific page directory you want to work on
 2. Run `npm install` if dependencies aren't installed
 3. Use `npm run dev` to start development server
@@ -254,6 +266,7 @@ PageName/
 ### Migration Guidelines
 
 **When working on existing pages:**
+
 1. Extract reusable components to `packages/shared-components`
 2. Move design tokens to `packages/design-system`
 3. Add utility functions to `packages/shared-utils`
@@ -264,8 +277,9 @@ PageName/
 ## Current State & Next Steps
 
 **✅ Phase 1 Complete: Monorepo Foundation**
+
 - Monorepo workspace setup
-- Shared component library foundation  
+- Shared component library foundation
 - Design system package structure
 - Testing infrastructure
 - Code quality tools (ESLint, Prettier)
@@ -273,6 +287,7 @@ PageName/
 - TypeScript project references
 
 **✅ Phase 2A Progress: Homepage Perfection**
+
 - **Completed Homepage Sections:**
   - Header/Navigation with cream background (#FFFBF5)
   - Hero with precise dimensions (1308px × 732px, 66px buffers)
@@ -292,6 +307,7 @@ PageName/
   - Border radius: Standardized for brand consistency
 
 **🚧 Phase 2B Next: Style Guide & Remaining Pages**
+
 - Complete Footer section
 - Create comprehensive style guide document
 - Update CLAUDE.md with detailed component patterns
@@ -299,6 +315,7 @@ PageName/
 - Implement routing between pages
 
 **⏳ Future Phases:**
+
 - Phase 3: Migrate individual applications to apps/ directory
 - Phase 4: Implement unified routing and integration
 - Phase 5: Set up deployment pipeline
@@ -307,9 +324,10 @@ PageName/
 ## Established Design Patterns (Use for All Pages)
 
 ### Universal Brand Standards
+
 - **Background Color**: #FFFBF5 (warm cream) for entire site
 - **Container**: 1440px max width with 66px padding on all sides
-- **Rounded Corners**: 
+- **Rounded Corners**:
   - Buttons: Full/pill shape
   - Images: 20px (standard), 27px for featured images
   - Cards: 20px
@@ -317,6 +335,7 @@ PageName/
 - **66px Rule**: Universal buffer between content and page edges
 
 ### Color Palette
+
 - **Primary Blue**: #0205B7 (rgba(2, 5, 183, 1))
 - **Purple**: rgba(165, 147, 224, 1)
 - **Peach**: rgba(255, 198, 165, 1)
@@ -326,20 +345,23 @@ PageName/
 - **Text Gray**: rgba(94, 94, 94, 1)
 
 ### Typography
+
 - **Font Family**: Figtree, Helvetica, sans-serif
 - **Headings**: 48-64px, font-weight: 700
 - **Body**: 16-18px, font-weight: 400
 - **Buttons**: 16px, font-weight: 500
 
 ### Component Patterns
+
 - **Hero**: 825px total height (93px nav + 732px image), 1308px image width
-- **Buttons**: 
+- **Buttons**:
   - Primary: Solid blue background, white text
   - Secondary: Transparent with blue border and text
 - **Service Cards**: White background, blue bottom border, blue drop shadow
 - **Sections**: py-20 vertical padding (80px)
 
 ### Shadows
+
 - **Service Cards**: 0px 42px 32.5px -13px rgba(2, 5, 183, 0.25)
 - **Container**: 0 0 40px rgba(0, 0, 0, 0.1)
 

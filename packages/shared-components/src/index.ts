@@ -3,14 +3,28 @@
 // Foundation utility components (keeping these)
 export { default as Button } from "./Button";
 export { SecureContactForm } from "./SecureContactForm";
-export { PrivacyCompliance, CookieConsentBanner, PrivacyManager, DataDeletionRequest } from "./PrivacyCompliance";
+export {
+  PrivacyCompliance,
+  CookieConsentBanner,
+  PrivacyManager,
+  DataDeletionRequest,
+} from "./PrivacyCompliance";
 
 // Figma-sourced components
 export { Header, ResponsiveHeader } from "./Header";
-export type { HeaderProps, NavigationItem, ResponsiveHeaderProps } from "./Header";
+export type {
+  HeaderProps,
+  NavigationItem,
+  ResponsiveHeaderProps,
+} from "./Header";
 
 export { Hero, ResponsiveHero, HeroV2, ResponsiveHeroV2 } from "./Hero";
-export type { HeroProps, ResponsiveHeroProps, HeroV2Props, ResponsiveHeroV2Props } from "./Hero";
+export type {
+  HeroProps,
+  ResponsiveHeroProps,
+  HeroV2Props,
+  ResponsiveHeroV2Props,
+} from "./Hero";
 
 export { FeaturesBar } from "./FeaturesBar";
 export type { FeaturesBarProps, Feature } from "./FeaturesBar";

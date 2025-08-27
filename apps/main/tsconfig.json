@@ -22,7 +22,9 @@
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
-      "@reiki-goddess/shared-components": ["../../packages/shared-components/src"],
+      "@reiki-goddess/shared-components": [
+        "../../packages/shared-components/src"
+      ],
       "@reiki-goddess/shared-assets": ["../../packages/shared-assets/src"],
       "@reiki-goddess/design-system": ["../../packages/design-system/src"],
       "@reiki-goddess/shared-utils": ["../../packages/shared-utils/src"]

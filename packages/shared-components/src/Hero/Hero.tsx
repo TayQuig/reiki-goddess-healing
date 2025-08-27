@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface HeroProps {
   heading?: {
@@ -37,61 +37,58 @@ export interface HeroProps {
  */
 export const Hero: React.FC<HeroProps> = ({
   heading = {
-    line1: 'Experienced Reiki Master',
-    line2: '& Sound Healer',
-    line3: 'in Roy'
+    line1: "Experienced Reiki Master",
+    line2: "& Sound Healer",
+    line3: "in Roy",
   },
   overlayText,
   description = {
     left: (
       <>
         <span className="font-medium text-[#1c1b1b]">
-          Welcome to The Reiki Goddess Healing, where transformation meets tranquility. I'm{' '}
+          Welcome to The Reiki Goddess Healing, where transformation meets
+          tranquility. I&apos;m{" "}
         </span>
         <span className="font-bold italic text-[#0205b7]">Lori Olson</span>
-        <span className="font-medium text-[#1c1b1b]">
-          , a certified{' '}
-        </span>
+        <span className="font-medium text-[#1c1b1b]">, a certified </span>
         <span className="font-bold text-[#1c1b1b]">Reiki Master</span>
-        <span className="font-medium text-[#1c1b1b]">
-          {' '}and{' '}
-        </span>
+        <span className="font-medium text-[#1c1b1b]"> and </span>
         <span className="font-bold text-[#1c1b1b]">Sound Healer</span>
         <span className="font-medium text-[#1c1b1b]">
-          {' '}dedicated to guiding you on your journey to wellness and inner peace.
+          {" "}
+          dedicated to guiding you on your journey to wellness and inner peace.
         </span>
       </>
     ),
     right: (
       <>
         <span className="font-medium text-[#1c1b1b]">
-          With years of experience in{' '}
+          With years of experience in{" "}
         </span>
         <span className="font-bold text-[#1c1b1b]">energy healing</span>
-        <span className="font-medium text-[#1c1b1b]">
-          {' '}and{' '}
-        </span>
+        <span className="font-medium text-[#1c1b1b]"> and </span>
         <span className="font-bold text-[#1c1b1b]">holistic wellness</span>
         <span className="font-medium text-[#1c1b1b]">
-          , I offer personalized sessions that blend ancient healing techniques with modern understanding. 
-          Each session is tailored to your unique needs, helping you release energy blockages, 
-          reduce stress, and restore balance to your mind, body, and spirit.
+          , I offer personalized sessions that blend ancient healing techniques
+          with modern understanding. Each session is tailored to your unique
+          needs, helping you release energy blockages, reduce stress, and
+          restore balance to your mind, body, and spirit.
         </span>
       </>
-    )
+    ),
   },
   image = {
-    src: '/img/fb8b1754eb9a50a6cfaec02f5ef0c9bc-2.png',
-    alt: 'Reiki healing session'
+    src: "/img/fb8b1754eb9a50a6cfaec02f5ef0c9bc-2.png",
+    alt: "Reiki healing session",
   },
   backgroundImage = {
-    src: '/img/powerrangers-6.png',
-    alt: 'Decorative background'
+    src: "/img/powerrangers-6.png",
+    alt: "Decorative background",
   },
-  className = ''
+  className = "",
 }) => {
   return (
-    <section 
+    <section
       className={`absolute w-[1374px] h-[916px] top-28 left-[66px] ${className}`}
     >
       {/* Hero Image */}
@@ -100,36 +97,36 @@ export const Hero: React.FC<HeroProps> = ({
         alt={image.alt}
         src={image.src}
       />
-      
+
       {/* Overlay Text (Frame 9) */}
       {overlayText && overlayText.content && (
-        <div 
+        <div
           className="absolute z-10"
           style={{
-            top: overlayText.position?.top || 'auto',
-            left: overlayText.position?.left || 'auto',
-            right: overlayText.position?.right || 'auto',
-            bottom: overlayText.position?.bottom || 'auto',
-            ...overlayText.style
+            top: overlayText.position?.top || "auto",
+            left: overlayText.position?.left || "auto",
+            right: overlayText.position?.right || "auto",
+            bottom: overlayText.position?.bottom || "auto",
+            ...overlayText.style,
           }}
         >
           {overlayText.content}
         </div>
       )}
-      
+
       {/* Decorative Background Element */}
       <img
         className="absolute w-[1308px] h-[515px] top-[401px] left-0"
         alt={backgroundImage.alt}
         src={backgroundImage.src}
       />
-      
+
       {/* Main Heading */}
       <div className="absolute w-[825px] top-20 left-0">
-        <h1 
+        <h1
           className="font-bold text-[63.6px] tracking-[0] leading-[76.3px] text-black"
           style={{
-            fontFamily: 'Figtree, Helvetica, sans-serif'
+            fontFamily: "Figtree, Helvetica, sans-serif",
           }}
         >
           {heading.line1}
@@ -147,25 +144,25 @@ export const Hero: React.FC<HeroProps> = ({
           )}
         </h1>
       </div>
-      
+
       {/* Description Text - Left Column */}
       <div className="absolute w-[400px] top-[292px] left-0">
-        <p 
+        <p
           className="text-base leading-6"
           style={{
-            fontFamily: 'Figtree, Helvetica, sans-serif'
+            fontFamily: "Figtree, Helvetica, sans-serif",
           }}
         >
           {description.left}
         </p>
       </div>
-      
+
       {/* Description Text - Right Column */}
       <div className="absolute w-[400px] top-[292px] left-[430px]">
-        <p 
+        <p
           className="text-base leading-6"
           style={{
-            fontFamily: 'Figtree, Helvetica, sans-serif'
+            fontFamily: "Figtree, Helvetica, sans-serif",
           }}
         >
           {description.right}

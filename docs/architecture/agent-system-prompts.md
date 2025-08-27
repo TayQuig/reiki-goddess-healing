@@ -28,7 +28,7 @@ TOOLS: Read, Glob, Grep, MultiEdit, Write
 ```
 You are a React architecture research specialist for wellness websites. Your role is to:
 - Research React 18 patterns for business/wellness sites
-- Analyze component composition for service-based businesses  
+- Analyze component composition for service-based businesses
 - Study accessibility and SEO optimization for local wellness businesses
 - Create detailed component implementation plans
 
@@ -115,20 +115,22 @@ TOOLS: Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search
 
 ## Agent Tool Requirements Summary
 
-| Agent | Required Tools | Purpose |
-|-------|---------------|---------|
-| @learning-curator | Read, Glob, Grep, MultiEdit, Write | File analysis, pattern extraction, documentation updates |
-| @reiki-frontend-strategist | Read, Glob, Grep, WebSearch, WebFetch, Write | Code analysis, web research for React/wellness patterns |
-| @business-domain-strategist | Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search, mcp__firecrawl__firecrawl_scrape | Business research, competitor analysis, web scraping |
-| @infrastructure-strategist | Read, Bash, WebSearch, WebFetch, Write, Glob | Infrastructure research, config analysis, performance research |
-| @qa-strategist | Read, Glob, Grep, WebSearch, WebFetch, Write | Testing research, code analysis, QA best practices research |
-| @security-strategist | Read, Grep, WebSearch, WebFetch, Write | Security research, vulnerability analysis, compliance research |
-| @business-api-strategist | Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search | API research, integration pattern analysis |
+| Agent                       | Required Tools                                                                                       | Purpose                                                        |
+| --------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| @learning-curator           | Read, Glob, Grep, MultiEdit, Write                                                                   | File analysis, pattern extraction, documentation updates       |
+| @reiki-frontend-strategist  | Read, Glob, Grep, WebSearch, WebFetch, Write                                                         | Code analysis, web research for React/wellness patterns        |
+| @business-domain-strategist | Read, WebSearch, WebFetch, Write, mcp**firecrawl**firecrawl_search, mcp**firecrawl**firecrawl_scrape | Business research, competitor analysis, web scraping           |
+| @infrastructure-strategist  | Read, Bash, WebSearch, WebFetch, Write, Glob                                                         | Infrastructure research, config analysis, performance research |
+| @qa-strategist              | Read, Glob, Grep, WebSearch, WebFetch, Write                                                         | Testing research, code analysis, QA best practices research    |
+| @security-strategist        | Read, Grep, WebSearch, WebFetch, Write                                                               | Security research, vulnerability analysis, compliance research |
+| @business-api-strategist    | Read, WebSearch, WebFetch, Write, mcp**firecrawl**firecrawl_search                                   | API research, integration pattern analysis                     |
 
 ## When Claude Should Use Each Agent
 
 ### @learning-curator
+
 **Use when:**
+
 - Need to extract patterns from completed work
 - Optimizing workflows or processes
 - Conducting retrospectives after major milestones
@@ -137,12 +139,15 @@ TOOLS: Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search
 - Cleaning up and organizing context for other agents
 
 **Example scenarios:**
+
 - "Extract patterns from the last 5 completed tasks"
 - "Optimize our component development workflow"
 - "What patterns are emerging from our testing approaches?"
 
 ### @reiki-frontend-strategist
+
 **Use when:**
+
 - Planning React component architecture
 - Researching frontend patterns for wellness sites
 - Designing component libraries or design systems
@@ -150,12 +155,15 @@ TOOLS: Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search
 - Converting legacy components to modern React patterns
 
 **Example scenarios:**
+
 - "Research best practices for React wellness website navigation"
 - "Plan component architecture for the contact form redesign"
 - "Analyze accessibility requirements for healing service websites"
 
 ### @business-domain-strategist
+
 **Use when:**
+
 - Defining business requirements for wellness features
 - Researching wellness industry standards and best practices
 - Planning customer journeys for healing services
@@ -163,12 +171,15 @@ TOOLS: Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search
 - Understanding conversion optimization for service bookings
 
 **Example scenarios:**
+
 - "Research customer journey patterns for Reiki booking websites"
 - "Analyze competitor wellness websites for UX patterns"
 - "Define business requirements for the services page"
 
 ### @infrastructure-strategist
+
 **Use when:**
+
 - Planning deployment strategies for wellness websites
 - Optimizing build processes for monorepo structure
 - Performance optimization research for image-heavy sites
@@ -176,12 +187,15 @@ TOOLS: Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search
 - Planning scalability for growing wellness business
 
 **Example scenarios:**
+
 - "Research optimal hosting for wellness website with booking system"
 - "Plan build optimization for image-heavy healing website"
 - "Design CI/CD pipeline for monorepo wellness site"
 
 ### @qa-strategist
+
 **Use when:**
+
 - Planning testing approaches for wellness website features
 - Accessibility compliance research and testing strategies
 - E2E testing strategy for customer booking flows
@@ -189,12 +203,15 @@ TOOLS: Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search
 - Contact form validation and error handling testing
 
 **Example scenarios:**
+
 - "Plan accessibility testing strategy for wellness website"
 - "Design E2E tests for Reiki booking customer journey"
 - "Research performance testing for image galleries"
 
 ### @security-strategist
+
 **Use when:**
+
 - Security pattern research for customer data handling
 - Privacy compliance planning (GDPR, CCPA) for wellness businesses
 - Contact form security and spam prevention
@@ -202,12 +219,15 @@ TOOLS: Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search
 - Secure payment processing research
 
 **Example scenarios:**
+
 - "Research privacy compliance for wellness customer data"
 - "Plan security for contact form handling customer inquiries"
 - "Design spam prevention for wellness website contact forms"
 
 ### @business-api-strategist
+
 **Use when:**
+
 - API integration planning for business features
 - Email/contact system research and implementation planning
 - Payment processing research for wellness services
@@ -215,6 +235,7 @@ TOOLS: Read, WebSearch, WebFetch, Write, mcp__firecrawl__firecrawl_search
 - Calendar/scheduling system integration research
 
 **Example scenarios:**
+
 - "Research email integration for wellness contact form"
 - "Plan booking system API integration for Reiki appointments"
 - "Design payment processing for healing service packages"

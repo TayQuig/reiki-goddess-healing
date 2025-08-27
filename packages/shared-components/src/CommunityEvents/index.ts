@@ -1,2 +1,2 @@
-export { CommunityEvents } from './CommunityEvents';
-export type { CommunityEventsProps, EventCard } from './CommunityEvents';
+export { CommunityEvents } from "./CommunityEvents";
+export type { CommunityEventsProps, EventCard } from "./CommunityEvents";

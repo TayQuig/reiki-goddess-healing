@@ -1,4 +1,4 @@
-import { AboutComposed } from '@reiki-goddess/shared-components';
+import { AboutComposed } from "@reiki-goddess/shared-components";
 
 function About() {
   return <AboutComposed />;

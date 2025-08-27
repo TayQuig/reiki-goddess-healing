@@ -1,28 +1,34 @@
 # Context Recovery Document - The Reiki Goddess Healing Website
 
 ## 🚨 CRITICAL: Token Usage Monitoring
+
 **CHECK CONTEXT USAGE REGULARLY**
+
 - Monitor token usage throughout the session
 - At **80% context window usage**, create a new session
 - Save all work and commit changes before switching
 - Reference this document in the new session to continue
 
 ## Project Overview
+
 **Business**: The Reiki Goddess Healing - Energy healing and wellness services
 **Owner**: Deirdre, The Reiki Goddess (Based in Roy, WA)
 **Purpose**: Professional wellness website for Reiki healing, sound therapy, and spiritual services
 
 ## Current Status: Phase 2A - Homepage Perfection ✅
+
 **Migration Progress**: Moving from separate React apps to unified monorepo structure
 **Active Branch**: `feat/monorepo-migration`
 
 ## 🎨 Design Authority
+
 **PRIMARY SOURCE**: `/figma-screenshots/homepage/` - ALL styling decisions must match these Figma designs
 **Design System Established**:
+
 ```css
 /* Brand Colors */
---primary-blue: #0205B7;
---cream-background: #FFFBF5;
+--primary-blue: #0205b7;
+--cream-background: #fffbf5;
 --purple: rgba(165, 147, 224, 1);
 --peach: rgba(255, 198, 165, 1);
 --cyan: rgba(99, 213, 249, 1);
@@ -31,16 +37,20 @@
 --text-gray: rgba(94, 94, 94, 1);
 
 /* Typography */
-font-family: 'Figtree', sans-serif;
+font-family: "Figtree", sans-serif;
 /* Sizes: 63.55px (hero), 48px (h2), 22px (subheadings), 16-18px (body) */
 
 /* Layout */
 max-width: 1440px;
 padding: 66px; /* Universal edge buffer */
-border-radius: 20px (cards), 27px (featured images), 30px (sections);
+border-radius:
+  20px (cards),
+  27px (featured images),
+  30px (sections);
 ```
 
 ## Tech Stack
+
 - **Framework**: React 18 + TypeScript
 - **Build**: Vite 6
 - **Styling**: TailwindCSS
@@ -49,6 +59,7 @@ border-radius: 20px (cards), 27px (featured images), 30px (sections);
 - **Font**: Figtree (Google Fonts)
 
 ## Project Structure
+
 ```
 reiki-goddess-healing/
 ├── apps/                          # Future consolidated apps
@@ -83,28 +94,33 @@ reiki-goddess-healing/
 ## Key Design Patterns Implemented
 
 ### 1. Navigation Bar
+
 - **Logo**: 248px × 92px, positioned at left: 66px (aligns with content)
 - **Spacing**: 191px from logo to first nav item, 84px between items
 - **Font**: Figtree 16px, weight 500, blue (#0205B7)
 
 ### 2. Hero Section
+
 - **Dimensions**: 1308px × 732px image with 66px side buffers
-- **Overlay Text**: 
+- **Overlay Text**:
   - Heading: 63.55px, positioned 436px from image top
   - White text on dark overlay
   - Transparent outline buttons with arrows
 
 ### 3. Service Cards
+
 - **Bevel Effect**: Blue duplicate rectangle 5px below white card
 - **Hover State**: Gradient overlay (#0205B7 to cyan), white icons/text
 - **Icons**: SVG format, blue in resting state
 
 ### 4. Image Bevels
+
 - **IMG-4891**: 455.9px × 310.61px, -4.85° rotation, bevel -5px left, 5px down
 - **IMG-3859**: 283.5px × 207.9px, 8.13° rotation, bevel 5px right, 5px down
 - **Border Radius**: 27px (IMG-4891), 24px (IMG-3859)
 
 ### 5. Smoke Effect
+
 - **Triple-layered** smoke.png for enhanced visibility
 - **Position**: Aligned with page edge (0px left)
 - **Rotation**: 180° to position correctly
@@ -113,6 +129,7 @@ reiki-goddess-healing/
 ## Current Component States
 
 ### ✅ Completed Components
+
 1. **Header** - Navigation with proper spacing
 2. **HeroV2** - Background image with text overlay
 3. **ServicesSection** - 4 service cards with hover effects
@@ -122,11 +139,13 @@ reiki-goddess-healing/
 7. **LetsConnect** - CTA with gradient background
 
 ### 🚧 In Progress
+
 - Footer section refinement
 - Routing between pages
 - Mobile responsiveness
 
 ## Development Commands
+
 ```bash
 # Install dependencies
 npm install
@@ -148,6 +167,7 @@ npm run lint
 ```
 
 ## Critical Files to Review
+
 1. `/CLAUDE.md` - Detailed project instructions
 2. `/todo_list.md` - Complete development roadmap and task tracking
 3. `/figma-screenshots/homepage/` - Design specifications
@@ -157,16 +177,19 @@ npm run lint
 ## Common Tasks & Solutions
 
 ### Adding New Components
+
 1. Create in `/packages/shared-components/src/ComponentName/`
 2. Export from `/packages/shared-components/src/index.ts`
 3. Follow existing patterns (TypeScript interfaces, Figma specs)
 
 ### Updating Styles
+
 1. Check Figma screenshots first
 2. Use exact values (don't approximate)
 3. Test hover states and transitions
 
 ### Image Management
+
 1. Source images from `/figma-screenshots/homepage/images/`
 2. Copy to `/packages/shared-components/demo/public/img/`
 3. Reference as `/img/filename.ext` in components
@@ -174,21 +197,25 @@ npm run lint
 ## Token Management Strategy
 
 ### Context Window Monitoring
+
 **At Session Start**: Note starting context usage
 **Every Major Task**: Check current usage
 **At 80% Usage**:
+
 1. Complete current task
 2. Commit all changes with descriptive message
 3. Create session summary
 4. Start fresh session with this document
 
 ### Efficient Token Usage
+
 - Use `Grep` and `Glob` instead of reading entire files
 - Batch related tool calls together
 - Reference line numbers when discussing code
 - Avoid re-reading unchanged files
 
 ### Session Handoff Checklist
+
 - [ ] All changes committed
 - [ ] Current task documented in TODO
 - [ ] Any blockers or issues noted
@@ -196,6 +223,7 @@ npm run lint
 - [ ] This document updated if needed
 
 ## Recent Significant Changes (Latest First)
+
 1. **Phase 2B Completed** - Homepage refinement with animations and style guide
 2. **Scroll animations** implemented with intersection observer
 3. **Lazy loading** added for optimized image performance
@@ -205,9 +233,11 @@ npm run lint
 7. **Smoke effect** triple-layered and aligned with page edge
 
 ## Next Immediate Tasks
+
 **See `todo_list.md` for comprehensive task tracking**
 
 ### Current Focus (Phase 3 - Responsive Design)
+
 1. Define breakpoint system (mobile: 375px, tablet: 768px, desktop: 1440px)
 2. Update Header for mobile menu/hamburger
 3. Adapt Hero section for mobile
@@ -218,16 +248,19 @@ For detailed task breakdown and progress tracking, refer to:
 📋 **[todo_list.md](./todo_list.md)** - Complete development roadmap with all phases
 
 ## Known Issues & Workarounds
+
 - **Smoke visibility**: Use multiple layers with different blend modes
 - **Button arrows**: Ensure SVG included in both button states
 - **Font rendering**: Figtree must be loaded from Google Fonts
 - **Bevel effects**: Use duplicate shape method, not borders
 
 ## Contact & Resources
+
 - **Figma Designs**: `/figma-screenshots/` directory
 - **Component Demo**: Run `npm run dev` and visit `http://localhost:5173`
 - **Git Branch**: `feat/monorepo-migration`
 
 ---
-*Last Updated*: 2025-08-27
-*Remember*: Check token usage regularly and refresh context at 80%!
+
+_Last Updated_: 2025-08-27
+_Remember_: Check token usage regularly and refresh context at 80%!

@@ -1,16 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { PrivacyCompliance } from '@reiki-goddess/shared-components';
-import { SimpleHomePage as HomePage } from './pages/HomePage-simple';
-import { SimpleAboutPage as AboutPage } from './pages/AboutPage-simple';
-import { ContactPage } from './pages/ContactPage';
-import { BlogPage } from './pages/BlogPage';
-import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { PrivacyCompliance } from "@reiki-goddess/shared-components";
+import { SimpleHomePage as HomePage } from "./pages/HomePage-simple";
+import { SimpleAboutPage as AboutPage } from "./pages/AboutPage-simple";
+import { ContactPage } from "./pages/ContactPage";
+import { BlogPage } from "./pages/BlogPage";
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
+import "./App.css";
 
 function App() {
   return (
-    <Router 
+    <Router
       future={{
         v7_startTransition: true,
         v7_relativeSplatPath: true,
@@ -24,7 +24,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
         </Routes>
-        
+
         {/* Global Privacy Compliance */}
         <PrivacyCompliance />
       </div>

@@ -1,2 +1,2 @@
-export { Homepage } from './Homepage';
-export type { HomepageProps } from './Homepage';
+export { Homepage } from "./Homepage";
+export type { HomepageProps } from "./Homepage";

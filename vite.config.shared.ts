@@ -42,26 +42,27 @@ export const createViteConfig = (options: {
         input: options.entry,
         output: {
           manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return 'vendor';
+            if (id.includes("node_modules")) {
+              return "vendor";
             }
-            if (id.includes('@reiki-goddess/shared-components')) {
-              return 'shared-components';
+            if (id.includes("@reiki-goddess/shared-components")) {
+              return "shared-components";
             }
-            if (id.includes('@reiki-goddess/design-system')) {
-              return 'design-system';
+            if (id.includes("@reiki-goddess/design-system")) {
+              return "design-system";
             }
-          }
-        }
+          },
+        },
       },
       chunkSizeWarningLimit: 1000,
       cssCodeSplit: true,
-      sourcemap: process.env.NODE_ENV === 'production' ? false : true,
-      minify: 'esbuild',
-      target: 'es2020'
+      sourcemap: process.env.NODE_ENV === "production" ? false : true,
+      minify: "esbuild",
+      target: "es2020",
     },
     esbuild: {
-      drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+      drop:
+        process.env.NODE_ENV === "production" ? ["console", "debugger"] : [],
     },
   });
 };

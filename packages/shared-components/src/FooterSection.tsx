@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface FooterLink {
   id: string;
@@ -38,11 +38,11 @@ export interface FooterSectionProps {
   contact: FooterContact;
 }
 
-export const FooterSection: React.FC<FooterSectionProps> = ({ 
-  sections, 
-  copyright, 
-  socialLinks, 
-  contact 
+export const FooterSection: React.FC<FooterSectionProps> = ({
+  sections,
+  copyright,
+  socialLinks,
+  contact,
 }) => {
   return (
     <footer className="bg-gray-50 border-t">
@@ -50,7 +50,9 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Business Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900">Contact Info</h3>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Contact Info
+            </h3>
             <div className="space-y-2 text-gray-600">
               <p>📍 {contact.address}</p>
               <p>📞 {contact.phone}</p>
@@ -61,7 +63,9 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
           {/* Footer Sections */}
           {sections.map((section) => (
             <div key={section.id} className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">{section.title}</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                {section.title}
+              </h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.id}>
@@ -90,7 +94,9 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                   className="text-gray-600 hover:text-blue-700 transition-colors"
                   aria-label={`Follow us on ${social.platform}`}
                 >
-                  <span className="text-2xl">{social.name === 'Facebook' ? '📘' : '📸'}</span>
+                  <span className="text-2xl">
+                    {social.name === "Facebook" ? "📘" : "📸"}
+                  </span>
                 </a>
               ))}
             </div>

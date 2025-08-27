@@ -82,6 +82,7 @@ The application uses the following Anima design system colors:
 ## Assets
 
 All images are served from `@reiki-goddess/shared-assets` package:
+
 - 63 total images organized by page (about, contact, home, blog)
 - Properly organized in the shared-assets package
 

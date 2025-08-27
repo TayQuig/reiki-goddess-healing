@@ -69,7 +69,9 @@ npm run test:e2e
 ## 📦 Package Structure
 
 ### `@reiki-goddess/shared-components`
+
 Reusable React components extracted from Figma designs:
+
 - Header/Navigation
 - Hero sections
 - Service cards
@@ -77,20 +79,26 @@ Reusable React components extracted from Figma designs:
 - Footer
 
 ### `@reiki-goddess/shared-assets`
+
 Static assets and images:
+
 - Optimized images
 - Icons and logos
 - Asset manifest
 
 ### `@reiki-goddess/design-system`
+
 Design tokens and theme:
+
 - Color palette
 - Typography scales
 - Spacing system
 - Component styles
 
 ### `@reiki-goddess/shared-utils`
+
 Utility functions:
+
 - Form validation
 - Data formatting
 - Security helpers

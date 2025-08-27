@@ -5,6 +5,7 @@ Complete specifications for deploying 7 specialized research agents in The Reiki
 ## Deployment Sequence
 
 Deploy agents in this exact order:
+
 1. @learning-curator (Pattern extraction foundation)
 2. @reiki-frontend-strategist (React architecture research)
 3. @business-domain-strategist (Wellness business requirements)
@@ -18,9 +19,10 @@ Deploy agents in this exact order:
 ## 1. @learning-curator
 
 **Model**: Claude 3.5 Sonnet (claude-3-5-sonnet-20241022)
-*Reasoning: Needs strongest analytical capabilities for cross-domain pattern recognition and learning loop optimization*
+_Reasoning: Needs strongest analytical capabilities for cross-domain pattern recognition and learning loop optimization_
 
 **System Prompt**:
+
 ```
 You are a pattern extraction specialist for The Reiki Goddess Healing project. Your role is to:
 - Analyze completed tasks across all domains for cross-cutting patterns
@@ -50,13 +52,14 @@ WHEN TO USE THIS AGENT:
 ## 2. @reiki-frontend-strategist
 
 **Model**: Claude 3.5 Sonnet (claude-3-5-sonnet-20241022)
-*Reasoning: Requires deep technical knowledge for React architecture and accessibility patterns for wellness sites*
+_Reasoning: Requires deep technical knowledge for React architecture and accessibility patterns for wellness sites_
 
 **System Prompt**:
+
 ```
 You are a React architecture research specialist for wellness websites. Your role is to:
 - Research React 18 patterns for business/wellness sites
-- Analyze component composition for service-based businesses  
+- Analyze component composition for service-based businesses
 - Study accessibility and SEO optimization for local wellness businesses
 - Create detailed component implementation plans
 
@@ -81,9 +84,10 @@ WHEN TO USE THIS AGENT:
 ## 3. @business-domain-strategist
 
 **Model**: Claude 3.5 Haiku (claude-3-5-haiku-20241022)
-*Reasoning: Efficient for business research and competitor analysis; good balance of capability and speed for web research tasks*
+_Reasoning: Efficient for business research and competitor analysis; good balance of capability and speed for web research tasks_
 
 **System Prompt**:
+
 ```
 You are a wellness business requirements specialist. Your role is to:
 - Research wellness industry UX/UI best practices
@@ -112,9 +116,10 @@ WHEN TO USE THIS AGENT:
 ## 4. @infrastructure-strategist
 
 **Model**: Claude 3.5 Haiku (claude-3-5-haiku-20241022)
-*Reasoning: Good for infrastructure research and configuration analysis; Haiku handles technical research efficiently*
+_Reasoning: Good for infrastructure research and configuration analysis; Haiku handles technical research efficiently_
 
 **System Prompt**:
+
 ```
 You are a static site infrastructure research specialist. Your role is to:
 - Research Vite build optimization for production wellness sites
@@ -143,9 +148,10 @@ WHEN TO USE THIS AGENT:
 ## 5. @qa-strategist
 
 **Model**: Claude 3.5 Haiku (claude-3-5-haiku-20241022)
-*Reasoning: Efficient for testing strategy research; good at systematic analysis of testing patterns*
+_Reasoning: Efficient for testing strategy research; good at systematic analysis of testing patterns_
 
 **System Prompt**:
+
 ```
 You are a testing strategy research specialist for wellness websites. Your role is to:
 - Research accessibility testing for wellness businesses
@@ -174,9 +180,10 @@ WHEN TO USE THIS AGENT:
 ## 6. @security-strategist
 
 **Model**: Claude 3.5 Sonnet (claude-3-5-sonnet-20241022)
-*Reasoning: Security requires highest accuracy and comprehensive analysis; Sonnet provides best security pattern recognition*
+_Reasoning: Security requires highest accuracy and comprehensive analysis; Sonnet provides best security pattern recognition_
 
 **System Prompt**:
+
 ```
 You are a security pattern research specialist for business websites. Your role is to:
 - Research contact form security and validation patterns
@@ -205,9 +212,10 @@ WHEN TO USE THIS AGENT:
 ## 7. @business-api-strategist
 
 **Model**: Claude 3.5 Haiku (claude-3-5-haiku-20241022)
-*Reasoning: Good for API research and integration pattern analysis; efficient for web service research*
+_Reasoning: Good for API research and integration pattern analysis; efficient for web service research_
 
 **System Prompt**:
+
 ```
 You are an API integration research specialist for business websites. Your role is to:
 - Research contact form handling and email integration patterns
@@ -236,11 +244,13 @@ WHEN TO USE THIS AGENT:
 ## Model Selection Rationale
 
 **Claude 3.5 Sonnet (Premium)** - Used for:
+
 - @learning-curator: Cross-domain pattern recognition requires highest analytical capability
 - @reiki-frontend-strategist: Complex React architecture and accessibility analysis
 - @security-strategist: Security analysis demands highest accuracy and thoroughness
 
 **Claude 3.5 Haiku (Efficient)** - Used for:
+
 - @business-domain-strategist: Business research and competitor analysis
 - @infrastructure-strategist: Infrastructure research and configuration analysis
 - @qa-strategist: Testing strategy research and systematic analysis

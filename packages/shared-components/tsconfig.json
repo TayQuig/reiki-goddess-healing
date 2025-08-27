@@ -29,8 +29,5 @@
   },
   "include": ["src/**/*"],
   "exclude": ["dist", "node_modules", "**/*.test.*", "**/*.spec.*"],
-  "references": [
-    { "path": "../shared-utils" },
-    { "path": "../design-system" }
-  ]
+  "references": [{ "path": "../shared-utils" }, { "path": "../design-system" }]
 }

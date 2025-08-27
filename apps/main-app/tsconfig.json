@@ -7,13 +7,8 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "**/*.test.tsx",
-    "**/*.test.ts"
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["**/*.test.tsx", "**/*.test.ts"],
   "references": [
     {
       "path": "../../packages/shared-components"

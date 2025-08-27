@@ -1,4 +1,4 @@
-import { ContactComposed } from '@reiki-goddess/shared-components';
+import { ContactComposed } from "@reiki-goddess/shared-components";
 
 function Contact() {
   return <ContactComposed />;

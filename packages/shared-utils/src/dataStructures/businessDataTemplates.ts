@@ -1,6 +1,6 @@
 /**
  * Business Data Templates - Based on Contact page superior data patterns
- * 
+ *
  * These templates provide structured data interfaces for wellness business
  * content management with TypeScript safety and accessibility compliance.
  */
@@ -16,14 +16,14 @@ export const businessData = {
   founder: "Deirdre Quigley",
   services: [
     "Reiki Healing",
-    "Sound Therapy", 
+    "Sound Therapy",
     "Holistic Wellness",
-    "Energy Healing"
+    "Energy Healing",
   ],
   socialMedia: {
     facebook: "https://www.facebook.com/reikigoddesshealing",
-    instagram: "https://www.instagram.com/reikigoddesshealing"
-  }
+    instagram: "https://www.instagram.com/reikigoddesshealing",
+  },
 };
 
 /**
@@ -31,7 +31,7 @@ export const businessData = {
  */
 export interface ContactInfo {
   id: string;
-  type: 'location' | 'phone' | 'email' | 'hours';
+  type: "location" | "phone" | "email" | "hours";
   title: string;
   icon: {
     src: string;
@@ -41,7 +41,7 @@ export interface ContactInfo {
   action?: {
     text: string;
     url: string;
-    type: 'link' | 'tel' | 'mailto' | 'external';
+    type: "link" | "tel" | "mailto" | "external";
     icon?: {
       src: string;
       alt: string;
@@ -60,7 +60,7 @@ export interface ContactInfo {
 export interface ServiceInfo {
   id: string;
   name: string;
-  category: 'reiki' | 'crystal-healing' | 'consultation' | 'energy-work';
+  category: "reiki" | "crystal-healing" | "consultation" | "energy-work";
   description: {
     short: string;
     long: string;
@@ -68,7 +68,7 @@ export interface ServiceInfo {
   pricing: {
     amount: number;
     currency: string;
-    unit: 'session' | 'hour' | 'package';
+    unit: "session" | "hour" | "package";
     packages?: {
       name: string;
       sessions: number;
@@ -139,7 +139,7 @@ export interface TestimonialInfo {
     dateCreated: string;
     featured: boolean;
     verified: boolean;
-    source: 'direct' | 'google' | 'facebook' | 'yelp';
+    source: "direct" | "google" | "facebook" | "yelp";
   };
 }
 
@@ -172,7 +172,7 @@ export interface NavigationStructure {
   cta: {
     label: string;
     href: string;
-    style: 'primary' | 'secondary';
+    style: "primary" | "secondary";
     tracking?: string;
   };
 }
@@ -238,15 +238,21 @@ export interface BusinessProfile {
  * Data validation helpers
  */
 export const validateContactInfo = (data: ContactInfo): boolean => {
-  return !!(data.id && data.title && data.content && data.icon.src && data.icon.alt);
+  return !!(
+    data.id &&
+    data.title &&
+    data.content &&
+    data.icon.src &&
+    data.icon.alt
+  );
 };
 
 export const validateServiceInfo = (data: ServiceInfo): boolean => {
   return !!(
-    data.id && 
-    data.name && 
-    data.category && 
-    data.description.short && 
+    data.id &&
+    data.name &&
+    data.category &&
+    data.description.short &&
     data.pricing.amount > 0 &&
     data.duration.minutes > 0
   );
@@ -268,55 +274,55 @@ export const validateTestimonialInfo = (data: TestimonialInfo): boolean => {
  */
 export const createDefaultContactInfo = (): ContactInfo[] => [
   {
-    id: 'location',
-    type: 'location',
-    title: 'Our Location',
-    icon: { src: '/img/location-icon.svg', alt: 'Location icon' },
-    content: 'Roy, Washington',
+    id: "location",
+    type: "location",
+    title: "Our Location",
+    icon: { src: "/img/location-icon.svg", alt: "Location icon" },
+    content: "Roy, Washington",
     action: {
-      text: 'Get Directions',
-      url: 'https://maps.google.com',
-      type: 'external',
-      icon: { src: '/img/external-link.svg', alt: 'External link' }
+      text: "Get Directions",
+      url: "https://maps.google.com",
+      type: "external",
+      icon: { src: "/img/external-link.svg", alt: "External link" },
     },
     metadata: {
       priority: 1,
-      category: 'contact',
-      businessCritical: true
-    }
+      category: "contact",
+      businessCritical: true,
+    },
   },
   {
-    id: 'phone',
-    type: 'phone',
-    title: 'Phone',
-    icon: { src: '/img/phone-icon.svg', alt: 'Phone icon' },
-    content: '(555) 123-4567',
+    id: "phone",
+    type: "phone",
+    title: "Phone",
+    icon: { src: "/img/phone-icon.svg", alt: "Phone icon" },
+    content: "(555) 123-4567",
     action: {
-      text: 'Call Now',
-      url: 'tel:+15551234567',
-      type: 'tel'
+      text: "Call Now",
+      url: "tel:+15551234567",
+      type: "tel",
     },
     metadata: {
       priority: 2,
-      category: 'contact',
-      businessCritical: true
-    }
+      category: "contact",
+      businessCritical: true,
+    },
   },
   {
-    id: 'email',
-    type: 'email',
-    title: 'Email',
-    icon: { src: '/img/email-icon.svg', alt: 'Email icon' },
-    content: 'hello@reikigoddesshealing.com',
+    id: "email",
+    type: "email",
+    title: "Email",
+    icon: { src: "/img/email-icon.svg", alt: "Email icon" },
+    content: "hello@reikigoddesshealing.com",
     action: {
-      text: 'Send Email',
-      url: 'mailto:hello@reikigoddesshealing.com',
-      type: 'mailto'
+      text: "Send Email",
+      url: "mailto:hello@reikigoddesshealing.com",
+      type: "mailto",
     },
     metadata: {
       priority: 3,
-      category: 'contact',
-      businessCritical: true
-    }
-  }
+      category: "contact",
+      businessCritical: true,
+    },
+  },
 ];

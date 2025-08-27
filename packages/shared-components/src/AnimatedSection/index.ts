@@ -1,2 +1,2 @@
-export { AnimatedSection } from './AnimatedSection';
-export type { AnimatedSectionProps } from './AnimatedSection';
+export { AnimatedSection } from "./AnimatedSection";
+export type { AnimatedSectionProps } from "./AnimatedSection";

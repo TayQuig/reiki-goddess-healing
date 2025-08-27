@@ -1,2 +1,2 @@
-export { LetsConnect } from './LetsConnect';
-export type { LetsConnectProps } from './LetsConnect';
+export { LetsConnect } from "./LetsConnect";
+export type { LetsConnectProps } from "./LetsConnect";

@@ -16,9 +16,11 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 ## Specialized Agent Team (7 Agents) - Research & Planning Focus
 
 ### 1. **Reiki Frontend Research Strategist** (`@reiki-frontend-strategist`)
+
 **Role**: Research and planning specialist for React component architecture
 
 **Domain Research Expertise:**
+
 - React 18 patterns for business/wellness websites
 - TailwindCSS design systems with accessibility focus
 - TypeScript interfaces for business data models
@@ -27,12 +29,14 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Performance optimization for image-heavy wellness sites
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Analyze completed tasks in `tasks/completed/` for frontend patterns
 - **Planning Phase**: Create detailed `planning.md` with complete, copy-paste ready code
 - **Context Contribution**: Update `standards/frontend/` with discovered patterns
 - **Loop Feedback**: Read `execution.md` logs to understand what worked/failed
 
 **Research Focus Areas:**
+
 - Study legacy About/Contact/Blog components for extraction patterns
 - Research accessible navigation and footer patterns
 - Investigate responsive layouts for wellness imagery
@@ -40,6 +44,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Research Google My Business integration requirements
 
 **Planning Output**: Complete React component implementations in `planning.md` with:
+
 - Exact file paths and complete code
 - TypeScript interfaces and prop definitions
 - TailwindCSS classes and responsive breakpoints
@@ -51,9 +56,11 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 ---
 
 ### 2. **Business API Research Strategist** (`@business-api-strategist`)
+
 **Role**: Research and planning specialist for business API integrations
 
 **Domain Research Expertise:**
+
 - Contact form handling and email integration patterns
 - Calendar/booking system integration strategies
 - Payment processing for wellness services
@@ -63,12 +70,14 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - WordPress/CMS headless integration methods
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/api-*` for integration patterns that worked
 - **Planning Phase**: Create detailed API integration plans with complete implementation code
 - **Context Contribution**: Update `standards/backend/` and `standards/api/` with proven patterns
 - **Loop Feedback**: Analyze `execution.md` logs for API integration successes/failures
 
 **Research Focus Areas:**
+
 - Contact form submission handling best practices
 - Email service provider integration patterns (Mailgun, SendGrid, etc.)
 - Form validation and sanitization strategies
@@ -76,6 +85,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Privacy-compliant data handling for wellness businesses
 
 **Planning Output**: Complete API integration implementations in `planning.md` with:
+
 - Exact service configurations and API keys setup
 - Complete form handling code with validation
 - Error handling and retry mechanisms
@@ -87,9 +97,11 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 ---
 
 ### 3. **Infrastructure Research Strategist** (`@infrastructure-strategist`)
+
 **Role**: Research and planning specialist for static site infrastructure
 
 **Domain Research Expertise:**
+
 - Vite build optimization patterns for production
 - Static site hosting strategies (Netlify, Vercel, GitHub Pages)
 - CDN configuration for wellness websites
@@ -99,12 +111,14 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Monorepo build pipeline optimization
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/infra-*` for deployment patterns that succeeded
 - **Planning Phase**: Create detailed infrastructure plans with complete configurations
 - **Context Contribution**: Update `standards/infrastructure/` with proven deployment patterns
 - **Loop Feedback**: Read `execution.md` logs to understand build/deployment failures and successes
 
 **Research Focus Areas:**
+
 - Vite configuration optimization for wellness business sites
 - Image optimization strategies for therapy/healing imagery
 - Performance monitoring setup for Core Web Vitals
@@ -112,6 +126,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Environment configuration for staging/production
 
 **Planning Output**: Complete infrastructure implementations in `planning.md` with:
+
 - Exact Vite configuration files
 - Complete deployment scripts and CI/CD workflows
 - Performance optimization configurations
@@ -123,9 +138,11 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 ---
 
 ### 4. **QA Research Strategist** (`@qa-strategist`)
+
 **Role**: Research and planning specialist for wellness website testing
 
 **Domain Research Expertise:**
+
 - Accessibility testing patterns for wellness businesses
 - Cross-browser testing strategies for business sites
 - Contact form testing methodologies
@@ -135,12 +152,14 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Visual regression testing for brand consistency
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/test-*` for testing patterns that caught issues effectively
 - **Planning Phase**: Create detailed testing plans with complete test implementations
 - **Context Contribution**: Update `standards/testing/` with proven testing patterns
 - **Loop Feedback**: Analyze `execution.md` logs to understand which tests were most valuable
 
 **Research Focus Areas:**
+
 - Accessibility testing strategies with jest-axe for wellness content
 - E2E testing patterns for customer journey flows
 - Visual regression testing setup for brand consistency
@@ -148,6 +167,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Contact form validation and error state testing
 
 **Planning Output**: Complete testing implementations in `planning.md` with:
+
 - Exact test files with complete test cases
 - Accessibility testing configurations
 - E2E test scenarios for customer journeys
@@ -159,9 +179,11 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 ---
 
 ### 5. **Security Research Strategist** (`@security-strategist`)
+
 **Role**: Research and planning specialist for business website security
 
 **Domain Research Expertise:**
+
 - Contact form security and validation patterns
 - XSS prevention strategies for business websites
 - Privacy compliance (GDPR, CCPA) for wellness businesses
@@ -171,12 +193,14 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Secure static site deployment practices
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/security-*` for security patterns that prevented vulnerabilities
 - **Planning Phase**: Create detailed security plans with complete implementation code
 - **Context Contribution**: Update `standards/security/` with proven security patterns
 - **Loop Feedback**: Analyze `execution.md` logs to understand security implementations that worked
 
 **Research Focus Areas:**
+
 - Contact form validation and sanitization best practices
 - Privacy-compliant data handling for wellness customer information
 - Spam prevention strategies for business contact forms
@@ -184,6 +208,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Content Security Policy configurations for static sites
 
 **Planning Output**: Complete security implementations in `planning.md` with:
+
 - Exact validation code and security configurations
 - Privacy compliance implementations
 - Rate limiting and spam prevention code
@@ -195,9 +220,11 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 ---
 
 ### 6. **Business Domain Research Strategist** (`@business-domain-strategist`)
+
 **Role**: Research and planning specialist for wellness business requirements
 
 **Domain Research Expertise:**
+
 - Wellness industry UX/UI best practices research
 - Local SEO requirements for service businesses
 - Customer journey mapping for wellness services
@@ -207,12 +234,14 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Google My Business optimization research
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Study `tasks/completed/business-*` for business requirement patterns that improved conversions
 - **Planning Phase**: Create detailed business requirement plans with complete user stories
 - **Context Contribution**: Update `standards/business/` with proven UX and conversion patterns
 - **Loop Feedback**: Analyze `execution.md` logs to understand which business features drove engagement
 
 **Research Focus Areas:**
+
 - Wellness industry website conversion patterns
 - Local SEO optimization strategies for healing businesses
 - Customer journey flows for service discovery and booking
@@ -220,6 +249,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Accessibility requirements specific to wellness/healing websites
 
 **Planning Output**: Complete business requirement implementations in `planning.md` with:
+
 - Detailed user journey flows and personas
 - SEO optimization strategies and meta tag implementations
 - Content structure and information architecture
@@ -231,9 +261,11 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 ---
 
 ### 7. **Learning Loop Curator** (`@learning-curator`)
+
 **Role**: Knowledge management and pattern extraction specialist
 
 **Domain Research Expertise:**
+
 - React monorepo architecture pattern analysis
 - Component library design pattern research
 - Design system evolution pattern recognition
@@ -243,6 +275,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Learning loop optimization research
 
 **Learning Loop Responsibilities:**
+
 - **Research Phase**: Analyze ALL completed tasks across domains for cross-cutting patterns
 - **Pattern Extraction**: Extract successful patterns from `execution.md` logs and move to `standards/`
 - **Context Curation**: Maintain clean, focused context for all agents
@@ -250,6 +283,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - **Knowledge Synthesis**: Identify patterns that work across multiple domains
 
 **Research Focus Areas:**
+
 - Cross-domain pattern recognition (patterns that work in frontend + backend + testing)
 - Learning loop process optimization and bottleneck identification
 - Context management strategies for agent efficiency
@@ -257,6 +291,7 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 - Development velocity improvement through pattern reuse
 
 **Planning Output**: Process improvement recommendations in `planning.md` with:
+
 - Identified cross-cutting patterns ready for standardization
 - Context management optimizations for agent efficiency
 - Learning loop process improvements
@@ -266,9 +301,11 @@ Implement the Enhanced Learning Loop Protocol using a specialized team of 7 agen
 **Context Access**: ALL `tasks/completed/`, ALL `standards/`, `progress/` dashboard, learning loop metrics
 
 ## Phase 0: Learning Loop Infrastructure Setup (Prerequisites)
+
 **Focus**: Implement missing protocol infrastructure with comprehensive documentation
 
 ### Directory Structure for Phase 0
+
 ```
 learning-loop-implementation/
 ├── phase-0-infrastructure/
@@ -304,60 +341,72 @@ learning-loop-implementation/
 
 Each task follows this dual-deliverable structure:
 
-```markdown
+````markdown
 # Task [Number]: [Descriptive Name]
+
 **Priority**: [1/2/3] | **Status**: [Not Started/In Progress/Blocked/Completed]
 **Estimated Time**: [X hours] | **Actual Time**: [Y hours]
 **Started**: [ISO Date] | **Completed**: [ISO Date or "In Progress"]
 
 ## Objective
+
 [Clear, measurable goal for this specific task]
 
 ## Dual Deliverables
+
 **Primary Output**: Create actual learning loop infrastructure per protocol
 **Secondary Output**: Document implementation process for context handoffs
 
 ## Creates (Actual Infrastructure)
+
 - `learning-loop/[specific-path]` - [purpose per protocol]
 - `learning-loop/[another-path]` - [purpose per protocol]
-[All files must match protocol specifications exactly]
+  [All files must match protocol specifications exactly]
 
 ## Documents (Implementation Record)
+
 - `phase-0-infrastructure/priority-[X]/task-[XXX]-[name].md`
 - Implementation challenges, decisions, and handoff notes
 
 ## Context from Previous Instance
+
 [What led to this task, dependencies, prior attempts]
 
 ## Implementation Progress
 
 ### Attempt 1: [Date]
+
 **Approach**: [What was tried]
 **Result**: [Success/Partial/Failed]
 **Time**: [X minutes]
 **Notes**: [Detailed observations]
 **Files Created**:
+
 - `learning-loop/[path]` - [purpose and status]
 - `phase-0-infrastructure/[path]` - [documentation status]
 
 ### Challenges Encountered
+
 1. **Challenge**: [Specific issue]
    - **Impact**: [How it affected progress]
    - **Solution**: [How it was resolved]
    - **Learning**: [What to remember for future]
 
 ## Decisions Made
-| Decision | Reasoning | Impact | Alternatives Considered |
-|----------|-----------|--------|------------------------|
-| [Choice] | [Why chosen] | [Effect] | [What else considered] |
+
+| Decision | Reasoning    | Impact   | Alternatives Considered |
+| -------- | ------------ | -------- | ----------------------- |
+| [Choice] | [Why chosen] | [Effect] | [What else considered]  |
 
 ## Success Criteria
+
 - [ ] All protocol-specified files exist at correct locations
 - [ ] Infrastructure matches protocol exactly
 - [ ] Implementation challenges documented
 - [ ] Handoff notes complete for next instance
 
 ## Validation Commands
+
 ```bash
 # Verify actual infrastructure exists
 ls -la learning-loop/[expected-path]/
@@ -366,17 +415,21 @@ cat learning-loop/[file] | head -10
 # Verify documentation exists
 ls -la phase-0-infrastructure/priority-[X]/
 ```
+````
 
 ## Handoff Notes for Next Instance
+
 **Current State**: [Exactly where infrastructure stands]
 **Next Steps**: [Immediate actions needed]
 **Context to Remember**: [Critical decisions/learnings]
 **Files to Verify**: [Key files that prove completion]
 
 ## References Used
+
 - `learning-loop-protocol.md` sections [X, Y, Z]
 - Protocol directory structure (lines [XXX-YYY])
 - Template specifications (lines [XXX-YYY])
+
 ```
 
 ### Priority 1: Foundation Infrastructure (Day 1)
@@ -385,34 +438,36 @@ ls -la phase-0-infrastructure/priority-[X]/
 #### Task 001: Directory Structure Implementation
 **Creates (Actual Infrastructure)**:
 ```
+
 learning-loop/
 ├── tasks/
-│   ├── current/
-│   ├── completed/
-│   └── patterns/
-│       ├── backend-patterns.md
-│       ├── frontend-patterns.md
-│       └── integration-patterns.md
+│ ├── current/
+│ ├── completed/
+│ └── patterns/
+│ ├── backend-patterns.md
+│ ├── frontend-patterns.md
+│ └── integration-patterns.md
 ├── standards/
-│   ├── README.md
-│   ├── CODING_STANDARDS.md
-│   ├── BEST_PRACTICES.md
-│   ├── SECURITY_GUIDELINES.md
-│   ├── PERFORMANCE_PATTERNS.md
-│   ├── TESTING_REQUIREMENTS.md
-│   ├── backend/
-│   │   └── proven-solutions/
-│   ├── frontend/
-│   │   └── proven-solutions/
-│   ├── infrastructure/
-│   │   └── proven-solutions/
-│   └── templates/
+│ ├── README.md
+│ ├── CODING_STANDARDS.md
+│ ├── BEST_PRACTICES.md
+│ ├── SECURITY_GUIDELINES.md
+│ ├── PERFORMANCE_PATTERNS.md
+│ ├── TESTING_REQUIREMENTS.md
+│ ├── backend/
+│ │ └── proven-solutions/
+│ ├── frontend/
+│ │ └── proven-solutions/
+│ ├── infrastructure/
+│ │ └── proven-solutions/
+│ └── templates/
 ├── progress/
-│   ├── dashboard.md
-│   ├── dependencies.md
-│   └── blockers.md
+│ ├── dashboard.md
+│ ├── dependencies.md
+│ └── blockers.md
 └── research/
-```
+
+````
 **Documents**: `phase-0-infrastructure/priority-1-foundation/task-001-directory-structure.md`
 
 #### Task 002: Document Templates Implementation
@@ -581,14 +636,16 @@ learning-loop/
 2. Infrastructure validated with sample task execution
 3. All documentation cross-referenced with protocol
 4. Reiki project agents can begin using learning loop system
-```
+````
 
 ## Project-Specific Implementation Strategy
 
 ### Phase 1: Foundation Optimization (Week 1)
+
 **Focus**: Research and plan enhancements for existing monorepo foundation
 
 **Research Tasks:**
+
 - **@reiki-frontend-strategist**: Research navigation and footer patterns from legacy pages, create extraction plan
 - **@business-api-strategist**: Research contact form architectures, design implementation plan
 - **@infrastructure-strategist**: Research Vite optimization patterns, create production configuration plan
@@ -598,9 +655,11 @@ learning-loop/
 - **@learning-curator**: Research current architecture decisions, create documentation plan
 
 ### Phase 2: Component Migration (Week 2)
+
 **Focus**: Research-driven component migration with detailed implementation plans
 
 **Daily Workflow:**
+
 1. **Morning Research & Planning** (2 hours):
    - **@business-domain-strategist** researches next component for migration
    - **@reiki-frontend-strategist** creates detailed migration plan with complete code
@@ -617,9 +676,11 @@ learning-loop/
    - **@learning-curator** extracts patterns and updates standards
 
 ### Phase 3: Unified Application (Week 3)
+
 **Focus**: Research-driven unified application architecture
 
 **Research Collaboration:**
+
 - **@reiki-frontend-strategist** + **@business-api-strategist**: Research routing and data flow patterns, create implementation plans
 - **@qa-strategist** + **@security-strategist**: Research comprehensive security and testing strategies, create validation plans
 - **@infrastructure-strategist**: Research deployment preparation patterns, create production-ready plans
@@ -627,9 +688,11 @@ learning-loop/
 - **@learning-curator**: Research cross-cutting patterns, create integration documentation
 
 ### Phase 4: Production Deployment (Week 4)
+
 **Focus**: Research-driven production deployment strategy
 
 **Research & Planning:**
+
 - **@infrastructure-strategist**: Research production deployment patterns, create monitoring plans
 - **@qa-strategist**: Research final testing strategies, create performance validation plans
 - **@security-strategist**: Research security audit procedures, create compliance check plans
@@ -639,6 +702,7 @@ learning-loop/
 ## Project-Specific Success Metrics
 
 ### Business-Specific KPIs
+
 - **SEO Performance**: Google PageSpeed Insights score > 90
 - **Accessibility**: WCAG 2.1 AA compliance (100% jest-axe tests passing)
 - **User Experience**: Contact form conversion rate > 15%
@@ -646,6 +710,7 @@ learning-loop/
 - **Security**: Zero vulnerabilities in security scans
 
 ### Technical Metrics
+
 - **Component Reuse**: 80%+ shared component usage
 - **Test Coverage**: 90%+ with accessibility tests
 - **Build Performance**: Production build < 30 seconds
@@ -653,6 +718,7 @@ learning-loop/
 - **Pattern Library**: 20+ documented and reusable patterns
 
 ### Learning Loop Metrics
+
 - **Pattern Extraction Rate**: 2+ patterns per completed task
 - **Time Reduction**: 50% faster completion of similar tasks by Week 4
 - **Knowledge Retention**: 95% of patterns successfully reused
@@ -661,6 +727,7 @@ learning-loop/
 ## Agent Interaction Workflows
 
 ### Component Migration Flow (Research → Plan → Execute)
+
 1. **@business-domain-strategist** researches legacy component for business requirements
 2. **@reiki-frontend-strategist** researches migration patterns, creates detailed plan with accessibility
 3. **@security-strategist** researches security implications, creates security plan
@@ -671,6 +738,7 @@ learning-loop/
 8. **@learning-curator** extracts patterns from execution logs and updates standards
 
 ### Quality Assurance Flow (Research → Plan → Execute)
+
 1. **@qa-strategist** researches accessibility and functional testing strategies, creates test plans
 2. **@security-strategist** researches security validation approaches, creates validation plans
 3. **@infrastructure-strategist** researches performance metrics strategies, creates monitoring plans
@@ -681,12 +749,14 @@ learning-loop/
 ## Context Management for Business Website Development
 
 ### Project-Specific Context Priorities
+
 1. **Business Requirements**: Customer journey, conversion goals, SEO needs
 2. **Technical Constraints**: Static hosting, performance requirements, accessibility
 3. **Brand Consistency**: Design system adherence, visual regression prevention
 4. **Legal Compliance**: Privacy policies, accessibility standards, security requirements
 
 ### Context Isolation Rules
+
 - Each component migration maintains its own task folder
 - Business requirements documented separately from technical implementation
 - Design system changes tracked independently
@@ -695,12 +765,14 @@ learning-loop/
 ## Continuous Learning Integration
 
 ### Weekly Pattern Extraction Focus
+
 - **Week 1**: Foundation patterns (workspace setup, build optimization)
 - **Week 2**: Component patterns (migration strategies, composition patterns)
 - **Week 3**: Integration patterns (routing, state management, API integration)
 - **Week 4**: Deployment patterns (optimization, monitoring, security)
 
 ### Business-Specific Learning Areas
+
 - Wellness industry UX patterns
 - Local business SEO optimization techniques
 - Accessibility patterns for service businesses
@@ -712,7 +784,8 @@ This specialized implementation plan ensures that the learning loop protocol is 
 
 ## Phase 0 to Phase 1 Transition
 
-**Prerequisites for Phase 1**: 
+**Prerequisites for Phase 1**:
+
 - Complete Phase 0 infrastructure setup
 - All learning loop components operational
 - Sample task successfully executed through full learning cycle

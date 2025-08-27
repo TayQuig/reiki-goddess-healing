@@ -7,12 +7,14 @@ You are taking over a monorepo migration project for The Reiki Goddess Healing w
 ## Current State
 
 ### ✅ What's Already Done:
+
 1. **14 Components Extracted & Fixed** - All TypeScript errors resolved, clean build
 2. **Composed Pages Ready** - AboutComposed, ContactComposed, HomeComposed in `packages/shared-components`
 3. **Assets Migrated** - 63 images in `packages/shared-assets`, all imports working
 4. **AnimaContainer Applied** - Responsive wrapper maintaining 1440px Anima design
 
 ### 📁 Project Structure:
+
 ```
 /reiki-goddess-healing/
 ├── packages/
@@ -32,6 +34,7 @@ You are taking over a monorepo migration project for The Reiki Goddess Healing w
 Create a **SINGLE** main application (not multiple apps) with routing between pages.
 
 ### Step 1: Create Main App Structure
+
 ```bash
 # Create the main app directory
 mkdir -p apps/main/src/pages
@@ -52,13 +55,14 @@ apps/main/
 ```
 
 ### Step 2: Set Up Routing
+
 ```typescript
 // apps/main/src/App.tsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { 
-  AboutComposed, 
-  ContactComposed, 
-  HomeComposed 
+import {
+  AboutComposed,
+  ContactComposed,
+  HomeComposed
 } from '@reiki-goddess/shared-components';
 
 function App() {
@@ -76,11 +80,13 @@ function App() {
 ```
 
 ### Step 3: Configure Vite
+
 - Use shared Vite config from root
-- Ensure aliases for @reiki-goddess/* packages
+- Ensure aliases for @reiki-goddess/\* packages
 - Configure for development and production builds
 
 ### Step 4: Visual Fidelity Testing
+
 1. Run `npm run dev` in apps/main
 2. Compare each route against original Anima designs:
    - `/About/` - Check all 8 sections render correctly
@@ -92,6 +98,7 @@ function App() {
 ## Secondary Tasks
 
 ### Analyze Blog Page
+
 ```bash
 # Compare Blog vs About structure
 diff -r BLog/src About/src
@@ -101,7 +108,9 @@ diff -r BLog/src About/src
 ```
 
 ### Extract Design System
+
 Look for CSS variables in Anima folders:
+
 - `variable-collection-color-*` patterns
 - Typography scales
 - Update `packages/design-system/src/colors.ts`
@@ -109,12 +118,14 @@ Look for CSS variables in Anima folders:
 ## Important Guidelines
 
 ### DO:
+
 - ✅ Create ONE main app with routing
 - ✅ Use the composed components from shared-components
 - ✅ Test against original Anima designs
 - ✅ Preserve exact Anima styling (don't "improve")
 
 ### DON'T:
+
 - ❌ Create separate apps for each page
 - ❌ Modify the original Anima folders
 - ❌ Change the extracted component styling
@@ -144,6 +155,7 @@ npm install -D vite @vitejs/plugin-react typescript
 ## Success Criteria
 
 Your work is complete when:
+
 1. ✅ Main app runs with `npm run dev` from apps/main
 2. ✅ All routes (/, /about, /contact) display correctly
 3. ✅ Visual comparison matches Anima designs 100%
@@ -161,6 +173,7 @@ Your work is complete when:
 ## Questions to Answer
 
 Before starting, confirm:
+
 1. Do you understand this is ONE app with multiple routes, not multiple apps?
 2. Have you located the composed components in shared-components?
 3. Do you see the original Anima folders that should not be modified?

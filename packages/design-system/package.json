@@ -9,8 +9,8 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "test": "vitest",
-    "lint": "eslint src/**/*.{ts,tsx}",
-    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

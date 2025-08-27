@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface ConsentPreferences {
   necessary: boolean;
@@ -19,37 +19,39 @@ export const CookieConsentBanner: React.FC = () => {
   const [preferences, setPreferences] = useState<ConsentPreferences>({
     necessary: true, // Always true, cannot be disabled
     analytics: false,
-    marketing: false
+    marketing: false,
   });
 
   useEffect(() => {
-    const existingConsent = localStorage.getItem('privacy_consent');
+    const existingConsent = localStorage.getItem("privacy_consent");
     if (!existingConsent) {
       setShowBanner(true);
     }
   }, []);
 
   const saveConsent = (acceptAll: boolean = false) => {
-    const finalPreferences = acceptAll ? {
-      necessary: true,
-      analytics: true,
-      marketing: true
-    } : preferences;
+    const finalPreferences = acceptAll
+      ? {
+          necessary: true,
+          analytics: true,
+          marketing: true,
+        }
+      : preferences;
 
     const privacySettings: PrivacySettings = {
       consentGiven: true,
       preferences: finalPreferences,
       timestamp: new Date().toISOString(),
-      version: '1.0'
+      version: "1.0",
     };
 
-    localStorage.setItem('privacy_consent', JSON.stringify(privacySettings));
-    
+    localStorage.setItem("privacy_consent", JSON.stringify(privacySettings));
+
     // Initialize or disable tracking based on preferences
     if (finalPreferences.analytics) {
       initializeAnalytics();
     }
-    
+
     if (finalPreferences.marketing) {
       initializeMarketing();
     }
@@ -59,16 +61,16 @@ export const CookieConsentBanner: React.FC = () => {
 
   const initializeAnalytics = () => {
     // Initialize Google Analytics or other analytics
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
-        analytics_storage: 'granted'
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("consent", "update", {
+        analytics_storage: "granted",
       });
     }
   };
 
   const initializeMarketing = () => {
     // Initialize marketing pixels, etc.
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // Marketing tracking initialization
     }
   };
@@ -82,9 +84,10 @@ export const CookieConsentBanner: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex-1">
               <p className="text-sm text-gray-700">
-                We use cookies to improve your experience and provide personalized content. 
-                By continuing to browse, you agree to our use of necessary cookies.
-                <button 
+                We use cookies to improve your experience and provide
+                personalized content. By continuing to browse, you agree to our
+                use of necessary cookies.
+                <button
                   onClick={() => setShowDetails(true)}
                   className="ml-1 text-blue-600 hover:underline font-medium"
                 >
@@ -119,11 +122,13 @@ export const CookieConsentBanner: React.FC = () => {
                 ×
               </button>
             </div>
-            
+
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-medium text-gray-900">Necessary Cookies</h4>
+                  <h4 className="font-medium text-gray-900">
+                    Necessary Cookies
+                  </h4>
                   <p className="text-sm text-gray-600">
                     Required for website functionality and security.
                   </p>
@@ -135,10 +140,12 @@ export const CookieConsentBanner: React.FC = () => {
                   className="h-4 w-4 text-blue-600 rounded border-gray-300"
                 />
               </div>
-              
+
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-medium text-gray-900">Analytics Cookies</h4>
+                  <h4 className="font-medium text-gray-900">
+                    Analytics Cookies
+                  </h4>
                   <p className="text-sm text-gray-600">
                     Help us understand how visitors use our website.
                   </p>
@@ -146,17 +153,21 @@ export const CookieConsentBanner: React.FC = () => {
                 <input
                   type="checkbox"
                   checked={preferences.analytics}
-                  onChange={(e) => setPreferences(prev => ({
-                    ...prev,
-                    analytics: e.target.checked
-                  }))}
+                  onChange={(e) =>
+                    setPreferences((prev) => ({
+                      ...prev,
+                      analytics: e.target.checked,
+                    }))
+                  }
                   className="h-4 w-4 text-blue-600 rounded border-gray-300"
                 />
               </div>
-              
+
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-medium text-gray-900">Marketing Cookies</h4>
+                  <h4 className="font-medium text-gray-900">
+                    Marketing Cookies
+                  </h4>
                   <p className="text-sm text-gray-600">
                     Used to deliver personalized advertisements.
                   </p>
@@ -164,15 +175,17 @@ export const CookieConsentBanner: React.FC = () => {
                 <input
                   type="checkbox"
                   checked={preferences.marketing}
-                  onChange={(e) => setPreferences(prev => ({
-                    ...prev,
-                    marketing: e.target.checked
-                  }))}
+                  onChange={(e) =>
+                    setPreferences((prev) => ({
+                      ...prev,
+                      marketing: e.target.checked,
+                    }))
+                  }
                   className="h-4 w-4 text-blue-600 rounded border-gray-300"
                 />
               </div>
             </div>
-            
+
             <div className="flex gap-3 pt-4">
               <button
                 onClick={() => saveConsent(false)}
@@ -202,49 +215,50 @@ export const PrivacyCompliance: React.FC = () => {
 // Privacy management utility
 export class PrivacyManager {
   static getConsentStatus(): PrivacySettings | null {
-    if (typeof window === 'undefined') return null;
-    
-    const stored = localStorage.getItem('privacy_consent');
+    if (typeof window === "undefined") return null;
+
+    const stored = localStorage.getItem("privacy_consent");
     return stored ? JSON.parse(stored) : null;
   }
-  
+
   static hasConsent(type: keyof ConsentPreferences): boolean {
     const consent = this.getConsentStatus();
     return consent?.preferences[type] || false;
   }
-  
+
   static revokeConsent(): void {
-    if (typeof window === 'undefined') return;
-    
-    localStorage.removeItem('privacy_consent');
-    
+    if (typeof window === "undefined") return;
+
+    localStorage.removeItem("privacy_consent");
+
     // Disable tracking
     if ((window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied'
+      (window as any).gtag("consent", "update", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
       });
     }
-    
+
     // Clear tracking cookies
     this.clearTrackingCookies();
   }
-  
+
   private static clearTrackingCookies(): void {
-    const trackingCookies = ['_ga', '_gid', '_gat', '_fbp', '_fbc'];
-    trackingCookies.forEach(cookie => {
+    const trackingCookies = ["_ga", "_gid", "_gat", "_fbp", "_fbc"];
+    trackingCookies.forEach((cookie) => {
       document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     });
   }
-  
+
   static isConsentExpired(): boolean {
     const consent = this.getConsentStatus();
     if (!consent) return true;
-    
+
     const consentDate = new Date(consent.timestamp);
     const now = new Date();
-    const daysDiff = (now.getTime() - consentDate.getTime()) / (1000 * 3600 * 24);
-    
+    const daysDiff =
+      (now.getTime() - consentDate.getTime()) / (1000 * 3600 * 24);
+
     // Consent expires after 365 days
     return daysDiff > 365;
   }
@@ -252,44 +266,50 @@ export class PrivacyManager {
 
 // Data deletion request component
 export const DataDeletionRequest: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('submitting');
-    
+    setStatus("submitting");
+
     try {
       // In production, this would submit to a data deletion API
-      const response = await fetch('/api/data-deletion-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, timestamp: new Date().toISOString() })
+      const response = await fetch("/api/data-deletion-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
       });
-      
+
       if (response.ok) {
-        setStatus('success');
-        setEmail('');
+        setStatus("success");
+        setEmail("");
       } else {
-        setStatus('error');
+        setStatus("error");
       }
     } catch (error) {
-      setStatus('error');
+      setStatus("error");
     }
   };
-  
+
   return (
     <div className="max-w-md mx-auto">
       <h3 className="text-lg font-semibold mb-4">Request Data Deletion</h3>
-      
-      {status === 'success' ? (
+
+      {status === "success" ? (
         <div className="p-4 bg-green-100 text-green-800 rounded">
-          Your data deletion request has been submitted. We'll process it within 30 days.
+          Your data deletion request has been submitted. We'll process it within
+          30 days.
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="deletion-email" className="block text-sm font-medium mb-2">
+            <label
+              htmlFor="deletion-email"
+              className="block text-sm font-medium mb-2"
+            >
               Email Address
             </label>
             <input
@@ -301,19 +321,19 @@ export const DataDeletionRequest: React.FC = () => {
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          
-          {status === 'error' && (
+
+          {status === "error" && (
             <div className="p-3 bg-red-100 text-red-800 rounded text-sm">
               There was an error processing your request. Please try again.
             </div>
           )}
-          
+
           <button
             type="submit"
-            disabled={status === 'submitting'}
+            disabled={status === "submitting"}
             className="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
           >
-            {status === 'submitting' ? 'Submitting...' : 'Submit Request'}
+            {status === "submitting" ? "Submitting..." : "Submit Request"}
           </button>
         </form>
       )}

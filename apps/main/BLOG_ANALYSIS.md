@@ -25,6 +25,7 @@ Since BLog is an exact duplicate of the About page and does not contain actual b
 ## Current Implementation
 
 The main app currently has three routes:
+
 - `/` - Home page (using HomeComposed)
 - `/about` - About page (using AboutComposed)
 - `/contact` - Contact page (using ContactComposed)

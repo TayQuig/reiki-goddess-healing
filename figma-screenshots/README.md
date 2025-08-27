@@ -29,6 +29,7 @@ figma-screenshots/
 ## 🎯 Naming Convention
 
 Use descriptive names with frame numbers:
+
 - `frame-9-overlay-text.png`
 - `hero-section-complete.png`
 - `navigation-header.png`
@@ -57,6 +58,7 @@ Use descriptive names with frame numbers:
 ## 📍 Current Status
 
 ### Homepage
+
 - [x] Frame 1: Header - ✅ Extracted to `packages/shared-components/src/Header/`
 - [x] Frame 2: Hero - ✅ Extracted to `packages/shared-components/src/Hero/`
 - [ ] Frame 9: Hero Overlay Text - 🎯 Awaiting screenshot
@@ -66,6 +68,7 @@ Use descriptive names with frame numbers:
 - [ ] Frame 6: Footer
 
 ### About Page
+
 - [ ] Frame 1: Header
 - [ ] Frame 2: Hero
 - [ ] Frame 3: Introduction
@@ -76,12 +79,15 @@ Use descriptive names with frame numbers:
 - [ ] Frame 8: Footer
 
 ### Services Page
+
 - [ ] All frames pending
 
 ### Contact Page
+
 - [ ] All frames pending
 
 ### Blog Page
+
 - [ ] All frames pending
 
 ## 💡 Tips
