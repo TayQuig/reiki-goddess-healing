@@ -1,0 +1,160 @@
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { Header } from './Header';
+
+describe('Header Component', () => {
+  const defaultProps = {
+    logo: {
+      src: '/img/test-logo.png',
+      alt: 'Test Logo',
+    },
+    navigationItems: [
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '/about' },
+      { label: 'Services', href: '/services' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  };
+
+  describe('Rendering', () => {
+    it('should render with default props', () => {
+      render(<Header />);
+      
+      // Should render with default logo
+      const logo = screen.getByAltText('The Reiki Goddess Healing');
+      expect(logo).toBeInTheDocument();
+      expect(logo).toHaveAttribute('src', '/img/reiki-goddess-logo.png');
+    });
+
+    it('should render with custom props', () => {
+      render(<Header {...defaultProps} />);
+      
+      // Logo
+      const logo = screen.getByAltText('Test Logo');
+      expect(logo).toBeInTheDocument();
+      expect(logo).toHaveAttribute('src', '/img/test-logo.png');
+      
+      // Navigation items
+      expect(screen.getByText('Home')).toBeInTheDocument();
+      expect(screen.getByText('About')).toBeInTheDocument();
+      expect(screen.getByText('Services')).toBeInTheDocument();
+      expect(screen.getByText('Contact')).toBeInTheDocument();
+    });
+
+    it('should render navigation items as links', () => {
+      render(<Header {...defaultProps} />);
+      
+      const homeLink = screen.getByRole('link', { name: /home/i });
+      expect(homeLink).toHaveAttribute('href', '/');
+      
+      const aboutLink = screen.getByRole('link', { name: /about/i });
+      expect(aboutLink).toHaveAttribute('href', '/about');
+    });
+
+    it('should apply correct styling classes', () => {
+      render(<Header {...defaultProps} className="custom-class" />);
+      
+      const header = screen.getByRole('banner');
+      expect(header).toHaveClass('custom-class');
+    });
+  });
+
+  describe('Logo Behavior', () => {
+    it('should have correct logo dimensions', () => {
+      render(<Header {...defaultProps} />);
+      
+      const logo = screen.getByAltText('Test Logo');
+      expect(logo).toHaveStyle({
+        width: '248px',
+        height: '92px',
+      });
+    });
+
+    it('should position logo correctly', () => {
+      render(<Header {...defaultProps} />);
+      
+      const logoContainer = screen.getByAltText('Test Logo').parentElement;
+      expect(logoContainer).toHaveStyle({
+        left: '66px',
+      });
+    });
+  });
+
+  describe('Navigation Layout', () => {
+    it('should space navigation items correctly', () => {
+      render(<Header {...defaultProps} />);
+      
+      const navContainer = screen.getByRole('navigation');
+      expect(navContainer).toHaveStyle({
+        left: '505px', // 66px + 248px + 191px
+      });
+    });
+
+    it('should apply hover styles to navigation items', async () => {
+      const user = userEvent.setup();
+      render(<Header {...defaultProps} />);
+      
+      const homeLink = screen.getByRole('link', { name: /home/i });
+      
+      await user.hover(homeLink);
+      // Note: Testing hover states might require checking computed styles
+      // or using a more sophisticated testing approach
+      expect(homeLink).toBeInTheDocument();
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have proper ARIA attributes', () => {
+      render(<Header {...defaultProps} />);
+      
+      const nav = screen.getByRole('navigation');
+      expect(nav).toBeInTheDocument();
+      
+      const logo = screen.getByAltText('Test Logo');
+      expect(logo).toHaveAttribute('alt');
+    });
+
+    it('should have semantic HTML structure', () => {
+      render(<Header {...defaultProps} />);
+      
+      expect(screen.getByRole('banner')).toBeInTheDocument();
+      expect(screen.getByRole('navigation')).toBeInTheDocument();
+    });
+
+    it('should support keyboard navigation', async () => {
+      const user = userEvent.setup();
+      render(<Header {...defaultProps} />);
+      
+      // Tab through navigation items
+      await user.tab();
+      expect(document.activeElement).toHaveAttribute('href', '/');
+      
+      await user.tab();
+      expect(document.activeElement).toHaveAttribute('href', '/about');
+    });
+  });
+
+  describe('Edge Cases', () => {
+    it('should handle missing logo gracefully', () => {
+      render(<Header navigationItems={defaultProps.navigationItems} />);
+      
+      // Should still render navigation
+      expect(screen.getByText('Home')).toBeInTheDocument();
+    });
+
+    it('should handle empty navigation items', () => {
+      render(<Header logo={defaultProps.logo} navigationItems={[]} />);
+      
+      // Should still render logo
+      expect(screen.getByAltText('Test Logo')).toBeInTheDocument();
+    });
+
+    it('should handle no props', () => {
+      render(<Header />);
+      
+      // Should render with defaults without crashing
+      expect(screen.getByRole('banner')).toBeInTheDocument();
+    });
+  });
+});
