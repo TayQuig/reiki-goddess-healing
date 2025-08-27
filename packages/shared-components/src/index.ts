@@ -30,8 +30,15 @@ export type { TestimonialsProps, Testimonial } from "./Testimonials";
 export { LetsConnect } from "./LetsConnect";
 export type { LetsConnectProps } from "./LetsConnect";
 
-export { Footer } from "./Footer";
-export type { FooterProps, FooterLink } from "./Footer";
+export { default as Footer } from "./Footer";
+export type { FooterProps } from "./Footer";
+
+// Animation utilities
+export { AnimatedSection } from "./AnimatedSection";
+export type { AnimatedSectionProps } from "./AnimatedSection";
+
+export { LazyImage } from "./LazyImage";
+export type { LazyImageProps } from "./LazyImage";
 
 // Complete page compositions
 export { Homepage } from "./Homepage";

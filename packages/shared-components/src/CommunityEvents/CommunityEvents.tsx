@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export interface EventCard {
   id: string;
@@ -68,38 +68,32 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
   },
   className = ''
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 2; // Show 2 cards at a time on desktop
-  
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex + itemsPerView >= events.length ? 0 : prevIndex + itemsPerView
-    );
-  };
-  
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex - itemsPerView < 0 ? Math.max(0, events.length - itemsPerView) : prevIndex - itemsPerView
-    );
-  };
-
   return (
     <section 
       className={`relative py-20 overflow-hidden ${className}`}
       style={{
-        background: 'linear-gradient(180deg, rgba(165, 147, 224, 0.95) 0%, rgba(99, 66, 201, 0.95) 100%)',
         minHeight: '600px',
         borderRadius: '30px',
         margin: '40px 0'
       }}
     >
-      {/* Background Image/Pattern Overlay */}
+      {/* Background with image and gradient overlay */}
       <div className="absolute inset-0">
-        {/* Purple gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-purple-700/30" />
-        {/* Decorative blur elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-300/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-400/30 rounded-full blur-3xl" />
+        {/* Background image */}
+        <img 
+          src="/img/community-highlights.jpg" 
+          alt="Sound healing bowl with mallet"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ borderRadius: '30px' }}
+        />
+        {/* Gradient overlay matching Figma design */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundColor: 'rgba(2, 5, 183, 0.44)',
+            borderRadius: '30px'
+          }}
+        />
       </div>
       
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -127,128 +121,171 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
           </h2>
         </div>
         
-        {/* Events Carousel */}
-        <div className="relative">
-          <div className="overflow-hidden">
+        {/* Events Container - Separate White Rectangles per Frame 20 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto" style={{ maxWidth: '1100px' }}>
+          {/* Full Moon Aerial Sound Bath Card */}
+          <div 
+            className="bg-white flex flex-col items-center text-center"
+            style={{
+              borderRadius: '20px',
+              padding: '30px'
+            }}
+          >
             <div 
-              className="flex transition-transform duration-500 ease-in-out gap-6"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`
+              className="w-full overflow-hidden mb-4"
+              style={{ 
+                borderRadius: '20px',
+                height: '200px'
               }}
             >
-              {events.map((event) => (
-                <div
-                  key={event.id}
-                  className="flex-shrink-0 w-full md:w-[calc(50%-12px)]"
-                >
-                  <div className="bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300" style={{ borderRadius: '20px' }}>
-                    {/* Event Image */}
-                    <div className="h-48 overflow-hidden">
-                      <img
-                        src={event.image.src}
-                        alt={event.image.alt}
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    
-                    {/* Event Content */}
-                    <div className="p-6">
-                      <h3 
-                        className="font-semibold text-gray-900 mb-2"
-                        style={{
-                          fontFamily: 'Figtree, Helvetica, sans-serif',
-                          fontSize: '20px'
-                        }}
-                      >
-                        {event.title}
-                      </h3>
-                      
-                      {event.date && (
-                        <p className="text-sm text-purple-600 font-medium mb-2">
-                          {event.date}
-                        </p>
-                      )}
-                      
-                      {event.description && (
-                        <p 
-                          className="text-gray-600"
-                          style={{
-                            fontFamily: 'Figtree, Helvetica, sans-serif',
-                            fontSize: '14px',
-                            lineHeight: '1.5'
-                          }}
-                        >
-                          {event.description}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <img
+                src="/img/download 1-full-moon-soundbath.png"
+                alt="Full Moon Aerial Sound Bath"
+                className="w-full h-full object-cover"
+              />
             </div>
-          </div>
-          
-          {/* Navigation Arrows - Hidden on mobile */}
-          {events.length > itemsPerView && (
-            <>
-              <button
-                onClick={prevSlide}
-                className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white/20 backdrop-blur text-white rounded-full p-3 hover:bg-white/30 transition-colors"
-                aria-label="Previous events"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              
-              <button
-                onClick={nextSlide}
-                className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white/20 backdrop-blur text-white rounded-full p-3 hover:bg-white/30 transition-colors"
-                aria-label="Next events"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </>
-          )}
-        </div>
-        
-        {/* Carousel Dots */}
-        <div className="flex justify-center mt-8 gap-2">
-          {Array.from({ length: Math.ceil(events.length / itemsPerView) }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index * itemsPerView)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                Math.floor(currentIndex / itemsPerView) === index
-                  ? 'bg-white w-8'
-                  : 'bg-white/50 hover:bg-white/70'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-        
-        {/* CTA Button */}
-        {ctaButton && (
-          <div className="text-center mt-12">
-            <a
-              href={ctaButton.href}
-              onClick={ctaButton.onClick}
-              className="inline-flex items-center justify-center px-8 py-3 bg-white text-purple-700 rounded-full font-medium hover:bg-gray-100 transition-colors duration-200"
+            <h3 
+              className="font-semibold mb-4"
               style={{
                 fontFamily: 'Figtree, Helvetica, sans-serif',
-                fontSize: '16px'
+                fontSize: '22px',
+                color: '#333333'
               }}
             >
-              {ctaButton.text}
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
+              Full Moon Aerial Sound Bath
+            </h3>
+            <button
+              className="px-6 py-2 bg-transparent border-2 rounded-full transition-all duration-300 hover:shadow-lg"
+              style={{
+                borderColor: '#0205B7',
+                color: '#0205B7',
+                fontFamily: 'Figtree, Helvetica, sans-serif',
+                fontSize: '16px',
+                fontWeight: '500'
+              }}
+              onClick={() => window.location.href = '/events/full-moon'}
+            >
+              Learn More
+            </button>
           </div>
-        )}
+
+          {/* Custom Sound Healing Song Workshop Card */}
+          <div 
+            className="bg-white flex flex-col items-center text-center"
+            style={{
+              borderRadius: '20px',
+              padding: '30px'
+            }}
+          >
+            <div 
+              className="w-full overflow-hidden mb-4"
+              style={{ 
+                borderRadius: '20px',
+                height: '200px'
+              }}
+            >
+              <img
+                src="/img/Rectangle 4-custom-sound-healing-song-workshop.png"
+                alt="Custom Sound Healing Song Workshop"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h3 
+              className="font-semibold mb-4"
+              style={{
+                fontFamily: 'Figtree, Helvetica, sans-serif',
+                fontSize: '22px',
+                color: '#333333'
+              }}
+            >
+              Custom Sound Healing Workshop
+            </h3>
+            <button
+              className="px-6 py-2 bg-transparent border-2 rounded-full transition-all duration-300 hover:shadow-lg"
+              style={{
+                borderColor: '#0205B7',
+                color: '#0205B7',
+                fontFamily: 'Figtree, Helvetica, sans-serif',
+                fontSize: '16px',
+                fontWeight: '500'
+              }}
+              onClick={() => window.location.href = '/events/workshop'}
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+        
+        {/* Pagination Dots and CTA Button */}
+        <div className="mt-12">
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mb-6">
+            <div 
+              className="rounded-full"
+              style={{
+                width: '10px',
+                height: '10px',
+                backgroundColor: '#63D5F9'
+              }}
+            />
+            <div 
+              className="rounded-full"
+              style={{
+                width: '10px',
+                height: '10px',
+                backgroundColor: 'rgba(99, 213, 249, 0.5)'
+              }}
+            />
+            <div 
+              className="rounded-full"
+              style={{
+                width: '10px',
+                height: '10px',
+                backgroundColor: 'rgba(99, 213, 249, 0.5)'
+              }}
+            />
+          </div>
+          
+          {/* CTA Button */}
+          {ctaButton && (
+            <div className="text-center">
+              <a
+                href={ctaButton.href}
+                onClick={ctaButton.onClick}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full transition-colors duration-200"
+                style={{
+                  backgroundColor: 'transparent',
+                  border: '2px solid white',
+                  color: 'white',
+                  fontFamily: 'Figtree, Helvetica, sans-serif',
+                  fontSize: '16px',
+                  fontWeight: '500'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }}
+              >
+                {ctaButton.text}
+                <svg 
+                  className="w-5 h-5" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M9 5l7 7-7 7" 
+                  />
+                </svg>
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

@@ -149,9 +149,10 @@ npm run lint
 
 ## Critical Files to Review
 1. `/CLAUDE.md` - Detailed project instructions
-2. `/figma-screenshots/homepage/` - Design specifications
-3. `/packages/shared-components/src/` - Component implementations
-4. `/packages/design-system/src/` - Design tokens
+2. `/todo_list.md` - Complete development roadmap and task tracking
+3. `/figma-screenshots/homepage/` - Design specifications
+4. `/packages/shared-components/src/` - Component implementations
+5. `/packages/design-system/src/` - Design tokens
 
 ## Common Tasks & Solutions
 
@@ -195,19 +196,26 @@ npm run lint
 - [ ] This document updated if needed
 
 ## Recent Significant Changes (Latest First)
-1. **Service button bevels** reduced to 5px
-2. **Smoke effect** triple-layered and aligned with page edge
-3. **Image bevels** added with directional offsets
-4. **Navigation spacing** adjusted to match Figma exactly
-5. **Hero overlay** positioned per Frame 9 specifications
-6. **Font loading** Figtree from Google Fonts implemented
+1. **Phase 2B Completed** - Homepage refinement with animations and style guide
+2. **Scroll animations** implemented with intersection observer
+3. **Lazy loading** added for optimized image performance
+4. **Hover effects** created matching healing brand personality
+5. **Style guide** comprehensive documentation created
+6. **Service button bevels** reduced to 5px
+7. **Smoke effect** triple-layered and aligned with page edge
 
 ## Next Immediate Tasks
-1. Complete Footer component
-2. Implement page routing
-3. Migrate About page to monorepo structure
-4. Add mobile responsive breakpoints
-5. Optimize image loading and performance
+**See `todo_list.md` for comprehensive task tracking**
+
+### Current Focus (Phase 3 - Responsive Design)
+1. Define breakpoint system (mobile: 375px, tablet: 768px, desktop: 1440px)
+2. Update Header for mobile menu/hamburger
+3. Adapt Hero section for mobile
+4. Stack service cards on mobile
+5. Mobile-optimize testimonials grid
+
+For detailed task breakdown and progress tracking, refer to:
+📋 **[todo_list.md](./todo_list.md)** - Complete development roadmap with all phases
 
 ## Known Issues & Workarounds
 - **Smoke visibility**: Use multiple layers with different blend modes
@@ -221,6 +229,5 @@ npm run lint
 - **Git Branch**: `feat/monorepo-migration`
 
 ---
-*Last Updated*: 2025-08-24
-*Context Window Usage at Creation*: ~75%
+*Last Updated*: 2025-08-27
 *Remember*: Check token usage regularly and refresh context at 80%!

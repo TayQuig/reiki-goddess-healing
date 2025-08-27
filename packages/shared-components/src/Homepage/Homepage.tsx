@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header } from '../Header/Header';
 import { HeroV2 } from '../Hero/HeroV2';
 import { FeaturesBar } from '../FeaturesBar/FeaturesBar';
@@ -8,6 +8,7 @@ import { CommunityEvents } from '../CommunityEvents/CommunityEvents';
 import { Testimonials } from '../Testimonials/Testimonials';
 import { LetsConnect } from '../LetsConnect/LetsConnect';
 import { Footer } from '../Footer/Footer';
+import { AnimatedSection } from '../AnimatedSection/AnimatedSection';
 
 export interface HomepageProps {
   className?: string;
@@ -20,6 +21,26 @@ export interface HomepageProps {
 export const Homepage: React.FC<HomepageProps> = ({
   className = ''
 }) => {
+  // Add smooth scroll navigation handler
+  useEffect(() => {
+    const handleSmoothScroll = (e: MouseEvent) => {
+      const target = e.target as HTMLAnchorElement;
+      if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
+        e.preventDefault();
+        const elementId = target.getAttribute('href')?.slice(1);
+        if (elementId) {
+          const element = document.getElementById(elementId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleSmoothScroll);
+    return () => document.removeEventListener('click', handleSmoothScroll);
+  }, []);
+
   return (
     <div className={`min-h-screen ${className}`} style={{ backgroundColor: '#FFFBF5' }}>
       {/* Main Container */}
@@ -86,24 +107,45 @@ export const Homepage: React.FC<HomepageProps> = ({
         
         {/* All other sections automatically get the 66px padding from container */}
         {/* Features Bar */}
-        <FeaturesBar />
+        <AnimatedSection animation="fadeInUp" delay={0.2}>
+          <FeaturesBar />
+        </AnimatedSection>
 
         {/* Meet The Reiki Goddess Section */}
-        <MeetTheGoddess />
+        <AnimatedSection animation="fadeIn" delay={0.1} threshold={0.2}>
+          <MeetTheGoddess />
+        </AnimatedSection>
 
         {/* Services Section */}
-        <ServicesSection />
+        <AnimatedSection animation="fadeInUp" delay={0.1} threshold={0.2}>
+          <ServicesSection />
+        </AnimatedSection>
 
         {/* Community Events Section */}
-        <CommunityEvents />
+        <AnimatedSection animation="scaleIn" delay={0.1} threshold={0.2}>
+          <CommunityEvents />
+        </AnimatedSection>
 
         {/* Testimonials Section */}
-        <Testimonials />
+        <AnimatedSection animation="fadeInUp" delay={0.1} threshold={0.2}>
+          <Testimonials />
+        </AnimatedSection>
 
         {/* Let's Connect CTA Section */}
-        <LetsConnect />
-
-        {/* Footer */}
+        <AnimatedSection animation="fadeIn" delay={0.1} threshold={0.3}>
+          <LetsConnect />
+        </AnimatedSection>
+      </div>
+      
+      {/* Footer - Inside 1440px container but without side padding */}
+      <div 
+        className="relative mx-auto"
+        style={{
+          maxWidth: '1440px',
+          margin: '0 auto',
+          backgroundColor: '#FFFBF5'
+        }}
+      >
         <Footer />
       </div>
     </div>

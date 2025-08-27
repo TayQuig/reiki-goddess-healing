@@ -21,7 +21,7 @@ export interface HeaderProps {
  */
 export const Header: React.FC<HeaderProps> = ({
   logo = {
-    src: '/img/Nav Bar Clickable Logo.png',
+    src: '/img/reiki-goddess-logo.png',
     alt: 'The Reiki Goddess Healing'
   },
   navigationItems = [

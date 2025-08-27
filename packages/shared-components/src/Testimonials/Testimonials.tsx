@@ -99,7 +99,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
       <div className="max-w-4xl mx-auto">
         {/* Section Heading */}
         <h2 
-          className="text-center font-bold text-gray-900 mb-16"
+          className="text-center font-bold text-gray-900 mb-8"
           style={{
             fontFamily: 'Figtree, Helvetica, sans-serif',
             fontSize: '48px',
@@ -109,57 +109,288 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
           {heading}
         </h2>
         
-        {/* Testimonial Container */}
-        <div className="relative">
-          <div className="bg-white shadow-xl p-8 md:p-12" style={{ borderRadius: '20px' }}>
-            {/* Testimonial Content */}
-            <div className="text-center max-w-3xl mx-auto">
-              {/* Profile Image */}
-              {currentTestimonial.image && (
-                <div className="mb-6">
-                  <img
-                    src={currentTestimonial.image.src}
-                    alt={currentTestimonial.image.alt}
-                    className="w-20 h-20 rounded-full mx-auto object-cover border-4 border-purple-100"
-                  />
-                </div>
-              )}
-              
-              {/* Name and Location */}
-              <div className="mb-6">
-                <h3 
-                  className="font-semibold text-gray-900"
-                  style={{
-                    fontFamily: 'Figtree, Helvetica, sans-serif',
-                    fontSize: '20px'
-                  }}
-                >
-                  {currentTestimonial.name}, {currentTestimonial.location}
-                </h3>
-              </div>
-              
-              {/* Quote */}
-              <blockquote className="mb-8">
-                <p 
-                  className="text-gray-700 italic text-lg leading-relaxed"
+        {/* Social Media Profile Card - Frame 26 */}
+        <div className="flex justify-center mb-16">
+          <div 
+            className="bg-white flex items-center gap-6 px-8 py-3"
+            style={{
+              border: '3px solid #63D5F9',
+              borderRadius: '100px',
+              width: '754px',
+              height: '96px'
+            }}
+          >
+            {/* Profile Photo */}
+            <div 
+              className="rounded-full overflow-hidden flex-shrink-0"
+              style={{
+                width: '52px',
+                height: '52px'
+              }}
+            >
+              <img
+                src="/img/social-card-profile.png"
+                alt="Deirdre with sound healing bowls"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* Profile Info */}
+            <div className="flex-shrink-0">
+              <h3 
+                className="font-semibold"
+                style={{
+                  fontFamily: 'Figtree, Helvetica, sans-serif',
+                  fontSize: '18px',
+                  color: '#000000',
+                  lineHeight: '1.2'
+                }}
+              >
+                Deirdre
+              </h3>
+              <p 
+                style={{
+                  fontFamily: 'Figtree, Helvetica, sans-serif',
+                  fontSize: '14px',
+                  color: '#666666',
+                  lineHeight: '1.2'
+                }}
+              >
+                @the_reiki_goddess
+              </p>
+            </div>
+            
+            {/* Spacer */}
+            <div className="flex-grow"></div>
+            
+            {/* Stats */}
+            <div className="flex gap-8">
+              <div className="text-center">
+                <div 
+                  className="font-bold"
                   style={{
                     fontFamily: 'Figtree, Helvetica, sans-serif',
                     fontSize: '18px',
-                    lineHeight: '1.8'
+                    color: '#000000',
+                    lineHeight: '1.2'
                   }}
                 >
-                  "{currentTestimonial.content}"
-                </p>
-              </blockquote>
+                  500
+                </div>
+                <div 
+                  style={{
+                    fontFamily: 'Figtree, Helvetica, sans-serif',
+                    fontSize: '14px',
+                    color: '#666666',
+                    lineHeight: '1.2'
+                  }}
+                >
+                  Posts
+                </div>
+              </div>
+              <div className="text-center">
+                <div 
+                  className="font-bold"
+                  style={{
+                    fontFamily: 'Figtree, Helvetica, sans-serif',
+                    fontSize: '18px',
+                    color: '#000000',
+                    lineHeight: '1.2'
+                  }}
+                >
+                  754
+                </div>
+                <div 
+                  style={{
+                    fontFamily: 'Figtree, Helvetica, sans-serif',
+                    fontSize: '14px',
+                    color: '#666666',
+                    lineHeight: '1.2'
+                  }}
+                >
+                  Followers
+                </div>
+              </div>
+              <div className="text-center">
+                <div 
+                  className="font-bold"
+                  style={{
+                    fontFamily: 'Figtree, Helvetica, sans-serif',
+                    fontSize: '18px',
+                    color: '#000000',
+                    lineHeight: '1.2'
+                  }}
+                >
+                  871
+                </div>
+                <div 
+                  style={{
+                    fontFamily: 'Figtree, Helvetica, sans-serif',
+                    fontSize: '14px',
+                    color: '#666666',
+                    lineHeight: '1.2'
+                  }}
+                >
+                  Following
+                </div>
+              </div>
+            </div>
+            
+            {/* Spacer */}
+            <div className="w-8"></div>
+            
+            {/* Follow Button */}
+            <a
+              href="https://instagram.com/the_reiki_goddess"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2 transition-colors flex-shrink-0"
+              style={{
+                backgroundColor: '#FFFFFF',
+                border: '2px solid #63D5F9',
+                borderRadius: '8px',
+                color: '#63D5F9',
+                fontFamily: 'Figtree, Helvetica, sans-serif',
+                fontSize: '16px',
+                fontWeight: '600'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#63D5F9';
+                e.currentTarget.style.color = '#FFFFFF';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#FFFFFF';
+                e.currentTarget.style.color = '#63D5F9';
+              }}
+            >
+              {/* Instagram Icon */}
+              <svg 
+                className="w-5 h-5" 
+                fill="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+              </svg>
+              Follow
+            </a>
+          </div>
+        </div>
+        
+        {/* Event Flyers Section */}
+        <div className="flex justify-center gap-8 mb-12">
+          {/* Full Moon Soundbath Flyer */}
+          <div className="overflow-hidden" style={{ borderRadius: '20px', width: '395px' }}>
+            <img
+              src="/img/download-1-full-moon-soundbath.png"
+              alt="Full Moon Aerial Sound Bath event flyer"
+              className="w-full h-auto object-cover"
+              style={{ display: 'block' }}
+            />
+          </div>
+          
+          {/* Second Event Flyer */}
+          <div className="overflow-hidden" style={{ borderRadius: '20px', width: '395px' }}>
+            <img
+              src="/img/download-2.png"
+              alt="Healing event flyer"
+              className="w-full h-auto object-cover"
+              style={{ display: 'block' }}
+            />
+          </div>
+          
+          {/* Sowin Event Flyer */}
+          <div className="overflow-hidden" style={{ borderRadius: '20px', width: '395px' }}>
+            <img
+              src="/img/download-1-sowin.png"
+              alt="Sowin event flyer"
+              className="w-full h-auto object-cover"
+              style={{ display: 'block' }}
+            />
+          </div>
+        </div>
+        
+        {/* What My Clients Are Saying Header */}
+        <h2 
+          className="text-center font-bold text-gray-900 mb-12"
+          style={{
+            fontFamily: 'Figtree, Helvetica, sans-serif',
+            fontSize: '48px',
+            lineHeight: '1.2'
+          }}
+        >
+          What My Clients Are Saying
+        </h2>
+        
+        {/* Testimonial Container */}
+        <div className="relative" style={{ paddingLeft: '66px', paddingRight: '66px' }}>
+          <div 
+            style={{ 
+              backgroundColor: 'rgba(169, 148, 72, 0.13)',
+              width: '100%',
+              maxWidth: '1308px', // 1440px - (66px * 2)
+              height: '351px',
+              borderRadius: '20px',
+              paddingTop: '47px',
+              paddingRight: '225px',
+              paddingBottom: '47px',
+              paddingLeft: '224px',
+              margin: '0 auto'
+            }}>
+            {/* Testimonial Content */}
+            <div className="text-center h-full flex flex-col justify-center">
+              {/* Profile Image */}
+              <div className="mb-4 relative">
+                <div 
+                  className="mx-auto rounded-full overflow-hidden"
+                  style={{
+                    width: '80px',
+                    height: '80px',
+                    border: '3px solid white'
+                  }}
+                >
+                  <img
+                    src="/img/testimonial-jessica.jpg"
+                    alt="Jessica M."
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              
+              {/* Name and Location */}
+              <h3 
+                className="font-semibold mb-4"
+                style={{
+                  fontFamily: 'Figtree, Helvetica, sans-serif',
+                  fontSize: '18px',
+                  color: '#000000'
+                }}
+              >
+                {currentTestimonial.name}, {currentTestimonial.location}
+              </h3>
+              
+              {/* Quote */}
+              <p 
+                className="mb-4"
+                style={{
+                  fontFamily: 'Figtree, Helvetica, sans-serif',
+                  fontSize: '16px',
+                  lineHeight: '1.6',
+                  color: '#000000',
+                  maxWidth: '690px',
+                  margin: '0 auto 20px'
+                }}
+              >
+                "{currentTestimonial.content}"
+              </p>
               
               {/* Star Rating */}
               <div className="flex justify-center gap-1">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <svg
                     key={index}
-                    className={`w-6 h-6 ${
+                    className={`w-5 h-5 ${
                       index < currentTestimonial.rating
-                        ? 'text-yellow-400 fill-current'
+                        ? 'text-[#C4A962] fill-current'
                         : 'text-gray-300 fill-current'
                     }`}
                     viewBox="0 0 24 24"
@@ -171,10 +402,10 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
             </div>
             
             {/* Navigation Buttons */}
-            <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none">
+            <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex items-center justify-between pointer-events-none">
               <button
                 onClick={prevTestimonial}
-                className="pointer-events-auto -translate-x-1/2 bg-white border-2 border-[#0205B7] text-[#0205B7] rounded-full p-3 hover:bg-[#0205B7] hover:text-white transition-colors shadow-lg"
+                className="pointer-events-auto ml-8 bg-white border-2 border-[#0205B7] text-[#0205B7] rounded-full p-3 hover:bg-[#0205B7] hover:text-white transition-colors shadow-lg"
                 aria-label="Previous testimonial"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -184,7 +415,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
               
               <button
                 onClick={nextTestimonial}
-                className="pointer-events-auto translate-x-1/2 bg-white border-2 border-[#0205B7] text-[#0205B7] rounded-full p-3 hover:bg-[#0205B7] hover:text-white transition-colors shadow-lg"
+                className="pointer-events-auto mr-8 bg-white border-2 border-[#0205B7] text-[#0205B7] rounded-full p-3 hover:bg-[#0205B7] hover:text-white transition-colors shadow-lg"
                 aria-label="Next testimonial"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -195,8 +426,8 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
           </div>
         </div>
         
-        {/* Dots Indicator */}
-        <div className="flex justify-center mt-8 gap-2">
+        {/* Dots Indicator - positioned between testimonials and Let's Connect */}
+        <div className="flex justify-center gap-2 mt-8">
           {testimonials.map((_, index) => (
             <button
               key={index}
