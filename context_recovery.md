@@ -172,13 +172,13 @@ npm run lint
 
 ## Critical Files to Review
 
-**ALWAYS CHECK THESE FIRST:**
-1. `/todo_list.md` - Complete development roadmap, current progress, and session accomplishments
-2. `/CLAUDE.md` - Detailed project instructions and conventions
-3. `/testing-strategy.md` - Testing gaps and implementation roadmap
-4. `/figma-screenshots/homepage/` - Design specifications
-5. `/packages/shared-components/src/` - Component implementations
-6. `/packages/design-system/src/` - Design tokens
+1. `/CLAUDE.md` - Detailed project instructions and conventions
+2. `/context_recovery.md` - This document, for session context
+3. `/todo_list.md` - Implementation plan, current progress, and session accomplishments
+4. `/testing-strategy.md` - Testing gaps and implementation roadmap  
+5. `/figma-screenshots/homepage/` - Design specifications (source of truth)
+6. `/packages/shared-components/src/` - Component implementations
+7. `/packages/design-system/src/` - Design tokens
 
 ## Common Tasks & Solutions
 
@@ -249,7 +249,7 @@ npm run lint
 
 ## Next Immediate Tasks
 
-**⚠️ IMPORTANT: Always check `/todo_list.md` FIRST for current progress and tasks**
+**See `/todo_list.md` for detailed implementation plan and progress tracking**
 
 ### Current Phase (Phase 3.5 - Testing Infrastructure)
 
