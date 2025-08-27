@@ -32,10 +32,10 @@ const SimpleAboutPage: React.FC = () => {
             </h1>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Welcome! I'm Deirdre Quigley, the founder of The Reiki Goddess
-              Healing in Roy, Washington. With years of experience in energy
-              healing and holistic wellness, I blend the gentle art of Reiki
-              with transformative sound therapy.
+              Welcome! I&apos;m Deirdre Quigley, the founder of The Reiki
+              Goddess Healing in Roy, Washington. With years of experience in
+              energy healing and holistic wellness, I blend the gentle art of
+              Reiki with transformative sound therapy.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">

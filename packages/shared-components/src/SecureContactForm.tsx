@@ -362,7 +362,8 @@ export const SecureContactForm: React.FC = () => {
           className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-md"
           role="alert"
         >
-          Thank you for your message! We'll get back to you within 24 hours.
+          Thank you for your message! We&apos;ll get back to you within 24
+          hours.
         </div>
       )}
 
@@ -381,8 +382,8 @@ export const SecureContactForm: React.FC = () => {
           className="p-4 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-md"
           role="alert"
         >
-          You've reached the maximum number of submissions. Please wait before
-          trying again.
+          You&apos;ve reached the maximum number of submissions. Please wait
+          before trying again.
         </div>
       )}
 

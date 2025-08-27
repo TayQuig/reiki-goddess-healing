@@ -4,6 +4,7 @@ import { Header, HeaderProps } from "./Header";
 export interface ResponsiveHeaderProps extends HeaderProps {
   maxWidth?: number;
   mobileBreakpoint?: number;
+  _mobileBreakpoint?: number;
 }
 
 /**

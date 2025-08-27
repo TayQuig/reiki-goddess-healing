@@ -22,6 +22,11 @@ export interface LetsConnectProps {
     href: string;
     onClick?: () => void;
   };
+  _ctaButton?: {
+    text: string;
+    href: string;
+    onClick?: () => void;
+  };
   className?: string;
 }
 

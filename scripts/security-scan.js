@@ -30,8 +30,9 @@ const SECURITY_PATTERNS = {
   creditCard: /\b(?:\d{4}[\s-]?){3}\d{4}\b/g,
   ssn: /\b\d{3}-\d{2}-\d{4}\b/g,
 
-  // Local file paths that shouldn't be committed
-  localPath: /(?:\/Users\/|\/home\/|C:\\Users\\)[^\s'"]+/gi,
+  // Local file paths that shouldn't be committed (avoid false positives on relative imports)
+  localPath:
+    /(?:^|[^\.])(?:\/Users\/[^\/]+\/|\/home\/[^\/]+\/|C:\\Users\\[^\\]+\\)[^\s'"]+/gi,
 };
 
 // File extensions to scan

@@ -58,7 +58,7 @@ const ContactPage: React.FC = () => {
           </h1>
 
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Have questions or want to book a session? We're here to help.
+            Have questions or want to book a session? We&apos;re here to help.
           </p>
         </div>
       </ResponsiveContainer>
@@ -75,9 +75,9 @@ const ContactPage: React.FC = () => {
 
               <p className="text-lg text-gray-700 leading-relaxed">
                 Ready to begin your healing journey? Reach out to schedule your
-                personalized Reiki and sound healing session. I'm here to answer
-                any questions and help you find the path to inner peace and
-                wellness.
+                personalized Reiki and sound healing session. I&apos;m here to
+                answer any questions and help you find the path to inner peace
+                and wellness.
               </p>
             </div>
 
@@ -156,8 +156,8 @@ const ContactPage: React.FC = () => {
                   Send Us a Message
                 </h2>
                 <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you within 24
-                  hours
+                  Fill out the form below and we&apos;ll get back to you within
+                  24 hours
                 </p>
               </div>
 

@@ -15,6 +15,7 @@ export interface CommunityEventsProps {
   heading?: string;
   subheading?: string;
   events?: EventCard[];
+  _events?: EventCard[];
   ctaButton?: {
     text: string;
     href: string;

@@ -18,7 +18,8 @@
     "build",
     "node_modules",
     "*.config.js",
-    "*.config.ts"
+    "*.config.ts",
+    "scripts/*.js"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

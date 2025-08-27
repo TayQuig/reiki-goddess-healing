@@ -1,5 +1,15 @@
 // Shared components for The Reiki Goddess Healing website
 
+// Layout components
+export { ResponsiveContainer } from "./ResponsiveContainer";
+export type { ResponsiveContainerProps } from "./ResponsiveContainer";
+
+export { HeaderSection } from "./HeaderSection";
+export type { HeaderSectionProps } from "./HeaderSection";
+
+export { FooterSection } from "./FooterSection";
+export type { FooterSectionProps } from "./FooterSection";
+
 // Foundation utility components (keeping these)
 export { default as Button } from "./Button";
 export { SecureContactForm } from "./SecureContactForm";

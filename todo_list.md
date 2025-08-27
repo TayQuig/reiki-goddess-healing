@@ -226,6 +226,28 @@
 - [ ] Image loading can be slow without optimization
 - [ ] Font loading can cause FOUC (Flash of Unstyled Content)
 
+### 🚫 Current Blockers
+
+- **Security Hook Blocking Commits** (2025-08-27)
+  - Cannot commit ESLint and TypeScript fixes due to security hook detecting local file paths
+  - **Affected Files:**
+    1. `packages/shared-assets/src/images.js` - Contains absolute paths like `/home/web-design.svg`
+    2. `scripts/extraction_log.json` - Contains local machine paths `/Users/taylorquigley/Documents/Directories/...`
+  - **Why Blocked:**
+    - Local paths expose directory structure and username
+    - Paths are machine-specific and won't work on other systems
+    - Security hook correctly prevents committing sensitive information
+  - **Resolution Options:**
+    - Remove these files if they're temporary/not needed
+    - Convert absolute paths to relative paths
+    - Add to `.gitignore` if they're generated files
+  - **Work Completed but Unable to Commit:**
+    - Fixed ESLint configuration syntax error
+    - Fixed ALL React unescaped entities
+    - Removed unused variables
+    - Fixed TypeScript interfaces
+    - Created missing shared components (HeaderSection, FooterSection, ResponsiveContainer)
+
 ## 📝 Notes
 
 - All design decisions must match Figma screenshots in `/figma-screenshots/`

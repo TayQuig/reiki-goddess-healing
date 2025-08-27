@@ -160,4 +160,9 @@ figma-screenshots/**/*.jpeg
 
 # Lock files (keeping package-lock.json)
 yarn.lock
-pnpm-lock.yamlscripts/extraction_log.json
+pnpm-lock.yaml
+
+# Migration scripts (temporary)
+scripts/extraction_log.json
+scripts/*.log
+scripts/*.tmp
