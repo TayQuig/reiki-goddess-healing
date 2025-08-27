@@ -1,10 +1,12 @@
 import type { Config } from "tailwindcss";
 import { colors } from "./colors";
 import { fontFamilies, fontSizes, fontWeights } from "./typography";
+import { screens } from "./breakpoints";
 
 const config: Config = {
   content: [],
   theme: {
+    screens, // Use our custom breakpoint system
     extend: {
       colors: {
         ...colors,

@@ -78,21 +78,20 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       className={`py-20 ${className}`}
       style={{ backgroundColor: "#FFFBF5" }}
     >
-      <div className="mx-auto" style={{ maxWidth: "1200px" }}>
+      <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: "1200px" }}>
         {/* Section Heading */}
         <h2
-          className="text-center mb-12 font-bold text-gray-900"
+          className="text-center mb-8 sm:mb-10 lg:mb-12 font-bold text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
           style={{
             fontFamily: "Figtree, Helvetica, sans-serif",
-            fontSize: "48px",
             lineHeight: "1.2",
           }}
         >
           {heading}
         </h2>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Services Grid - Responsive: 1 col mobile, 2 col tablet, 4 col desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service) => (
             <div
               key={service.id}
@@ -138,8 +137,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   }}
                 />
 
-                {/* Card Content */}
-                <div className="h-[280px] p-6 flex flex-col items-center justify-center text-center relative">
+                {/* Card Content - Responsive height */}
+                <div className="h-[240px] sm:h-[260px] lg:h-[280px] p-4 sm:p-5 lg:p-6 flex flex-col items-center justify-center text-center relative">
                   {/* White background for hover state */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -150,10 +149,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     }}
                   />
 
-                  {/* Icon */}
-                  <div className="mb-4 relative z-10 transition-all duration-300 group-hover:brightness-0 group-hover:invert">
+                  {/* Icon - Responsive sizing */}
+                  <div className="mb-3 sm:mb-4 relative z-10 transition-all duration-300 group-hover:brightness-0 group-hover:invert">
                     {React.cloneElement(service.icon as React.ReactElement, {
-                      className: "w-16 h-16",
+                      className: "w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16",
                       style: {
                         filter: "none",
                         color: "rgba(2, 5, 183, 1)",
@@ -161,13 +160,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     })}
                   </div>
 
-                  {/* Title */}
+                  {/* Title - Responsive text size */}
                   <h3
-                    className="font-semibold mb-1 relative z-10 transition-colors duration-300 group-hover:text-white"
+                    className="font-semibold mb-1 relative z-10 transition-colors duration-300 group-hover:text-white text-base sm:text-lg lg:text-xl"
                     style={{
                       fontFamily: "Figtree, Helvetica, sans-serif",
-                      fontSize: "20px",
-                      lineHeight: "24px",
+                      lineHeight: "1.2",
                       color: "rgba(51, 51, 51, 1)",
                     }}
                   >
