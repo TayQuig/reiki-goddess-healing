@@ -48,6 +48,10 @@ jspm_packages/
 # Optional stylelint cache
 .stylelintcache
 
+# Claude Code local settings
+.claude/settings.local.json
+.claude/session-logs.txt
+
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
