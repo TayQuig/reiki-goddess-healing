@@ -2,9 +2,19 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 📚 Critical Context Files
+
+**These files provide essential context and should be referenced regularly:**
+
+- @context_recovery.md - Current progress, session history, and handoff information
+- @todo_list.md - Task tracking, phase progress, and session accomplishments  
+- @testing-strategy.md - Testing coverage metrics and implementation roadmap
+
 ## 🚨 CRITICAL PROTOCOLS - ALWAYS FOLLOW
 
 ### Context Management & Documentation
+
+**CHECK CONTEXT USAGE:** Monitor throughout session - aim to refresh at 75-80%
 
 **MANDATORY: When approaching 75-80% context usage:**
 
@@ -13,6 +23,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 3. Update `/testing-strategy.md` if testing work was done
 4. Commit all work with descriptive conventional commit messages
 5. Prepare for context refresh by documenting next steps
+
+**Starting a New Session:**
+1. Read @context_recovery.md first to understand current state
+2. Check @todo_list.md for next immediate tasks
+3. Review @testing-strategy.md if doing testing work
+4. Continue from documented stopping point
 
 ### Git Commit Protocol
 
