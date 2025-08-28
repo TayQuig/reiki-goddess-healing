@@ -2,6 +2,68 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 🚨 CRITICAL PROTOCOLS - ALWAYS FOLLOW
+
+### Context Management & Documentation
+
+**MANDATORY: When approaching 75-80% context usage:**
+
+1. Update `/context_recovery.md` with current progress and status
+2. Update `/todo_list.md` with session accomplishments
+3. Update `/testing-strategy.md` if testing work was done
+4. Commit all work with descriptive conventional commit messages
+5. Prepare for context refresh by documenting next steps
+
+### Git Commit Protocol
+
+**ALWAYS follow these git practices:**
+
+```bash
+# 1. Check status and diff before committing
+git status
+git diff --cached
+
+# 2. Use conventional commits with this format:
+git commit -m "type(scope): description
+
+- Detail 1
+- Detail 2
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+```
+
+**Commit types:** feat, fix, docs, style, refactor, test, chore
+**NEVER commit without user's explicit request**
+
+### Testing Protocol
+
+**When adding new components:**
+
+1. Create comprehensive test files covering:
+   - Rendering tests
+   - Interaction tests
+   - Accessibility tests
+   - Responsive behavior tests
+   - Edge cases
+2. Ensure TypeScript types are correct (check vitest-env.d.ts)
+3. Run tests and verify 100% pass rate before committing
+4. Update testing-strategy.md with new coverage metrics
+
+### Development Commands to Remember
+
+```bash
+# Always run these before committing:
+npm test -- --run         # Run all tests
+npm run type-check        # Check TypeScript
+npm run lint             # Check linting
+
+# Development commands:
+npm run dev              # Start all dev servers
+npm run build           # Build all packages
+```
+
 ## ⚠️ CRITICAL: Design Source of Truth
 
 **FIGMA SCREENSHOTS ARE THE PRIMARY DESIGN REFERENCE:**
@@ -21,7 +83,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repository is currently undergoing migration from separate React applications to a unified monorepo structure. The project represents "The Reiki Goddess Healing" business website.
 
-**Migration Status: Phase 2A In Progress - Homepage Perfection & Style Guide Creation**
+**Migration Status: Phase 3.5 In Progress - Testing Infrastructure (100 tests passing)**
 
 ### Original Structure
 
@@ -364,6 +426,32 @@ PageName/
 
 - **Service Cards**: 0px 42px 32.5px -13px rgba(2, 5, 183, 0.25)
 - **Container**: 0 0 40px rgba(0, 0, 0, 0.1)
+
+## Critical Documentation Files to Maintain
+
+**ALWAYS keep these files up-to-date:**
+
+1. **`/context_recovery.md`** - Session context and progress tracking
+   - Update when starting/ending sessions
+   - Document major accomplishments
+   - Track context usage percentage
+   - Note blockers or important decisions
+
+2. **`/todo_list.md`** - Implementation plan and task tracking
+   - Update session accomplishments section
+   - Mark completed tasks
+   - Add new tasks discovered during work
+   - Track testing coverage percentages
+
+3. **`/testing-strategy.md`** - Testing coverage and strategy
+   - Update coverage percentages after adding tests
+   - Document testing patterns discovered
+   - Track KPIs and metrics
+
+4. **`/CLAUDE.md`** (this file) - Project instructions
+   - Update migration status
+   - Add new patterns or conventions discovered
+   - Document important decisions
 
 ## Notes
 
