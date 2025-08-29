@@ -2,6 +2,12 @@ import { describe, it, expect } from "vitest";
 import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MobileHeader } from "./MobileHeader";
+import { RouterWrapper } from "../test-utils";
+
+// Custom render function that includes Router context
+const renderWithRouter = (component: React.ReactElement) => {
+  return render(<RouterWrapper>{component}</RouterWrapper>);
+};
 
 describe("MobileHeader Component", () => {
   const defaultProps = {
@@ -19,7 +25,7 @@ describe("MobileHeader Component", () => {
 
   describe("Rendering", () => {
     it("should render header bar with logo", () => {
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const logo = screen.getByAltText("Test Logo");
       expect(logo).toBeInTheDocument();
@@ -27,7 +33,7 @@ describe("MobileHeader Component", () => {
     });
 
     it("should render hamburger menu button", () => {
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
       expect(menuButton).toBeInTheDocument();
@@ -35,7 +41,7 @@ describe("MobileHeader Component", () => {
     });
 
     it("should not show menu initially", () => {
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       // Menu items should not be visible initially
       const nav = screen.getByRole("navigation");
@@ -46,7 +52,7 @@ describe("MobileHeader Component", () => {
   describe("Menu Interactions", () => {
     it("should toggle menu on hamburger click", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
       const nav = screen.getByRole("navigation");
@@ -72,7 +78,7 @@ describe("MobileHeader Component", () => {
 
     it("should animate hamburger icon on toggle", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
       const spans = menuButton.querySelectorAll("span");
@@ -93,7 +99,7 @@ describe("MobileHeader Component", () => {
 
     it("should close menu when clicking overlay", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
 
@@ -117,7 +123,7 @@ describe("MobileHeader Component", () => {
 
     it("should close menu when clicking a navigation link", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
 
@@ -141,7 +147,7 @@ describe("MobileHeader Component", () => {
   describe("Navigation Content", () => {
     it("should render all navigation items in menu", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       // Open menu
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
@@ -160,7 +166,7 @@ describe("MobileHeader Component", () => {
 
     it("should render CTA button in menu", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       // Open menu
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
@@ -178,7 +184,7 @@ describe("MobileHeader Component", () => {
 
     it("should render contact info in menu", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       // Open menu
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
@@ -195,7 +201,7 @@ describe("MobileHeader Component", () => {
 
   describe("Accessibility", () => {
     it("should have proper ARIA attributes", () => {
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
       // The button already has aria-label="Toggle menu" in the component
@@ -205,7 +211,7 @@ describe("MobileHeader Component", () => {
 
     it("should trap focus in menu when open", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const menuButton = screen.getByRole("button", { name: /toggle menu/i });
 
@@ -222,7 +228,7 @@ describe("MobileHeader Component", () => {
 
     it("should be keyboard navigable", async () => {
       const user = userEvent.setup();
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       // Tab to logo first, then menu button
       await user.tab(); // Focus on logo link
@@ -247,7 +253,7 @@ describe("MobileHeader Component", () => {
 
   describe("Responsive Behavior", () => {
     it("should have fixed positioning", () => {
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const header = screen.getByRole("banner");
       expect(header).toHaveClass("fixed");
@@ -257,7 +263,7 @@ describe("MobileHeader Component", () => {
     });
 
     it("should have proper z-index layering", () => {
-      render(<MobileHeader {...defaultProps} />);
+      renderWithRouter(<MobileHeader {...defaultProps} />);
 
       const header = screen.getByRole("banner");
       const nav = screen.getByRole("navigation");
@@ -268,7 +274,9 @@ describe("MobileHeader Component", () => {
     });
 
     it("should include spacer for fixed header", () => {
-      const { container } = render(<MobileHeader {...defaultProps} />);
+      const { container } = renderWithRouter(
+        <MobileHeader {...defaultProps} />
+      );
 
       const spacer = container.querySelector(".h-\\[60px\\]");
       expect(spacer).toBeInTheDocument();
@@ -277,7 +285,9 @@ describe("MobileHeader Component", () => {
 
   describe("Edge Cases", () => {
     it("should handle no navigation items", () => {
-      render(<MobileHeader logo={defaultProps.logo} navigationItems={[]} />);
+      renderWithRouter(
+        <MobileHeader logo={defaultProps.logo} navigationItems={[]} />
+      );
 
       // Should still render header and menu button
       expect(screen.getByAltText("Test Logo")).toBeInTheDocument();
@@ -287,7 +297,7 @@ describe("MobileHeader Component", () => {
     });
 
     it("should use default props when none provided", () => {
-      render(<MobileHeader />);
+      renderWithRouter(<MobileHeader />);
 
       // Should render with defaults
       expect(

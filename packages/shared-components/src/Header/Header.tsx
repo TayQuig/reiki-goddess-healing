@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export interface NavigationItem {
   label: string;
@@ -46,8 +47,8 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="relative h-full mx-auto" style={{ maxWidth: "1440px" }}>
         <div className="relative flex items-center h-full">
           {/* Logo Section - Aligned with hero image edge (66px) */}
-          <a
-            href="/"
+          <Link
+            to="/"
             className="absolute"
             style={{
               left: "66px", // Align with hero image edge
@@ -61,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
               alt={logo.alt}
               className="w-full h-full object-contain"
             />
-          </a>
+          </Link>
 
           {/* Navigation Links - adjusted for new logo position */}
           <nav
@@ -75,8 +76,8 @@ export const Header: React.FC<HeaderProps> = ({
             <ul className="flex items-center" style={{ gap: "84px" }}>
               {navigationItems.map((item, index) => (
                 <li key={index}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="transition-all duration-200 hover:opacity-80"
                     style={{
                       fontFamily: "Figtree, Helvetica, sans-serif",
@@ -89,7 +90,7 @@ export const Header: React.FC<HeaderProps> = ({
                     }}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

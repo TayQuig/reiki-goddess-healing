@@ -1,6 +1,9 @@
 // Shared components for The Reiki Goddess Healing website
 
 // Layout components
+export { AppLayout } from "./AppLayout";
+export type { AppLayoutProps } from "./AppLayout";
+
 export { ResponsiveContainer } from "./ResponsiveContainer";
 export type { ResponsiveContainerProps } from "./ResponsiveContainer";
 
@@ -67,3 +70,13 @@ export type { LazyImageProps } from "./LazyImage";
 // Complete page compositions
 export { Homepage } from "./Homepage";
 export type { HomepageProps } from "./Homepage";
+
+// Route page components
+export {
+  HomePage,
+  AboutPage,
+  ServicesPage,
+  ContactPage,
+  EventsPage,
+  BlogPage,
+} from "./pages";

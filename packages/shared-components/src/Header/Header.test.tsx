@@ -2,6 +2,12 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Header } from "./Header";
+import { RouterWrapper } from "../test-utils";
+
+// Custom render function that includes Router context
+const renderWithRouter = (component: React.ReactElement) => {
+  return render(<RouterWrapper>{component}</RouterWrapper>);
+};
 
 describe("Header Component", () => {
   const defaultProps = {
@@ -19,7 +25,7 @@ describe("Header Component", () => {
 
   describe("Rendering", () => {
     it("should render with default props", () => {
-      render(<Header />);
+      renderWithRouter(<Header />);
 
       // Should render with default logo
       const logo = screen.getByAltText("The Reiki Goddess Healing");
@@ -28,7 +34,7 @@ describe("Header Component", () => {
     });
 
     it("should render with custom props", () => {
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       // Logo
       const logo = screen.getByAltText("Test Logo");
@@ -43,7 +49,7 @@ describe("Header Component", () => {
     });
 
     it("should render navigation items as links", () => {
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       const homeLink = screen.getByRole("link", { name: /home/i });
       expect(homeLink).toHaveAttribute("href", "/");
@@ -53,7 +59,7 @@ describe("Header Component", () => {
     });
 
     it("should apply correct styling classes", () => {
-      render(<Header {...defaultProps} className="custom-class" />);
+      renderWithRouter(<Header {...defaultProps} className="custom-class" />);
 
       const header = screen.getByRole("banner");
       expect(header).toHaveClass("custom-class");
@@ -62,7 +68,7 @@ describe("Header Component", () => {
 
   describe("Logo Behavior", () => {
     it("should have correct logo dimensions", () => {
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       const logo = screen.getByAltText("Test Logo");
       // The img has w-full h-full classes, check parent container for dimensions
@@ -74,7 +80,7 @@ describe("Header Component", () => {
     });
 
     it("should position logo correctly", () => {
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       const logoContainer = screen.getByAltText("Test Logo").parentElement;
       expect(logoContainer).toHaveStyle({
@@ -85,7 +91,7 @@ describe("Header Component", () => {
 
   describe("Navigation Layout", () => {
     it("should space navigation items correctly", () => {
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       const navContainer = screen.getByRole("navigation");
       expect(navContainer).toHaveStyle({
@@ -95,7 +101,7 @@ describe("Header Component", () => {
 
     it("should apply hover styles to navigation items", async () => {
       const user = userEvent.setup();
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       const homeLink = screen.getByRole("link", { name: /home/i });
 
@@ -108,7 +114,7 @@ describe("Header Component", () => {
 
   describe("Accessibility", () => {
     it("should have proper ARIA attributes", () => {
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       const nav = screen.getByRole("navigation");
       expect(nav).toBeInTheDocument();
@@ -118,7 +124,7 @@ describe("Header Component", () => {
     });
 
     it("should have semantic HTML structure", () => {
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       expect(screen.getByRole("banner")).toBeInTheDocument();
       expect(screen.getByRole("navigation")).toBeInTheDocument();
@@ -126,7 +132,7 @@ describe("Header Component", () => {
 
     it("should support keyboard navigation", async () => {
       const user = userEvent.setup();
-      render(<Header {...defaultProps} />);
+      renderWithRouter(<Header {...defaultProps} />);
 
       // First tab goes to logo link
       await user.tab();
@@ -144,21 +150,25 @@ describe("Header Component", () => {
 
   describe("Edge Cases", () => {
     it("should handle missing logo gracefully", () => {
-      render(<Header navigationItems={defaultProps.navigationItems} />);
+      renderWithRouter(
+        <Header navigationItems={defaultProps.navigationItems} />
+      );
 
       // Should still render navigation
       expect(screen.getByText("Home")).toBeInTheDocument();
     });
 
     it("should handle empty navigation items", () => {
-      render(<Header logo={defaultProps.logo} navigationItems={[]} />);
+      renderWithRouter(
+        <Header logo={defaultProps.logo} navigationItems={[]} />
+      );
 
       // Should still render logo
       expect(screen.getByAltText("Test Logo")).toBeInTheDocument();
     });
 
     it("should handle no props", () => {
-      render(<Header />);
+      renderWithRouter(<Header />);
 
       // Should render with defaults without crashing
       expect(screen.getByRole("banner")).toBeInTheDocument();

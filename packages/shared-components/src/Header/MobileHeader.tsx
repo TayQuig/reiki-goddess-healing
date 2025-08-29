@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { NavigationItem } from "./Header";
 
 export interface MobileHeaderProps {
@@ -36,18 +37,18 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   return (
     <>
       {/* Mobile Header Bar */}
-      <header 
+      <header
         className={`fixed top-0 left-0 right-0 z-50 bg-[#FFFBF5] border-b border-gray-100 ${className}`}
       >
         <div className="flex items-center justify-between px-4 py-3">
           {/* Logo */}
-          <a href="/" className="block">
+          <Link to="/" className="block">
             <img
               src={logo.src}
               alt={logo.alt}
               className="h-12 w-auto object-contain"
             />
-          </a>
+          </Link>
 
           {/* Hamburger Menu Button */}
           <button
@@ -57,19 +58,19 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             aria-expanded={isMenuOpen}
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
-              <span 
+              <span
                 className={`block h-0.5 w-full bg-[#0205B7] transform transition-all duration-300 origin-left ${
-                  isMenuOpen ? 'rotate-45 translate-y-0.5' : ''
+                  isMenuOpen ? "rotate-45 translate-y-0.5" : ""
                 }`}
               />
-              <span 
+              <span
                 className={`block h-0.5 w-full bg-[#0205B7] transition-opacity duration-300 ${
-                  isMenuOpen ? 'opacity-0' : ''
+                  isMenuOpen ? "opacity-0" : ""
                 }`}
               />
-              <span 
+              <span
                 className={`block h-0.5 w-full bg-[#0205B7] transform transition-all duration-300 origin-left ${
-                  isMenuOpen ? '-rotate-45 -translate-y-0.5' : ''
+                  isMenuOpen ? "-rotate-45 -translate-y-0.5" : ""
                 }`}
               />
             </div>
@@ -79,16 +80,24 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
 
       {/* Mobile Menu Overlay */}
       <div
+        role="button"
+        tabIndex={isMenuOpen ? 0 : -1}
         className={`fixed inset-0 z-40 bg-black transition-opacity duration-300 ${
-          isMenuOpen ? 'opacity-50' : 'opacity-0 pointer-events-none'
+          isMenuOpen ? "opacity-50" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            closeMenu();
+          }
+        }}
       />
 
       {/* Mobile Menu Panel */}
       <nav
         className={`fixed top-0 right-0 h-full w-72 bg-[#FFFBF5] z-45 transform transition-transform duration-300 shadow-xl ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="pt-20 px-6">
@@ -96,26 +105,26 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           <ul className="space-y-4">
             {navigationItems.map((item, index) => (
               <li key={index}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   onClick={closeMenu}
                   className="block py-3 px-4 text-lg font-medium text-[#0205B7] hover:bg-blue-50 rounded-lg transition-colors"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
           {/* CTA Button */}
           <div className="mt-8 pt-8 border-t border-gray-200">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               onClick={closeMenu}
               className="block w-full py-3 px-4 text-center text-white bg-[#0205B7] rounded-full font-medium hover:bg-blue-700 transition-colors"
             >
               Book a Session
-            </a>
+            </Link>
           </div>
 
           {/* Contact Info */}
