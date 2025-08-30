@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Header } from "../Header/Header";
 import { HeroV2 } from "../Hero/HeroV2";
 import { FeaturesBar } from "../FeaturesBar/FeaturesBar";
 import { MeetTheGoddess } from "../MeetTheGoddess/MeetTheGoddess";
@@ -7,7 +6,6 @@ import { ServicesSection } from "../Services/ServicesSection";
 import { CommunityEvents } from "../CommunityEvents/CommunityEvents";
 import { Testimonials } from "../Testimonials/Testimonials";
 import { LetsConnect } from "../LetsConnect/LetsConnect";
-import { Footer } from "../Footer/Footer";
 import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 export interface HomepageProps {
@@ -43,10 +41,7 @@ export const Homepage: React.FC<HomepageProps> = ({ className = "" }) => {
   }, []);
 
   return (
-    <div
-      className={`min-h-screen ${className}`}
-      style={{ backgroundColor: "#FFFBF5" }}
-    >
+    <div className={`${className}`}>
       {/* Main Container */}
       <div
         className="relative mx-auto overflow-hidden"
@@ -58,36 +53,8 @@ export const Homepage: React.FC<HomepageProps> = ({ className = "" }) => {
           padding: "0 66px",
         }}
       >
-        {/* Hero Section with embedded Header */}
+        {/* Hero Section - no embedded header, AppLayout provides it */}
         <div className="relative">
-          {/* Header Navigation - positioned absolutely at the top, within the 93px buffer */}
-          <div
-            className="absolute top-0 left-0 right-0 z-50"
-            style={{
-              height: "93px",
-              marginLeft: "-66px",
-              marginRight: "-66px",
-              paddingLeft: "66px",
-              paddingRight: "66px",
-            }}
-          >
-            <Header
-              logo={{
-                src: "/img/Nav Bar Clickable Logo.png",
-                alt: "The Reiki Goddess Healing",
-              }}
-              navigationItems={[
-                { label: "Home", href: "/", isActive: true },
-                { label: "About", href: "/about" },
-                { label: "Services", href: "/services" },
-                { label: "Events", href: "/events" },
-                { label: "Blog", href: "/blog" },
-                { label: "Contact", href: "/contact" },
-              ]}
-            />
-          </div>
-
-          {/* Hero with full width within container */}
           <HeroV2
             backgroundImage={{
               src: "/img/powerrangers-6-hero-main.png",
@@ -143,18 +110,6 @@ export const Homepage: React.FC<HomepageProps> = ({ className = "" }) => {
         <AnimatedSection animation="fadeIn" delay={0.1} threshold={0.3}>
           <LetsConnect />
         </AnimatedSection>
-      </div>
-
-      {/* Footer - Inside 1440px container but without side padding */}
-      <div
-        className="relative mx-auto"
-        style={{
-          maxWidth: "1440px",
-          margin: "0 auto",
-          backgroundColor: "#FFFBF5",
-        }}
-      >
-        <Footer />
       </div>
     </div>
   );

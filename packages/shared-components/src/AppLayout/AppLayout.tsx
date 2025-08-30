@@ -50,16 +50,36 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ className = "" }) => {
       className={`min-h-screen flex flex-col ${className}`}
       style={{ backgroundColor: "#FFFBF5" }}
     >
-      {/* Header with active navigation states */}
-      <Header navigationItems={navigationItems} />
+      {/* Header with active navigation states - positioned absolutely to overlay content */}
+      <div
+        className="relative z-50"
+        style={{ maxWidth: "1440px", margin: "0 auto" }}
+      >
+        <Header
+          logo={{
+            src: "/img/Nav Bar Clickable Logo.png",
+            alt: "The Reiki Goddess Healing",
+          }}
+          navigationItems={navigationItems}
+        />
+      </div>
 
       {/* Main content area - uses React Router's Outlet */}
-      <main className="flex-1">
+      <main className="flex-1" style={{ marginTop: "-93px" }}>
         <Outlet />
       </main>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer - Inside the main container layout */}
+      <div
+        className="relative mx-auto"
+        style={{
+          maxWidth: "1440px",
+          margin: "0 auto",
+          backgroundColor: "#FFFBF5",
+        }}
+      >
+        <Footer />
+      </div>
     </div>
   );
 };

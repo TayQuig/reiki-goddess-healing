@@ -7,3 +7,9 @@ Set up Google API for live streaming of real Google reviews.
 SEO Optimization tricks
 
 Set up Products page with the Hermetic Flight and Awaken
+
+upcoming events & community highlights buttons should have motion
+
+bottom left slogan needs to be changed
+
+button gradient could be changed to include appropriate brand colors

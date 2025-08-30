@@ -37,14 +37,15 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <header
-      className={`relative w-full ${className}`}
+      className={`relative ${className}`}
       style={{
+        width: "1440px",
         height: "93px",
         backgroundColor: "#FFFBF5",
         backdropFilter: "blur(10px)",
       }}
     >
-      <div className="relative h-full mx-auto" style={{ maxWidth: "1440px" }}>
+      <div className="relative h-full">
         <div className="relative flex items-center h-full">
           {/* Logo Section - Aligned with hero image edge (66px) */}
           <Link
