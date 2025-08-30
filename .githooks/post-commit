@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Post-commit hook for session tracking
+COMMIT_MSG=$(git log -1 --pretty=%B)
+COMMIT_HASH=$(git rev-parse HEAD)
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+# Log to session file
+echo "[$TIMESTAMP] Commit: $COMMIT_HASH" >> .claude-session.log
+echo "  Message: $COMMIT_MSG" >> .claude-session.log
+echo "" >> .claude-session.log
+
+echo "✅ Session logged to .claude-session.log"

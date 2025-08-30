@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Git pre-commit hook for documentation reminders
+echo "📝 Pre-commit checks:"
+
+# Check documentation freshness
+CONTEXT_AGE=$((($(date +%s) - $(stat -f %m context_recovery.md 2>/dev/null || echo 0)) / 60))
+TODO_AGE=$((($(date +%s) - $(stat -f %m todo_list.md 2>/dev/null || echo 0)) / 60))
+
+if [ $CONTEXT_AGE -gt 120 ]; then
+    echo "⚠️  context_recovery.md is $CONTEXT_AGE minutes old - consider updating"
+fi
+
+if [ $TODO_AGE -gt 120 ]; then
+    echo "⚠️  todo_list.md is $TODO_AGE minutes old - consider updating"
+fi
+
+# Count changes
+MODIFIED=$(git diff --cached --name-only | wc -l | tr -d ' ')
+echo "✅ Committing $MODIFIED files"
+
+# Remind about conventional commits
+echo "📋 Remember: Use conventional commit format (feat|fix|docs|test|chore)"
+
+exit 0
