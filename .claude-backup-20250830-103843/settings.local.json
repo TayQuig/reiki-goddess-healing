@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout:*)",
+      "Bash(mkdir:*)",
+      "Bash(tree:*)",
+      "WebSearch",
+      "Bash(npm run type-check:*)",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(cd:*)",
+      "Bash(python3:*)",
+      "Bash(grep:*)",
+      "Bash(true)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(npx husky:*)",
+      "Bash(git commit:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "hooks": [
+    {
+      "matcher": "Edit|Write|MultiEdit",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "echo '✏️ File edited - remember to check git status!' >&2"
+        }
+      ]
+    },
+    {
+      "matcher": "TodoWrite",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "echo '📝 Todo list updated!' >&2"
+        }
+      ]
+    }
+  ]
+}

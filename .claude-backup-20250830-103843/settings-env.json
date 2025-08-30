@@ -1,0 +1,13 @@
+{
+  "hooks": [
+    {
+      "matcher": "Write|Edit",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "$PWD/.claude/hooks/git-enforce.py"
+        }
+      ]
+    }
+  ]
+}
