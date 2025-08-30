@@ -2,8 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppLayout } from "@reiki-goddess/shared-components";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Services from "./pages/Services";
+import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -14,8 +17,11 @@ function App() {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="services" element={<Services />} />
+          <Route path="events" element={<Events />} />
           <Route path="contact" element={<Contact />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

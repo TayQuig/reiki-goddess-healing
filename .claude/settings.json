@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/todo-complete-auto.py",
+            "command": "/Users/taylorquigley/Documents/Directories/reiki-goddess-healing/.claude/hooks/todo-complete-auto.py",
             "timeout": 5
           }
         ]
@@ -28,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/pre-write-check.py",
+            "command": "/Users/taylorquigley/Documents/Directories/reiki-goddess-healing/.claude/hooks/pre-write-check.py",
             "timeout": 5
           }
         ]
@@ -39,12 +39,12 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/git-enforce.py",
+            "command": "/Users/taylorquigley/Documents/Directories/reiki-goddess-healing/.claude/hooks/git-enforce.py",
             "timeout": 10
           },
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/stop-auto-document.py",
+            "command": "/Users/taylorquigley/Documents/Directories/reiki-goddess-healing/.claude/hooks/stop-auto-document.py",
             "timeout": 10
           }
         ]
@@ -55,7 +55,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/session-summary.sh >> $CLAUDE_PROJECT_DIR/.claude/session-logs.txt && echo 'Session summary saved to .claude/session-logs.txt' >&2",
+            "command": "/Users/taylorquigley/Documents/Directories/reiki-goddess-healing/.claude/hooks/session-summary.sh >> /Users/taylorquigley/Documents/Directories/reiki-goddess-healing/.claude/session-logs.txt && echo 'Session summary saved to .claude/session-logs.txt' >&2",
             "timeout": 10
           }
         ]

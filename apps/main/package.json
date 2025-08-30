@@ -10,10 +10,11 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@reiki-goddess/shared-components": "*",
-    "@reiki-goddess/shared-assets": "*",
     "@reiki-goddess/design-system": "*",
+    "@reiki-goddess/shared-assets": "*",
+    "@reiki-goddess/shared-components": "*",
     "@reiki-goddess/shared-utils": "*",
+    "framer-motion": "^12.23.12",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0"
