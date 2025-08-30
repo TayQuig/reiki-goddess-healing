@@ -1,3 +1,17 @@
 [2025-08-30 10:48:33] Commit: ba5344acd3fd228fa402c18a5bf1f8bd61b588cd
   Message: test: verify git hooks are working
 
+[2025-08-30 10:51:58] Commit: ebb3fa85a5bc021eefa045f0fe9c0e400c4d55d8
+  Message: refactor: replace broken Claude hooks with working Git hooks
+
+- Claude Code hooks confirmed not working (known issue)
+- Implemented Git pre-commit and post-commit hooks instead
+- Created hooks-helper.sh for manual documentation/git checks
+- Git hooks successfully trigger on commits
+- Backed up original .claude directory for reference
+- Cleaner, more reliable automation solution
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+

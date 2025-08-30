@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Pre-push hook - run tests before pushing
+echo "🚀 Pre-push checks:"
+echo "=================="
+
+# 1. Run TypeScript type checking
+echo ""
+echo "📘 TypeScript Check:"
+if npm run type-check 2>/dev/null; then
+    echo "  ✅ TypeScript checks passed"
+else
+    echo "  ❌ TypeScript errors detected"
+    echo "  Run 'npm run type-check' to see details"
+    FAILED=true
+fi
+
+# 2. Run tests if available
+echo ""
+echo "🧪 Running Tests:"
+if [ -f "package.json" ] && grep -q '"test"' package.json; then
+    if npm test -- --run 2>/dev/null; then
+        echo "  ✅ All tests passed"
+    else
+        echo "  ❌ Some tests failed"
+        echo "  Run 'npm test' to see details"
+        FAILED=true
+    fi
+else
+    echo "  ⚠️  No test script found"
+fi
+
+# 3. Check documentation is up to date
+echo ""
+echo "📚 Documentation Check:"
+STALE_DOCS=false
+for file in context_recovery.md todo_list.md testing-strategy.md; do
+    if [ -f "$file" ]; then
+        AGE=$((($(date +%s) - $(stat -f %m "$file" 2>/dev/null || echo 0)) / 3600))
+        if [ $AGE -gt 48 ]; then  # More than 48 hours
+            echo "  ❌ $file is $((AGE / 24)) days old - UPDATE REQUIRED"
+            STALE_DOCS=true
+        fi
+    fi
+done
+
+if [ "$STALE_DOCS" = true ]; then
+    echo ""
+    echo "⚠️  Documentation is stale. Update before pushing."
+fi
+
+# 4. Check for uncommitted changes
+echo ""
+echo "📋 Working Tree Status:"
+if [ -z "$(git status --porcelain)" ]; then
+    echo "  ✅ Working tree clean"
+else
+    echo "  ⚠️  Uncommitted changes detected"
+    git status --short
+fi
+
+# If critical checks failed, optionally block the push
+if [ "$FAILED" = true ]; then
+    echo ""
+    echo "❌ Pre-push checks failed. Fix issues before pushing."
+    echo "   Use 'git push --no-verify' to bypass (not recommended)"
+    exit 1
+fi
+
+echo ""
+echo "✅ All checks passed! Pushing to remote..."
+exit 0
