@@ -3,7 +3,7 @@
 ## The Reiki Goddess Healing Project
 
 _Generated: 2025-08-27_
-_Updated: 2025-08-28_
+_Updated: 2025-09-02_
 
 ## 📊 Current Testing Status
 
@@ -41,6 +41,54 @@ e2e/
 Total: 330 component tests passing - PHASE 3.5 COMPLETE
 ```
 
+## 🎯 Testing Strategy During Migration (Phase 4B)
+
+### Test-as-You-Migrate Approach
+
+Instead of pausing migration to address all testing gaps, we'll implement tests alongside new development:
+
+1. **Every new page/component gets tests from day one**
+2. **Critical gaps addressed before they block progress**
+3. **Testing patterns evolve with real use cases**
+
+### Priority Testing Implementation
+
+#### High Priority (Do Before Migration)
+**Timeline: 1-3 days**
+
+- **Routing Integration Tests** (Phase 4A validation)
+  - Test navigation between all existing pages
+  - Verify 404 handling and error boundaries
+  - Test page transition animations
+  - Mobile navigation flows
+
+- **Security Baseline**
+  - Input sanitization utilities
+  - XSS prevention helpers
+  - CSRF token handling setup
+  - Form validation security
+
+#### Medium Priority (During Migration)
+**Timeline: Implement alongside each page**
+
+- **Visual Regression**
+  - Capture baseline for each completed page
+  - Set up Percy/Chromatic for automated checks
+  - Cross-browser screenshot validation
+
+- **Performance Monitoring**
+  - Add Core Web Vitals tracking
+  - Bundle size monitoring per page
+  - Lighthouse CI integration
+
+#### Low Priority (Post-Migration)
+**Timeline: After Phase 4B completion**
+
+- Full E2E user journey tests
+- Advanced performance optimization
+- Mutation testing
+- API mocking infrastructure
+
 ## 🚨 Critical Testing Gaps
 
 ### Priority 1: Component Testing (CRITICAL)
@@ -57,15 +105,15 @@ Completed tests:
 - ✅ MeetTheGoddess (41 tests)
 - ✅ CommunityEvents (42 tests)
 - ✅ Testimonials (45 tests)
+- ✅ LetsConnect (48 tests)
+- ✅ Footer (54 tests)
 
 Missing tests for:
 
-- ❌ LetsConnect
-- ❌ Footer
-- ❌ Navigation
-- ❌ SecureContactForm
-- ❌ AnimatedSection
-- ❌ LazyImage
+- ❌ Navigation (AppLayout routing)
+- ❌ SecureContactForm (not yet implemented)
+- ❌ AnimatedSection (utility component)
+- ❌ LazyImage (utility component)
 
 ### Priority 2: Integration Testing (HIGH)
 
@@ -223,30 +271,63 @@ describe("ComponentName", () => {
 
 ### Completed (2025-08-28)
 
-1. ✅ Created test files for Header components (14 tests)
-2. ✅ Created test files for MobileHeader (18 tests)
-3. ✅ Created test files for HeroV2 components (31 tests)
-4. ✅ Created test files for ServicesSection (33 tests)
-5. ✅ Fixed TypeScript configuration for tests
-6. ✅ Achieved 100% pass rate on all tests
+1. ✅ Created test files for all homepage components (330 tests)
+2. ✅ Fixed TypeScript configuration for tests
+3. ✅ Achieved 100% pass rate on all tests
+4. ✅ Increased coverage from ~5% to ~80% for components
 
-### Next Immediate Tasks
+### Phase 4B Testing Plan (2025-09-02)
 
-1. Create test files for MeetTheGoddess component
-2. Create test files for Testimonials component
-3. Create test files for Footer component
+#### Week 1: High Priority (Before Migration)
+1. **Day 1-2: Routing Integration Tests**
+   - [ ] Create integration tests for React Router v6 navigation
+   - [ ] Test page transitions and animations
+   - [ ] Verify 404 and error boundary handling
+   - [ ] Test mobile navigation menu flows
 
-### This Week
+2. **Day 2-3: Security Baseline**
+   - [ ] Implement input sanitization utilities
+   - [ ] Create XSS prevention test suite
+   - [ ] Set up CSRF protection tests
+   - [ ] Add form validation security tests
 
-1. Achieve 50% component test coverage (Currently at ~25%)
-2. Implement first integration test
-3. Set up CI/CD test pipeline
+#### Week 2+: During Migration (Test-as-You-Build)
+For each new page:
+1. [ ] Write component tests alongside implementation
+2. [ ] Capture visual regression baseline
+3. [ ] Add performance benchmarks
+4. [ ] Create page-specific integration tests
 
-### This Month
+#### Specific Migration Testing Requirements
 
-1. Achieve 80% test coverage
-2. Implement visual regression testing
-3. Establish performance benchmarks
+**About Page:**
+- [ ] Component tests for team member sections
+- [ ] Tests for certification displays
+- [ ] Image loading and optimization tests
+
+**Services Page:**
+- [ ] Service card interaction tests
+- [ ] Booking CTA functionality tests
+- [ ] Price display component tests
+- [ ] Category filtering tests
+
+**Contact Page:**
+- [ ] Form validation tests (comprehensive)
+- [ ] Security tests for form submission
+- [ ] Map component integration tests
+- [ ] Contact info display tests
+
+**Blog Page:**
+- [ ] Post listing pagination tests
+- [ ] Category/tag filtering tests
+- [ ] Search functionality tests
+- [ ] RSS feed generation tests
+
+**Events Page:**
+- [ ] Calendar component tests
+- [ ] Event registration flow tests
+- [ ] Date filtering tests
+- [ ] Export functionality tests
 
 ## 📚 Testing Resources
 

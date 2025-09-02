@@ -9,6 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - @context_recovery.md - Current progress, session history, and handoff information
 - @todo_list.md - Task tracking, phase progress, and session accomplishments  
 - @testing-strategy.md - Testing coverage metrics and implementation roadmap
+- @testing/TESTING_SUMMARY.md - Current test failures and bug documentation
+- @testing/CONTEXT_REFRESH_SUMMARY.md - Priority bugs and testing status (if exists)
 
 ## 🚨 CRITICAL PROTOCOLS - ALWAYS FOLLOW
 
@@ -21,14 +23,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 1. Update `/context_recovery.md` with current progress and status
 2. Update `/todo_list.md` with session accomplishments
 3. Update `/testing-strategy.md` if testing work was done
-4. Commit all work with descriptive conventional commit messages
-5. Prepare for context refresh by documenting next steps
+4. Run test summary generator if test failures exist
+5. Commit all work with descriptive conventional commit messages
+6. Prepare for context refresh by documenting next steps
 
 **Starting a New Session:**
 1. Read @context_recovery.md first to understand current state
 2. Check @todo_list.md for next immediate tasks
 3. Review @testing-strategy.md if doing testing work
-4. Continue from documented stopping point
+4. Check @testing/TESTING_SUMMARY.md for current test failures
+5. Review @testing/CONTEXT_REFRESH_SUMMARY.md if it exists
+6. Continue from documented stopping point
 
 ### Git Commit Protocol
 
@@ -464,7 +469,13 @@ PageName/
    - Document testing patterns discovered
    - Track KPIs and metrics
 
-4. **`/CLAUDE.md`** (this file) - Project instructions
+4. **`/testing/TESTING_SUMMARY.md`** - Current test failures and bugs
+   - Automatically updated when tests run
+   - Documents failures instead of fixing tests
+   - Tracks bugs per component
+   - Use for bug fixing sessions
+
+5. **`/CLAUDE.md`** (this file) - Project instructions
    - Update migration status
    - Add new patterns or conventions discovered
    - Document important decisions

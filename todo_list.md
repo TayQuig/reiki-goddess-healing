@@ -121,13 +121,29 @@
 
 ### 🗺️ Phase 4B: Page Migration & Content [NEXT]
 
+#### Pre-Migration Testing Tasks (Week 1)
+
+- [ ] **Routing Integration Tests** (1-2 days)
+  - [ ] Create tests for React Router v6 navigation flows
+  - [ ] Test 404 and error boundary handling
+  - [ ] Verify page transition animations
+  - [ ] Test mobile navigation menu
+
+- [ ] **Security Baseline** (1 day)
+  - [ ] Implement input sanitization utilities
+  - [ ] Create XSS prevention helpers
+  - [ ] Set up CSRF protection
+  - [ ] Add form validation security
+
+#### Migration with Test-as-You-Build Approach
+
 - [ ] **About Page Migration**
   - [ ] Analyze legacy About page structure
   - [ ] Extract reusable components
-  - [ ] Create new About page in monorepo
+  - [ ] Create new About page in monorepo WITH TESTS
   - [ ] Match Figma designs if available
-  - [ ] Add team member components
-  - [ ] Add certifications section
+  - [ ] Add team member components WITH TESTS
+  - [ ] Add certifications section WITH TESTS
 
 - [ ] **Services Page Creation**
   - [ ] Design service detail cards
@@ -434,5 +450,23 @@
 
 ---
 
-_Last Updated: 2025-08-28_
-_Next Review: Start of Phase 4 (Page Migration & Routing)_
+### Session Accomplishments (2025-09-02)
+
+**Documentation & Planning Session:**
+
+- ✅ Created comprehensive testing strategy for Phase 4B migration
+- ✅ Established "Test-as-You-Migrate" approach to prevent testing debt
+- ✅ Updated testing-strategy.md with detailed implementation plan
+- ✅ Prioritized testing tasks: High (routing/security), Medium (visual/perf), Low (E2E)
+- ✅ Created specific testing requirements for each page migration
+- ✅ Updated todo_list.md to integrate testing tasks with migration work
+
+**Key Decisions:**
+
+- Will implement critical tests (routing, security) BEFORE migration begins (1-3 days)
+- Every new page/component will have tests written alongside implementation
+- Visual regression and performance monitoring will be added incrementally
+- Full E2E testing deferred until after Phase 4B completion
+
+_Last Updated: 2025-09-02_
+_Next Review: After routing integration tests completion_
