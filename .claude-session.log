@@ -32,3 +32,21 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 Co-Authored-By: Claude <noreply@anthropic.com>
   Changes: 0 components, 0 tests, 0 docs
 
+[2025-09-01 21:16:22] Commit: 3fab2e38d17cdf8a8ca2e1d575fe1c2516a6ca56
+  Message: feat(testing): implement test failure documentation system
+
+- Add test-documentation.py hook to capture and document test failures
+- Add test-summary-generator.py for context refresh summaries
+- Create testing/ directory structure for component test docs
+- Update CLAUDE.md to include testing summaries in context recovery
+- Update hook.sh to route test commands to documentation hooks
+- Update settings.json to trigger on Bash tool test runs
+- Create example documentation and README for testing system
+
+This system documents test failures instead of fixing tests, tracking bugs per component for later investigation and fixing.
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+  Changes: 0 components, 0 tests, 7 docs
+

@@ -4,7 +4,9 @@ import PageTransition from "../components/PageTransition";
 function Home() {
   return (
     <PageTransition>
-      <Homepage />
+      <div data-testid="page-home">
+        <Homepage />
+      </div>
     </PageTransition>
   );
 }

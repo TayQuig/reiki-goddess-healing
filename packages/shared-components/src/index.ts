@@ -16,6 +16,7 @@ export type { FooterSectionProps } from "./FooterSection";
 // Foundation utility components (keeping these)
 export { default as Button } from "./Button";
 export { SecureContactForm } from "./SecureContactForm";
+export type { SecureContactFormProps, ContactFormData } from "./SecureContactForm";
 export {
   PrivacyCompliance,
   CookieConsentBanner,

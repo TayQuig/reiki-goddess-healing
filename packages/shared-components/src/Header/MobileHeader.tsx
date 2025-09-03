@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { NavigationItem } from "./Header";
 
@@ -30,9 +30,81 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   className = "",
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    // Restore focus to the menu button when closing
+    if (previousFocusRef.current) {
+      previousFocusRef.current.focus();
+    }
+  };
+
+  // Focus management for menu
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Store the currently focused element
+      previousFocusRef.current = document.activeElement as HTMLElement;
+      
+      // Focus the first link immediately using requestAnimationFrame for proper timing
+      requestAnimationFrame(() => {
+        const firstLink = menuRef.current?.querySelector('a[href]');
+        if (firstLink) {
+          (firstLink as HTMLElement).focus();
+        }
+      });
+    }
+  }, [isMenuOpen]);
+
+  // Handle escape key to close menu
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMenuOpen]);
+
+  // Focus trap for menu
+  useEffect(() => {
+    if (!isMenuOpen || !menuRef.current) return;
+
+    const focusableElements = menuRef.current.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0] as HTMLElement;
+    const lastFocusable = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        // Shift + Tab
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable?.focus();
+        }
+      } else {
+        // Tab
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable?.focus();
+        }
+      }
+    };
+
+    menuRef.current.addEventListener('keydown', handleTabKey);
+    
+    return () => {
+      menuRef.current?.removeEventListener('keydown', handleTabKey);
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -52,10 +124,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
 
           {/* Hamburger Menu Button */}
           <button
+            ref={menuButtonRef}
             onClick={toggleMenu}
             className="relative z-50 p-2 rounded-lg hover:bg-gray-100 transition-colors"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <span
@@ -96,6 +170,8 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
 
       {/* Mobile Menu Panel */}
       <nav
+        ref={menuRef}
+        id="mobile-menu"
         className={`fixed top-0 right-0 h-full w-72 bg-[#FFFBF5] z-45 transform transition-transform duration-300 shadow-xl ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}

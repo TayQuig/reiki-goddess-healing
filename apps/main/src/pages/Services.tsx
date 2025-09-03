@@ -8,7 +8,7 @@ function Services() {
           <h1 className="text-4xl font-bold text-[#0205B7] mb-4">
             Our Services
           </h1>
-          <p className="text-gray-700">Services page content coming soon...</p>
+          <p className="text-gray-700">Services page</p>
         </div>
       </div>
     </PageTransition>

@@ -11,6 +11,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - @testing-strategy.md - Testing coverage metrics and implementation roadmap
 - @testing/TESTING_SUMMARY.md - Current test failures and bug documentation
 - @testing/CONTEXT_REFRESH_SUMMARY.md - Priority bugs and testing status (if exists)
+- @ARCHITECTURE.md - Technical patterns, code conventions, and architectural decisions
+- @style-guide.md - Visual design patterns, brand guidelines, and UI standards
 
 ## 🚨 CRITICAL PROTOCOLS - ALWAYS FOLLOW
 
@@ -33,7 +35,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 3. Review @testing-strategy.md if doing testing work
 4. Check @testing/TESTING_SUMMARY.md for current test failures
 5. Review @testing/CONTEXT_REFRESH_SUMMARY.md if it exists
-6. Continue from documented stopping point
+6. Review @ARCHITECTURE.md for technical patterns when implementing
+7. Continue from documented stopping point
 
 ### Git Commit Protocol
 
@@ -475,7 +478,13 @@ PageName/
    - Tracks bugs per component
    - Use for bug fixing sessions
 
-5. **`/CLAUDE.md`** (this file) - Project instructions
+5. **`/ARCHITECTURE.md`** - Technical patterns and conventions
+   - Architectural decisions and patterns
+   - Code conventions discovered in codebase
+   - Technical implementation guidelines
+   - Security patterns and best practices
+
+6. **`/CLAUDE.md`** (this file) - Project instructions
    - Update migration status
    - Add new patterns or conventions discovered
    - Document important decisions
