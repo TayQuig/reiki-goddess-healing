@@ -290,8 +290,11 @@ export class SecurityMonitor {
    */
   private isValidIncident(incident: any): incident is SecurityIncident {
     return (
+      incident !== null &&
       typeof incident === 'object' &&
       typeof incident.type === 'string' &&
+      typeof incident.details === 'object' &&
+      incident.details !== null &&
       typeof incident.timestamp === 'string' &&
       typeof incident.url === 'string' &&
       typeof incident.userAgent === 'string'

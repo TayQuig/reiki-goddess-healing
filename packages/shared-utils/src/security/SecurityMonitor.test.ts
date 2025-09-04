@@ -336,32 +336,36 @@ describe('SecurityMonitor', () => {
     });
 
     it('should validate incident structure', () => {
-      // First create a clean monitor and store a valid incident to ensure sessionStorage works
-      const monitor1 = new SecurityMonitor();
-      monitor1.log('VALID', { test: true });
-      
-      // Now manually add invalid data alongside the valid one
-      const currentIncidents = JSON.parse(sessionStorage.getItem('securityIncidents') || '[]');
+      // Directly set sessionStorage with mixed valid/invalid data
       const mixedData = [
-        ...currentIncidents,
         { invalid: 'data' },
+        {
+          type: 'TEST_INCIDENT',
+          details: { test: true },
+          timestamp: new Date().toISOString(),
+          url: 'http://test.com',
+          userAgent: 'test-agent',
+          severity: 'LOW'
+        },
         null,
-        'string'
+        'string',
+        undefined,
+        { type: 'MISSING_FIELDS' } // Missing required fields
       ];
+      
       sessionStorage.setItem('securityIncidents', JSON.stringify(mixedData));
       
-      // Create new monitor to test validation
-      const monitor2 = new SecurityMonitor();
-      const incidents = monitor2.getIncidents();
+      // Create monitor and test validation
+      const monitor = new SecurityMonitor();
+      const incidents = monitor.getIncidents();
       
-      // Should only return valid incident(s)
-      expect(incidents.length).toBeGreaterThan(0);
-      incidents.forEach(incident => {
-        expect(incident).toHaveProperty('type');
-        expect(incident).toHaveProperty('timestamp');
-        expect(incident).toHaveProperty('url');
-        expect(incident).toHaveProperty('userAgent');
-      });
+      // Should only return the one valid incident
+      expect(incidents.length).toBe(1);
+      expect(incidents[0].type).toBe('TEST_INCIDENT');
+      expect(incidents[0].details).toEqual({ test: true });
+      expect(incidents[0]).toHaveProperty('timestamp');
+      expect(incidents[0]).toHaveProperty('url');
+      expect(incidents[0]).toHaveProperty('userAgent');
     });
   });
 });

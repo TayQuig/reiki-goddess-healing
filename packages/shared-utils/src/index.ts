@@ -6,6 +6,5 @@ export * from "./constants";
 // Business data structures
 export * from "./dataStructures/businessDataTemplates";
 
-// Security utilities
-export * from "./security-validation";
+// Security utilities - Export from security/ folder only (not security-validation)
 export * from "./security";

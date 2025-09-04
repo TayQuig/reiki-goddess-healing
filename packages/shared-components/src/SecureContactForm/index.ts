@@ -1,2 +1,1 @@
-export { SecureContactForm } from './SecureContactForm';
-export type { SecureContactFormProps, ContactFormData } from './SecureContactForm';
+export { SecureContactForm, type SecureContactFormProps, type ContactFormData } from './SecureContactForm';

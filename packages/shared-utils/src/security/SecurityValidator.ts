@@ -125,10 +125,41 @@ export class SecurityValidator {
   static validateEmail(email: string): ValidationResult {
     const basicValidation = this.validateContactFormField('email', email);
     
-    // Additional email-specific validation
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    // Trim whitespace
+    const trimmedEmail = email.trim();
     
-    if (!emailRegex.test(email)) {
+    // More strict email regex that handles edge cases
+    // This regex ensures:
+    // - Has content before @
+    // - Has @ symbol
+    // - Has content after @
+    // - Has at least one dot after @
+    // - No consecutive dots
+    // - Valid characters only (including +)
+    const emailRegex = /^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
+    
+    if (!emailRegex.test(trimmedEmail)) {
+      basicValidation.risks.push({
+        level: 'HIGH',
+        type: 'INVALID_EMAIL',
+        message: 'Please enter a valid email address.'
+      });
+    }
+    
+    // Additional checks for edge cases
+    if (trimmedEmail.includes('..')) {
+      basicValidation.risks.push({
+        level: 'HIGH',
+        type: 'INVALID_EMAIL',
+        message: 'Email cannot contain consecutive dots.'
+      });
+    }
+    
+    // Check for invalid formats like "test@" or "@example.com"
+    if (!trimmedEmail.includes('@') || 
+        trimmedEmail.startsWith('@') || 
+        trimmedEmail.endsWith('@') ||
+        trimmedEmail.split('@').length !== 2) {
       basicValidation.risks.push({
         level: 'HIGH',
         type: 'INVALID_EMAIL',
@@ -138,7 +169,7 @@ export class SecurityValidator {
     
     // Check for disposable email domains
     const disposableDomains = ['tempmail', 'throwaway', 'guerrilla', '10minute', 'mailinator'];
-    const domain = email.split('@')[1]?.toLowerCase() || '';
+    const domain = trimmedEmail.split('@')[1]?.toLowerCase() || '';
     
     if (disposableDomains.some(d => domain.includes(d))) {
       basicValidation.risks.push({
@@ -154,6 +185,7 @@ export class SecurityValidator {
     return {
       ...basicValidation,
       isValid,
+      sanitizedValue: trimmedEmail,
       riskLevel: this.calculateOverallRisk(basicValidation.risks)
     };
   }
@@ -164,24 +196,57 @@ export class SecurityValidator {
   static validatePhone(phone: string): ValidationResult {
     const basicValidation = this.validateContactFormField('phone', phone);
     
-    // Remove common formatting characters for validation
-    const cleaned = phone.replace(/[\s\-\(\)\.]/g, '');
+    // Remove whitespace and common separators for validation
+    const cleaned = phone.replace(/[\s\-(.)]/g, '');
     
-    // Check if it's a valid phone number length
-    if (cleaned.length < 10 || cleaned.length > 15) {
+    // Check for minimum length (at least 7 digits for most valid phone numbers)
+    if (cleaned.length < 7) {
       basicValidation.risks.push({
-        level: 'MEDIUM',
+        level: 'HIGH',
         type: 'INVALID_PHONE_LENGTH',
-        message: 'Please enter a valid phone number.'
+        message: 'Phone number is too short.'
       });
     }
     
-    // Check if it contains only numbers and valid prefixes
-    if (!/^\+?\d+$/.test(cleaned)) {
+    // Check for maximum length (no more than 15 digits per ITU-T recommendation)
+    if (cleaned.length > 15) {
+      basicValidation.risks.push({
+        level: 'HIGH',
+        type: 'INVALID_PHONE_LENGTH',
+        message: 'Phone number is too long.'
+      });
+    }
+    
+    // Phone regex that allows:
+    // - Optional + at the start
+    // - Only digits after that
+    // - No letters or special characters
+    const phoneRegex = /^\+?[0-9]+$/;
+    
+    if (!phoneRegex.test(cleaned)) {
       basicValidation.risks.push({
         level: 'HIGH',
         type: 'INVALID_PHONE_FORMAT',
-        message: 'Phone number should contain only numbers.'
+        message: 'Phone number can only contain digits and an optional leading +.'
+      });
+    }
+    
+    // Check for multiple + signs
+    const plusCount = (cleaned.match(/\+/g) || []).length;
+    if (plusCount > 1) {
+      basicValidation.risks.push({
+        level: 'HIGH',
+        type: 'INVALID_PHONE_FORMAT',
+        message: 'Phone number can only have one + sign at the beginning.'
+      });
+    }
+    
+    // Check that + is only at the beginning if present
+    if (cleaned.includes('+') && !cleaned.startsWith('+')) {
+      basicValidation.risks.push({
+        level: 'HIGH',
+        type: 'INVALID_PHONE_FORMAT',
+        message: 'Phone number can only have + at the beginning.'
       });
     }
     

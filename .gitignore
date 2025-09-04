@@ -105,6 +105,7 @@ Thumbs.db
 test-results/
 playwright-report/
 test-results.xml
+test-results.json
 
 # Playwright
 /playwright/.cache/
