@@ -16,7 +16,10 @@ export type { FooterSectionProps } from "./FooterSection";
 // Foundation utility components (keeping these)
 export { default as Button } from "./Button";
 export { SecureContactForm } from "./SecureContactForm/index";
-export type { SecureContactFormProps, ContactFormData } from "./SecureContactForm/index";
+export type {
+  SecureContactFormProps,
+  ContactFormData,
+} from "./SecureContactForm/index";
 export {
   PrivacyCompliance,
   CookieConsentBanner,
@@ -67,6 +70,16 @@ export type { AnimatedSectionProps } from "./AnimatedSection";
 
 export { LazyImage } from "./LazyImage";
 export type { LazyImageProps } from "./LazyImage";
+
+// Contact page components
+export { ContactInfoCard } from "./ContactInfoCard";
+export type { ContactInfoCardProps } from "./ContactInfoCard";
+
+export { FigmaContactForm } from "./FigmaContactForm";
+export type {
+  FigmaContactFormProps,
+  FigmaContactFormData,
+} from "./FigmaContactForm";
 
 // Complete page compositions
 export { Homepage } from "./Homepage";
