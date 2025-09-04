@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
+import tailwindcss from "tailwindcss";
 
 export const createViteConfig = (options: {
   entry: string;
@@ -14,7 +15,7 @@ export const createViteConfig = (options: {
     base: options.base || "./",
     css: {
       postcss: {
-        plugins: [require("tailwindcss")()],
+        plugins: [tailwindcss()],
       },
     },
     resolve: {

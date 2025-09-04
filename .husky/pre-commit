@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # Security scan for sensitive data
-node scripts/security-scan.js
+node scripts/security-scan.cjs
 
 # Run lint-staged for changed files
 npx lint-staged
