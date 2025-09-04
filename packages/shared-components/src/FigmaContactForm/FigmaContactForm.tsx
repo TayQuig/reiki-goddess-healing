@@ -81,11 +81,16 @@ export const FigmaContactForm: React.FC<FigmaContactFormProps> = ({
           }
           break;
         case "firstName":
-        case "lastName":
-          if (!value && name === "firstName") {
+          if (!value) {
             return "First name is required";
           }
-          if (!value && name === "lastName") {
+          result = SecurityValidator.validateContactFormField(
+            "name",
+            value as string
+          );
+          break;
+        case "lastName":
+          if (!value) {
             return undefined; // Last name is optional
           }
           result = SecurityValidator.validateContactFormField(
@@ -100,7 +105,7 @@ export const FigmaContactForm: React.FC<FigmaContactFormProps> = ({
           );
       }
 
-      if (!result.isValid) {
+      if (!result.isValid && result.risks.length > 0) {
         // Log security incidents
         result.risks.forEach((risk) => {
           if (risk.level === "HIGH") {

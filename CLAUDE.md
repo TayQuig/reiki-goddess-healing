@@ -18,16 +18,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Context Management & Documentation
 
-**CHECK CONTEXT USAGE:** Monitor throughout session - aim to refresh at 75-80%
-
-**MANDATORY: When approaching 75-80% context usage:**
+**MANDATORY: Regular Documentation Updates:**
 
 1. Update `/context_recovery.md` with current progress and status
 2. Update `/todo_list.md` with session accomplishments
 3. Update `/testing-strategy.md` if testing work was done
 4. Run test summary generator if test failures exist
 5. Commit all work with descriptive conventional commit messages
-6. Prepare for context refresh by documenting next steps
+6. Document next steps for future sessions
 
 **Starting a New Session:**
 1. Read @context_recovery.md first to understand current state
@@ -107,7 +105,7 @@ npm run build           # Build all packages
 
 This repository is currently undergoing migration from separate React applications to a unified monorepo structure. The project represents "The Reiki Goddess Healing" business website.
 
-**Migration Status: Phase 3.5 In Progress - Testing Infrastructure (100 tests passing)**
+**Migration Status: Phase 4B In Progress - Contact Page Enhancement & Test Fixes (506/509 tests passing - 99.4%)**
 
 ### Original Structure
 
@@ -458,7 +456,6 @@ PageName/
 1. **`/context_recovery.md`** - Session context and progress tracking
    - Update when starting/ending sessions
    - Document major accomplishments
-   - Track context usage percentage
    - Note blockers or important decisions
 
 2. **`/todo_list.md`** - Implementation plan and task tracking

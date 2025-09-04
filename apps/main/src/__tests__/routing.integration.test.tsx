@@ -43,7 +43,7 @@ describe("Routing Integration Tests", () => {
       
       await waitFor(() => {
         // Check for About page content
-        expect(screen.getByText(/about page/i)).toBeInTheDocument();
+        expect(screen.getByText("About page")).toBeInTheDocument();
       });
     });
 
@@ -55,7 +55,7 @@ describe("Routing Integration Tests", () => {
       await user.click(servicesLinks[0]);
       
       await waitFor(() => {
-        expect(screen.getByText(/services page/i)).toBeInTheDocument();
+        expect(screen.getByText("Services page")).toBeInTheDocument();
       });
     });
 
@@ -71,7 +71,7 @@ describe("Routing Integration Tests", () => {
       await user.click(servicesLinks[0]);
       
       await waitFor(() => {
-        expect(screen.getByText(/services page/i)).toBeInTheDocument();
+        expect(screen.getByText("Services page")).toBeInTheDocument();
       });
       
       // Navigate to About
@@ -79,7 +79,7 @@ describe("Routing Integration Tests", () => {
       await user.click(aboutLinks[0]);
       
       await waitFor(() => {
-        expect(screen.getByText(/about page/i)).toBeInTheDocument();
+        expect(screen.getByText("About page")).toBeInTheDocument();
       });
     });
   });
@@ -90,7 +90,7 @@ describe("Routing Integration Tests", () => {
       render(<App />);
       
       expect(screen.getByText(/404/)).toBeInTheDocument();
-      expect(screen.getByText(/page not found/i)).toBeInTheDocument();
+      expect(screen.getByText("Page Not Found")).toBeInTheDocument();
     });
 
     it("should navigate back to home from 404 page", async () => {
@@ -101,7 +101,7 @@ describe("Routing Integration Tests", () => {
       expect(screen.getByText(/404/)).toBeInTheDocument();
       
       // Find and click the link to go home
-      const homeLink = screen.getByRole("link", { name: /go home/i });
+      const homeLink = screen.getByRole("link", { name: /return home/i });
       await user.click(homeLink);
       
       await waitFor(() => {
@@ -122,8 +122,8 @@ describe("Routing Integration Tests", () => {
       const homeLinks = navLinks.filter(link => link.textContent === "Home");
       expect(homeLinks.length).toBeGreaterThan(0);
       
-      // The first Home link should have the active class
-      expect(homeLinks[0]).toHaveClass("border-b-2");
+      // The first Home link should have the active styling
+      expect(homeLinks[0]).toHaveStyle({ textDecoration: "underline" });
     });
 
     it("should update active state when navigating", async () => {
@@ -138,11 +138,11 @@ describe("Routing Integration Tests", () => {
         // About should now have active styling
         const navLinks = screen.getAllByRole("link");
         const aboutNavLinks = navLinks.filter(link => link.textContent === "About");
-        expect(aboutNavLinks[0]).toHaveClass("border-b-2");
+        expect(aboutNavLinks[0]).toHaveStyle({ textDecoration: "underline" });
         
         // Home should no longer be active
         const homeNavLinks = navLinks.filter(link => link.textContent === "Home");
-        expect(homeNavLinks[0]).not.toHaveClass("border-b-2");
+        expect(homeNavLinks[0]).toHaveStyle({ textDecoration: "none" });
       });
     });
   });
@@ -200,7 +200,7 @@ describe("Routing Integration Tests", () => {
       
       // Page should transition smoothly (mocked in our case)
       await waitFor(() => {
-        expect(screen.getByText(/about page/i)).toBeInTheDocument();
+        expect(screen.getByText("About page")).toBeInTheDocument();
       });
     });
   });
@@ -215,7 +215,7 @@ describe("Routing Integration Tests", () => {
       await user.click(aboutLinks[0]);
       
       await waitFor(() => {
-        expect(screen.getByText(/about page/i)).toBeInTheDocument();
+        expect(screen.getByText("About page")).toBeInTheDocument();
       });
       
       // Go back using browser history

@@ -1,8 +1,9 @@
+import React from "react";
 import { describe, it, expect, beforeAll, afterEach, vi } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MobileHeader } from "./MobileHeader";
-import type { MobileHeaderProps, NavigationItem } from "./types";
+import "@testing-library/jest-dom";
+import { MobileHeader, type MobileHeaderProps } from "./MobileHeader";
 import { RouterWrapper } from "../test-utils/RouterWrapper";
 
 // Mock requestAnimationFrame to run synchronously in tests
@@ -232,7 +233,9 @@ describe("MobileHeader Component", () => {
 
       const aboutLink = screen.getByRole("link", { name: /about/i });
       expect(aboutLink).toHaveClass("text-brand-blue");
-      expect(aboutLink.parentElement).toHaveClass("before:scale-x-100");
+      // Check that the active indicator div exists
+      const activeIndicator = aboutLink.parentElement?.querySelector('div.before\\:scale-x-100');
+      expect(activeIndicator).toBeInTheDocument();
     });
 
     it("should display logo in menu", async () => {
@@ -242,7 +245,9 @@ describe("MobileHeader Component", () => {
       // Open menu using helper
       await openMobileMenu(user);
 
-      const logo = screen.getByAlt("The Reiki Goddess Healing");
+      // Get the logo specifically inside the mobile menu
+      const mobileMenu = screen.getByRole("navigation");
+      const logo = within(mobileMenu).getByAltText("The Reiki Goddess Healing");
       expect(logo).toBeInTheDocument();
       expect(logo).toHaveAttribute("src", "/img/logo.png");
     });
@@ -322,11 +327,12 @@ describe("MobileHeader Component", () => {
     it("should be hidden on desktop", () => {
       renderWithRouter(<MobileHeader {...defaultProps} />);
       
+      // The container div should have lg:hidden class
       const mobileHeaderContainer = screen.getByRole("button", { 
         name: /toggle menu/i 
-      }).parentElement?.parentElement;
+      }).closest('.lg\\:hidden');
       
-      expect(mobileHeaderContainer).toHaveClass("lg:hidden");
+      expect(mobileHeaderContainer).toBeInTheDocument();
     });
   });
 });

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NavigationItem } from "./Header";
 
 export interface MobileHeaderProps {
@@ -17,19 +17,21 @@ export interface MobileHeaderProps {
  */
 export const MobileHeader: React.FC<MobileHeaderProps> = ({
   logo = {
-    src: "/img/reiki-goddess-logo.png",
+    src: "/img/logo.png",
     alt: "The Reiki Goddess Healing",
   },
   navigationItems = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Blog", href: "/blog" },
+    { label: "Events", href: "/events" },
     { label: "Contact", href: "/contact" },
+    { label: "Blog", href: "/blog" },
   ],
   className = "",
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
   const menuRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -99,15 +101,16 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
       }
     };
 
-    menuRef.current.addEventListener('keydown', handleTabKey);
+    const menu = menuRef.current;
+    menu.addEventListener('keydown', handleTabKey);
     
     return () => {
-      menuRef.current?.removeEventListener('keydown', handleTabKey);
+      menu.removeEventListener('keydown', handleTabKey);
     };
   }, [isMenuOpen]);
 
   return (
-    <>
+    <div className="lg:hidden">
       {/* Mobile Header Bar */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 bg-[#FFFBF5] border-b border-gray-100 ${className}`}
@@ -172,24 +175,44 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
       <nav
         ref={menuRef}
         id="mobile-menu"
+        aria-label="Mobile navigation"
         className={`fixed top-0 right-0 h-full w-72 bg-[#FFFBF5] z-45 transform transition-transform duration-300 shadow-xl ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="pt-20 px-6">
+          {/* Logo in menu */}
+          <div className="mb-8 text-center">
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              className="h-16 w-auto mx-auto"
+            />
+          </div>
+
           {/* Navigation Links */}
           <ul className="space-y-4">
-            {navigationItems.map((item, index) => (
-              <li key={index}>
-                <Link
-                  to={item.href}
-                  onClick={closeMenu}
-                  className="block py-3 px-4 text-lg font-medium text-[#0205B7] hover:bg-blue-50 rounded-lg transition-colors"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {navigationItems.map((item, index) => {
+              const isActive = location.pathname === item.href;
+              return (
+                <li key={index} className="relative">
+                  <Link
+                    to={item.href}
+                    onClick={closeMenu}
+                    className={`block py-3 px-4 text-lg font-medium rounded-lg transition-colors ${
+                      isActive
+                        ? "text-brand-blue"
+                        : "text-[#0205B7] hover:bg-blue-50"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {isActive && (
+                    <div className="absolute inset-0 before:content-[''] before:absolute before:bottom-0 before:left-4 before:right-4 before:h-0.5 before:bg-brand-blue before:scale-x-100" />
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           {/* CTA Button */}
@@ -197,7 +220,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             <Link
               to="/contact"
               onClick={closeMenu}
-              className="block w-full py-3 px-4 text-center text-white bg-[#0205B7] rounded-full font-medium hover:bg-blue-700 transition-colors"
+              className="block w-full py-3 px-4 text-center text-white bg-brand-blue rounded-full font-medium hover:bg-blue-700 transition-colors"
             >
               Book a Session
             </Link>
@@ -205,15 +228,15 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
 
           {/* Contact Info */}
           <div className="mt-8 text-sm text-gray-600">
-            <p className="mb-2">📍 Roy, WA</p>
-            <p className="mb-2">📧 hello@reikigoddesshealing.com</p>
-            <p>📞 (555) 123-4567</p>
+            <p className="font-semibold mb-2">Get in Touch</p>
+            <p className="mb-2">(555) 123-4567</p>
+            <p>contact@reikigoddesshealing.com</p>
           </div>
         </div>
       </nav>
 
       {/* Spacer to prevent content from going under fixed header */}
       <div className="h-[60px]" />
-    </>
+    </div>
   );
 };

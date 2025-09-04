@@ -36,11 +36,11 @@ vi.mock("@reiki-goddess/shared-utils", () => ({
     })),
     isHighRisk: vi.fn(() => false),
   },
-  FormRateLimit: vi.fn().mockImplementation(() => ({
+  FormRateLimit: vi.fn(() => ({
     checkLimit: () => ({ allowed: true }),
     record: vi.fn(),
   })),
-  SecurityMonitor: vi.fn().mockImplementation(() => ({
+  SecurityMonitor: vi.fn(() => ({
     log: vi.fn(),
   })),
 }));
@@ -89,7 +89,8 @@ describe("FigmaContactForm", () => {
     it("should render with correct placeholder text", () => {
       render(<FigmaContactForm onSubmit={mockSubmit} />);
 
-      expect(screen.getByPlaceholderText("Enter here")).toBeInTheDocument();
+      const enterHerePlaceholders = screen.getAllByPlaceholderText("Enter here");
+      expect(enterHerePlaceholders).toHaveLength(4); // firstName, lastName, email, phone
       expect(
         screen.getByPlaceholderText("write your message here")
       ).toBeInTheDocument();
