@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
-export const createVitestConfig = (packagePath: string) => {
+export const createVitestConfig = (_packagePath: string) => {
   return defineConfig({
     plugins: [react()],
     test: {

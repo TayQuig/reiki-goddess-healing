@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Design system and styling configuration for The Reiki Goddess Healing website",
   "private": true,
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -19,6 +20,6 @@
   },
   "devDependencies": {
     "typescript": "^5.3.2",
-    "vitest": "^1.0.0"
+    "vitest": "^3.2.4"
   }
 }
