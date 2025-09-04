@@ -162,7 +162,13 @@ const ContactPage: React.FC = () => {
               </div>
 
               {/* Secure Contact Form Component */}
-              <SecureContactForm />
+              <SecureContactForm 
+                onSubmit={async (data) => {
+                  // TODO: Implement actual form submission
+                  console.log('Contact form submitted:', data);
+                  await new Promise(resolve => setTimeout(resolve, 2000));
+                }}
+              />
             </div>
           </div>
         </div>

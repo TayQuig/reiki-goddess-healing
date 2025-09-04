@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 
@@ -290,8 +290,8 @@ describe("App Routing Integration Tests", () => {
       const user = userEvent.setup();
       render(<App />);
       
-      // Get initial page element
-      const homePage = screen.getByTestId("page-home");
+      // Verify we start on home page
+      expect(screen.getByTestId("page-home")).toBeInTheDocument();
       
       // Navigate to About
       await user.click(screen.getByRole("link", { name: /about/i }));

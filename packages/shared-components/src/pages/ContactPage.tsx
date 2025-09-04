@@ -66,7 +66,14 @@ export const ContactPage: React.FC = () => {
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
               Send a Message
             </h2>
-            <SecureContactForm />
+            <SecureContactForm 
+              onSubmit={async (data) => {
+                // TODO: Implement actual form submission
+                console.log('Contact form submitted:', data);
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 2000));
+              }}
+            />
           </div>
         </div>
       </div>

@@ -184,7 +184,16 @@ export const SecureContactForm: React.FC<SecureContactFormProps> = ({
     }
     
     // Check for high-risk content
-    if (SecurityValidator.isHighRisk(formData as Record<string, string>)) {
+    const dataToCheck: Record<string, string> = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message
+    };
+    if (formData.phone) {
+      dataToCheck.phone = formData.phone;
+    }
+    
+    if (SecurityValidator.isHighRisk(dataToCheck)) {
       monitor.current.log('HIGH_RISK_SUBMISSION_BLOCKED', {
         fields: Object.keys(formData)
       });
@@ -258,7 +267,7 @@ export const SecureContactForm: React.FC<SecureContactFormProps> = ({
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
           <p className="text-green-800 font-medium">Thank you for your message!</p>
           <p className="text-green-700 text-sm mt-1">
-            We'll get back to you within 24-48 hours.
+            We&apos;ll get back to you within 24-48 hours.
           </p>
         </div>
       )}

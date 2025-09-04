@@ -47,8 +47,8 @@ global.IntersectionObserver = class IntersectionObserver {
   }
 };
 
-// Mock scrollTo
-window.scrollTo = vi.fn();
+// Mock scrollTo with both signatures
+window.scrollTo = vi.fn(() => {}) as any;
 
 // Mock requestAnimationFrame for better test performance
 global.requestAnimationFrame = (cb) => {
