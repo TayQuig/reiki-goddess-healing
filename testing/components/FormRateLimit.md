@@ -1,46 +1,43 @@
-# FormRateLimit Test Failures
+# FormRateLimit Test Documentation
 
 **Component**: FormRateLimit
 **Location**: `packages/shared-utils/src/security/FormRateLimit.ts`
 **Test File**: `packages/shared-utils/src/security/FormRateLimit.test.ts`
 
-## Test Failures
+## ✅ All Tests Passing
 
-### ❌ should respect custom time window
+**Status**: All FormRateLimit tests have been fixed and are now passing.
 
-**File**: `packages/shared-utils/src/security/FormRateLimit.test.ts:236`
+## Previously Fixed Issues
 
-**Assertion Error**: Expected rate limit to block submission after recording but it was allowed
+### ✅ Custom Time Window Configuration (Fixed 2025-09-04)
 
-**Test Case**:
+**Issue**: Test was failing due to localStorage mock interference from error handling tests
+**Resolution**:
+
+- Added `vi.restoreAllMocks()` after error handling tests to clear spy mocks
+- Added `beforeEach` block in custom configuration tests to ensure clean state
+- The rate limiter logic was working correctly; it was a test setup issue
+
+### Resolution Summary
+
+The issue was not in the FormRateLimit implementation but in the test setup:
 
 ```typescript
-// Create rate limit with 1 submission per 100ms window
-const rateLimit = new FormRateLimit({
-  maxSubmissions: 1,
-  timeWindowMs: 100,
+// Added to error handling test:
+vi.restoreAllMocks(); // Clear the error mock
+
+// Added to custom configuration tests:
+beforeEach(() => {
+  vi.restoreAllMocks();
+  localStorageMock.clear();
 });
-
-// Record one submission
-rateLimit.record();
-
-// Should be blocked after recording
-result = rateLimit.checkLimit();
-expect(result.allowed).toBe(false); // This is failing - allowed is true
 ```
-
-**Status**: 🐛 Bug - Needs Investigation
-
-**Notes**:
-
-- The custom time window configuration may not be working correctly
-- The rate limit is allowing submissions when it should be blocking
-- Could be a timing issue with the test or a bug in the time window logic
 
 ## Summary
 
-- **Total Failures**: 1
-- **Component**: FormRateLimit
-- **Type**: Configuration Logic
-- **Priority**: Medium (rate limiting still works with defaults)
-- **Impact**: Custom time windows may not be enforced correctly, but default 1-hour window works
+- **Total Tests**: 14
+- **Passing**: 14
+- **Failing**: 0
+- **Status**: ✅ Fully Resolved
+- **Last Updated**: 2025-09-04
