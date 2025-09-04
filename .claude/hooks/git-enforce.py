@@ -130,20 +130,20 @@ def main():
     branch = get_current_branch()
     changes = check_commit_threshold()
     
-    # If we have significant uncommitted changes, prompt for commit
+    # If we have significant uncommitted changes, notify but don't block
     if changes["should_commit"]:
         commit_msg = generate_commit_message(changes)
         
-        prompt = f"""Git Commit Required - Threshold Reached
+        notification = f"""📝 Git Commit Reminder - Threshold Reached
 
-You have {changes['total_changes']} uncommitted changes that should be committed:
+You have {changes['total_changes']} uncommitted changes:
 - Modified files: {changes['modified']}
 - New files: {changes['new']}
 - Deleted files: {changes['deleted']}
 {'- Test files detected' if changes['has_tests'] else ''}
 {'- Documentation updated' if changes['has_docs'] else ''}
 
-Please commit these changes now using:
+Suggested commit command when you're ready:
 
 ```bash
 git add -A
@@ -158,15 +158,17 @@ git commit -m "{commit_msg}
 Co-Authored-By: Claude <noreply@anthropic.com>"
 ```
 
-After committing, you may continue with the next task."""
+Note: This is just a reminder. Work continues normally. Commit when the user explicitly requests it."""
         
-        # Send to Claude to execute
+        # Send notification to stderr so it appears but doesn't block
+        print(notification, file=sys.stderr)
+        
+        # Log the suggestion for reference
         output = {
-            "decision": "block",
-            "reason": prompt
+            "decision": "continue",
+            "notification": "Commit threshold reached - see reminder above"
         }
         print(json.dumps(output))
-        sys.exit(0)
     
     # Check for feature branch recommendation
     if branch == "main" and changes["total_changes"] > 10:
