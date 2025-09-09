@@ -6,13 +6,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **These files provide essential context and should be referenced regularly:**
 
-- @context_recovery.md - Current progress, session history, and handoff information
-- @todo_list.md - Task tracking, phase progress, and session accomplishments  
-- @testing-strategy.md - Testing coverage metrics and implementation roadmap
-- @testing/TESTING_SUMMARY.md - Current test failures and bug documentation
-- @testing/CONTEXT_REFRESH_SUMMARY.md - Priority bugs and testing status (if exists)
+### Dynamic State (Changes Frequently)
+- @context_recovery.md - **START HERE** - Current working state, branch info, and session handoffs
+- @todo_list.md - Active tasks, current phase progress, and session accomplishments  
+- @testing/TESTING_SUMMARY.md - Latest test run results and failure details
+
+### Project Knowledge (Stable References)
 - @ARCHITECTURE.md - Technical patterns, code conventions, and architectural decisions
 - @style-guide.md - Visual design patterns, brand guidelines, and UI standards
+- @testing-strategy.md - Testing philosophy and coverage goals
+- @testing/CONTEXT_REFRESH_SUMMARY.md - Testing bug history (if exists)
+
+## 📋 Document Ownership
+
+| Information Type | Owner Document | Update Frequency |
+|-----------------|----------------|------------------|
+| Current branch/status | context_recovery.md | Every session |
+| Test results | TESTING_SUMMARY.md | After test runs |
+| Active tasks | todo_list.md | During work |
+| Architecture patterns | ARCHITECTURE.md | When discovered |
+| Design specs | style-guide.md | Rarely |
+| Project structure | CLAUDE.md | Rarely |
 
 ## 🚨 CRITICAL PROTOCOLS - ALWAYS FOLLOW
 
@@ -105,7 +119,7 @@ npm run build           # Build all packages
 
 This repository is currently undergoing migration from separate React applications to a unified monorepo structure. The project represents "The Reiki Goddess Healing" business website.
 
-**Migration Status: Phase 4B In Progress - Contact Page Enhancement & Test Fixes (506/509 tests passing - 99.4%)**
+**Migration Status**: See @context_recovery.md for current phase and progress
 
 ### Original Structure
 

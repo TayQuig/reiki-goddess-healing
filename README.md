@@ -22,10 +22,12 @@ reiki-goddess-healing/
 │   ├── contact/                # Contact page designs
 │   └── blog/                   # Blog page designs
 │
-├── 📚 docs/                    # Documentation
+├── 📚 docs/                    # All project documentation
+│   ├── project/                # Project management (CLAUDE.md, todo, context)
+│   ├── design/                 # Design guides and style docs
+│   ├── testing/                # Test strategy and results
 │   ├── migration/              # Migration guides and history
 │   ├── prompts/                # AI prompts and templates
-│   ├── learning-system/        # Learning system docs
 │   ├── deployment/             # Deployment guides
 │   └── architecture/           # Architecture decisions
 │
@@ -40,11 +42,13 @@ reiki-goddess-healing/
 │   ├── vitest.config.shared.ts # Shared test config
 │   └── playwright.config.ts    # E2E test config
 │
-└── 📁 Legacy Reference         # Original Anima exports (reference only)
-    ├── About/                  # Original About page
-    ├── Contact/                # Original Contact page
-    ├── Home Page/              # Original Homepage
-    └── BLog/                   # Original Blog page
+├── 📁 legacy/                  # Original Anima exports (being migrated)
+│   ├── About/                  # Original About page
+│   ├── Contact/                # Original Contact page
+│   ├── Home Page/              # Original Homepage
+│   └── BLog/                   # Original Blog page
+│
+└── 🗄️ .archive/                # Archived experimental code
 ```
 
 ## 🚀 Quick Start
@@ -136,9 +140,12 @@ npm run clean
 
 ## 📝 Documentation
 
-- **[CLAUDE.md](./CLAUDE.md)** - AI assistant instructions
-- **[Migration Guide](./docs/migration/)** - Project migration history
-- **[Architecture](./docs/architecture/)** - Technical decisions
+- **[Project Status](./docs/project/context_recovery.md)** - Current status and context
+- **[Todo List](./docs/project/todo_list.md)** - Development tasks and progress
+- **[CLAUDE.md](./docs/project/CLAUDE.md)** - AI assistant instructions
+- **[Architecture](./docs/project/ARCHITECTURE.md)** - Technical patterns and decisions
+- **[Style Guide](./docs/design/style-guide.md)** - Visual design standards
+- **[Testing](./docs/testing/)** - Test strategy and results
 - **[Component Guide](./packages/shared-components/README.md)** - Component documentation
 
 ## 🔄 Current Status

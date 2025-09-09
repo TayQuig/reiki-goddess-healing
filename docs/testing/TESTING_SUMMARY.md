@@ -1,40 +1,50 @@
 # Testing Summary
 
 **Generated**: 2025-09-04
-**Last Updated**: 2025-09-04 (Current Session - Test Fixes)
+**Last Updated**: 2025-09-04 (Documentation Consolidation)
+**Last Test Run**: 2025-09-04 13:18:06
 
-**Total Tests**: 509 (430 in components + 79 in utils)
-**Passing Tests**: 506
-**Failing Tests**: 3
-**Success Rate**: 99.4%
+**Total Tests**: 528 (43 in apps/main + 430 in components + 79 in utils)
+**Passing Tests**: 485
+**Failing Tests**: 24
+**Success Rate**: 91.9%
+
+## Test Breakdown by Package
+
+| Package               | Total | Passing | Failing | Status      |
+| -------------------- | ----- | ------- | ------- | ----------- |
+| apps/main            | 43    | 19      | 24      | 🔴 Has Bugs |
+| shared-components    | 430   | 430     | 0       | ✅ All Pass |
+| shared-utils         | 79    | 79      | 0       | ✅ All Pass |
 
 ## Component Bug Count
 
-| Component         | Bug Count | Status      |
-| ----------------- | --------- | ----------- |
-| EXAMPLE_Header    | 3         | 🔴 Has Bugs |
-| SecurityValidator | 0         | ✅ Fixed    |
-| FormRateLimit     | 0         | ✅ Fixed    |
-| SecurityMonitor   | 0         | ✅ Fixed    |
-| Routing Tests     | 0         | ✅ Fixed    |
-| MobileHeader      | 0         | ✅ Fixed    |
-| FigmaContactForm  | 3         | 🔴 Has Bugs |
+| Component                         | Bug Count | Location      | Status      |
+| --------------------------------- | --------- | ------------- | ----------- |
+| App.integration.test.tsx          | 24        | apps/main     | 🔴 Has Bugs |
+| All shared-components             | 0         | shared-components | ✅ All Pass |
+| All shared-utils                  | 0         | shared-utils  | ✅ All Pass |
+
+**Note**: The failing tests are in App.integration.test.tsx which expects contact form elements that don't exist in the current implementation. See testing/App.integration.md for details.
 
 ## Recent Updates
 
-### Test Fixing Session (2025-09-04 - Current)
+### Documentation Consolidation (2025-09-04 - Current Session)
 
-- ✅ Fixed all 12 MobileHeader test failures
-  - Added router context with useLocation hook
-  - Added logo in mobile menu
-  - Fixed active route highlighting
-  - Added missing aria-label
-  - Fixed lg:hidden responsive container check
-- ✅ Fixed all 7 Routing Integration test failures  
-  - Updated assertions to match implementation
-  - Changed from CSS class checks to inline style checks
-  - Fixed case-sensitive text assertions
-- 🚧 3 FigmaContactForm tests still failing (async handling issues)
+- 🔍 Discovered test count discrepancy (actual: 528 tests, not 509)
+- 📊 Updated test status to reflect actual results:
+  - apps/main: 24 failing tests (all in FigmaContactForm)
+  - shared-components: 100% passing (430 tests)
+  - shared-utils: 100% passing (79 tests)
+- 📝 Identified duplicate FigmaContactForm in apps/main causing failures
+- 🎯 Overall success rate: 91.9% (485/528 passing)
+
+### Previous Test Fixing Session (2025-09-04 - Earlier)
+
+- ✅ Fixed all MobileHeader test failures in shared-components
+- ✅ Fixed all Routing Integration test failures  
+- ✅ Fixed FigmaContactForm tests in shared-components
+- ⚠️ Did not fix duplicate tests in apps/main (discovered during consolidation)
 
 ### Vitest v3 Update (2025-09-04 - Earlier)
 
