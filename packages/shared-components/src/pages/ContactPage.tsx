@@ -9,38 +9,45 @@ import { FigmaContactForm } from "../FigmaContactForm";
  */
 export const ContactPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-cream overflow-hidden relative">
-      {/* Smoke effect left */}
+    <div className="min-h-screen bg-gray-50 overflow-hidden relative">
+      {/* Main Content - Elevated Container */}
       <div
-        className="absolute opacity-20 pointer-events-none"
+        className="relative mx-auto overflow-hidden"
         style={{
-          width: "808px",
-          height: "808px",
-          left: "-180px",
-          top: "792px",
-          backgroundImage: `url('/img/fb8b1754eb9a50a6cfaec02f5ef0c9bc3.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          maxWidth: "1440px",
+          margin: "0 auto",
+          backgroundColor: "#FFFBF5",
+          boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)",
         }}
-      />
+      >
+        {/* Smoke effect left */}
+        <div
+          className="absolute opacity-20 pointer-events-none"
+          style={{
+            width: "808px",
+            height: "808px",
+            left: "-180px",
+            top: "792px",
+            backgroundImage: `url('/img/fb8b1754eb9a50a6cfaec02f5ef0c9bc3.png')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
 
-      {/* Smoke effect right */}
-      <div
-        className="absolute opacity-20 pointer-events-none"
-        style={{
-          width: "808px",
-          height: "808px",
-          right: "-404px",
-          top: "749px",
-          transform: "rotate(180deg) scaleY(-1)",
-          backgroundImage: `url('/img/fb8b1754eb9a50a6cfaec02f5ef0c9bc3.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-
-      {/* Main Content */}
-      <div className="relative z-10">
+        {/* Smoke effect right */}
+        <div
+          className="absolute opacity-20 pointer-events-none"
+          style={{
+            width: "808px",
+            height: "808px",
+            right: "-404px",
+            top: "749px",
+            transform: "rotate(180deg) scaleY(-1)",
+            backgroundImage: `url('/img/fb8b1754eb9a50a6cfaec02f5ef0c9bc3.png')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
         {/* Hero Section */}
         <AnimatedSection>
           <div className="text-center pt-[193px] pb-20">
@@ -77,11 +84,48 @@ export const ContactPage: React.FC = () => {
 
         {/* Contact Info Cards */}
         <AnimatedSection delay={0.2}>
-          <div className="max-w-[1440px] mx-auto px-[66px] mt-[200px] mb-20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="max-w-[1440px] mx-auto px-[66px] mt-[200px] mb-20 relative">
+            {/* Left smoke - 10 layers for vibrancy */}
+            {[...Array(10)].map((_, index) => (
+              <div
+                key={`left-smoke-${index}`}
+                className="absolute opacity-10 pointer-events-none"
+                style={{
+                  width: "992px",
+                  height: "722px",
+                  left: "-246px", // Adjusted to match Figma (-180px - 66px padding)
+                  top: "-100px", // Position above cards
+                  backgroundImage: `url('/img/smoke.png')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  zIndex: 1,
+                }}
+              />
+            ))}
+
+            {/* Right smoke - 10 layers for vibrancy */}
+            {[...Array(10)].map((_, index) => (
+              <div
+                key={`right-smoke-${index}`}
+                className="absolute opacity-10 pointer-events-none"
+                style={{
+                  width: "808px",
+                  height: "808px",
+                  right: "-304px", // Adjusted to match Figma (-238px - 66px padding)
+                  top: "-100px", // Position above cards
+                  backgroundImage: `url('/img/smoke.png')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  transform: "rotate(180deg)",
+                  zIndex: 1,
+                }}
+              />
+            ))}
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
               {/* Location Card */}
               <ContactInfoCard
-                icon="/img/1cd0926653688a2e4c9e3a11e99323f9aad105bc.svg"
+                icon="/images/mdi_location.svg"
                 title="Our Location"
                 content="Roy, Washington"
                 ctaText="Get Directions"
@@ -90,7 +134,7 @@ export const ContactPage: React.FC = () => {
 
               {/* Phone Card */}
               <ContactInfoCard
-                icon="/img/2c9e0c63ad4f7ec8e8abf99ccb01ad757c46e20c.svg"
+                icon="/images/ic_baseline-phone.svg"
                 title="Our Phone"
                 content="0300 0000 0000"
                 ctaText="Call Us"
@@ -99,7 +143,7 @@ export const ContactPage: React.FC = () => {
 
               {/* Email Card */}
               <ContactInfoCard
-                icon="/img/3cb3bab16a2c7bff5725ac6d8e364c19b1f4edf2.svg"
+                icon="/images/ic_baseline-email.svg"
                 title="Our Email"
                 content="thereikigoddesshealing@gmail.com"
                 ctaText="Email Us"

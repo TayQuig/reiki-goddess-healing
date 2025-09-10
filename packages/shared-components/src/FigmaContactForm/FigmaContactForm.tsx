@@ -510,20 +510,21 @@ export const FigmaContactForm: React.FC<FigmaContactFormProps> = ({
       </div>
 
       {/* Terms Checkbox */}
-      <div className="flex items-center gap-4 mb-[76px]">
+      <div className="flex items-start gap-4 mb-[76px]">
         <input
           type="checkbox"
           id="agreeToTerms"
           name="agreeToTerms"
           checked={formData.agreeToTerms}
           onChange={handleChange}
-          className="w-6 h-6 border-2 border-blue rounded"
+          className="w-6 h-6 mt-0.5 cursor-pointer"
+          style={{ accentColor: "#0205B7" }}
           aria-invalid={!!errors.agreeToTerms}
           aria-describedby={errors.agreeToTerms ? "terms-error" : undefined}
         />
         <label
           htmlFor="agreeToTerms"
-          className="text-[16px] font-medium text-[#5F5F5F] cursor-pointer"
+          className="text-[16px] font-medium text-[#5F5F5F] cursor-pointer select-none"
           style={{ fontFamily: "Figtree, sans-serif" }}
         >
           I have read and agree to the Terms & Conditions
@@ -543,10 +544,10 @@ export const FigmaContactForm: React.FC<FigmaContactFormProps> = ({
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`px-[51px] py-[10px] rounded-[90px] border-2 font-medium transition-all duration-300 ${
+          className={`px-[13px] py-[10px] rounded-[90px] border font-medium text-[16px] transition-all duration-300 ${
             isSubmitting
               ? "bg-gray-100 border-gray-300 text-gray-400 cursor-not-allowed"
-              : "bg-transparent border-blue text-blue hover:bg-blue hover:text-white"
+              : "bg-transparent border-[#0205B7] text-[#0205B7] hover:bg-[#0205B7] hover:text-white"
           }`}
           style={{ fontFamily: "Figtree, sans-serif" }}
         >
