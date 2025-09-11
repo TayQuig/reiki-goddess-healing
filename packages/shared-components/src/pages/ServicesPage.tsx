@@ -1,6 +1,8 @@
 import React from "react";
 import { ResponsiveContainer } from "../ResponsiveContainer/ResponsiveContainer";
 import { ServicesSection } from "../Services/ServicesSection";
+import { BookSessionCTA } from "../BookSessionCTA";
+import { AnimatedSection } from "../AnimatedSection";
 
 /**
  * ServicesPage - Services page component
@@ -25,21 +27,12 @@ export const ServicesPage: React.FC = () => {
       {/* Services Section */}
       <ServicesSection />
 
-      {/* Additional Information */}
-      <ResponsiveContainer className="py-20">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8">
-            Ready to Begin Your Healing Journey?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Book your session today and experience the transformative power of
-            energy healing in a safe, nurturing environment.
-          </p>
-          <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
-            Schedule Your Session
-          </button>
+      {/* CTA Section */}
+      <AnimatedSection delay={0.4}>
+        <div className="max-w-[1440px] mx-auto px-[66px] py-[161px]">
+          <BookSessionCTA />
         </div>
-      </ResponsiveContainer>
+      </AnimatedSection>
     </div>
   );
 };

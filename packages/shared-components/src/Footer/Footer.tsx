@@ -61,6 +61,7 @@ export const Footer: React.FC<FooterProps> = ({
         width: "1440px",
         backgroundColor: "white",
         minHeight: "400px",
+        boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)",
       }}
     >
       <div

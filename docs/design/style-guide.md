@@ -367,6 +367,81 @@ box-shadow: 0 20px 40px rgba(2, 5, 183, 0.2);
 box-shadow: 0 10px 30px rgba(165, 147, 224, 0.2);
 ```
 
+### Section Shadow (CTA/Feature)
+
+```css
+box-shadow: 9px 10px 0px 0px #0205b7;
+```
+
+---
+
+## 🖼️ Image Treatments & Overlays
+
+### Section Images with Brand Overlay
+
+For major CTA sections and feature sections with background images:
+
+#### Blue Tint Overlay
+
+```css
+/* Apply over background images for brand consistency */
+background-color: rgba(2, 5, 183, 0.35); /* #0205B7 with 35% opacity */
+position: absolute;
+inset: 0;
+```
+
+#### Implementation Pattern
+
+```jsx
+<div className="relative overflow-hidden rounded-[20px] shadow-[9px_10px_0px_0px_#0205B7]">
+  {/* Background Image */}
+  <img
+    src="/path/to/image.jpg"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* Blue Tint Overlay */}
+  <div className="absolute inset-0 bg-[#0205B7] opacity-35" />
+
+  {/* Content */}
+  <div className="relative z-10">{/* Your content here */}</div>
+</div>
+```
+
+### Standard Properties for Section Images
+
+- **Border Radius**: 20px for cards, 30px for large sections
+- **Shadow**: `shadow-[9px_10px_0px_0px_#0205B7]` (brand blue bottom-right offset)
+- **Overlay Opacity**: 35% for optimal image visibility with brand color
+- **Object Fit**: `object-cover` to maintain aspect ratio
+
+### Decorative Elements on Images
+
+#### White Corner Dots
+
+For decorative accents on blue overlaid sections:
+
+```css
+/* Small decorative circles */
+width: 11px;
+height: 11px;
+background: white;
+border-radius: 50%;
+position: absolute;
+
+/* Positioning from edges */
+top: 30px;
+left: 30px;
+/* (repeat for all four corners) */
+```
+
+### Image Background Types
+
+1. **Hero Images**: Full opacity, dark gradient overlay for text readability
+2. **Section Backgrounds**: 35% blue overlay for brand consistency
+3. **Card Images**: No overlay, natural colors
+4. **Decorative Patterns**: SVGs with specific positioning, no overlay needed
+
 ---
 
 ## ✨ Animations
@@ -607,4 +682,4 @@ When implementing new components:
 
 _This style guide is a living document and should be updated as the brand evolves._
 
-_Last Updated: 2025-08-26_
+_Last Updated: 2025-09-11_

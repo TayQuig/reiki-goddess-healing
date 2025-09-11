@@ -89,7 +89,7 @@ export const LetsConnect: React.FC<LetsConnectProps> = ({
 }) => {
   return (
     <section
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden shadow-[9px_10px_0px_0px_#0205B7] ${className}`}
       style={{
         height: "260px",
         borderRadius: "30px",
@@ -110,7 +110,7 @@ export const LetsConnect: React.FC<LetsConnectProps> = ({
         <div
           className="absolute inset-0"
           style={{
-            backgroundColor: "rgba(2, 5, 183, 0.85)", // #0205B7 with 85% opacity
+            backgroundColor: "rgba(2, 5, 183, 0.35)", // #0205B7 with 35% opacity
             borderRadius: "30px",
           }}
         />

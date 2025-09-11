@@ -2,6 +2,7 @@ import React from "react";
 import { AnimatedSection } from "../AnimatedSection";
 import { ContactInfoCard } from "../ContactInfoCard";
 import { FigmaContactForm } from "../FigmaContactForm";
+import { BookSessionCTA } from "../BookSessionCTA";
 
 /**
  * ContactPage - The Reiki Goddess Healing contact page
@@ -9,7 +10,7 @@ import { FigmaContactForm } from "../FigmaContactForm";
  */
 export const ContactPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 overflow-hidden relative">
+    <div className="min-h-screen bg-[#FFFBF5] overflow-hidden relative">
       {/* Main Content - Elevated Container */}
       <div
         className="relative mx-auto overflow-hidden"
@@ -168,29 +169,7 @@ export const ContactPage: React.FC = () => {
         {/* CTA Section */}
         <AnimatedSection delay={0.4}>
           <div className="max-w-[1440px] mx-auto px-[66px] py-[161px]">
-            <div className="bg-blue rounded-[20px] shadow-[9px_10px_0px_0px_#63D5F9] p-[64px] relative overflow-hidden">
-              <div className="relative z-10 text-center">
-                <h2
-                  className="text-[48px] font-bold text-white mb-[107px]"
-                  style={{ fontFamily: "Figtree, sans-serif" }}
-                >
-                  Ready to Begin Your Healing Journey?
-                </h2>
-                <a
-                  href="/book"
-                  className="inline-flex items-center gap-2 px-[13px] py-[10px] border-2 border-white rounded-[90px] text-white font-medium hover:bg-white hover:text-blue transition-all duration-300"
-                >
-                  <span>Book Your Session Today</span>
-                  <svg
-                    className="w-5 h-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M10.707 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-4.293-4.293a1 1 0 010-1.414z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+            <BookSessionCTA />
           </div>
         </AnimatedSection>
       </div>
