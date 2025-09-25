@@ -1,0 +1,20 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    // Theme configuration
+    "theme": "opencode",
+    "model": "anthropic/claude-opus-4-20250514",
+    "autoupdate": true,
+    
+    // Project-specific instructions
+    "instructions": [
+        "AGENTS.md",
+        "docs/project/CLAUDE.md",
+        "docs/project/ARCHITECTURE.md",
+        "style-guide.md",
+        "docs/security-guidelines.md",
+        "docs/project/context_recovery.md",
+        "docs/project/todo_list.md",
+        "docs/testing/testing-strategy.md",
+        "docs/testing/TESTING_SUMMARY.md"
+    ]
+  }

@@ -227,6 +227,33 @@ Missing:
 
 ## 📝 Testing Standards & Conventions
 
+### Testing Protocol
+
+**When adding new components:**
+
+1. Create comprehensive test files covering:
+   - Rendering tests
+   - Interaction tests
+   - Accessibility tests
+   - Responsive behavior tests
+   - Edge cases
+2. Ensure TypeScript types are correct (check vitest-env.d.ts)
+3. Run tests and verify 100% pass rate before committing
+4. Update testing-strategy.md with new coverage metrics
+
+### Development Commands to Remember
+
+```bash
+# Always run these before committing:
+npm test -- --run         # Run all tests
+npm run type-check        # Check TypeScript
+npm run lint             # Check linting
+
+# Development commands:
+npm run dev              # Start all dev servers
+npm run build           # Build all packages
+```
+
 ### Component Test Structure
 
 ```typescript

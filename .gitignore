@@ -162,6 +162,7 @@ figma-screenshots/**/*.jpeg
 *.bak
 *.swp
 *~
+.tmp/
 
 # Lock files (keeping package-lock.json)
 yarn.lock

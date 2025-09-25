@@ -107,7 +107,7 @@ export const FigmaContactForm: React.FC<FigmaContactFormProps> = ({
 
       if (!result.isValid && result.risks.length > 0) {
         // Log security incidents
-        result.risks.forEach((risk) => {
+        result.risks.forEach((risk: any) => {
           if (risk.level === "HIGH") {
             monitor.current.log(risk.type, {
               field: name,
@@ -118,7 +118,7 @@ export const FigmaContactForm: React.FC<FigmaContactFormProps> = ({
         });
 
         // Return the first high-level risk message, or the first message
-        const highRisk = result.risks.find((r) => r.level === "HIGH");
+        const highRisk = result.risks.find((r: any) => r.level === "HIGH");
         return highRisk?.message || result.risks[0]?.message;
       }
 

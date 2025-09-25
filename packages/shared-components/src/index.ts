@@ -81,6 +81,10 @@ export type {
   FigmaContactFormData,
 } from "./FigmaContactForm";
 
+// Google Maps components
+export { GoogleMapEmbed } from "./GoogleMap";
+export type { GoogleMapEmbedProps, MapLoadingState } from "./GoogleMap";
+
 // Complete page compositions
 export { Homepage } from "./Homepage";
 export type { HomepageProps } from "./Homepage";

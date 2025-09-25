@@ -26,13 +26,13 @@ The codebase maintains backward compatibility with Anima-generated CSS variables
 ```typescript
 // Modern design system tokens
 export const colors = {
-  brand: { 
+  brand: {
     blue: "rgba(2, 5, 183, 1)",
     purple: "rgba(165, 147, 224, 1)"
   },
-  background: { 
+  background: {
     primary: "#FFFBF5",
-    white: "#FFFFFF" 
+    white: "#FFFFFF"
   }
 };
 
@@ -74,6 +74,7 @@ Advanced monorepo build optimization using TypeScript project references:
 ```
 
 **Benefits**:
+
 - Incremental builds (only rebuild changed packages)
 - Better IDE performance
 - Proper dependency management
@@ -85,27 +86,33 @@ Centralized test configuration with package-specific customization:
 
 ```typescript
 // vitest.config.shared.ts
-import { defineConfig } from 'vitest/config';
-import { resolve } from 'path';
+import { defineConfig } from "vitest/config";
+import { resolve } from "path";
 
 export const createVitestConfig = (packagePath: string) => {
   return defineConfig({
     test: {
-      environment: 'jsdom',
+      environment: "jsdom",
       globals: true,
-      setupFiles: [resolve(packagePath, 'src/test-setup.ts')]
+      setupFiles: [resolve(packagePath, "src/test-setup.ts")],
     },
     resolve: {
       alias: {
-        "@reiki-goddess/shared-components": resolve(__dirname, "packages/shared-components/src"),
-        "@reiki-goddess/design-system": resolve(__dirname, "packages/design-system/src")
-      }
-    }
+        "@reiki-goddess/shared-components": resolve(
+          __dirname,
+          "packages/shared-components/src"
+        ),
+        "@reiki-goddess/design-system": resolve(
+          __dirname,
+          "packages/design-system/src"
+        ),
+      },
+    },
   });
 };
 
 // Usage in package
-import { createVitestConfig } from '../../vitest.config.shared';
+import { createVitestConfig } from "../../vitest.config.shared";
 export default createVitestConfig(__dirname);
 ```
 
@@ -144,6 +151,7 @@ export { AboutPage, ServicesPage, EventsPage } from "./pages";
 ```
 
 **Benefits**:
+
 - Clear organization for consumers
 - Co-located type exports
 - Semantic grouping aids discovery
@@ -161,12 +169,12 @@ export const AppLayout: React.FC = () => {
       <div className="relative z-50" style={{ maxWidth: "1440px", margin: "0 auto" }}>
         <Header />
       </div>
-      
+
       {/* Main content with negative margin compensation */}
       <main className="flex-1" style={{ marginTop: "-93px" }}>
         <Outlet />
       </main>
-      
+
       <Footer />
     </div>
   );
@@ -174,6 +182,51 @@ export const AppLayout: React.FC = () => {
 ```
 
 **Why**: Allows hero images to extend under navigation while maintaining layout integrity.
+
+### Component Naming Conventions
+
+Standardized naming patterns for monorepo packages:
+
+```typescript
+// Package naming convention
+@reiki-goddess/shared-components
+@reiki-goddess/design-system
+@reiki-goddess/shared-utils
+@reiki-goddess/shared-assets
+
+// Component file structure
+ComponentName/
+├── ComponentName.tsx        // Main component
+├── ComponentName.test.tsx   // Tests
+├── ComponentName.types.ts   // TypeScript interfaces
+└── index.ts                // Export barrel
+```
+
+**Benefits**: Clear package ownership, easy imports, consistent structure.
+
+### Homepage Component Library
+
+Core components extracted from Figma designs:
+
+```typescript
+// Homepage component suite
+export { Header } from "./Header";
+export { HeroV2 } from "./HeroV2";
+export { FeaturesBar } from "./FeaturesBar";
+export { MeetTheGoddess } from "./MeetTheGoddess";
+export { ServicesSection } from "./ServicesSection";
+export { CommunityEvents } from "./CommunityEvents";
+export { Testimonials } from "./Testimonials";
+export { LetsConnect } from "./LetsConnect";
+export { Footer } from "./Footer";
+```
+
+**Design Specifications**:
+
+- Max width: 1440px container
+- Universal padding: 66px
+- Background: #FFFBF5 (cream)
+- Typography: Figtree font family
 
 ---
 
@@ -191,31 +244,35 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { 
-    label: "Home", 
-    href: "/", 
-    isActive: (pathname) => pathname === "/"
+  {
+    label: "Home",
+    href: "/",
+    isActive: (pathname) => pathname === "/",
   },
-  { 
-    label: "Blog", 
-    href: "/blog", 
-    isActive: (pathname) => pathname.startsWith("/blog") // Handles sub-routes
+  {
+    label: "Blog",
+    href: "/blog",
+    isActive: (pathname) => pathname.startsWith("/blog"), // Handles sub-routes
   },
-  { 
-    label: "Services", 
-    href: "/services", 
-    isActive: (pathname) => pathname === "/services" || pathname.startsWith("/services/")
-  }
+  {
+    label: "Services",
+    href: "/services",
+    isActive: (pathname) =>
+      pathname === "/services" || pathname.startsWith("/services/"),
+  },
 ];
 
 // Usage in component
 const location = useLocation();
-const activeItem = navigationItems.find(item => 
-  item.isActive ? item.isActive(location.pathname) : item.href === location.pathname
+const activeItem = navigationItems.find((item) =>
+  item.isActive
+    ? item.isActive(location.pathname)
+    : item.href === location.pathname
 );
 ```
 
 **Benefits**:
+
 - Single source of truth (router)
 - Handles complex routing patterns
 - No state synchronization issues
@@ -226,25 +283,25 @@ Standardized enter/exit animations using framer-motion:
 
 ```typescript
 const pageVariants = {
-  initial: { 
-    opacity: 0, 
-    y: 20 
+  initial: {
+    opacity: 0,
+    y: 20
   },
-  animate: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { 
-      duration: 0.6, 
-      ease: "easeOut" 
-    } 
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
   },
-  exit: { 
-    opacity: 0, 
-    y: -20, 
-    transition: { 
-      duration: 0.4, 
-      ease: "easeIn" 
-    } 
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.4,
+      ease: "easeIn"
+    }
   }
 };
 
@@ -289,7 +346,7 @@ export const useIntersectionObserver = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
-        
+
         // Auto-cleanup for one-time animations
         if (triggerOnce && entry.isIntersecting) {
           observer.unobserve(element);
@@ -299,7 +356,7 @@ export const useIntersectionObserver = ({
     );
 
     observer.observe(element);
-    
+
     return () => observer.disconnect();
   }, [threshold, rootMargin, triggerOnce]);
 
@@ -355,49 +412,52 @@ Multi-layered validation with wellness industry-specific patterns:
 ```typescript
 export class SecurityValidator {
   // Industry-specific forbidden terms
-  private static readonly forbiddenHealthTerms = /\b(diagnosis|prescription|medication|cure|treat)\b/i;
-  
+  private static readonly forbiddenHealthTerms =
+    /\b(diagnosis|prescription|medication|cure|treat)\b/i;
+
   // Multi-level risk assessment
   static validateContactFormField(
-    fieldName: string, 
+    fieldName: string,
     value: string
   ): ValidationResult {
     const risks: Risk[] = [];
-    
+
     // Check for medical terms (liability risk)
     if (this.forbiddenHealthTerms.test(value)) {
       risks.push({
         level: "HIGH",
         type: "MEDICAL_TERMS",
-        message: "Please avoid medical terminology"
+        message: "Please avoid medical terminology",
       });
     }
-    
+
     // Check for SQL injection patterns
-    if (/(\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION)\b|--|\/\*|\*\/)/i.test(value)) {
+    if (
+      /(\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION)\b|--|\/\*|\*\/)/i.test(value)
+    ) {
       risks.push({
         level: "HIGH",
         type: "SQL_INJECTION",
-        message: "Invalid characters detected"
+        message: "Invalid characters detected",
       });
     }
-    
+
     // XSS prevention
     const sanitized = this.sanitizeInput(value);
-    
+
     return {
-      isValid: risks.filter(r => r.level === "HIGH").length === 0,
+      isValid: risks.filter((r) => r.level === "HIGH").length === 0,
       risks,
       sanitizedValue: sanitized,
-      riskLevel: this.calculateOverallRisk(risks)
+      riskLevel: this.calculateOverallRisk(risks),
     };
   }
-  
+
   private static sanitizeInput(input: string): string {
     return input
-      .replace(/[<>]/g, '') // Remove angle brackets
-      .replace(/javascript:/gi, '') // Remove javascript: protocol
-      .replace(/on\w+\s*=/gi, '') // Remove event handlers
+      .replace(/[<>]/g, "") // Remove angle brackets
+      .replace(/javascript:/gi, "") // Remove javascript: protocol
+      .replace(/on\w+\s*=/gi, "") // Remove event handlers
       .trim();
   }
 }
@@ -411,41 +471,41 @@ Browser-based rate limiting with user feedback:
 
 ```typescript
 export class FormRateLimit {
-  private static readonly STORAGE_KEY = 'form_submissions';
+  private static readonly STORAGE_KEY = "form_submissions";
   private static readonly MAX_SUBMISSIONS = 3;
   private static readonly TIME_WINDOW_MS = 60 * 60 * 1000; // 1 hour
-  
+
   static canSubmit(): { allowed: boolean; timeUntilReset?: number } {
     const now = Date.now();
     const submissions = this.getSubmissions();
-    
+
     // Clean old submissions
     const recentSubmissions = submissions.filter(
-      time => now - time < this.TIME_WINDOW_MS
+      (time) => now - time < this.TIME_WINDOW_MS
     );
-    
+
     if (recentSubmissions.length >= this.MAX_SUBMISSIONS) {
       const oldestSubmission = Math.min(...recentSubmissions);
-      const timeUntilReset = (oldestSubmission + this.TIME_WINDOW_MS) - now;
-      
-      return { 
-        allowed: false, 
-        timeUntilReset: Math.ceil(timeUntilReset / 1000 / 60) // minutes
+      const timeUntilReset = oldestSubmission + this.TIME_WINDOW_MS - now;
+
+      return {
+        allowed: false,
+        timeUntilReset: Math.ceil(timeUntilReset / 1000 / 60), // minutes
       };
     }
-    
+
     return { allowed: true };
   }
-  
+
   static recordSubmission(): void {
     const submissions = this.getSubmissions();
     submissions.push(Date.now());
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(submissions));
   }
-  
+
   private static getSubmissions(): number[] {
     try {
-      return JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
+      return JSON.parse(localStorage.getItem(this.STORAGE_KEY) || "[]");
     } catch {
       return [];
     }
@@ -462,32 +522,39 @@ Client-side security monitoring for analysis:
 ```typescript
 export class SecurityMonitor {
   private static readonly MAX_INCIDENTS = 10;
-  
+
   static logIncident(type: string, details: Record<string, any>): void {
     const incident = {
       type,
       details,
       timestamp: new Date().toISOString(),
       url: window.location.href,
-      userAgent: navigator.userAgent
+      userAgent: navigator.userAgent,
     };
-    
+
     // Use session storage for privacy (cleared on close)
     const incidents = this.getIncidents();
     incidents.push(incident);
-    
+
     // Keep only recent incidents
     const recentIncidents = incidents.slice(-this.MAX_INCIDENTS);
-    sessionStorage.setItem('securityIncidents', JSON.stringify(recentIncidents));
-    
+    sessionStorage.setItem(
+      "securityIncidents",
+      JSON.stringify(recentIncidents)
+    );
+
     // Could also send to monitoring service
     if (this.shouldReport(type)) {
       this.reportToMonitoring(incident);
     }
   }
-  
+
   private static shouldReport(type: string): boolean {
-    const criticalTypes = ['XSS_ATTEMPT', 'SQL_INJECTION', 'RATE_LIMIT_EXCEEDED'];
+    const criticalTypes = [
+      "XSS_ATTEMPT",
+      "SQL_INJECTION",
+      "RATE_LIMIT_EXCEEDED",
+    ];
     return criticalTypes.includes(type);
   }
 }
@@ -508,10 +575,16 @@ Production-ready headers for wellness websites:
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
-        { 
-          "key": "Content-Security-Policy", 
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        },
+        {
+          "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.reikigoddesshealing.com"
         }
       ]
@@ -546,8 +619,8 @@ export const RouterWrapper: React.FC<RouterWrapperProps> = ({
   initialIndex = 0,
 }) => {
   return (
-    <MemoryRouter 
-      initialEntries={initialEntries} 
+    <MemoryRouter
+      initialEntries={initialEntries}
       initialIndex={initialIndex}
     >
       {children}
@@ -571,15 +644,15 @@ Document failures instead of modifying tests (see [testing/README.md](./testing/
 
 ```typescript
 // Never do this:
-test('should display correct text', () => {
+test("should display correct text", () => {
   // ❌ Changing test to match broken behavior
-  expect(screen.getByText('Sevices')).toBeInTheDocument(); 
+  expect(screen.getByText("Sevices")).toBeInTheDocument();
 });
 
 // Do this instead:
-test('should display correct text', () => {
+test("should display correct text", () => {
   // ✅ Test remains correct, failure gets documented
-  expect(screen.getByText('Services')).toBeInTheDocument();
+  expect(screen.getByText("Services")).toBeInTheDocument();
 });
 // Failure documented in testing/components/Header.md
 ```
@@ -601,18 +674,22 @@ Event-driven automation for AI-assisted development:
     "PostToolUse": [
       {
         "matcher": "Write|Edit|MultiEdit",
-        "hooks": [{
-          "type": "command",
-          "command": "$CLAUDE_PROJECT_DIR/.claude/hook.sh PostToolUse Write",
-          "timeout": 30
-        }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hook.sh PostToolUse Write",
+            "timeout": 30
+          }
+        ]
       },
       {
         "matcher": "Bash",
-        "hooks": [{
-          "type": "command",
-          "command": "$CLAUDE_PROJECT_DIR/.claude/hook.sh PostToolUse Bash"
-        }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hook.sh PostToolUse Bash"
+          }
+        ]
       }
     ]
   }
@@ -620,6 +697,7 @@ Event-driven automation for AI-assisted development:
 ```
 
 **Automations**:
+
 - Git commit enforcement at thresholds
 - Test failure documentation
 - Documentation freshness checks
@@ -638,14 +716,14 @@ def generate_commit_message(files):
         r'\.md$': 'docs',
         r'config|\.json$': 'chore'
     }
-    
+
     # Determine primary type
     type_counts = defaultdict(int)
     for file in files:
         for pattern, commit_type in patterns.items():
             if re.search(pattern, file):
                 type_counts[commit_type] += 1
-    
+
     primary_type = max(type_counts.items(), key=lambda x: x[1])[0]
     return f"{primary_type}({scope}): {description}"
 ```
@@ -667,7 +745,7 @@ export const LazyImage: React.FC<ImageProps> = ({
   className
 }) => {
   const imageUrl = src.startsWith('/') ? src : `/img/${src}`;
-  
+
   return (
     <picture>
       {/* Modern format */}
@@ -676,7 +754,7 @@ export const LazyImage: React.FC<ImageProps> = ({
         srcSet={`${imageUrl.replace(/\.[^.]+$/, '.webp')}`}
         sizes={sizes}
       />
-      
+
       {/* Fallback */}
       <img
         src={imageUrl}
@@ -722,20 +800,20 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     isLoading: false,
     notifications: []
   });
-  
+
   const value = useMemo(() => ({
     ...state,
     setUser: (user) => setState(prev => ({ ...prev, user })),
-    addNotification: (notification) => setState(prev => ({ 
-      ...prev, 
-      notifications: [...prev.notifications, notification] 
+    addNotification: (notification) => setState(prev => ({
+      ...prev,
+      notifications: [...prev.notifications, notification]
     })),
     removeNotification: (id) => setState(prev => ({
       ...prev,
       notifications: prev.notifications.filter(n => n.id !== id)
     }))
   }), [state]);
-  
+
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 

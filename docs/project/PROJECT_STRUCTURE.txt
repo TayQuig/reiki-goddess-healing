@@ -1,0 +1,832 @@
+.
+├── .DS_Store
+├── .claude/
+│   └── settings.local.json
+├── .claude-session.log
+├── .commitlintrc.json
+├── .env.example
+├── .eslintrc.json
+├── .git/
+├── .github/
+│   ├── pull_request_template.md
+│   └── workflows/
+│       └── deploy.yml
+├── .gitignore
+├── .husky/
+│   ├── _/
+│   │   ├── .gitignore
+│   │   └── husky.sh
+│   ├── commit-msg
+│   └── pre-commit
+├── .prettierignore
+├── .prettierrc.json
+├── AGENTS.md
+├── CLAUDE.md
+├── MIGRATION_GUIDE.md
+├── PROJECT_SETUP.md
+├── README.md
+├── api/
+│   ├── contact.js
+│   └── data-deletion-request.js
+├── apps/
+│   ├── main/
+│   │   ├── BLOG_ANALYSIS.md
+│   │   ├── CLAUDE.md
+│   │   ├── README.md
+│   │   ├── VISUAL_FIDELITY_TEST.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── postcss.config.js
+│   │   ├── public/
+│   │   │   ├── favicon.ico
+│   │   │   ├── images/
+│   │   │   │   ├── 760f91b80d6e57cd0934ef6436e63974c0fdd85c.svg
+│   │   │   │   ├── gridicons_arrow-up.svg
+│   │   │   │   ├── ic_baseline-email.svg
+│   │   │   │   ├── ic_baseline-phone.svg
+│   │   │   │   └── mdi_location.svg
+│   │   │   └── img/
+│   │   │       ├── 1cd0926653688a2e4c9e3a11e99323f9aad105bc.svg
+│   │   │       ├── 2148847564-upcoming-events-community-highlights.png
+│   │   │       ├── 8004428ff1a4bbe981b7017e82dadb4c9bba67a6.svg
+│   │   │       ├── CTA.png
+│   │   │       ├── Frame 33-Let's Connect.png
+│   │   │       ├── IMG_3859-meet-the-reiki-goddess.png
+│   │   │       ├── IMG_4891-meet-the-reiki-goddess.png
+│   │   │       ├── IMG_4891.png
+│   │   │       ├── Nav Bar Clickable Logo.png
+│   │   │       ├── Rectangle 4-custom-sound-healing-song-workshop.png
+│   │   │       ├── Rectangle 4-fullmoon-aerial-soundbath.png
+│   │   │       ├── Sound_Energy_Immersion_BoltBlue_OthersPurple.svg
+│   │   │       ├── Sound_Energy_Immersion_Recolored.svg
+│   │   │       ├── book-a-session-image.jpg
+│   │   │       ├── business_16102857 1-feature-1.svg
+│   │   │       ├── community-highlights.jpg
+│   │   │       ├── download (1)-sowin.png
+│   │   │       ├── download (2).png
+│   │   │       ├── download 1-full-moon-soundbath.png
+│   │   │       ├── download-1-full-moon-soundbath.png
+│   │   │       ├── download-1-sowin.png
+│   │   │       ├── download-2.png
+│   │   │       ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-meet-the-reiki-goddess-background.png
+│   │   │       ├── game-icons_healing-feature-3.svg
+│   │   │       ├── healthicons_eco-care-feature-4.svg
+│   │   │       ├── icons-sound-energy-immersion.svg
+│   │   │       ├── img-3859.png
+│   │   │       ├── jainism_6741541-reiki-healing-sessions.svg
+│   │   │       ├── lets-connect-bg.jpg
+│   │   │       ├── lsicon_work-order-appointment-filled-feature-2.svg
+│   │   │       ├── music-therapy_1330537-distance-healing-sessions.svg
+│   │   │       ├── powerrangers-6-hero-main.png
+│   │   │       ├── reiki-goddess-logo.png
+│   │   │       ├── smoke.png
+│   │   │       ├── social-card-profile.png
+│   │   │       ├── the reiki goddess (4.25 x 5.5 in) (Facebook Cover) Logo.png
+│   │   │       └── triangle_1377047-aura-chakra-readings.svg
+│   │   ├── src/
+│   │   │   ├── App.tsx
+│   │   │   ├── __tests__/
+│   │   │   │   ├── App.integration.test.tsx
+│   │   │   │   ├── App.test.tsx
+│   │   │   │   └── routing.integration.test.tsx
+│   │   │   ├── components/
+│   │   │   │   └── PageTransition.tsx
+│   │   │   ├── index.css
+│   │   │   ├── main.tsx
+│   │   │   ├── pages/
+│   │   │   │   ├── About.tsx
+│   │   │   │   ├── Blog.tsx
+│   │   │   │   ├── Contact.tsx
+│   │   │   │   ├── Events.tsx
+│   │   │   │   ├── Home.tsx
+│   │   │   │   ├── NotFound.tsx
+│   │   │   │   └── Services.tsx
+│   │   │   └── test-setup.ts
+│   │   ├── tailwind.config.js
+│   │   ├── tsconfig.json
+│   │   ├── vite.config.ts
+│   │   └── vitest.config.ts
+│   └── main-app/
+│       ├── index.html
+│       ├── package.json
+│       ├── public/
+│       │   ├── favicon.svg
+│       │   ├── img/
+│       │   │   ├── 2148847564-1.png
+│       │   │   ├── call.png
+│       │   │   ├── check-box-outline-blank.png
+│       │   │   ├── ellipse-5.png
+│       │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-2.png
+│       │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-3.png
+│       │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-4.png
+│       │   │   ├── frame-2085660578.svg
+│       │   │   ├── frame-33.png
+│       │   │   ├── line-56.svg
+│       │   │   ├── powerrangers-6.png
+│       │   │   ├── rectangle-10.png
+│       │   │   ├── rectangle-12.png
+│       │   │   ├── rectangle-13.png
+│       │   │   ├── rectangle-38.png
+│       │   │   ├── rectangle-5.png
+│       │   │   ├── rectangle-6.png
+│       │   │   ├── rectangle-7.png
+│       │   │   ├── rectangle-8.png
+│       │   │   ├── star-6.svg
+│       │   │   ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1-1.png
+│       │   │   ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1.png
+│       │   │   ├── vector-1-1.svg
+│       │   │   ├── vector-1-2.svg
+│       │   │   ├── vector-1.svg
+│       │   │   ├── vector-2.svg
+│       │   │   ├── vector-3.svg
+│       │   │   ├── vector-5.svg
+│       │   │   └── vector.svg
+│       │   └── manifest.json
+│       ├── src/
+│       │   ├── App.css
+│       │   ├── App.tsx
+│       │   ├── main.tsx
+│       │   ├── pages/
+│       │   │   ├── AboutPage-simple.tsx
+│       │   │   ├── AboutPage.tsx
+│       │   │   ├── BlogPage.tsx
+│       │   │   ├── ContactPage.tsx
+│       │   │   ├── HomePage-simple.tsx
+│       │   │   ├── HomePage.tsx
+│       │   │   ├── PrivacyPolicyPage.tsx
+│       │   │   └── index.ts
+│       │   └── utils/
+│       │       └── navigationData.ts
+│       ├── tsconfig.json
+│       └── vite.config.ts
+├── demo/
+│   ├── index.html
+│   ├── package.json
+│   └── src/
+│       ├── App.tsx
+│       ├── index.css
+│       └── main.tsx
+├── docs/
+│   ├── CLAUDE.md
+│   ├── README.md
+│   ├── agents/
+│   │   ├── architecture/
+│   │   │   ├── CONTEXT_SUMMARY.md
+│   │   │   ├── agent-deployment-specifications.md
+│   │   │   └── agent-system-prompts.md
+│   │   ├── resend-integration-planner.md
+│   │   ├── test-architect-agent.md
+│   │   └── test-evaluator-agent.md
+│   ├── claude-md-optimization-guide.md
+│   ├── deployment/
+│   ├── design/
+│   │   ├── BRANDING-GUIDE.md
+│   │   └── resend-integration-plan.md
+│   ├── documentation-reorganization-plan.md
+│   ├── learning-system/
+│   │   ├── autonomous-implementation-strategy.md
+│   │   ├── learning-loop-implementation-plan.md
+│   │   ├── learning-loop-protocol.md
+│   │   ├── learning-orchestrator-deployment.md
+│   │   └── real-autonomous-implementation.md
+│   ├── migration/
+│   │   ├── HANDOFF_CONTEXT.md
+│   │   ├── PHASE_4_COMPLETION_SUMMARY.md
+│   │   ├── phase-2-prompt.md
+│   │   ├── phase-3-prompt.md
+│   │   ├── phase-4-prompt.md
+│   │   ├── phase2-extraction-summary.md
+│   │   └── phase3-integration-summary.md
+│   ├── progress/
+│   │   ├── 001-organize-root-directory.md
+│   │   ├── 002-fix-failing-tests.md
+│   │   ├── 003-polish-contact-page.md
+│   │   ├── 004-services-page-migration.md
+│   │   ├── 005-about-page-migration.md
+│   │   ├── 006-blog-page-migration.md
+│   │   └── README.md
+│   ├── project/
+│   │   ├── ARCHITECTURE.md
+│   │   ├── context_recovery.md
+│   │   ├── git-branching-protocol.md
+│   │   └── todo_list.md
+│   ├── prompts/
+│   │   ├── FRESH_INSTANCE_PROMPT.md
+│   │   ├── HANDOFF_PROMPT.md
+│   │   └── PHASE_1_DEPLOYMENT_PROMPT.md
+│   ├── security-guidelines.md
+│   ├── templates/
+│   │   ├── feature-template.md
+│   │   └── package-template.md
+│   ├── testing/
+│   │   ├── App.integration.md
+│   │   ├── CONTEXT_REFRESH_SUMMARY.md
+│   │   ├── README.md
+│   │   ├── TESTING_SUMMARY.md
+│   │   ├── components/
+│   │   │   ├── EXAMPLE_Header.md
+│   │   │   ├── FormRateLimit.md
+│   │   │   ├── MobileHeader-fix-summary.md
+│   │   │   ├── SecurityMonitor.md
+│   │   │   └── SecurityValidator.md
+│   │   ├── migrations/
+│   │   │   └── ContactPageMigration.md
+│   │   ├── quality/
+│   │   │   ├── 2025-09-02/
+│   │   │   │   └── monorepo-quality-summary.md
+│   │   │   ├── step2-act-warnings-summary.md
+│   │   │   ├── step2-current-status.md
+│   │   │   ├── step2-final-status.md
+│   │   │   └── step3-ready-to-start.md
+│   │   ├── test-improvement-plan.md
+│   │   ├── testing-strategy.md
+│   │   └── vitest-v3-update.md
+│   └── validation/
+├── e2e/
+│   ├── CLAUDE.md
+│   ├── accessibility.spec.ts
+│   ├── contact-form.spec.ts
+│   ├── example.spec.ts
+│   └── performance.spec.ts
+├── figma-screenshots/
+│   ├── .gitignore
+│   ├── README.md
+│   ├── about/
+│   │   ├── components/
+│   │   ├── images/
+│   │   ├── overlays/
+│   │   └── sections/
+│   ├── blog/
+│   │   ├── components/
+│   │   ├── images/
+│   │   ├── overlays/
+│   │   └── sections/
+│   ├── contact/
+│   │   ├── 3f8163bb55b7f0ee1e60b429ceb317a237bf6fd7.svg
+│   │   ├── 59d60fddc75ae7e215a2888318ee78b7ee5fc65a.png
+│   │   ├── 760f91b80d6e57cd0934ef6436e63974c0fdd85c.svg
+│   │   ├── components/
+│   │   ├── d9540cf05a8a0e2412c67070db2919b8691f6663.svg
+│   │   ├── images/
+│   │   │   ├── Book A Session Image.jpg
+│   │   │   ├── CTA.png
+│   │   │   ├── gridicons_arrow-up.svg
+│   │   │   ├── ic_baseline-email.svg
+│   │   │   ├── ic_baseline-phone.svg
+│   │   │   └── mdi_location.svg
+│   │   ├── overlays/
+│   │   └── sections/
+│   ├── homepage/
+│   │   ├── components/
+│   │   │   ├── Frame 16.png
+│   │   │   ├── Frame 17.png
+│   │   │   ├── Frame 2085660678-Testimonials.png
+│   │   │   ├── Frame 2085660684-Testimonials.png
+│   │   │   └── Frame 33-Let's Connect.png
+│   │   ├── images/
+│   │   │   ├── 2148847564 1-Community Highlights Section Image.png
+│   │   │   ├── 2148847564-upcoming-events-community-highlights.png
+│   │   │   ├── Community Highlights.jpg
+│   │   │   ├── Frame 26.png
+│   │   │   ├── Frame 33-Let's Connect.png
+│   │   │   ├── Frame 33.jpg
+│   │   │   ├── IMG-4891.png
+│   │   │   ├── IMG_3859-meet-the-reiki-goddess.png
+│   │   │   ├── IMG_4891-meet-the-reiki-goddess.png
+│   │   │   ├── Nav Bar Clickable Logo.png
+│   │   │   ├── Rectangle 4-custom-sound-healing-song-workshop.png
+│   │   │   ├── Rectangle 4-fullmoon-aerial-soundbath.png
+│   │   │   ├── Social Card Image.png
+│   │   │   ├── Sound_Energy_Immersion_BoltBlue_OthersPurple.svg
+│   │   │   ├── business_16102857 1-feature-1.svg
+│   │   │   ├── download (1)-sowin.png
+│   │   │   ├── download (2).png
+│   │   │   ├── download 1-full-moon-soundbath.png
+│   │   │   ├── download 1.png
+│   │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-meet-the-reiki-goddess-background.png
+│   │   │   ├── game-icons_healing-feature-3.svg
+│   │   │   ├── healthicons_eco-care-feature-4.svg
+│   │   │   ├── icons-sound-energy-immersion.svg
+│   │   │   ├── img-3859.png
+│   │   │   ├── jainism_6741541-reiki-healing-sessions.svg
+│   │   │   ├── lsicon_work-order-appointment-filled-feature-2.svg
+│   │   │   ├── powerrangers-6-hero-main.png
+│   │   │   ├── smoke.png
+│   │   │   ├── source/
+│   │   │   │   └── download.jpg
+│   │   │   ├── the reiki goddess (4.25 x 5.5 in) (Facebook Cover) Logo.png
+│   │   │   ├── triangle_1377047-aura-chakra-readings.svg
+│   │   │   └── view-full-calendar-elipses.png
+│   │   ├── overlays/
+│   │   │   ├── .DS_Store
+│   │   │   ├── Community Events Overlay/
+│   │   │   │   ├── Frame 22.png
+│   │   │   │   ├── Frame 23.png
+│   │   │   │   ├── Frame 25.png
+│   │   │   │   ├── Frame 26.png
+│   │   │   │   ├── Group 4.png
+│   │   │   │   ├── Group 5.png
+│   │   │   │   ├── Real Healing. Real People. Real Stories..png
+│   │   │   │   ├── Upcoming Events & Community Highlights.png
+│   │   │   │   └── What My Clients Are Saying.png
+│   │   │   └── Hero Overlay/
+│   │   │       ├── A certified Reiki master, trauma-informed healer, and sound therapist based in Roy, WA.I combine traditional Reiki with somatic healing, breathwork, and customized sound therapy to help clients release deep energetic blocks, stress, and trauma..png
+│   │   │       ├── Explore Healing Services.png
+│   │   │       ├── Frame 15.png
+│   │   │       ├── Frame 16.png
+│   │   │       ├── Frame 17.png
+│   │   │       ├── Frame 18.png
+│   │   │       ├── Frame 19.png
+│   │   │       ├── Frame 4.png
+│   │   │       ├── Frame 9-Overlay-Header.png
+│   │   │       ├── Frame 9-Overlay-Subtext.png
+│   │   │       ├── Frame-4-Hero-Overlay-Book-A-Session-Button.png
+│   │   │       ├── Frame-4-Hero-Overlay-Learn-More-Button.png
+│   │   │       ├── Frame-7-Hero-Overlay.png
+│   │   │       ├── IMG_3859.png
+│   │   │       ├── IMG_4891.png
+│   │   │       ├── Meet Deirdre, The Reiki Goddess.png
+│   │   │       ├── Meet-Deirdre-Header.png
+│   │   │       ├── The Reiki Goddess.png
+│   │   │       └── fb8b1754eb9a50a6cfaec02f5ef0c9bc 1.png
+│   │   └── sections/
+│   │       ├── Frame 1 Header:Nav.png
+│   │       ├── Frame 2085660676-Footer.png
+│   │       ├── Frame 24-Community-Events-Section.png
+│   │       └── Meet-The-Reiki-Goddess-Section.png
+│   └── services/
+│       ├── components/
+│       ├── overlays/
+│       └── sections/
+├── hooks-helper.sh
+├── legacy/
+│   ├── About/
+│   │   ├── .gitignore
+│   │   ├── README.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── index.tsx
+│   │   │   └── screens/
+│   │   │       └── About/
+│   │   │           ├── About.tsx
+│   │   │           └── index.ts
+│   │   ├── static/
+│   │   │   └── img/
+│   │   │       ├── 2148847564-1.png
+│   │   │       ├── ellipse-5.png
+│   │   │       ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-2.png
+│   │   │       ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-3.png
+│   │   │       ├── frame-2085660578.svg
+│   │   │       ├── frame-33.png
+│   │   │       ├── line-56.svg
+│   │   │       ├── powerrangers-6.png
+│   │   │       ├── rectangle-10.png
+│   │   │       ├── rectangle-12.png
+│   │   │       ├── rectangle-13.png
+│   │   │       ├── rectangle-5.png
+│   │   │       ├── rectangle-6.png
+│   │   │       ├── rectangle-7.png
+│   │   │       ├── rectangle-8.png
+│   │   │       ├── star-6.svg
+│   │   │       ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1-1.png
+│   │   │       ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1.png
+│   │   │       ├── vector-1-1.svg
+│   │   │       ├── vector-1-2.svg
+│   │   │       ├── vector-1.svg
+│   │   │       ├── vector-2.svg
+│   │   │       ├── vector-3.svg
+│   │   │       └── vector-5.svg
+│   │   ├── tailwind.config.js
+│   │   ├── tailwind.css
+│   │   ├── tsconfig.app.json
+│   │   ├── tsconfig.json
+│   │   ├── tsconfig.node.json
+│   │   └── vite.config.ts
+│   ├── BLog/
+│   │   ├── .gitignore
+│   │   ├── README.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── index.tsx
+│   │   │   └── screens/
+│   │   │       └── About/
+│   │   │           ├── About.tsx
+│   │   │           └── index.ts
+│   │   ├── static/
+│   │   │   └── img/
+│   │   │       ├── 2148847564-1.png
+│   │   │       ├── ellipse-5.png
+│   │   │       ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-2.png
+│   │   │       ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-3.png
+│   │   │       ├── frame-2085660578.svg
+│   │   │       ├── frame-33.png
+│   │   │       ├── line-56.svg
+│   │   │       ├── powerrangers-6.png
+│   │   │       ├── rectangle-10.png
+│   │   │       ├── rectangle-12.png
+│   │   │       ├── rectangle-13.png
+│   │   │       ├── rectangle-5.png
+│   │   │       ├── rectangle-6.png
+│   │   │       ├── rectangle-7.png
+│   │   │       ├── rectangle-8.png
+│   │   │       ├── star-6.svg
+│   │   │       ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1-1.png
+│   │   │       ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1.png
+│   │   │       ├── vector-1-1.svg
+│   │   │       ├── vector-1-2.svg
+│   │   │       ├── vector-1.svg
+│   │   │       ├── vector-2.svg
+│   │   │       ├── vector-3.svg
+│   │   │       └── vector-5.svg
+│   │   ├── tailwind.config.js
+│   │   ├── tailwind.css
+│   │   ├── tsconfig.app.json
+│   │   ├── tsconfig.json
+│   │   ├── tsconfig.node.json
+│   │   └── vite.config.ts
+│   ├── Contact/
+│   │   ├── .DS_Store
+│   │   ├── .gitignore
+│   │   ├── README.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── index.tsx
+│   │   │   └── screens/
+│   │   │       └── Contact/
+│   │   │           ├── Contact.tsx
+│   │   │           └── sections/
+│   │   │               ├── CallToActionSection/
+│   │   │               │   └── CallToActionSection.tsx
+│   │   │               ├── ContactFormSection/
+│   │   │               │   ├── ContactFormSection.tsx
+│   │   │               │   └── index.ts
+│   │   │               ├── EmailInfoSection/
+│   │   │               │   ├── EmailInfoSection.tsx
+│   │   │               │   └── index.ts
+│   │   │               ├── FooterSection/
+│   │   │               │   ├── FooterSection.tsx
+│   │   │               │   └── index.ts
+│   │   │               ├── HeaderSection/
+│   │   │               │   ├── HeaderSection.tsx
+│   │   │               │   └── index.ts
+│   │   │               ├── LocationInfoSection/
+│   │   │               │   └── LocationInfoSection.tsx
+│   │   │               └── PhoneInfoSection/
+│   │   │                   ├── PhoneInfoSection.tsx
+│   │   │                   └── index.ts
+│   │   ├── static/
+│   │   │   └── img/
+│   │   │       ├── call.png
+│   │   │       ├── check-box-outline-blank.png
+│   │   │       ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-3.png
+│   │   │       ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-4.png
+│   │   │       ├── frame-2085660578.svg
+│   │   │       ├── frame-33.png
+│   │   │       ├── line-56.svg
+│   │   │       ├── rectangle-38.png
+│   │   │       ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1-1.png
+│   │   │       ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1.png
+│   │   │       ├── vector-1.svg
+│   │   │       ├── vector-3.svg
+│   │   │       ├── vector-5.svg
+│   │   │       └── vector.svg
+│   │   ├── tailwind.config.js
+│   │   ├── tailwind.css
+│   │   ├── tsconfig.app.json
+│   │   ├── tsconfig.json
+│   │   ├── tsconfig.node.json
+│   │   └── vite.config.ts
+│   └── Home Page/
+│       ├── .gitignore
+│       ├── .screen-graph.json
+│       ├── README.md
+│       ├── index.html
+│       ├── package-lock.json
+│       ├── package.json
+│       ├── src/
+│       │   ├── index.tsx
+│       │   └── screens/
+│       │       └── Box/
+│       │           ├── Box.tsx
+│       │           └── index.ts
+│       ├── static/
+│       │   └── img/
+│       │       └── web-design.svg
+│       ├── tailwind.config.js
+│       ├── tailwind.css
+│       ├── tsconfig.app.json
+│       ├── tsconfig.json
+│       ├── tsconfig.node.json
+│       └── vite.config.ts
+├── lighthouserc.js
+├── opencode.jsonc
+├── package-lock.json
+├── package.json
+├── packages/
+│   ├── design-system/
+│   │   ├── CLAUDE.md
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── breakpoints.ts
+│   │   │   ├── colors.ts
+│   │   │   ├── index.ts
+│   │   │   ├── layout.ts
+│   │   │   ├── tailwind.config.ts
+│   │   │   └── typography.ts
+│   │   └── tsconfig.json
+│   ├── shared-assets/
+│   │   ├── CLAUDE.md
+│   │   ├── images/
+│   │   │   ├── about/
+│   │   │   │   ├── 2148847564-1.png
+│   │   │   │   ├── ellipse-5.png
+│   │   │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-2.png
+│   │   │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-3.png
+│   │   │   │   ├── frame-2085660578.svg
+│   │   │   │   ├── frame-33.png
+│   │   │   │   ├── line-56.svg
+│   │   │   │   ├── powerrangers-6.png
+│   │   │   │   ├── rectangle-10.png
+│   │   │   │   ├── rectangle-12.png
+│   │   │   │   ├── rectangle-13.png
+│   │   │   │   ├── rectangle-5.png
+│   │   │   │   ├── rectangle-6.png
+│   │   │   │   ├── rectangle-7.png
+│   │   │   │   ├── rectangle-8.png
+│   │   │   │   ├── star-6.svg
+│   │   │   │   ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1-1.png
+│   │   │   │   ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1.png
+│   │   │   │   ├── vector-1-1.svg
+│   │   │   │   ├── vector-1-2.svg
+│   │   │   │   ├── vector-1.svg
+│   │   │   │   ├── vector-2.svg
+│   │   │   │   ├── vector-3.svg
+│   │   │   │   └── vector-5.svg
+│   │   │   ├── blog/
+│   │   │   │   ├── 2148847564-1.png
+│   │   │   │   ├── ellipse-5.png
+│   │   │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-2.png
+│   │   │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-3.png
+│   │   │   │   ├── frame-2085660578.svg
+│   │   │   │   ├── frame-33.png
+│   │   │   │   ├── line-56.svg
+│   │   │   │   ├── powerrangers-6.png
+│   │   │   │   ├── rectangle-10.png
+│   │   │   │   ├── rectangle-12.png
+│   │   │   │   ├── rectangle-13.png
+│   │   │   │   ├── rectangle-5.png
+│   │   │   │   ├── rectangle-6.png
+│   │   │   │   ├── rectangle-7.png
+│   │   │   │   ├── rectangle-8.png
+│   │   │   │   ├── star-6.svg
+│   │   │   │   ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1-1.png
+│   │   │   │   ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1.png
+│   │   │   │   ├── vector-1-1.svg
+│   │   │   │   ├── vector-1-2.svg
+│   │   │   │   ├── vector-1.svg
+│   │   │   │   ├── vector-2.svg
+│   │   │   │   ├── vector-3.svg
+│   │   │   │   └── vector-5.svg
+│   │   │   ├── contact/
+│   │   │   │   ├── call.png
+│   │   │   │   ├── check-box-outline-blank.png
+│   │   │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-3.png
+│   │   │   │   ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-4.png
+│   │   │   │   ├── frame-2085660578.svg
+│   │   │   │   ├── frame-33.png
+│   │   │   │   ├── line-56.svg
+│   │   │   │   ├── rectangle-38.png
+│   │   │   │   ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1-1.png
+│   │   │   │   ├── the-reiki-goddess-4-25-x-5-5-in-facebook-cover-1.png
+│   │   │   │   ├── vector-1.svg
+│   │   │   │   ├── vector-3.svg
+│   │   │   │   ├── vector-5.svg
+│   │   │   │   └── vector.svg
+│   │   │   └── home/
+│   │   │       └── web-design.svg
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── images.d.ts
+│   │   │   ├── images.d.ts.map
+│   │   │   ├── images.js
+│   │   │   ├── images.ts
+│   │   │   ├── index.d.ts
+│   │   │   ├── index.d.ts.map
+│   │   │   ├── index.js
+│   │   │   ├── index.ts
+│   │   │   └── types.d.ts
+│   │   └── tsconfig.json
+│   ├── shared-components/
+│   │   ├── CLAUDE.md
+│   │   ├── apps/
+│   │   ├── check-warnings.sh
+│   │   ├── demo/
+│   │   │   ├── index.html
+│   │   │   ├── package.json
+│   │   │   ├── postcss.config.js
+│   │   │   ├── public/
+│   │   │   │   ├── images/
+│   │   │   │   │   ├── 760f91b80d6e57cd0934ef6436e63974c0fdd85c.svg
+│   │   │   │   │   └── gridicons_arrow-up.svg
+│   │   │   │   └── img/
+│   │   │   │       ├── CTA.png
+│   │   │   │       ├── Frame 33-Let's Connect.png
+│   │   │   │       ├── IMG_3859-meet-the-reiki-goddess.png
+│   │   │   │       ├── IMG_4891-meet-the-reiki-goddess.png
+│   │   │   │       ├── IMG_4891.png
+│   │   │   │       ├── Nav Bar Clickable Logo.png
+│   │   │   │       ├── Rectangle 4-custom-sound-healing-song-workshop.png
+│   │   │   │       ├── Rectangle 4-fullmoon-aerial-soundbath.png
+│   │   │   │       ├── Sound_Energy_Immersion_BoltBlue_OthersPurple.svg
+│   │   │   │       ├── Sound_Energy_Immersion_Recolored.svg
+│   │   │   │       ├── book-a-session-image.jpg
+│   │   │   │       ├── business_16102857 1-feature-1.svg
+│   │   │   │       ├── community-highlights.jpg
+│   │   │   │       ├── download (1)-sowin.png
+│   │   │   │       ├── download (2).png
+│   │   │   │       ├── download 1-full-moon-soundbath.png
+│   │   │   │       ├── download-1-full-moon-soundbath.png
+│   │   │   │       ├── download-1-sowin.png
+│   │   │   │       ├── download-2.png
+│   │   │   │       ├── fb8b1754eb9a50a6cfaec02f5ef0c9bc-meet-the-reiki-goddess-background.png
+│   │   │   │       ├── game-icons_healing-feature-3.svg
+│   │   │   │       ├── healthicons_eco-care-feature-4.svg
+│   │   │   │       ├── icons-sound-energy-immersion.svg
+│   │   │   │       ├── img-3859.png
+│   │   │   │       ├── jainism_6741541-reiki-healing-sessions.svg
+│   │   │   │       ├── lets-connect-bg.jpg
+│   │   │   │       ├── lsicon_work-order-appointment-filled-feature-2.svg
+│   │   │   │       ├── powerrangers-6-hero-main.png
+│   │   │   │       ├── reiki-goddess-logo.png
+│   │   │   │       ├── smoke.png
+│   │   │   │       ├── social-card-profile.png
+│   │   │   │       ├── the reiki goddess (4.25 x 5.5 in) (Facebook Cover) Logo.png
+│   │   │   │       └── triangle_1377047-aura-chakra-readings.svg
+│   │   │   ├── src/
+│   │   │   │   ├── App.tsx
+│   │   │   │   ├── index.css
+│   │   │   │   └── main.tsx
+│   │   │   ├── tailwind.config.js
+│   │   │   ├── tsconfig.json
+│   │   │   ├── tsconfig.node.json
+│   │   │   └── vite.config.ts
+│   │   ├── demo.html
+│   │   ├── figma-screenshots/
+│   │   │   ├── about/
+│   │   │   │   ├── components/
+│   │   │   │   ├── overlays/
+│   │   │   │   └── sections/
+│   │   │   ├── blog/
+│   │   │   │   ├── components/
+│   │   │   │   ├── overlays/
+│   │   │   │   └── sections/
+│   │   │   ├── contact/
+│   │   │   │   ├── components/
+│   │   │   │   ├── overlays/
+│   │   │   │   └── sections/
+│   │   │   ├── homepage/
+│   │   │   │   ├── components/
+│   │   │   │   ├── overlays/
+│   │   │   │   └── sections/
+│   │   │   └── services/
+│   │   │       ├── components/
+│   │   │       ├── overlays/
+│   │   │       └── sections/
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── AnimatedSection/
+│   │   │   │   ├── AnimatedSection.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── AppLayout/
+│   │   │   │   ├── AppLayout.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── BookSessionCTA/
+│   │   │   │   ├── BookSessionCTA.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── Button.test.tsx
+│   │   │   ├── Button.tsx
+│   │   │   ├── CommunityEvents/
+│   │   │   │   ├── CommunityEvents.test.tsx
+│   │   │   │   ├── CommunityEvents.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── ContactInfoCard/
+│   │   │   │   ├── ContactInfoCard.test.tsx
+│   │   │   │   ├── ContactInfoCard.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── Demo/
+│   │   │   │   └── CurrentProgress.tsx
+│   │   │   ├── FeaturesBar/
+│   │   │   │   ├── FeaturesBar.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── FigmaContactForm/
+│   │   │   │   ├── FigmaContactForm.test.tsx
+│   │   │   │   ├── FigmaContactForm.tsx
+│   │   │   │   ├── SecurityFeatures.test.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── Footer/
+│   │   │   │   ├── Footer.test.tsx
+│   │   │   │   ├── Footer.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── Footer.tsx
+│   │   │   ├── FooterSection/
+│   │   │   │   ├── FooterSection.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── FooterSection.tsx
+│   │   │   ├── Header/
+│   │   │   │   ├── Header.stories.tsx
+│   │   │   │   ├── Header.test.tsx
+│   │   │   │   ├── Header.tsx
+│   │   │   │   ├── MobileHeader-fixed.test.tsx
+│   │   │   │   ├── MobileHeader.test.tsx
+│   │   │   │   ├── MobileHeader.tsx
+│   │   │   │   ├── ResponsiveHeader.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── HeaderSection/
+│   │   │   │   ├── HeaderSection.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── HeaderSection.tsx
+│   │   │   ├── Hero/
+│   │   │   │   ├── Hero.tsx
+│   │   │   │   ├── HeroV2.test.tsx
+│   │   │   │   ├── HeroV2.tsx
+│   │   │   │   ├── ResponsiveHero.tsx
+│   │   │   │   ├── ResponsiveHeroV2.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── Homepage/
+│   │   │   │   ├── Homepage.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── LazyImage/
+│   │   │   │   ├── LazyImage.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── LetsConnect/
+│   │   │   │   ├── LetsConnect.test.tsx
+│   │   │   │   ├── LetsConnect.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── MeetTheGoddess/
+│   │   │   │   ├── MeetTheGoddess.test.tsx
+│   │   │   │   ├── MeetTheGoddess.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── Navigation.tsx
+│   │   │   ├── PrivacyCompliance.tsx
+│   │   │   ├── ResponsiveContainer/
+│   │   │   │   ├── ResponsiveContainer.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── ResponsiveContainer.tsx
+│   │   │   ├── SecureContactForm/
+│   │   │   │   ├── SecureContactForm.test.tsx
+│   │   │   │   ├── SecureContactForm.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── Services/
+│   │   │   │   ├── ServicesSection.test.tsx
+│   │   │   │   ├── ServicesSection.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── Testimonials/
+│   │   │   │   ├── Testimonials.test.tsx
+│   │   │   │   ├── Testimonials.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── hooks/
+│   │   │   │   ├── index.ts
+│   │   │   │   └── useIntersectionObserver.tsx
+│   │   │   ├── index.ts
+│   │   │   ├── pages/
+│   │   │   │   ├── AboutPage.tsx
+│   │   │   │   ├── BlogPage.tsx
+│   │   │   │   ├── ContactPage.test.tsx
+│   │   │   │   ├── ContactPage.tsx
+│   │   │   │   ├── EventsPage.tsx
+│   │   │   │   ├── HomePage.tsx
+│   │   │   │   ├── ServicesPage.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── test-utils/
+│   │   │   │   ├── RouterWrapper.tsx
+│   │   │   │   └── index.ts
+│   │   │   └── vitest-env.d.ts
+│   │   ├── test-results.json
+│   │   ├── test-warnings.js
+│   │   ├── test-warnings.txt
+│   │   ├── tsconfig.json
+│   │   ├── tsconfig.test.json
+│   │   └── vitest.config.ts
+│   └── shared-utils/
+│       ├── CLAUDE.md
+│       ├── package.json
+│       ├── src/
+│       │   ├── formatters.ts
+│       │   ├── index.ts
+│       │   └── validators.ts
+│       └── tsconfig.json
+├── playwright.config.ts
+├── scripts/
+│   ├── CLAUDE.md
+│   ├── create-app-readme.mjs
+│   ├── fix_imports.py
+│   ├── monitor.py
+│   ├── update-imports.js
+│   └── validate_system.py
+├── style-guide.md
+├── todo.md
+├── tsconfig.json
+└── turbo.json
