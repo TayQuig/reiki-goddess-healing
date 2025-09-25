@@ -3,6 +3,7 @@ import { AnimatedSection } from "../AnimatedSection";
 import { ContactInfoCard } from "../ContactInfoCard";
 import { FigmaContactForm } from "../FigmaContactForm";
 import { BookSessionCTA } from "../BookSessionCTA";
+import { GoogleMapEmbed } from "../GoogleMap";
 
 /**
  * ContactPage - The Reiki Goddess Healing contact page
@@ -157,11 +158,15 @@ export const ContactPage: React.FC = () => {
         {/* Map Section */}
         <AnimatedSection delay={0.3}>
           <div className="w-full h-[598px] relative">
-            <img
-              src="/img/d6624918517b685d6082f92a43dde9ebf88b0832.png"
-              alt="Location Map"
-              className="w-full h-full object-cover"
+            <GoogleMapEmbed
+              address="Roy, Washington"
+              width="100%"
+              height={598}
+              className="w-full"
               loading="lazy"
+              fallbackImageUrl="/img/d6624918517b685d6082f92a43dde9ebf88b0832.png"
+              ariaLabel="Map showing The Reiki Goddess Healing location in Roy, Washington"
+              title="The Reiki Goddess Healing Location Map"
             />
           </div>
         </AnimatedSection>

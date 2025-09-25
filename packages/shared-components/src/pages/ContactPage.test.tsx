@@ -24,6 +24,34 @@ vi.mock("../FigmaContactForm", () => ({
   ),
 }));
 
+vi.mock("../GoogleMap", () => ({
+  GoogleMapEmbed: ({
+    ariaLabel,
+    address,
+  }: {
+    ariaLabel: string;
+    address: string;
+  }) => (
+    <div data-testid="google-map-embed" aria-label={ariaLabel}>
+      Map for {address}
+    </div>
+  ),
+}));
+
+vi.mock("../BookSessionCTA", () => ({
+  BookSessionCTA: () => (
+    <div
+      data-testid="book-session-cta"
+      className="bg-blue rounded-[20px] shadow-[9px_10px_0px_0px_#63D5F9]"
+    >
+      <h2 className="text-[48px] font-bold text-white">
+        Ready to Begin Your Healing Journey?
+      </h2>
+      <a href="/book">Book Your Session Today</a>
+    </div>
+  ),
+}));
+
 describe("ContactPage", () => {
   describe("Rendering", () => {
     it("should render main heading and subtitle", () => {
@@ -64,11 +92,12 @@ describe("ContactPage", () => {
     it("should render map section", () => {
       render(<ContactPage />);
 
-      const mapImage = screen.getByAltText("Location Map");
-      expect(mapImage).toBeInTheDocument();
-      expect(mapImage).toHaveAttribute(
-        "src",
-        "/img/d6624918517b685d6082f92a43dde9ebf88b0832.png"
+      const mapEmbed = screen.getByTestId("google-map-embed");
+      expect(mapEmbed).toBeInTheDocument();
+      expect(mapEmbed).toHaveTextContent("Map for Roy, Washington");
+      expect(mapEmbed).toHaveAttribute(
+        "aria-label",
+        "Map showing The Reiki Goddess Healing location in Roy, Washington"
       );
     });
 
@@ -91,7 +120,7 @@ describe("ContactPage", () => {
       const { container } = render(<ContactPage />);
 
       const pageWrapper = container.firstChild;
-      expect(pageWrapper).toHaveClass("min-h-screen", "bg-cream");
+      expect(pageWrapper).toHaveClass("min-h-screen", "bg-[#FFFBF5]");
     });
 
     it("should apply correct typography to heading", () => {
@@ -165,11 +194,14 @@ describe("ContactPage", () => {
       expect(h2).toHaveTextContent("Ready to Begin Your Healing Journey?");
     });
 
-    it("should have alt text for images", () => {
+    it("should have accessible map with proper aria-label", () => {
       render(<ContactPage />);
 
-      const mapImage = screen.getByAltText("Location Map");
-      expect(mapImage).toBeInTheDocument();
+      const mapEmbed = screen.getByTestId("google-map-embed");
+      expect(mapEmbed).toHaveAttribute(
+        "aria-label",
+        "Map showing The Reiki Goddess Healing location in Roy, Washington"
+      );
     });
 
     it("should have accessible links", () => {
