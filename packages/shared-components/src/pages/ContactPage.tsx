@@ -129,9 +129,9 @@ export const ContactPage: React.FC = () => {
               <ContactInfoCard
                 icon="/images/mdi_location.svg"
                 title="Our Location"
-                content="Roy, Washington"
+                content="8916 345th Street Ct. S. Roy, WA 98580"
                 ctaText="Get Directions"
-                ctaLink="https://maps.google.com/?q=Roy,Washington"
+                ctaLink="https://maps.google.com/?q=8916+345th+Street+Ct.+S.+Roy,+WA+98580"
               />
 
               {/* Phone Card */}
@@ -157,17 +157,58 @@ export const ContactPage: React.FC = () => {
 
         {/* Map Section */}
         <AnimatedSection delay={0.3}>
-          <div className="w-full h-[598px] relative">
-            <GoogleMapEmbed
-              address="Roy, Washington"
-              width="100%"
-              height={598}
-              className="w-full"
-              loading="lazy"
-              fallbackImageUrl="/img/d6624918517b685d6082f92a43dde9ebf88b0832.png"
-              ariaLabel="Map showing The Reiki Goddess Healing location in Roy, Washington"
-              title="The Reiki Goddess Healing Location Map"
-            />
+          <div className="w-full h-[598px] relative overflow-hidden">
+            {/* Left smoke layers behind map */}
+            {[...Array(5)].map((_, index) => (
+              <div
+                key={`map-left-smoke-${index}`}
+                className="absolute opacity-10 pointer-events-none"
+                style={{
+                  width: "600px",
+                  height: "600px",
+                  left: "-200px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  backgroundImage: `url('/img/smoke.png')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  zIndex: 0,
+                }}
+              />
+            ))}
+
+            {/* Right smoke layers behind map */}
+            {[...Array(5)].map((_, index) => (
+              <div
+                key={`map-right-smoke-${index}`}
+                className="absolute opacity-10 pointer-events-none"
+                style={{
+                  width: "600px",
+                  height: "600px",
+                  right: "-200px",
+                  top: "50%",
+                  transform: "translateY(-50%) rotate(180deg)",
+                  backgroundImage: `url('/img/smoke.png')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  zIndex: 0,
+                }}
+              />
+            ))}
+
+            {/* Map with higher z-index */}
+            <div className="relative z-10 w-full h-full">
+              <GoogleMapEmbed
+                address="8916 345th Street Ct. S. Roy, WA 98580"
+                width="100%"
+                height={598}
+                className="w-full"
+                loading="lazy"
+                fallbackImageUrl="/img/d6624918517b685d6082f92a43dde9ebf88b0832.png"
+                ariaLabel="Map showing The Reiki Goddess Healing location in Roy, Washington"
+                title="The Reiki Goddess Healing Location Map"
+              />
+            </div>
           </div>
         </AnimatedSection>
 

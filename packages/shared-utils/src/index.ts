@@ -8,3 +8,6 @@ export * from "./dataStructures/businessDataTemplates";
 
 // Security utilities - Export from security/ folder only (not security-validation)
 export * from "./security";
+
+// Map utilities
+export * from "./maps";

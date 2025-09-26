@@ -81,9 +81,24 @@ export type {
   FigmaContactFormData,
 } from "./FigmaContactForm";
 
-// Google Maps components
-export { GoogleMapEmbed } from "./GoogleMap";
-export type { GoogleMapEmbedProps, MapLoadingState } from "./GoogleMap";
+// Google Maps components with enhanced error handling
+export {
+  GoogleMapEmbed,
+  MapErrorBoundary,
+  MapLoadingSkeleton,
+  useNetworkState,
+} from "./GoogleMap";
+export type {
+  GoogleMapEmbedProps,
+  MapLoadingState,
+  MapErrorState,
+  RetryConfig,
+  NetworkState,
+} from "./GoogleMap";
+
+// CTA components
+export { BookSessionCTA } from "./BookSessionCTA/BookSessionCTA";
+export type { BookSessionCTAProps } from "./BookSessionCTA/BookSessionCTA";
 
 // Complete page compositions
 export { Homepage } from "./Homepage";

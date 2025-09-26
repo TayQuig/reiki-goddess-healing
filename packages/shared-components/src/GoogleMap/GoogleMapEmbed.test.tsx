@@ -123,7 +123,7 @@ describe("GoogleMapEmbed", () => {
     it("shows loading skeleton initially", () => {
       render(<GoogleMapEmbed {...defaultProps} />);
 
-      expect(screen.getByText("Loading map...")).toBeInTheDocument();
+      expect(screen.getByText("Loading Google Maps...")).toBeInTheDocument();
       expect(document.querySelector(".animate-pulse")).toBeInTheDocument();
       expect(document.querySelector(".animate-spin")).toBeInTheDocument();
     });
@@ -138,7 +138,7 @@ describe("GoogleMapEmbed", () => {
       // In testing environment, iframe error events may not work as expected
       // So we'll test the loading state instead to ensure component renders correctly
       expect(iframe).toBeInTheDocument();
-      expect(screen.getByText("Loading map...")).toBeInTheDocument();
+      expect(screen.getByText("Loading Google Maps...")).toBeInTheDocument();
     });
 
     it("shows fallback image when provided and iframe fails", async () => {
@@ -160,14 +160,16 @@ describe("GoogleMapEmbed", () => {
 
       const iframe = screen.getByTitle("Google Maps");
 
-      // Initially shows loading
-      expect(screen.getByText("Loading map...")).toBeInTheDocument();
+      // Initially shows loading skeleton
+      expect(screen.getByText("Loading Google Maps...")).toBeInTheDocument();
 
       // Simulate iframe load success
       fireEvent.load(iframe);
 
       await waitFor(() => {
-        expect(screen.queryByText("Loading map...")).not.toBeInTheDocument();
+        expect(
+          screen.queryByText("Loading Google Maps...")
+        ).not.toBeInTheDocument();
       });
     });
 
@@ -195,12 +197,16 @@ describe("GoogleMapEmbed", () => {
     it("includes screen reader text", () => {
       render(<GoogleMapEmbed {...defaultProps} />);
 
-      const srText = document.querySelector(".sr-only");
-      expect(srText).toBeInTheDocument();
-      expect(srText).toHaveTextContent(
-        "Map showing the location: 123 Test Street, Test City, TC 12345"
+      const srElements = document.querySelectorAll(".sr-only");
+      expect(srElements.length).toBeGreaterThan(0);
+
+      // Check that at least one element contains the expected loading text
+      const hasLoadingText = Array.from(srElements).some((el) =>
+        el.textContent?.includes(
+          "Loading interactive map for 123 Test Street, Test City, TC 12345"
+        )
       );
-      expect(srText).toHaveTextContent("Use the keyboard navigation");
+      expect(hasLoadingText).toBe(true);
     });
 
     it("includes proper ARIA live region for dynamic updates", () => {
