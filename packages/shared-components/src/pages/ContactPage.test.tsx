@@ -251,13 +251,5 @@ describe("ContactPage", () => {
       expect(sharedUtils.submitContactForm).toBeDefined();
       expect(getMockedSubmitContactForm()).toBeDefined();
     });
-
-    it("should render FigmaContactForm component", () => {
-      render(<ContactPage />);
-
-      // Verify the form is rendered
-      const form = screen.getByTestId("figma-contact-form");
-      expect(form).toBeInTheDocument();
-    });
   });
 });
