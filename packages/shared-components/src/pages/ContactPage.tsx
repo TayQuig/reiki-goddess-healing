@@ -4,6 +4,7 @@ import { ContactInfoCard } from "../ContactInfoCard";
 import { FigmaContactForm } from "../FigmaContactForm";
 import { BookSessionCTA } from "../BookSessionCTA";
 import { GoogleMapEmbed } from "../GoogleMap";
+import { submitContactForm } from "@reiki-goddess/shared-utils";
 
 /**
  * ContactPage - The Reiki Goddess Healing contact page
@@ -74,9 +75,7 @@ export const ContactPage: React.FC = () => {
             <div className="max-w-[1241px] mx-auto">
               <FigmaContactForm
                 onSubmit={async (data) => {
-                  console.log("Contact form submitted:", data);
-                  // TODO: Implement actual form submission
-                  await new Promise((resolve) => setTimeout(resolve, 2000));
+                  await submitContactForm(data);
                 }}
                 className="contact-page-form"
               />

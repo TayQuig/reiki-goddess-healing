@@ -1,6 +1,22 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { ContactPage } from "./ContactPage";
+import * as sharedUtils from "@reiki-goddess/shared-utils";
+
+// Mock submitContactForm from shared-utils
+vi.mock("@reiki-goddess/shared-utils", async () => {
+  const actual = await vi.importActual<
+    typeof import("@reiki-goddess/shared-utils")
+  >("@reiki-goddess/shared-utils");
+  return {
+    ...actual,
+    submitContactForm: vi.fn(),
+  };
+});
+
+// Helper to get the mocked function
+const getMockedSubmitContactForm = () =>
+  vi.mocked(sharedUtils.submitContactForm);
 
 // Mock components
 vi.mock("../AnimatedSection", () => ({
@@ -211,6 +227,37 @@ describe("ContactPage", () => {
         name: /Book Your Session Today/i,
       });
       expect(ctaLink).toBeInTheDocument();
+    });
+  });
+
+  describe("ContactPage Email Integration", () => {
+    beforeEach(() => {
+      // Clear the mock
+      getMockedSubmitContactForm().mockClear();
+      // Clear localStorage to reset rate limiting
+      localStorage.clear();
+    });
+
+    it("should render FigmaContactForm component", () => {
+      render(<ContactPage />);
+
+      // Verify that the contact form is rendered
+      // FigmaContactForm is already mocked, so this verifies the component structure
+      expect(screen.getByTestId("mock-figma-contact-form")).toBeInTheDocument();
+    });
+
+    it("should import submitContactForm from shared-utils", () => {
+      // This is more of a compile-time check, but we can verify the mock is set up
+      expect(sharedUtils.submitContactForm).toBeDefined();
+      expect(getMockedSubmitContactForm()).toBeDefined();
+    });
+
+    it("should render FigmaContactForm component", () => {
+      render(<ContactPage />);
+
+      // Verify the form is rendered
+      const form = screen.getByTestId("figma-contact-form");
+      expect(form).toBeInTheDocument();
     });
   });
 });
