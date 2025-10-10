@@ -37,9 +37,9 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <header
-      className={`relative ${className}`}
+      className={`relative w-full ${className}`}
       style={{
-        width: "1440px",
+        maxWidth: "1440px",
         height: "93px",
         backgroundColor: "#FFFBF5",
         backdropFilter: "blur(10px)",

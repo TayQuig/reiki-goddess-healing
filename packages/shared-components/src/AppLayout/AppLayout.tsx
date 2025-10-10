@@ -51,10 +51,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ className = "" }) => {
       style={{ backgroundColor: "#FFFBF5" }}
     >
       {/* Header with active navigation states - positioned absolutely to overlay content */}
-      <div
-        className="relative z-50"
-        style={{ maxWidth: "1440px", margin: "0 auto" }}
-      >
+      <div className="relative z-50 w-full flex justify-center">
         <Header
           logo={{
             src: "/img/Nav Bar Clickable Logo.png",

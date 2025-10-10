@@ -1,15 +1,31 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen, waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { HelmetProvider } from "react-helmet-async";
 import App from "../App";
 
 // Mock framer-motion to avoid animation timing issues in tests
 vi.mock("framer-motion", () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    div: ({
+      children,
+      ...props
+    }: {
+      children: React.ReactNode;
+      [key: string]: unknown;
+    }) => <div {...props}>{children}</div>,
   },
-  AnimatePresence: ({ children }: any) => children,
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
 }));
+
+// Helper to render App with providers
+const renderApp = () => {
+  return render(
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
+  );
+};
 
 describe("App Routing Integration Tests", () => {
   beforeEach(() => {
@@ -19,7 +35,7 @@ describe("App Routing Integration Tests", () => {
 
   describe("Page Navigation", () => {
     it("should render the home page by default", () => {
-      render(<App />);
+      renderApp();
 
       expect(
         screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
@@ -31,7 +47,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should navigate to About page when clicking About link", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       const aboutLink = screen.getAllByRole("link", { name: /about/i })[0];
       await user.click(aboutLink);
@@ -45,7 +61,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should navigate to Services page when clicking Services link", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       const servicesLink = screen.getAllByRole("link", {
         name: /services/i,
@@ -61,7 +77,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should navigate to Events page when clicking Events link", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       const eventsLink = screen.getAllByRole("link", { name: /events/i })[0];
       await user.click(eventsLink);
@@ -75,7 +91,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should navigate to Contact page when clicking Contact link", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       const contactLink = screen.getAllByRole("link", { name: /contact/i })[0];
       await user.click(contactLink);
@@ -89,7 +105,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should navigate to Blog page when clicking Blog link", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       const blogLink = screen.getAllByRole("link", { name: /blog/i })[0];
       await user.click(blogLink);
@@ -103,7 +119,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should navigate between multiple pages in sequence", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Start at home
       expect(
@@ -137,7 +153,7 @@ describe("App Routing Integration Tests", () => {
 
     it.skip("should reset scroll position when navigating", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Simulate scrolling down on home page
       window.scrollTo(0, 500);
@@ -160,7 +176,7 @@ describe("App Routing Integration Tests", () => {
   describe("404 Error Handling", () => {
     it("should display 404 page for non-existent routes", () => {
       window.history.pushState({}, "", "/non-existent-page");
-      render(<App />);
+      renderApp();
 
       expect(screen.getByText(/404/)).toBeInTheDocument();
       expect(screen.getByText(/page not found/i)).toBeInTheDocument();
@@ -169,7 +185,7 @@ describe("App Routing Integration Tests", () => {
     it("should navigate back to home from 404 page", async () => {
       const user = userEvent.setup();
       window.history.pushState({}, "", "/non-existent-page");
-      render(<App />);
+      renderApp();
 
       expect(screen.getByText(/404/)).toBeInTheDocument();
 
@@ -188,7 +204,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should handle deep non-existent routes", () => {
       window.history.pushState({}, "", "/services/non-existent/deep/route");
-      render(<App />);
+      renderApp();
 
       expect(screen.getByText(/404/)).toBeInTheDocument();
     });
@@ -196,7 +212,7 @@ describe("App Routing Integration Tests", () => {
 
   describe("Navigation Active States", () => {
     it("should highlight the active navigation item for current page", () => {
-      render(<App />);
+      renderApp();
 
       // Home link should be active by default
       const homeLink = screen.getAllByRole("link", { name: /home/i })[0];
@@ -209,7 +225,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should update active state when navigating", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Navigate to About
       const aboutLink = screen.getAllByRole("link", { name: /about/i })[0];
@@ -234,7 +250,7 @@ describe("App Routing Integration Tests", () => {
     });
 
     it("should show hamburger menu on mobile", () => {
-      render(<App />);
+      renderApp();
 
       expect(
         screen.getByRole("button", { name: /open menu/i })
@@ -243,7 +259,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should open mobile menu when hamburger is clicked", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       const hamburgerButton = screen.getByRole("button", {
         name: /open menu/i,
@@ -260,7 +276,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should navigate and close mobile menu when link is clicked", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Open mobile menu
       const hamburgerButton = screen.getByRole("button", {
@@ -285,7 +301,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should close mobile menu when clicking outside", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Open mobile menu
       const hamburgerButton = screen.getByRole("button", {
@@ -312,7 +328,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should close mobile menu with Escape key", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Open mobile menu
       const hamburgerButton = screen.getByRole("button", {
@@ -340,7 +356,7 @@ describe("App Routing Integration Tests", () => {
   describe("Page Transitions", () => {
     it("should apply smooth transitions between pages", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Verify we start on home page
       expect(screen.getByTestId("page-home")).toBeInTheDocument();
@@ -358,7 +374,7 @@ describe("App Routing Integration Tests", () => {
   describe("Browser Back/Forward Navigation", () => {
     it("should handle browser back button correctly", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Navigate to About
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
@@ -382,7 +398,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should handle browser forward button correctly", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Navigate to About
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
@@ -419,7 +435,7 @@ describe("App Routing Integration Tests", () => {
   describe("Deep Linking", () => {
     it("should handle direct navigation to nested routes", () => {
       window.history.pushState({}, "", "/services");
-      render(<App />);
+      renderApp();
 
       expect(
         screen.getByRole("heading", { name: /services/i })
@@ -429,7 +445,7 @@ describe("App Routing Integration Tests", () => {
     it("should preserve query parameters during navigation", async () => {
       const user = userEvent.setup();
       window.history.pushState({}, "", "/?utm_source=test");
-      render(<App />);
+      renderApp();
 
       // Navigate to About
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
@@ -443,7 +459,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should handle hash fragments in URLs", () => {
       window.history.pushState({}, "", "/#testimonials");
-      render(<App />);
+      renderApp();
 
       expect(
         screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
@@ -458,7 +474,7 @@ describe("App Routing Integration Tests", () => {
         .mockImplementation(() => {});
 
       // Test that app doesn't crash on navigation errors
-      render(<App />);
+      renderApp();
 
       // Force a navigation error by manipulating history state
       act(() => {
@@ -478,7 +494,7 @@ describe("App Routing Integration Tests", () => {
   describe("Accessibility", () => {
     it("should announce page changes to screen readers", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Navigate to About
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
@@ -493,7 +509,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should maintain focus management during navigation", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Focus on a navigation link
       const aboutLink = screen.getAllByRole("link", { name: /about/i })[0];
@@ -511,7 +527,7 @@ describe("App Routing Integration Tests", () => {
 
     it("should support keyboard navigation through all routes", async () => {
       const user = userEvent.setup();
-      render(<App />);
+      renderApp();
 
       // Tab through navigation to reach a non-home link
       await user.tab(); // First tab

@@ -30,6 +30,17 @@
   }
 }
 
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 :root {
   --variable-collection-color: rgba(2, 5, 183, 1);
   --variable-collection-color-1: rgba(0, 0, 0, 1);
