@@ -75,28 +75,555 @@ function Blog() {
         >
           <BlogHero />
 
-          <BlogSearch
-            value={searchQuery}
-            onChange={setSearchQuery}
-            placeholder="Search"
-          />
+          {/* Wrapper with relative positioning for smoke effects */}
+          <div style={{ position: "relative", zIndex: 1 }}>
+            {/* Smoke effects behind search bar and first blog post - 7 layer for enhanced visibility */}
+            {filteredPosts.length > 0 && (
+              <>
+                {/* Left smoke puff */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "-196px",
+                    top: "-100px",
+                    width: "808px",
+                    height: "808px",
+                    pointerEvents: "none",
+                    zIndex: -1,
+                  }}
+                  aria-hidden="true"
+                >
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.4,
+                      transform: "rotate(0deg)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.35,
+                      transform: "rotate(0deg)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.3,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(150%)",
+                      mixBlendMode: "multiply",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.25,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(130%)",
+                      mixBlendMode: "multiply",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.2,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(200%) hue-rotate(-10deg)",
+                      mixBlendMode: "overlay",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.18,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(180%) hue-rotate(-5deg)",
+                      mixBlendMode: "overlay",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.15,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(120%)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
 
-          <div style={{ padding: "0 66px" }}>
-            <BlogGrid
-              posts={filteredPosts}
-              loading={loading}
-              error={error}
-              emptyMessage={
-                searchQuery
-                  ? `No posts found matching "${searchQuery}".`
-                  : "No blog posts available yet. Check back soon!"
-              }
+                {/* Right smoke puff */}
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "-196px",
+                    top: "-100px",
+                    width: "808px",
+                    height: "808px",
+                    pointerEvents: "none",
+                    zIndex: -1,
+                  }}
+                  aria-hidden="true"
+                >
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.4,
+                      transform: "rotate(-180deg)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.35,
+                      transform: "rotate(-180deg)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.3,
+                      transform: "rotate(-180deg)",
+                      filter: "saturate(150%)",
+                      mixBlendMode: "multiply",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.25,
+                      transform: "rotate(-180deg)",
+                      filter: "saturate(130%)",
+                      mixBlendMode: "multiply",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.2,
+                      transform: "rotate(-180deg)",
+                      filter: "saturate(200%) hue-rotate(-10deg)",
+                      mixBlendMode: "overlay",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.18,
+                      transform: "rotate(-180deg)",
+                      filter: "saturate(180%) hue-rotate(-5deg)",
+                      mixBlendMode: "overlay",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.15,
+                      transform: "rotate(-180deg)",
+                      filter: "saturate(120%)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
+
+                {/* Center smoke puff */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "412px",
+                    top: "1861px",
+                    width: "808px",
+                    height: "729px",
+                    pointerEvents: "none",
+                    zIndex: -1,
+                  }}
+                  aria-hidden="true"
+                >
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.4,
+                      transform: "rotate(0deg)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.35,
+                      transform: "rotate(0deg)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.3,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(150%)",
+                      mixBlendMode: "multiply",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.25,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(130%)",
+                      mixBlendMode: "multiply",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.2,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(200%) hue-rotate(-10deg)",
+                      mixBlendMode: "overlay",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.18,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(180%) hue-rotate(-5deg)",
+                      mixBlendMode: "overlay",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <img
+                    src="/img/smoke.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      opacity: 0.15,
+                      transform: "rotate(0deg)",
+                      filter: "saturate(120%)",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
+              </>
+            )}
+
+            <BlogSearch
+              value={searchQuery}
+              onChange={setSearchQuery}
+              placeholder="Search"
             />
+
+            <div style={{ padding: "0 66px" }}>
+              <BlogGrid
+                posts={filteredPosts}
+                loading={loading}
+                error={error}
+                emptyMessage={
+                  searchQuery
+                    ? `No posts found matching "${searchQuery}".`
+                    : "No blog posts available yet. Check back soon!"
+                }
+              />
+            </div>
           </div>
 
-          {/* CTA Section */}
-          <div className="px-[66px] py-[100px] md:px-5 md:py-12">
-            <BookSessionCTA />
+          {/* CTA Section with fourth smoke */}
+          <div className="relative">
+            {/* Fourth smoke puff - positioned near footer */}
+            {filteredPosts.length > 0 && (
+              <div
+                style={{
+                  position: "absolute",
+                  left: "658px",
+                  top: "-200px",
+                  width: "808px",
+                  height: "808px",
+                  pointerEvents: "none",
+                  zIndex: 0,
+                }}
+                aria-hidden="true"
+              >
+                <img
+                  src="/img/smoke.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    opacity: 0.4,
+                    transform: "rotate(-180deg)",
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                <img
+                  src="/img/smoke.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    opacity: 0.35,
+                    transform: "rotate(-180deg)",
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                <img
+                  src="/img/smoke.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    opacity: 0.3,
+                    transform: "rotate(-180deg)",
+                    filter: "saturate(150%)",
+                    mixBlendMode: "multiply",
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                <img
+                  src="/img/smoke.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    opacity: 0.25,
+                    transform: "rotate(-180deg)",
+                    filter: "saturate(130%)",
+                    mixBlendMode: "multiply",
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                <img
+                  src="/img/smoke.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    opacity: 0.2,
+                    transform: "rotate(-180deg)",
+                    filter: "saturate(200%) hue-rotate(-10deg)",
+                    mixBlendMode: "overlay",
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                <img
+                  src="/img/smoke.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    opacity: 0.18,
+                    transform: "rotate(-180deg)",
+                    filter: "saturate(180%) hue-rotate(-5deg)",
+                    mixBlendMode: "overlay",
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                <img
+                  src="/img/smoke.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    opacity: 0.15,
+                    transform: "rotate(-180deg)",
+                    filter: "saturate(120%)",
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+              </div>
+            )}
+            <div className="px-[66px] py-[100px] md:px-5 md:py-12">
+              <BookSessionCTA />
+            </div>
           </div>
         </div>
       </div>

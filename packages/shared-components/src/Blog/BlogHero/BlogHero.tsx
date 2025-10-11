@@ -24,8 +24,8 @@ export const BlogHero: React.FC<BlogHeroProps> = ({
       className={`
         relative
         flex items-center justify-center text-center
-        h-[300px] px-5 py-5
-        md:h-[500px] md:px-[66px] md:py-[66px]
+        px-5 pt-32 pb-6
+        md:px-[66px] md:pt-40 md:pb-8
         ${className}
       `}
       style={backgroundStyle}

@@ -73,7 +73,7 @@ export const BlogGrid: React.FC<BlogGridProps> = ({
         role="region"
         aria-live="polite"
         aria-label="Blog posts"
-        className="flex flex-col gap-8"
+        className="flex flex-col gap-8 relative"
       >
         {posts.map((post, index) => (
           <BlogCard key={post.id} post={post} isFeatured={index === 0} />

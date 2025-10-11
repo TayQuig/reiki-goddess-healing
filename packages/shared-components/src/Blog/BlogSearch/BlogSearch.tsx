@@ -20,8 +20,8 @@ export const BlogSearch: React.FC<BlogSearchProps> = ({
 
   return (
     <div
-      className={`flex justify-center py-8 ${className}`}
-      style={{ padding: "32px 66px" }}
+      className={`flex justify-center ${className}`}
+      style={{ padding: "16px 66px 32px 66px" }}
     >
       <div className="relative w-full max-w-md">
         <input
