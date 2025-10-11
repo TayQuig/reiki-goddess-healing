@@ -19,6 +19,8 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "noEmit": false,
+    "emitDeclarationOnly": false,
     "baseUrl": "../../",
     "paths": {
       "@reiki-goddess/shared-components": ["./packages/shared-components/src"],

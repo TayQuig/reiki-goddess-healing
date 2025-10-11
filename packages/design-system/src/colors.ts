@@ -70,6 +70,7 @@ export const colors = {
       "linear-gradient(180deg, rgba(165, 147, 224, 0.8) 0%, rgba(165, 147, 224, 0.4) 100%)",
     hero: "linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%)",
     card: "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+    blogHero: "linear-gradient(135deg, #A593E0 0%, #FFC6A5 100%)",
   },
 } as const;
 

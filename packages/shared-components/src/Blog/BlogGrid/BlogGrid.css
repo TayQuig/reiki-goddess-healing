@@ -1,0 +1,124 @@
+/**
+ * BlogGrid Component Styles
+ *
+ * Responsive grid layout for blog cards.
+ * Follows 66px padding and responsive breakpoints from design system.
+ */
+
+.blog-grid-container {
+  @apply py-20 px-16;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.blog-grid {
+  @apply grid gap-8;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.blog-grid-loading {
+  @apply py-20 px-16;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.blog-grid-empty {
+  @apply py-20 px-16;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Skeleton card styles */
+.skeleton-card {
+  @apply bg-white rounded-[20px] overflow-hidden;
+  box-shadow: 0px 42px 32.5px -13px rgba(2, 5, 183, 0.15);
+}
+
+.skeleton-image {
+  @apply w-full h-60;
+}
+
+.skeleton-content {
+  @apply p-6;
+}
+
+/* Empty state styles */
+.empty-state {
+  @apply flex flex-col items-center justify-center py-16 text-center;
+}
+
+.empty-icon {
+  @apply w-16 h-16 text-gray-400 mb-4;
+}
+
+.empty-message {
+  @apply text-lg text-gray-600;
+  font-family: 'Figtree', sans-serif;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Tablet responsive (2 columns) */
+@media (max-width: 1023px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile responsive (1 column) */
+@media (max-width: 767px) {
+  .blog-grid-container {
+    @apply py-10 px-5;
+  }
+
+  .blog-grid-loading {
+    @apply py-10 px-5;
+  }
+
+  .blog-grid-empty {
+    @apply py-10 px-5;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    @apply gap-6;
+  }
+
+  .skeleton-image {
+    @apply h-52;
+  }
+
+  .empty-icon {
+    @apply w-12 h-12;
+  }
+
+  .empty-message {
+    @apply text-base;
+  }
+}
+
+/* Mid-range tablet (min-width: 768px and max-width: 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .blog-grid-container {
+    @apply py-16 px-10;
+  }
+
+  .blog-grid-loading {
+    @apply py-16 px-10;
+  }
+
+  .blog-grid-empty {
+    @apply py-16 px-10;
+  }
+}

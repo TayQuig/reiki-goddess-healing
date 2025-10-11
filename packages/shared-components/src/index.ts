@@ -81,6 +81,25 @@ export type {
   FigmaContactFormData,
 } from "./FigmaContactForm";
 
+// About page components
+export { CertificationCards } from "./CertificationCards";
+export type {
+  CertificationCardsProps,
+  CertificationCard,
+} from "./CertificationCards/CertificationCards.types";
+
+export { AboutHero } from "./AboutHero";
+export type { AboutHeroProps } from "./AboutHero/AboutHero.types";
+
+export { ImageGallery } from "./ImageGallery";
+export type {
+  ImageGalleryProps,
+  GalleryImage,
+} from "./ImageGallery/ImageGallery.types";
+
+export { JourneySection } from "./JourneySection";
+export type { JourneySectionProps } from "./JourneySection/JourneySection.types";
+
 // Google Maps components with enhanced error handling
 export {
   GoogleMapEmbed,
@@ -99,6 +118,9 @@ export type {
 // CTA components
 export { BookSessionCTA } from "./BookSessionCTA/BookSessionCTA";
 export type { BookSessionCTAProps } from "./BookSessionCTA/BookSessionCTA";
+
+// Blog types and components
+export * from "./Blog";
 
 // Complete page compositions
 export { Homepage } from "./Homepage";

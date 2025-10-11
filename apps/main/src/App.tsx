@@ -6,6 +6,7 @@ import Services from "./pages/Services";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -20,7 +21,10 @@ function App() {
           <Route path="services" element={<Services />} />
           <Route path="events" element={<Events />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="blog" element={<Blog />} />
+          <Route path="blog">
+            <Route index element={<Blog />} />
+            <Route path=":slug" element={<BlogPost />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
