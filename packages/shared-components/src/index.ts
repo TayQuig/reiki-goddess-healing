@@ -119,6 +119,9 @@ export type {
 export { BookSessionCTA } from "./BookSessionCTA/BookSessionCTA";
 export type { BookSessionCTAProps } from "./BookSessionCTA/BookSessionCTA";
 
+export { ContactCTA } from "./ContactCTA";
+export type { ContactCTAProps } from "./ContactCTA";
+
 // Blog types and components
 export * from "./Blog";
 

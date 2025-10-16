@@ -14,11 +14,9 @@ export const BookSessionCTA: React.FC<BookSessionCTAProps> = ({
 }) => {
   return (
     <div
-      className={`bg-[#0205b7] rounded-[20px] shadow-[9px_10px_0px_0px_#0205B7] relative overflow-hidden ${className}`}
+      className={`bg-[#0205b7] rounded-[20px] shadow-[9px_10px_0px_0px_#0205B7] h-[265px] relative overflow-hidden ${className}`}
       style={{
-        width: "1095px",
-        height: "265px",
-        maxWidth: "100%",
+        maxWidth: "1095px",
         margin: "0 auto",
       }}
     >

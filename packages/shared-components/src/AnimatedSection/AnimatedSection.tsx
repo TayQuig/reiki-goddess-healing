@@ -30,10 +30,7 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
       className={`${className} ${isVisible ? `animate-${animation}` : "opacity-0"}`}
-      style={{
-        animationDelay: `${delay}s`,
-        animationFillMode: "both",
-      }}
+      style={delay > 0 ? { animationDelay: `${delay}s` } : undefined}
     >
       {children}
     </div>
