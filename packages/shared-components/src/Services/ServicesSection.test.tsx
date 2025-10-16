@@ -364,4 +364,143 @@ describe("ServicesSection Component", () => {
       });
     });
   });
+
+  describe("Benefits Feature", () => {
+    const servicesWithBenefits: ServiceCard[] = [
+      {
+        id: "service1",
+        icon: <svg data-testid="icon-benefits">Icon</svg>,
+        title: "Service with Benefits",
+        benefits: ["Benefit 1", "Benefit 2", "Benefit 3"],
+        href: "/services/test",
+      },
+    ];
+
+    it("should not show benefits by default (showDetails=false)", () => {
+      render(<ServicesSection services={servicesWithBenefits} />);
+      expect(screen.queryByText("Benefit 1")).not.toBeInTheDocument();
+    });
+
+    it("should show benefits when showDetails is true", () => {
+      render(
+        <ServicesSection services={servicesWithBenefits} showDetails={true} />
+      );
+      expect(screen.getByText("Benefit 1")).toBeInTheDocument();
+      expect(screen.getByText("Benefit 2")).toBeInTheDocument();
+      expect(screen.getByText("Benefit 3")).toBeInTheDocument();
+    });
+
+    it("should not show benefits when array is empty", () => {
+      const serviceEmptyBenefits = [
+        { ...servicesWithBenefits[0], benefits: [] },
+      ];
+      render(
+        <ServicesSection services={serviceEmptyBenefits} showDetails={true} />
+      );
+      expect(screen.queryByText("Benefit")).not.toBeInTheDocument();
+    });
+
+    it("should not show benefits when undefined", () => {
+      const serviceNoBenefits = [
+        { ...servicesWithBenefits[0], benefits: undefined },
+      ];
+      render(
+        <ServicesSection services={serviceNoBenefits} showDetails={true} />
+      );
+      expect(screen.queryByText("Benefit")).not.toBeInTheDocument();
+    });
+
+    it("should render checkmark icons for benefits", () => {
+      const { container } = render(
+        <ServicesSection services={servicesWithBenefits} showDetails={true} />
+      );
+      const checkmarks = container.querySelectorAll('svg[aria-hidden="true"]');
+      // Should have at least 3 checkmarks (one per benefit)
+      expect(checkmarks.length).toBeGreaterThanOrEqual(3);
+    });
+  });
+
+  describe("View Details Feature", () => {
+    const servicesWithHref: ServiceCard[] = [
+      {
+        id: "service1",
+        icon: <svg data-testid="icon-href">Icon</svg>,
+        title: "Service with Link",
+        href: "/services/details",
+      },
+    ];
+
+    it("should not show View Details link by default (showDetails=false)", () => {
+      render(<ServicesSection services={servicesWithHref} />);
+      expect(screen.queryByText("View Details")).not.toBeInTheDocument();
+    });
+
+    it("should show View Details link when showDetails is true", () => {
+      render(
+        <ServicesSection services={servicesWithHref} showDetails={true} />
+      );
+      expect(screen.getByText("View Details")).toBeInTheDocument();
+    });
+
+    it("should have correct href on View Details link", () => {
+      render(
+        <ServicesSection services={servicesWithHref} showDetails={true} />
+      );
+      const link = screen.getByText("View Details").closest("a");
+      expect(link).toHaveAttribute("href", "/services/details");
+    });
+
+    it("should have aria-label on View Details link", () => {
+      render(
+        <ServicesSection services={servicesWithHref} showDetails={true} />
+      );
+      const link = screen.getByText("View Details").closest("a");
+      expect(link).toHaveAttribute(
+        "aria-label",
+        "View details for Service with Link"
+      );
+    });
+
+    it("should not show View Details when href is undefined", () => {
+      const serviceNoHref = [{ ...servicesWithHref[0], href: undefined }];
+      render(<ServicesSection services={serviceNoHref} showDetails={true} />);
+      expect(screen.queryByText("View Details")).not.toBeInTheDocument();
+    });
+  });
+
+  describe("Backward Compatibility", () => {
+    it("should render existing services without breaking", () => {
+      render(<ServicesSection services={mockServices} />);
+      expect(screen.getByText("Test Service 1")).toBeInTheDocument();
+      expect(screen.getByText("Test Service 2")).toBeInTheDocument();
+    });
+
+    it("should not show new features when showDetails is false (default)", () => {
+      const extendedServices = [
+        {
+          ...mockServices[0],
+          benefits: ["Benefit 1", "Benefit 2"],
+        },
+      ];
+      render(<ServicesSection services={extendedServices} />);
+      expect(screen.queryByText("Benefit 1")).not.toBeInTheDocument();
+      expect(screen.queryByText("View Details")).not.toBeInTheDocument();
+    });
+
+    it("should maintain existing hover behavior", () => {
+      const { container } = render(<ServicesSection services={mockServices} />);
+      const cards = container.querySelectorAll(".group");
+      expect(cards[0]).toHaveClass("hover:-translate-y-2");
+    });
+
+    it("should maintain existing responsive grid", () => {
+      const { container } = render(<ServicesSection services={mockServices} />);
+      const grid = container.querySelector(".grid");
+      expect(grid).toHaveClass(
+        "grid-cols-1",
+        "sm:grid-cols-2",
+        "lg:grid-cols-4"
+      );
+    });
+  });
 });

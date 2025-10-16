@@ -7,11 +7,13 @@ export interface ServiceCard {
   duration?: string;
   description?: string;
   href?: string;
+  benefits?: string[];
 }
 
 export interface ServicesSectionProps {
   heading?: string;
   services?: ServiceCard[];
+  showDetails?: boolean;
   className?: string;
 }
 
@@ -21,6 +23,7 @@ export interface ServicesSectionProps {
  */
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   heading = "Explore Healing Services",
+  showDetails = false,
   services = [
     {
       id: "reiki",
@@ -33,6 +36,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       title: "Reiki Healing Sessions",
       duration: "(60/90 min)",
       href: "/services/reiki",
+      benefits: undefined,
     },
     {
       id: "sound",
@@ -45,6 +49,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       title: "Sound + Energy",
       duration: "Immersion Therapy",
       href: "/services/sound-therapy",
+      benefits: undefined,
     },
     {
       id: "aura",
@@ -57,6 +62,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       title: "Aura + Chakra",
       duration: "Readings",
       href: "/services/aura-chakra",
+      benefits: undefined,
     },
     {
       id: "distance",
@@ -69,6 +75,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       title: "Distance Healing",
       duration: "Sessions",
       href: "/services/distance-healing",
+      benefits: undefined,
     },
   ],
   className = "",
@@ -78,7 +85,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       className={`py-20 ${className}`}
       style={{ backgroundColor: "#FFFBF5" }}
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: "1200px" }}>
+      <div
+        className="mx-auto px-4 sm:px-6 lg:px-8"
+        style={{ maxWidth: "1200px" }}
+      >
         {/* Section Heading */}
         <h2
           className="text-center mb-8 sm:mb-10 lg:mb-12 font-bold text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
@@ -186,8 +196,75 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       {service.duration}
                     </p>
                   )}
+
+                  {/* Benefits list (shown when showDetails is true) */}
+                  {showDetails &&
+                    service.benefits &&
+                    service.benefits.length > 0 && (
+                      <ul className="mt-4 space-y-2 relative z-10">
+                        {service.benefits.map(
+                          (benefit: string, index: number) => (
+                            <li
+                              key={index}
+                              className="flex items-start gap-2 text-sm transition-colors duration-300 group-hover:text-white"
+                              style={{
+                                fontFamily: "Figtree, Helvetica, sans-serif",
+                                color: "rgba(94, 94, 94, 1)",
+                              }}
+                            >
+                              <svg
+                                className="w-4 h-4 flex-shrink-0 mt-0.5 transition-colors duration-300 group-hover:brightness-0 group-hover:invert"
+                                fill="none"
+                                stroke="#0205B7"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span>{benefit}</span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    )}
                 </div>
               </a>
+
+              {/* View Details link (shown when showDetails is true and href exists) - outside main link */}
+              {showDetails && service.href && (
+                <div className="mt-4 relative z-10 p-4">
+                  <a
+                    href={service.href}
+                    className="inline-flex items-center text-sm font-medium transition-colors duration-300 group-hover:text-white hover:underline"
+                    style={{
+                      fontFamily: "Figtree, Helvetica, sans-serif",
+                      color: "rgba(2, 5, 183, 1)",
+                    }}
+                    aria-label={`View details for ${service.title}`}
+                  >
+                    View Details
+                    <svg
+                      className="ml-1 w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>

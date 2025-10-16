@@ -52,6 +52,15 @@ export type { MeetTheGoddessProps } from "./MeetTheGoddess";
 export { ServicesSection } from "./Services";
 export type { ServicesSectionProps, ServiceCard } from "./Services";
 
+export { ServiceHero } from "./ServiceHero";
+export type { ServiceHeroProps } from "./ServiceHero";
+
+export { ServiceCard as ServiceCardComponent } from "./ServiceCard";
+export type { ServiceCardProps } from "./ServiceCard";
+
+export { PricingSection } from "./PricingSection";
+export type { PricingSectionProps, PricingTier } from "./PricingSection";
+
 export { CommunityEvents } from "./CommunityEvents";
 export type { CommunityEventsProps, EventCard } from "./CommunityEvents";
 
