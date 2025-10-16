@@ -100,6 +100,22 @@ export type {
 export { BookSessionCTA } from "./BookSessionCTA/BookSessionCTA";
 export type { BookSessionCTAProps } from "./BookSessionCTA/BookSessionCTA";
 
+// About page components
+export { AboutHero } from "./AboutHero";
+export type { AboutHeroProps } from "./AboutHero";
+
+export { CertificationCards } from "./CertificationCards";
+export type { CertificationCardsProps } from "./CertificationCards";
+
+export { ImageGallery } from "./ImageGallery";
+export type { ImageGalleryProps, GalleryImage } from "./ImageGallery";
+
+export { JourneySection } from "./JourneySection";
+export type { JourneySectionProps } from "./JourneySection";
+
+export { ContactCTA } from "./ContactCTA";
+export type { ContactCTAProps } from "./ContactCTA";
+
 // Complete page compositions
 export { Homepage } from "./Homepage";
 export type { HomepageProps } from "./Homepage";

@@ -15,6 +15,10 @@ export const BookSessionCTA: React.FC<BookSessionCTAProps> = ({
   return (
     <div
       className={`bg-[#0205b7] rounded-[20px] shadow-[9px_10px_0px_0px_#0205B7] h-[265px] relative overflow-hidden ${className}`}
+      style={{
+        maxWidth: "1095px",
+        margin: "0 auto",
+      }}
     >
       {/* Background layered image */}
       <img

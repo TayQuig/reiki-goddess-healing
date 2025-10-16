@@ -42,22 +42,40 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
         {/* Row 1: Large + Medium */}
         <div className="flex gap-[20px]">
           {images[0] && (
-            <div className="w-[898px] h-[343px]">
+            <div className="w-[898px] h-[343px] relative overflow-hidden rounded-[20px]">
               <img
                 src={images[0].src}
                 alt={images[0].alt}
-                className="w-full h-full object-cover rounded-[8px]"
+                className="w-full h-full object-cover"
                 loading="lazy"
+              />
+              {/* Blue Radial Gradient Overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle, #0205B7 0%, transparent 100%)",
+                  opacity: 0.05,
+                }}
               />
             </div>
           )}
           {images[1] && (
-            <div className="w-[391px] h-[343px]">
+            <div className="w-[391px] h-[343px] relative overflow-hidden rounded-[20px]">
               <img
                 src={images[1].src}
                 alt={images[1].alt}
-                className="w-full h-full object-cover rounded-[8px]"
+                className="w-full h-full object-cover"
                 loading="lazy"
+              />
+              {/* Blue Radial Gradient Overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle, #0205B7 0%, transparent 100%)",
+                  opacity: 0.05,
+                }}
               />
             </div>
           )}
@@ -66,32 +84,59 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
         {/* Row 2: Small-Medium + Medium + Medium */}
         <div className="flex gap-[20px]">
           {images[2] && (
-            <div className="w-[487px] h-[343px]">
+            <div className="w-[487px] h-[343px] relative overflow-hidden rounded-[20px]">
               <img
                 src={images[2].src}
                 alt={images[2].alt}
-                className="w-full h-full object-cover rounded-[8px]"
+                className="w-full h-full object-cover"
                 loading="lazy"
+              />
+              {/* Blue Radial Gradient Overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle, #0205B7 0%, transparent 100%)",
+                  opacity: 0.05,
+                }}
               />
             </div>
           )}
           {images[3] && (
-            <div className="w-[391px] h-[343px]">
+            <div className="w-[391px] h-[343px] relative overflow-hidden rounded-[20px]">
               <img
                 src={images[3].src}
                 alt={images[3].alt}
-                className="w-full h-full object-cover rounded-[8px]"
+                className="w-full h-full object-cover"
                 loading="lazy"
+              />
+              {/* Blue Radial Gradient Overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle, #0205B7 0%, transparent 100%)",
+                  opacity: 0.05,
+                }}
               />
             </div>
           )}
           {images[4] && (
-            <div className="w-[391px] h-[343px]">
+            <div className="w-[391px] h-[343px] relative overflow-hidden rounded-[20px]">
               <img
                 src={images[4].src}
                 alt={images[4].alt}
-                className="w-full h-full object-cover rounded-[8px]"
+                className="w-full h-full object-cover"
                 loading="lazy"
+              />
+              {/* Blue Radial Gradient Overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle, #0205B7 0%, transparent 100%)",
+                  opacity: 0.05,
+                }}
               />
             </div>
           )}

@@ -63,21 +63,36 @@ export const JourneySection: React.FC<JourneySectionProps> = ({
         backgroundColor: "#FFFBF5",
       }}
     >
-      {/* Background Hero Image */}
+      {/* Background Hero Image with blue border effect */}
       <div
         className="absolute"
         style={{
-          width: "806px",
-          height: "808px",
+          width: "400px",
+          height: "432px",
           top: "0",
-          left: "78px",
+          left: "156px",
           zIndex: 1,
         }}
       >
+        {/* Blue background rectangle - shifted down and left for border effect */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: "#0205B7",
+            borderRadius: "20px",
+            transform: "translate(-5px, 5px)",
+            zIndex: 0,
+          }}
+        />
+        {/* Image on top */}
         <img
           src={backgroundImage.src}
           alt={backgroundImage.alt}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-[20px] relative"
+          style={{
+            zIndex: 1,
+            position: "relative",
+          }}
           onError={(e) => {
             e.currentTarget.style.display = "none";
           }}
@@ -117,15 +132,18 @@ export const JourneySection: React.FC<JourneySectionProps> = ({
       >
         {/* Heading */}
         <h2
-          className="mb-8"
           style={{
             fontFamily: "Figtree, sans-serif",
             fontSize: "48px",
             fontWeight: 700,
             color: "#000000",
             width: "616px",
-            marginTop: "43px",
-            marginLeft: "115px",
+            height: "116px",
+            lineHeight: "100%",
+            letterSpacing: "0%",
+            position: "absolute",
+            top: "72px",
+            left: "115px",
           }}
         >
           {heading}
@@ -138,64 +156,61 @@ export const JourneySection: React.FC<JourneySectionProps> = ({
             fontSize: "16px",
             fontWeight: 500,
             lineHeight: "23px",
+            letterSpacing: "0%",
+            color: "#1C1B1B",
             width: "608px",
-            marginTop: "152px", // 195px from top - 43px heading offset
-            marginLeft: "115px",
+            height: "138px",
+            position: "absolute",
+            top: "224px",
+            left: "115px",
           }}
         >
           {content}
         </div>
 
-        {/* Certification Cards */}
+        {/* Certification Cards - positioned from page top/left buffer edge */}
         <div
           className="absolute"
-          style={{
-            top: "474px",
-            left: "0",
-            width: "884px",
-          }}
+          style={{ top: "0", left: "-550px", width: "100%", height: "100%" }}
         >
-          {/* Cards Container with Custom Positioning */}
-          <div className="relative">
-            {/* Card 1 */}
-            {certifications[0] && (
-              <div
-                className="absolute"
-                style={{
-                  top: "0",
-                  left: "0",
-                }}
-              >
-                <CertificationCards cards={[certifications[0]]} />
-              </div>
-            )}
+          {/* Card 1 - Certified Reiki Master (white) - Left */}
+          {certifications[0] && (
+            <div
+              className="absolute"
+              style={{
+                top: "522px",
+                left: "198px",
+              }}
+            >
+              <CertificationCards cards={[certifications[0]]} />
+            </div>
+          )}
 
-            {/* Card 2 */}
-            {certifications[1] && (
-              <div
-                className="absolute"
-                style={{
-                  top: "48px", // Staggered positioning
-                  left: "358px",
-                }}
-              >
-                <CertificationCards cards={[certifications[1]]} />
-              </div>
-            )}
+          {/* Card 2 - Sound Healing Specialist (gradient) - Center */}
+          {certifications[1] && (
+            <div
+              className="absolute"
+              style={{
+                top: "522px",
+                left: "556px",
+              }}
+            >
+              <CertificationCards cards={[certifications[1]]} />
+            </div>
+          )}
 
-            {/* Card 3 */}
-            {certifications[2] && (
-              <div
-                className="absolute"
-                style={{
-                  top: "154px", // From Figma: 2628px - 2106px (section top) - 474px (cards top) = 48px
-                  left: "198px",
-                }}
-              >
-                <CertificationCards cards={[certifications[2]]} />
-              </div>
-            )}
-          </div>
+          {/* Card 3 - Years of Experience (white) - Right */}
+          {certifications[2] && (
+            <div
+              className="absolute"
+              style={{
+                top: "522px",
+                left: "914px",
+              }}
+            >
+              <CertificationCards cards={[certifications[2]]} />
+            </div>
+          )}
         </div>
       </div>
     </section>

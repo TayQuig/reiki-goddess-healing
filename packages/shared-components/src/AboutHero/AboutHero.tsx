@@ -27,15 +27,71 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
 }) => {
   return (
     <section
-      className={`relative w-full max-w-[1374px] mx-auto px-[66px] pt-[112px] pb-[80px] ${className}`}
-      style={{ backgroundColor: "#FEFBF5" }}
+      className={`relative w-full ${className}`}
+      style={{
+        backgroundColor: "#FEFBF5",
+        minHeight: "1200px",
+        paddingBottom: "80px",
+        maxWidth: "1440px",
+        margin: "0 auto",
+        overflow: "visible",
+      }}
     >
-      {/* Hero Image - Top Right */}
-      <div className="absolute top-0 left-[632px] w-[808px] h-[808px]">
+      {/* Smoke Plume - Behind AboutHero */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: "361px",
+          right: "0",
+          width: "808px",
+          height: "808px",
+          zIndex: 0,
+        }}
+      >
+        {[...Array(5)].map((_, i) => (
+          <img
+            key={i}
+            src="/img/smoke.png"
+            alt=""
+            style={{
+              width: "808px",
+              height: "808px",
+              objectFit: "cover",
+              position: "absolute",
+              left: "0",
+              top: "0",
+              transform: "rotate(-180deg)",
+              opacity: 0.5,
+              mixBlendMode: "normal",
+            }}
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Hero Image - Below Header with blue border effect */}
+      <div className="absolute top-[513px] left-[66px] w-[1308px] h-[503px]">
+        {/* Blue background rectangle - shifted down and left for border effect */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: "#0205B7",
+            borderRadius: "32px",
+            transform: "translate(-5px, 5px)",
+            zIndex: 0,
+          }}
+        />
+        {/* Image on top */}
         <img
           src={heroImage.src}
           alt={heroImage.alt}
-          className="w-full h-full object-cover rounded-[20px]"
+          className="w-full h-full object-cover rounded-[32px] relative"
+          style={{
+            zIndex: 1,
+            position: "relative",
+          }}
           loading="eager"
         />
       </div>
@@ -54,26 +110,30 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
 
       {/* Main Heading */}
       <h1
-        className="absolute top-[80px] left-0 w-[825px] text-[63.6px] font-bold text-black leading-normal"
-        style={{ fontFamily: "Figtree, sans-serif" }}
+        className="absolute top-[193px] left-[66px] w-[825px] h-[152px] text-[63.55px] font-bold text-black"
+        style={{
+          fontFamily: "Figtree, sans-serif",
+          lineHeight: "100%",
+          letterSpacing: "0%",
+        }}
       >
         {heading}
       </h1>
 
       {/* Dual-Column Text Layout */}
-      <div className="absolute top-[268px] left-0 flex gap-[72px]">
+      <div className="absolute top-[381px] left-[66px] flex gap-[72px]">
         {/* Left Column */}
         <div
-          className="w-[618px] text-[16px] font-medium leading-[24px] text-[#1C1B1B]"
-          style={{ fontFamily: "Figtree, sans-serif" }}
+          className="w-[618px] h-[72px] text-[16px] font-medium leading-[24px] text-[#1C1B1B]"
+          style={{ fontFamily: "Figtree, sans-serif", letterSpacing: "0%" }}
         >
           {leftColumnText}
         </div>
 
         {/* Right Column */}
         <div
-          className="w-[618px] text-[16px] font-medium leading-[24px] text-[#1C1B1B]"
-          style={{ fontFamily: "Figtree, sans-serif" }}
+          className="w-[618px] h-[72px] text-[16px] font-medium leading-[24px] text-[#1C1B1B]"
+          style={{ fontFamily: "Figtree, sans-serif", letterSpacing: "0%" }}
         >
           {rightColumnText}
         </div>

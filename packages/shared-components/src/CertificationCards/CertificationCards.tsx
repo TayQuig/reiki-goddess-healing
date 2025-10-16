@@ -26,7 +26,7 @@ export const CertificationCards: React.FC<CertificationCardsProps> = ({
     return (
       <div
         key={index}
-        className={`relative rounded-[17px] h-[156px] w-[322px] ${className}`}
+        className={`group relative rounded-[17px] h-[156px] w-[322px] transition-all duration-300 transform hover:-translate-y-2 ${className}`}
         style={{
           background: isGradient
             ? "linear-gradient(122deg, #0205B7 0%, #63D5F9 100%)"
@@ -35,11 +35,22 @@ export const CertificationCards: React.FC<CertificationCardsProps> = ({
             "0px 9px 0px #0205B7, 0px 42px 32.5px -13px rgba(0,0,0,0.16)",
         }}
       >
+        {/* Gradient Background Overlay - appears on hover for white cards */}
+        {!isGradient && (
+          <div
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[17px]"
+            style={{
+              background: "linear-gradient(122deg, #0205B7 0%, #63D5F9 100%)",
+              zIndex: 0,
+            }}
+          />
+        )}
+
         {/* Title */}
         <h3
-          className={`absolute left-[25px] top-[35px] text-[18px] font-bold ${
-            isGradient ? "text-white" : "text-black"
-          }`}
+          className={`absolute left-[25px] top-[35px] text-[18px] font-bold z-10 ${
+            isGradient ? "text-white" : "text-black group-hover:text-white"
+          } transition-colors duration-300`}
           style={{ fontFamily: "Figtree, sans-serif" }}
         >
           {card.title}
@@ -47,9 +58,9 @@ export const CertificationCards: React.FC<CertificationCardsProps> = ({
 
         {/* Description */}
         <p
-          className={`absolute left-[25px] top-[70px] w-[247px] text-[18px] font-medium leading-[23px] ${
-            isGradient ? "text-white" : "text-[#1C1B1B]"
-          }`}
+          className={`absolute left-[25px] top-[70px] w-[247px] text-[18px] font-medium leading-[23px] z-10 ${
+            isGradient ? "text-white" : "text-[#1C1B1B] group-hover:text-white"
+          } transition-colors duration-300`}
           style={{ fontFamily: "Figtree, sans-serif" }}
         >
           {card.description}
