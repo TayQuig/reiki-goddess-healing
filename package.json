@@ -21,7 +21,7 @@
     "preview": "npm run build && vite preview --port 4173",
     "clean": "npm run clean --workspaces --if-present && rm -rf node_modules",
     "postinstall": "echo 'Dependencies installed successfully'",
-    "prepare": "husky install",
+    "prepare": "husky install || true",
     "security:check": "npm audit --audit-level=moderate",
     "security:fix": "npm audit fix"
   },
