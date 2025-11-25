@@ -56,28 +56,16 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <footer
-      className={`${className}`}
+      className={`${className} w-full`}
       style={{
-        width: "1440px",
         backgroundColor: "white",
         minHeight: "400px",
         boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <div
-        className="h-full flex flex-col"
-        style={{
-          padding: "60px 66px",
-        }}
-      >
+      <div className="h-full flex flex-col px-6 py-12 lg:p-[66px]">
         {/* Main Footer Content */}
-        <div
-          className="grid gap-12"
-          style={{
-            gridTemplateColumns: "1.5fr 1fr 1fr 1fr",
-            marginBottom: "60px",
-          }}
-        >
+        <div className="grid gap-12 lg:gap-12 grid-cols-1 lg:grid-cols-4 mb-16">
           {/* Brand Column */}
           <div>
             <div className="mb-4">

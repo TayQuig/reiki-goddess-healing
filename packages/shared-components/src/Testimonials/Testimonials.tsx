@@ -114,14 +114,12 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
         </h2>
 
         {/* Social Media Profile Card - Frame 26 */}
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center mb-16 px-4">
           <div
-            className="bg-white flex items-center gap-6 px-8 py-3"
+            className="bg-white flex flex-col md:flex-row items-center gap-4 md:gap-6 px-8 py-6 md:py-3 w-full max-w-[754px]"
             style={{
               border: "3px solid #63D5F9",
-              borderRadius: "100px",
-              width: "754px",
-              height: "96px",
+              borderRadius: "20px", // Updated to be more responsive-friendly if needed, or keep 100px
             }}
           >
             {/* Profile Photo */}
@@ -165,10 +163,10 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
             </div>
 
             {/* Spacer */}
-            <div className="flex-grow"></div>
+            <div className="flex-grow hidden md:block"></div>
 
             {/* Stats */}
-            <div className="flex gap-8">
+            <div className="flex gap-8 w-full md:w-auto justify-center">
               <div className="text-center">
                 <div
                   className="font-bold"
@@ -241,14 +239,14 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
             </div>
 
             {/* Spacer */}
-            <div className="w-8"></div>
+            <div className="w-8 hidden md:block"></div>
 
             {/* Follow Button */}
             <a
               href="https://instagram.com/the_reiki_goddess"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2 transition-colors flex-shrink-0"
+              className="flex items-center justify-center gap-2 px-5 py-2 transition-colors flex-shrink-0 w-full md:w-auto"
               style={{
                 backgroundColor: "#FFFFFF",
                 border: "2px solid #63D5F9",
@@ -277,11 +275,11 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
         </div>
 
         {/* Event Flyers Section */}
-        <div className="flex justify-center gap-8 mb-12">
+        <div className="flex flex-wrap justify-center gap-8 mb-12 px-4">
           {/* Full Moon Soundbath Flyer */}
           <div
-            className="overflow-hidden"
-            style={{ borderRadius: "20px", width: "395px" }}
+            className="overflow-hidden w-full max-w-[395px]"
+            style={{ borderRadius: "20px" }}
           >
             <img
               src="/img/download-1-full-moon-soundbath.png"
@@ -293,8 +291,8 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
 
           {/* Second Event Flyer */}
           <div
-            className="overflow-hidden"
-            style={{ borderRadius: "20px", width: "395px" }}
+            className="overflow-hidden w-full max-w-[395px]"
+            style={{ borderRadius: "20px" }}
           >
             <img
               src="/img/download-2.png"
@@ -306,8 +304,8 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
 
           {/* Sowin Event Flyer */}
           <div
-            className="overflow-hidden"
-            style={{ borderRadius: "20px", width: "395px" }}
+            className="overflow-hidden w-full max-w-[395px]"
+            style={{ borderRadius: "20px" }}
           >
             <img
               src="/img/download-1-sowin.png"
@@ -331,22 +329,13 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
         </h2>
 
         {/* Testimonial Container */}
-        <div
-          className="relative"
-          style={{ paddingLeft: "66px", paddingRight: "66px" }}
-        >
+        <div className="relative px-4 md:px-8 lg:px-[66px]">
           <div
+            className="w-full mx-auto max-w-[1308px] px-6 md:px-12 lg:px-[224px] py-12"
             style={{
               backgroundColor: "rgba(169, 148, 72, 0.13)",
-              width: "100%",
-              maxWidth: "1308px", // 1440px - (66px * 2)
-              height: "351px",
+              minHeight: "351px",
               borderRadius: "20px",
-              paddingTop: "47px",
-              paddingRight: "225px",
-              paddingBottom: "47px",
-              paddingLeft: "224px",
-              margin: "0 auto",
             }}
           >
             {/* Testimonial Content */}
@@ -415,14 +404,14 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
             </div>
 
             {/* Navigation Buttons */}
-            <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex items-center justify-between pointer-events-none">
+            <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex items-center justify-between pointer-events-none px-2 md:px-8">
               <button
                 onClick={prevTestimonial}
-                className="pointer-events-auto ml-8 bg-white border-2 border-[#0205B7] text-[#0205B7] rounded-full p-3 hover:bg-[#0205B7] hover:text-white transition-colors shadow-lg"
+                className="pointer-events-auto bg-white border-2 border-[#0205B7] text-[#0205B7] rounded-full p-2 md:p-3 hover:bg-[#0205B7] hover:text-white transition-colors shadow-lg"
                 aria-label="Previous testimonial"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 md:w-5 md:h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -438,11 +427,11 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
 
               <button
                 onClick={nextTestimonial}
-                className="pointer-events-auto mr-8 bg-white border-2 border-[#0205B7] text-[#0205B7] rounded-full p-3 hover:bg-[#0205B7] hover:text-white transition-colors shadow-lg"
+                className="pointer-events-auto bg-white border-2 border-[#0205B7] text-[#0205B7] rounded-full p-2 md:p-3 hover:bg-[#0205B7] hover:text-white transition-colors shadow-lg"
                 aria-label="Next testimonial"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 md:w-5 md:h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

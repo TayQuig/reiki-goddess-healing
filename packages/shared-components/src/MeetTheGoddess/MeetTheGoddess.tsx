@@ -101,13 +101,13 @@ export const MeetTheGoddess: React.FC<MeetTheGoddessProps> = ({
           </div>
 
           {/* Images - Order 2 on mobile */}
-          <div className="w-full lg:w-1/2 order-2 lg:order-2 relative h-[400px] md:h-[500px]">
+          <div className="w-full lg:w-1/2 order-2 lg:order-2 relative h-[300px] md:h-[500px]">
             {/* Desktop Layout: Absolute positioning preserved for larger screens */}
             {/* Mobile Layout: Stacked or simplified grid */}
 
             {/* Main Image (Tertiary) */}
             {images.tertiary && (
-              <div className="absolute left-0 top-10 w-[70%] h-[60%] z-10 transform -rotate-3 shadow-xl rounded-3xl overflow-hidden border-4 border-white">
+              <div className="absolute left-0 top-0 md:top-10 w-[70%] h-[70%] md:h-[60%] z-10 transform -rotate-3 shadow-xl rounded-3xl overflow-hidden border-4 border-white">
                 <img
                   src={images.tertiary.src}
                   alt={images.tertiary.alt}
@@ -118,7 +118,7 @@ export const MeetTheGoddess: React.FC<MeetTheGoddessProps> = ({
 
             {/* Secondary Image */}
             {images.secondary && (
-              <div className="absolute right-0 bottom-10 w-[50%] h-[50%] z-20 transform rotate-6 shadow-xl rounded-3xl overflow-hidden border-4 border-white">
+              <div className="absolute right-0 bottom-0 md:bottom-10 w-[50%] h-[60%] md:h-[50%] z-20 transform rotate-6 shadow-xl rounded-3xl overflow-hidden border-4 border-white">
                 <img
                   src={images.secondary.src}
                   alt={images.secondary.alt}
@@ -128,8 +128,8 @@ export const MeetTheGoddess: React.FC<MeetTheGoddessProps> = ({
             )}
 
             {/* Badge */}
-            <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 z-30">
-              <span className="text-[#0205B7] font-medium text-xl tracking-widest bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">
+            <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 z-30 w-full text-center">
+              <span className="text-[#0205B7] font-medium text-lg md:text-xl tracking-widest bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm whitespace-nowrap">
                 The Reiki Goddess
               </span>
             </div>

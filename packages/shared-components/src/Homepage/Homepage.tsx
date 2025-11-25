@@ -47,40 +47,37 @@ export const Homepage: React.FC<HomepageProps> = ({ className = "" }) => {
         className="relative mx-auto overflow-hidden bg-[#FFFBF5] shadow-2xl"
         style={{
           maxWidth: "1440px",
-          // Padding is handled via classes for responsiveness:
-          // Mobile: px-4 (16px)
-          // Tablet: px-8 (32px)
-          // Desktop: px-[66px] (66px)
         }}
       >
-        <div className="px-4 md:px-8 lg:px-[66px]">
-          {/* Hero Section - no embedded header, AppLayout provides it */}
-          <div className="relative w-full">
-            <HeroV2
-              backgroundImage={{
-                src: "/img/powerrangers-6-hero-main.png",
-                alt: "Reiki healing session",
-              }}
-              overlayContent={{
-                heading: "The Reiki Goddess Healing",
-                subheading:
-                  "Energy Healing for Optimal Mental Health & Wellness. Ground your energy, reduce stress, and restore balance.",
-                buttons: [
-                  {
-                    text: "Book a Session",
-                    variant: "primary",
-                    href: "/book",
-                  },
-                  {
-                    text: "Learn More",
-                    variant: "secondary",
-                    href: "/about",
-                  },
-                ],
-              }}
-            />
-          </div>
+        {/* Hero Section - Full Width (Handles its own padding) */}
+        <div className="relative w-full px-4 md:px-8 lg:px-[66px]">
+          <HeroV2
+            backgroundImage={{
+              src: "/img/powerrangers-6-hero-main.png",
+              alt: "Reiki healing session",
+            }}
+            overlayContent={{
+              heading: "The Reiki Goddess Healing",
+              subheading:
+                "Energy Healing for Optimal Mental Health & Wellness. Ground your energy, reduce stress, and restore balance.",
+              buttons: [
+                {
+                  text: "Book a Session",
+                  variant: "primary",
+                  href: "/book",
+                },
+                {
+                  text: "Learn More",
+                  variant: "secondary",
+                  href: "/about",
+                },
+              ],
+            }}
+          />
+        </div>
 
+        {/* Content Sections - Constrained Padding */}
+        <div className="px-4 md:px-8 lg:px-[66px]">
           {/* Features Bar */}
           <AnimatedSection animation="fadeInUp" delay={0.2}>
             <FeaturesBar />

@@ -70,7 +70,7 @@ export const HeroV2: React.FC<HeroV2Props> = ({
             <img
               src={backgroundImage.src}
               alt={backgroundImage.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
               onError={(e) => {
                 const target = e.currentTarget;
                 target.style.display = "none";
@@ -98,15 +98,12 @@ export const HeroV2: React.FC<HeroV2Props> = ({
             {/* Heading */}
             {overlayContent.heading && (
               <h1
-                className="mb-4 sm:mb-6 font-bold text-white"
+                className="mb-4 sm:mb-6 font-bold text-white text-3xl sm:text-5xl lg:text-[63.55px] leading-tight"
                 style={{
                   fontFamily: "Figtree, sans-serif",
-                  // Responsive font size
                 }}
               >
-                <span className="text-3xl sm:text-5xl lg:text-[63.55px] leading-tight">
-                  {overlayContent.heading}
-                </span>
+                {overlayContent.heading}
               </h1>
             )}
 

@@ -89,11 +89,10 @@ export const LetsConnect: React.FC<LetsConnectProps> = ({
 }) => {
   return (
     <section
-      className={`relative overflow-hidden shadow-[9px_10px_0px_0px_#0205B7] ${className}`}
+      className={`relative overflow-hidden shadow-[9px_10px_0px_0px_#0205B7] my-10 mx-4 md:mx-[66px] ${className}`}
       style={{
-        height: "260px",
+        minHeight: "260px",
         borderRadius: "30px",
-        margin: "40px 66px",
       }}
     >
       {/* Background Image and Overlay */}
@@ -125,10 +124,9 @@ export const LetsConnect: React.FC<LetsConnectProps> = ({
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-8">
         {/* Heading */}
         <h2
-          className="text-white font-bold mb-6"
+          className="text-white font-bold mb-6 text-3xl md:text-5xl"
           style={{
             fontFamily: "Figtree, Helvetica, sans-serif",
-            fontSize: "48px",
             lineHeight: "1.1",
             letterSpacing: "-0.02em",
           }}
@@ -137,7 +135,7 @@ export const LetsConnect: React.FC<LetsConnectProps> = ({
         </h2>
 
         {/* Contact Information */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+        <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
           {/* Location */}
           {location && (
             <a
