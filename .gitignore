@@ -172,3 +172,4 @@ pnpm-lock.yaml
 scripts/extraction_log.json
 scripts/*.log
 scripts/*.tmp
+.vercel

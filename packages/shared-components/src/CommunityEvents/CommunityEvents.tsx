@@ -27,6 +27,7 @@ export interface CommunityEventsProps {
 /**
  * Community Events section component extracted from Figma Frame 24
  * Displays upcoming events and community highlights in a carousel
+ * Mobile Optimized
  */
 export const CommunityEvents: React.FC<CommunityEventsProps> = ({
   heading = "Upcoming Events &",
@@ -72,11 +73,10 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
 }) => {
   return (
     <section
-      className={`relative py-20 overflow-hidden ${className}`}
+      className={`relative py-12 md:py-20 overflow-hidden ${className}`}
       style={{
-        minHeight: "600px",
         borderRadius: "30px",
-        margin: "40px 0",
+        margin: "20px 0",
       }}
     >
       {/* Background with image and gradient overlay */}
@@ -98,25 +98,21 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         {/* Section Heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <h2
-            className="text-white font-bold"
+            className="text-white font-bold text-3xl md:text-5xl leading-tight"
             style={{
               fontFamily: "Figtree, Helvetica, sans-serif",
-              fontSize: "48px",
-              lineHeight: "1.2",
             }}
           >
             {heading}
           </h2>
           <h2
-            className="text-white font-bold"
+            className="text-white font-bold text-3xl md:text-5xl leading-tight"
             style={{
               fontFamily: "Figtree, Helvetica, sans-serif",
-              fontSize: "48px",
-              lineHeight: "1.2",
             }}
           >
             {subheading}
@@ -125,24 +121,12 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
 
         {/* Events Container - Separate White Rectangles per Frame 20 */}
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mx-auto"
           style={{ maxWidth: "1100px" }}
         >
           {/* Full Moon Aerial Sound Bath Card */}
-          <div
-            className="bg-white flex flex-col items-center text-center"
-            style={{
-              borderRadius: "20px",
-              padding: "30px",
-            }}
-          >
-            <div
-              className="w-full overflow-hidden mb-4"
-              style={{
-                borderRadius: "20px",
-                height: "200px",
-              }}
-            >
+          <div className="bg-white flex flex-col items-center text-center rounded-[20px] p-6 md:p-[30px]">
+            <div className="w-full overflow-hidden mb-4 rounded-[20px] h-[200px]">
               <img
                 src="/img/download 1-full-moon-soundbath.png"
                 alt="Full Moon Aerial Sound Bath"
@@ -150,23 +134,17 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
               />
             </div>
             <h3
-              className="font-semibold mb-4"
+              className="font-semibold mb-4 text-lg md:text-[22px] text-[#333333]"
               style={{
                 fontFamily: "Figtree, Helvetica, sans-serif",
-                fontSize: "22px",
-                color: "#333333",
               }}
             >
               Full Moon Aerial Sound Bath
             </h3>
             <button
-              className="px-6 py-2 bg-transparent border-2 rounded-full transition-all duration-300 hover:shadow-lg"
+              className="px-6 py-2 bg-transparent border-2 rounded-full transition-all duration-300 hover:shadow-lg text-[#0205B7] border-[#0205B7] font-medium text-base"
               style={{
-                borderColor: "#0205B7",
-                color: "#0205B7",
                 fontFamily: "Figtree, Helvetica, sans-serif",
-                fontSize: "16px",
-                fontWeight: "500",
               }}
               onClick={() => (window.location.href = "/events/full-moon")}
             >
@@ -175,20 +153,8 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
           </div>
 
           {/* Custom Sound Healing Song Workshop Card */}
-          <div
-            className="bg-white flex flex-col items-center text-center"
-            style={{
-              borderRadius: "20px",
-              padding: "30px",
-            }}
-          >
-            <div
-              className="w-full overflow-hidden mb-4"
-              style={{
-                borderRadius: "20px",
-                height: "200px",
-              }}
-            >
+          <div className="bg-white flex flex-col items-center text-center rounded-[20px] p-6 md:p-[30px]">
+            <div className="w-full overflow-hidden mb-4 rounded-[20px] h-[200px]">
               <img
                 src="/img/Rectangle 4-custom-sound-healing-song-workshop.png"
                 alt="Custom Sound Healing Song Workshop"
@@ -196,23 +162,17 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
               />
             </div>
             <h3
-              className="font-semibold mb-4"
+              className="font-semibold mb-4 text-lg md:text-[22px] text-[#333333]"
               style={{
                 fontFamily: "Figtree, Helvetica, sans-serif",
-                fontSize: "22px",
-                color: "#333333",
               }}
             >
               Custom Sound Healing Workshop
             </h3>
             <button
-              className="px-6 py-2 bg-transparent border-2 rounded-full transition-all duration-300 hover:shadow-lg"
+              className="px-6 py-2 bg-transparent border-2 rounded-full transition-all duration-300 hover:shadow-lg text-[#0205B7] border-[#0205B7] font-medium text-base"
               style={{
-                borderColor: "#0205B7",
-                color: "#0205B7",
                 fontFamily: "Figtree, Helvetica, sans-serif",
-                fontSize: "16px",
-                fontWeight: "500",
               }}
               onClick={() => (window.location.href = "/events/workshop")}
             >
@@ -222,33 +182,12 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
         </div>
 
         {/* Pagination Dots and CTA Button */}
-        <div className="mt-12">
+        <div className="mt-8 md:mt-12">
           {/* Pagination Dots */}
           <div className="flex justify-center gap-2 mb-6">
-            <div
-              className="rounded-full"
-              style={{
-                width: "10px",
-                height: "10px",
-                backgroundColor: "#63D5F9",
-              }}
-            />
-            <div
-              className="rounded-full"
-              style={{
-                width: "10px",
-                height: "10px",
-                backgroundColor: "rgba(99, 213, 249, 0.5)",
-              }}
-            />
-            <div
-              className="rounded-full"
-              style={{
-                width: "10px",
-                height: "10px",
-                backgroundColor: "rgba(99, 213, 249, 0.5)",
-              }}
-            />
+            <div className="rounded-full w-[10px] h-[10px] bg-[#63D5F9]" />
+            <div className="rounded-full w-[10px] h-[10px] bg-[#63D5F9]/50" />
+            <div className="rounded-full w-[10px] h-[10px] bg-[#63D5F9]/50" />
           </div>
 
           {/* CTA Button */}
@@ -257,21 +196,9 @@ export const CommunityEvents: React.FC<CommunityEventsProps> = ({
               <a
                 href={ctaButton.href}
                 onClick={ctaButton.onClick}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full transition-colors duration-200 border-2 border-white text-white font-medium text-base hover:bg-white/10"
                 style={{
-                  backgroundColor: "transparent",
-                  border: "2px solid white",
-                  color: "white",
                   fontFamily: "Figtree, Helvetica, sans-serif",
-                  fontSize: "16px",
-                  fontWeight: "500",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor =
-                    "rgba(255, 255, 255, 0.1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "transparent";
                 }}
               >
                 {ctaButton.text}

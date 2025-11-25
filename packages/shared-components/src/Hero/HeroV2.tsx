@@ -21,6 +21,7 @@ export interface HeroV2Props {
 /**
  * Hero V2 component extracted from Figma screenshots
  * Homepage hero with centered overlay content and background image
+ * Responsive: Mobile optimized, Tablet adapted, Desktop precise
  */
 export const HeroV2: React.FC<HeroV2Props> = ({
   backgroundImage = {
@@ -49,167 +50,116 @@ export const HeroV2: React.FC<HeroV2Props> = ({
   return (
     <section
       className={`relative w-full overflow-hidden ${className}`}
-      style={{
-        height: "825px", // 93px (nav) + 732px (image) = 825px total
-      }}
+      // Height is responsive: auto on mobile, fixed on desktop
     >
-      {/* Background Image with Fallback - positioned with 66px buffer from edges */}
-      <div className="absolute inset-0">
-        {backgroundImage ? (
-          <>
+      {/* Spacer for Navbar on desktop since it's often absolute */}
+      <div className="h-[93px] hidden lg:block" />
+
+      <div className="relative w-full flex flex-col items-center">
+        {/* Image Container */}
+        <div
+          className="relative w-full overflow-hidden rounded-[20px]"
+          style={{
+            height: "60vh", // Mobile height
+            minHeight: "500px",
+            maxHeight: "732px", // Desktop limit
+          }}
+        >
+          {/* Main Image */}
+          {backgroundImage ? (
             <img
               src={backgroundImage.src}
               alt={backgroundImage.alt}
-              className="absolute"
-              style={{
-                top: "93px",
-                left: "66px",
-                right: "66px",
-                width: "calc(100% - 132px)", // Account for 66px buffer on each side
-                maxWidth: "1308px",
-                height: "732px",
-                objectFit: "cover",
-                borderRadius: "20px",
-              }}
+              className="w-full h-full object-cover"
               onError={(e) => {
-                // Hide broken image and show gradient fallback
                 const target = e.currentTarget;
                 target.style.display = "none";
                 const fallback = target.nextElementSibling as HTMLElement;
                 if (fallback) fallback.style.display = "block";
               }}
             />
-            {/* Gradient Fallback (hidden by default) */}
-            <div
-              className="absolute inset-0 w-full h-full"
-              style={{
-                display: "none",
-                background:
-                  "linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #3B82F6 100%)",
-              }}
-            />
-          </>
-        ) : (
-          // Default gradient if no image specified
+          ) : null}
+
+          {/* Fallback Gradient */}
           <div
             className="absolute inset-0 w-full h-full"
             style={{
+              display: backgroundImage ? "none" : "block",
               background:
                 "linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #3B82F6 100%)",
             }}
           />
-        )}
-        {/* Dark overlay for text readability - positioned over the hero image with 66px buffer */}
-        <div
-          className="absolute bg-black/30"
-          style={{
-            top: "93px",
-            left: "66px",
-            right: "66px",
-            width: "calc(100% - 132px)",
-            maxWidth: "1308px",
-            height: "732px",
-            borderRadius: "20px",
-          }}
-        />
-      </div>
 
-      {/* Overlay Content - positioned relative to hero image */}
-      <div
-        className="absolute z-10 w-full"
-        style={{
-          top: "calc(93px + 436px)", // Navbar (93px) + 436px from top of hero image
-          left: "50%",
-          transform: "translateX(-50%)",
-        }}
-      >
-        <div
-          className="text-center"
-          style={{ width: "825px", margin: "0 auto" }}
-        >
-          {/* Main Heading - positioned 436px from top of hero image */}
-          {overlayContent.heading && (
-            <h1
-              className="mb-6"
-              style={{
-                fontFamily:
-                  'Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-                fontSize: "63.55px",
-                fontWeight: 700,
-                fontStyle: "normal",
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#FFFFFF",
-                width: "825px",
-                height: "76px",
-              }}
-            >
-              {overlayContent.heading}
-            </h1>
-          )}
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/40" />
 
-          {/* Subheading - Frame 9 subtext specs */}
-          {overlayContent.subheading && (
-            <p
-              className="mb-10 mx-auto"
-              style={{
-                fontFamily:
-                  'Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-                fontSize: "16px",
-                fontWeight: 500,
-                fontStyle: "normal",
-                lineHeight: "24px",
-                letterSpacing: "0%",
-                textAlign: "center",
-                color: "#FFFFFF",
-                width: "533px",
-                height: "48px",
-              }}
-            >
-              {overlayContent.subheading}
-            </p>
-          )}
+          {/* Content Overlay - Centered */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-10">
+            {/* Heading */}
+            {overlayContent.heading && (
+              <h1
+                className="mb-4 sm:mb-6 font-bold text-white"
+                style={{
+                  fontFamily: "Figtree, sans-serif",
+                  // Responsive font size
+                }}
+              >
+                <span className="text-3xl sm:text-5xl lg:text-[63.55px] leading-tight">
+                  {overlayContent.heading}
+                </span>
+              </h1>
+            )}
 
-          {/* CTA Buttons */}
-          {overlayContent.buttons && overlayContent.buttons.length > 0 && (
-            <div className="flex gap-4 justify-center">
-              {overlayContent.buttons.map((button, index) => (
-                <a
-                  key={index}
-                  href={button.href || "#"}
-                  className="inline-flex items-center justify-center rounded-full transition-all duration-200 hover:bg-white/10 hover:scale-105"
-                  style={{
-                    fontFamily: "Figtree, Helvetica, sans-serif",
-                    fontSize: "16px",
-                    fontWeight: 500,
-                    minWidth: "180px",
-                    height: "48px",
-                    padding: "0 32px",
-                    backgroundColor: "transparent",
-                    color: "white",
-                    border: "2px solid white",
-                    backdropFilter: "blur(10px)",
-                  }}
-                  onClick={button.onClick}
-                >
-                  {button.text}
-                  <svg
-                    className="ml-2 w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+            {/* Subheading */}
+            {overlayContent.subheading && (
+              <p
+                className="mb-8 sm:mb-10 max-w-lg mx-auto font-medium text-white"
+                style={{
+                  fontFamily: "Figtree, sans-serif",
+                }}
+              >
+                <span className="text-base sm:text-lg leading-relaxed">
+                  {overlayContent.subheading}
+                </span>
+              </p>
+            )}
+
+            {/* Buttons */}
+            {overlayContent.buttons && overlayContent.buttons.length > 0 && (
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                {overlayContent.buttons.map((button, index) => (
+                  <a
+                    key={index}
+                    href={button.href || "#"}
+                    className="inline-flex items-center justify-center rounded-full transition-all duration-200 hover:bg-white/10 hover:scale-105 border-2 border-white text-white backdrop-blur-md"
+                    style={{
+                      fontFamily: "Figtree, sans-serif",
+                      height: "48px",
+                      padding: "0 32px",
+                      fontSize: "16px",
+                      fontWeight: 500,
+                    }}
+                    onClick={button.onClick}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </a>
-              ))}
-            </div>
-          )}
+                    {button.text}
+                    <svg
+                      className="ml-2 w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

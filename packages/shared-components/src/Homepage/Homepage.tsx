@@ -41,75 +41,76 @@ export const Homepage: React.FC<HomepageProps> = ({ className = "" }) => {
   }, []);
 
   return (
-    <div className={`${className}`}>
+    <div className={`${className} w-full`}>
       {/* Main Container */}
       <div
-        className="relative mx-auto overflow-hidden"
+        className="relative mx-auto overflow-hidden bg-[#FFFBF5] shadow-2xl"
         style={{
           maxWidth: "1440px",
-          margin: "0 auto",
-          backgroundColor: "#FFFBF5",
-          boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)",
-          padding: "0 66px",
+          // Padding is handled via classes for responsiveness:
+          // Mobile: px-4 (16px)
+          // Tablet: px-8 (32px)
+          // Desktop: px-[66px] (66px)
         }}
       >
-        {/* Hero Section - no embedded header, AppLayout provides it */}
-        <div className="relative">
-          <HeroV2
-            backgroundImage={{
-              src: "/img/powerrangers-6-hero-main.png",
-              alt: "Reiki healing session",
-            }}
-            overlayContent={{
-              heading: "The Reiki Goddess Healing",
-              subheading:
-                "Energy Healing for Optimal Mental Health & Wellness. Ground your energy, reduce stress, and restore balance.",
-              buttons: [
-                {
-                  text: "Book a Session",
-                  variant: "primary",
-                  href: "/book",
-                },
-                {
-                  text: "Learn More",
-                  variant: "secondary",
-                  href: "/about",
-                },
-              ],
-            }}
-          />
+        <div className="px-4 md:px-8 lg:px-[66px]">
+          {/* Hero Section - no embedded header, AppLayout provides it */}
+          <div className="relative w-full">
+            <HeroV2
+              backgroundImage={{
+                src: "/img/powerrangers-6-hero-main.png",
+                alt: "Reiki healing session",
+              }}
+              overlayContent={{
+                heading: "The Reiki Goddess Healing",
+                subheading:
+                  "Energy Healing for Optimal Mental Health & Wellness. Ground your energy, reduce stress, and restore balance.",
+                buttons: [
+                  {
+                    text: "Book a Session",
+                    variant: "primary",
+                    href: "/book",
+                  },
+                  {
+                    text: "Learn More",
+                    variant: "secondary",
+                    href: "/about",
+                  },
+                ],
+              }}
+            />
+          </div>
+
+          {/* Features Bar */}
+          <AnimatedSection animation="fadeInUp" delay={0.2}>
+            <FeaturesBar />
+          </AnimatedSection>
+
+          {/* Meet The Reiki Goddess Section */}
+          <AnimatedSection animation="fadeIn" delay={0.1} threshold={0.2}>
+            <MeetTheGoddess />
+          </AnimatedSection>
+
+          {/* Services Section */}
+          <AnimatedSection animation="fadeInUp" delay={0.1} threshold={0.2}>
+            <ServicesSection />
+          </AnimatedSection>
+
+          {/* Community Events Section */}
+          <AnimatedSection animation="scaleIn" delay={0.1} threshold={0.2}>
+            <CommunityEvents />
+          </AnimatedSection>
+
+          {/* Testimonials Section */}
+          <AnimatedSection animation="fadeInUp" delay={0.1} threshold={0.2}>
+            <Testimonials />
+          </AnimatedSection>
+
+          {/* Let's Connect CTA Section */}
+          <AnimatedSection animation="fadeIn" delay={0.1} threshold={0.3}>
+            <LetsConnect />
+          </AnimatedSection>
         </div>
-
-        {/* All other sections automatically get the 66px padding from container */}
-        {/* Features Bar */}
-        <AnimatedSection animation="fadeInUp" delay={0.2}>
-          <FeaturesBar />
-        </AnimatedSection>
-
-        {/* Meet The Reiki Goddess Section */}
-        <AnimatedSection animation="fadeIn" delay={0.1} threshold={0.2}>
-          <MeetTheGoddess />
-        </AnimatedSection>
-
-        {/* Services Section */}
-        <AnimatedSection animation="fadeInUp" delay={0.1} threshold={0.2}>
-          <ServicesSection />
-        </AnimatedSection>
-
-        {/* Community Events Section */}
-        <AnimatedSection animation="scaleIn" delay={0.1} threshold={0.2}>
-          <CommunityEvents />
-        </AnimatedSection>
-
-        {/* Testimonials Section */}
-        <AnimatedSection animation="fadeInUp" delay={0.1} threshold={0.2}>
-          <Testimonials />
-        </AnimatedSection>
-
-        {/* Let's Connect CTA Section */}
-        <AnimatedSection animation="fadeIn" delay={0.1} threshold={0.3}>
-          <LetsConnect />
-        </AnimatedSection>
       </div>
     </div>
   );

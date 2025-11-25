@@ -19,6 +19,7 @@ export interface MeetTheGoddessProps {
 /**
  * Meet The Reiki Goddess section component
  * About preview section with bio and images
+ * Responsive: Stacked on Mobile, Grid on Desktop
  */
 export const MeetTheGoddess: React.FC<MeetTheGoddessProps> = ({
   heading = "Meet Deirdre, The Reiki Goddess",
@@ -61,261 +62,77 @@ export const MeetTheGoddess: React.FC<MeetTheGoddessProps> = ({
 }) => {
   return (
     <section
-      className={`relative py-20 overflow-hidden ${className}`}
-      style={{
-        minHeight: "650px",
-        backgroundColor: "#FFFBF5",
-      }}
+      className={`relative py-12 md:py-20 overflow-hidden ${className}`}
+      style={{ backgroundColor: "#FFFBF5" }}
     >
-      {/* Smoke layer - positioned in background behind text */}
-      <div
-        className="absolute"
-        style={{
-          left: "0", // Aligned with page edge
-          top: "0",
-          width: "810px",
-          height: "810px",
-          zIndex: 2, // Behind text and images
-        }}
-      >
+      {/* Background Smoke - Hidden on small mobile to prevent clutter */}
+      <div className="hidden md:block absolute top-0 left-0 w-[810px] h-[810px] z-0 opacity-50 pointer-events-none">
         <img
           src="/img/smoke.png"
-          alt="Smoke effect"
-          style={{
-            width: "810px",
-            height: "810px",
-            objectFit: "cover",
-            position: "absolute",
-            left: "0",
-            top: "0",
-            transform: "rotate(180deg)", // Rotate to position top-right in bottom-left
-            opacity: 0.5,
-            filter: "saturate(100%)",
-            mixBlendMode: "normal",
-          }}
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
-        />
-        {/* Duplicate smoke layer for enhanced color */}
-        <img
-          src="/img/smoke.png"
-          alt="Smoke effect duplicate"
-          style={{
-            width: "810px",
-            height: "810px",
-            objectFit: "cover",
-            position: "absolute",
-            left: "0",
-            top: "0",
-            transform: "rotate(180deg)", // Same rotation as original
-            opacity: 0.3,
-            filter: "saturate(150%)",
-            mixBlendMode: "multiply",
-          }}
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
-        />
-        {/* Third smoke layer for maximum enhancement */}
-        <img
-          src="/img/smoke.png"
-          alt="Smoke effect triple"
-          style={{
-            width: "810px",
-            height: "810px",
-            objectFit: "cover",
-            position: "absolute",
-            left: "0",
-            top: "0",
-            transform: "rotate(180deg)", // Same rotation as original
-            opacity: 0.2,
-            filter: "saturate(200%) hue-rotate(-10deg)",
-            mixBlendMode: "overlay",
-          }}
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
+          alt=""
+          className="w-full h-full object-cover mix-blend-overlay"
         />
       </div>
 
-      <div
-        className="relative z-10"
-        style={{ maxWidth: "1440px", margin: "0 auto" }}
-      >
-        {/* IMG_4891 with blue background bevel */}
-        {images.tertiary && (
-          <div
-            className="absolute z-20"
-            style={{
-              left: "688px",
-              top: "50px",
-              width: "455.9px",
-              height: "310.61566px",
-              transform: "rotate(-4.85deg)",
-              transformOrigin: "center",
-            }}
-          >
-            {/* Blue background rectangle - shifted down 5px and left 5px */}
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundColor: "#0205B7",
-                borderRadius: "27px",
-                transform: "translate(-5px, 5px)",
-                zIndex: 0,
-              }}
-            />
-            {/* Image on top */}
-            <img
-              src={images.tertiary.src}
-              alt={images.tertiary.alt}
-              className="w-full h-full object-cover relative"
-              style={{
-                borderRadius: "27px",
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-                zIndex: 1,
-                position: "relative",
-              }}
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-          </div>
-        )}
-
-        {/* "The Reiki Goddess" text underneath IMG_4891 */}
-        <div
-          className="absolute z-20"
-          style={{
-            left: "752px",
-            top: "370px", // Positioned relative to section top (1418px from page top)
-            width: "221px",
-            height: "26px",
-            transform: "rotate(-5.24deg)",
-            transformOrigin: "center",
-          }}
-        >
-          <span
-            style={{
-              fontFamily:
-                'Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-              fontSize: "22px",
-              fontWeight: 500,
-              fontStyle: "normal",
-              lineHeight: "100%",
-              letterSpacing: "10%",
-              color: "#0205B7", // Brand blue color
-              whiteSpace: "nowrap",
-            }}
-          >
-            The Reiki Goddess
-          </span>
-        </div>
-
-        {/* IMG_3859 with blue background bevel */}
-        {images.secondary && (
-          <div
-            className="absolute z-30"
-            style={{
-              left: "1010.153px",
-              top: "calc(50px + 310.61566px - 100px)",
-              width: "283.49694050307664px",
-              height: "207.90078167808508px",
-              transform: "rotate(8.13deg)",
-              transformOrigin: "center",
-            }}
-          >
-            {/* Blue background rectangle - shifted down 5px and right 5px */}
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundColor: "#0205B7",
-                borderRadius: "24px",
-                transform: "translate(5px, 5px)",
-                zIndex: 0,
-              }}
-            />
-            {/* Image on top */}
-            <img
-              src={images.secondary.src}
-              alt={images.secondary.alt}
-              className="w-full h-full object-cover relative"
-              style={{
-                borderRadius: "24px",
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-                zIndex: 1,
-                position: "relative",
-              }}
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-          </div>
-        )}
-
-        <div className="relative" style={{ padding: "0 66px" }}>
-          {/* Text Content */}
-          <div style={{ maxWidth: "600px" }}>
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[66px]">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
+          {/* Text Content - Order 1 on mobile */}
+          <div className="w-full lg:w-1/2 order-1 lg:order-1">
             <h2
-              className="mb-8"
-              style={{
-                fontFamily: "Figtree, Helvetica, sans-serif",
-                fontSize: "48px",
-                fontWeight: 700,
-                lineHeight: "56px",
-                color: "rgba(51, 51, 51, 1)",
-              }}
+              className="mb-6 text-3xl md:text-5xl font-bold text-[#333333]"
+              style={{ fontFamily: "Figtree, sans-serif" }}
             >
               {heading}
             </h2>
-
             <div
-              className="mb-8"
-              style={{
-                fontFamily: "Figtree, Helvetica, sans-serif",
-                fontSize: "18px",
-                fontWeight: 400,
-                lineHeight: "28px",
-                color: "rgba(94, 94, 94, 1)",
-              }}
+              className="mb-8 text-base md:text-lg text-[#5E5E5E] leading-relaxed"
+              style={{ fontFamily: "Figtree, sans-serif" }}
             >
               {content}
             </div>
-
             {ctaButton && (
               <a
                 href={ctaButton.href}
-                onClick={ctaButton.onClick}
-                className="inline-flex items-center justify-center rounded-full transition-all duration-200 hover:bg-blue-50 hover:scale-105"
-                style={{
-                  fontFamily: "Figtree, Helvetica, sans-serif",
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  minWidth: "180px",
-                  height: "48px",
-                  padding: "0 32px",
-                  backgroundColor: "transparent",
-                  color: "rgba(2, 5, 183, 1)",
-                  border: "2px solid rgba(2, 5, 183, 1)",
-                }}
+                className="inline-flex items-center justify-center px-8 py-3 rounded-full border-2 border-[#0205B7] text-[#0205B7] font-medium hover:bg-blue-50 transition-colors"
               >
                 {ctaButton.text}
-                <svg
-                  className="ml-2 w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
               </a>
             )}
+          </div>
+
+          {/* Images - Order 2 on mobile */}
+          <div className="w-full lg:w-1/2 order-2 lg:order-2 relative h-[400px] md:h-[500px]">
+            {/* Desktop Layout: Absolute positioning preserved for larger screens */}
+            {/* Mobile Layout: Stacked or simplified grid */}
+
+            {/* Main Image (Tertiary) */}
+            {images.tertiary && (
+              <div className="absolute left-0 top-10 w-[70%] h-[60%] z-10 transform -rotate-3 shadow-xl rounded-3xl overflow-hidden border-4 border-white">
+                <img
+                  src={images.tertiary.src}
+                  alt={images.tertiary.alt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+
+            {/* Secondary Image */}
+            {images.secondary && (
+              <div className="absolute right-0 bottom-10 w-[50%] h-[50%] z-20 transform rotate-6 shadow-xl rounded-3xl overflow-hidden border-4 border-white">
+                <img
+                  src={images.secondary.src}
+                  alt={images.secondary.alt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+
+            {/* Badge */}
+            <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 z-30">
+              <span className="text-[#0205B7] font-medium text-xl tracking-widest bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">
+                The Reiki Goddess
+              </span>
+            </div>
           </div>
         </div>
       </div>
