@@ -62,7 +62,11 @@ function Blog() {
         <link rel="canonical" href="https://thereikigoddesshealing.com/blog" />
       </Helmet>
 
-      <div className="min-h-screen" style={{ backgroundColor: "#FFFBF5" }}>
+      <div
+        className="min-h-screen"
+        data-testid="page-blog"
+        style={{ backgroundColor: "#FFFBF5" }}
+      >
         {/* Main Container with shadow effect matching homepage */}
         <div
           className="relative mx-auto overflow-hidden"

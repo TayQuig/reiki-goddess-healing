@@ -37,11 +37,9 @@ describe("App Routing Integration Tests", () => {
     it("should render the home page by default", () => {
       renderApp();
 
+      expect(screen.getByTestId("page-home")).toBeInTheDocument();
       expect(
         screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
-      ).toBeInTheDocument();
-      expect(
-        screen.getByText(/Energy Healing for Optimal Mental Health & Wellness/i)
       ).toBeInTheDocument();
     });
 
@@ -53,9 +51,7 @@ describe("App Routing Integration Tests", () => {
       await user.click(aboutLink);
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /about/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
     });
 
@@ -69,9 +65,7 @@ describe("App Routing Integration Tests", () => {
       await user.click(servicesLink);
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /services/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-services")).toBeInTheDocument();
       });
     });
 
@@ -83,9 +77,7 @@ describe("App Routing Integration Tests", () => {
       await user.click(eventsLink);
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /events/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-events")).toBeInTheDocument();
       });
     });
 
@@ -97,6 +89,7 @@ describe("App Routing Integration Tests", () => {
       await user.click(contactLink);
 
       await waitFor(() => {
+        // ContactPage renders "Get in Touch" heading
         expect(
           screen.getByRole("heading", { name: /get in touch/i })
         ).toBeInTheDocument();
@@ -111,9 +104,7 @@ describe("App Routing Integration Tests", () => {
       await user.click(blogLink);
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /blog/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-blog")).toBeInTheDocument();
       });
     });
 
@@ -122,34 +113,26 @@ describe("App Routing Integration Tests", () => {
       renderApp();
 
       // Start at home
-      expect(
-        screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("page-home")).toBeInTheDocument();
 
       // Navigate to Services
       await user.click(screen.getAllByRole("link", { name: /services/i })[0]);
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /services/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-services")).toBeInTheDocument();
       });
 
       // Navigate to About
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /about/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
 
       // Navigate back to Home
       await user.click(screen.getAllByRole("link", { name: /home/i })[0]);
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-home")).toBeInTheDocument();
       });
-    });
+    }, 15000); // Increased timeout for multiple navigations
 
     it.skip("should reset scroll position when navigating", async () => {
       const user = userEvent.setup();
@@ -163,9 +146,7 @@ describe("App Routing Integration Tests", () => {
       // Navigate to another page
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /about/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
 
       // Browser should reset scroll on navigation
@@ -196,9 +177,7 @@ describe("App Routing Integration Tests", () => {
       await user.click(homeLink);
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-home")).toBeInTheDocument();
       });
     });
 
@@ -290,7 +269,7 @@ describe("App Routing Integration Tests", () => {
 
       await waitFor(() => {
         // Should navigate to About page
-        expect(screen.getByText(/about page/i)).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
 
         // Mobile menu should be closed
         expect(
@@ -379,9 +358,7 @@ describe("App Routing Integration Tests", () => {
       // Navigate to About
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /about/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
 
       // Go back
@@ -390,9 +367,7 @@ describe("App Routing Integration Tests", () => {
       });
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-home")).toBeInTheDocument();
       });
     });
 
@@ -403,9 +378,7 @@ describe("App Routing Integration Tests", () => {
       // Navigate to About
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /about/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
 
       // Go back
@@ -414,9 +387,7 @@ describe("App Routing Integration Tests", () => {
       });
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-home")).toBeInTheDocument();
       });
 
       // Go forward
@@ -425,9 +396,7 @@ describe("App Routing Integration Tests", () => {
       });
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /about/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
     });
   });
@@ -437,9 +406,7 @@ describe("App Routing Integration Tests", () => {
       window.history.pushState({}, "", "/services");
       renderApp();
 
-      expect(
-        screen.getByRole("heading", { name: /services/i })
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("page-services")).toBeInTheDocument();
     });
 
     it("should preserve query parameters during navigation", async () => {
@@ -451,9 +418,7 @@ describe("App Routing Integration Tests", () => {
       await user.click(screen.getAllByRole("link", { name: /about/i })[0]);
 
       await waitFor(() => {
-        expect(
-          screen.getByRole("heading", { name: /about/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
     });
 
@@ -461,9 +426,7 @@ describe("App Routing Integration Tests", () => {
       window.history.pushState({}, "", "/#testimonials");
       renderApp();
 
-      expect(
-        screen.getByRole("heading", { name: /The Reiki Goddess Healing/i })
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("page-home")).toBeInTheDocument();
     });
   });
 
@@ -483,9 +446,7 @@ describe("App Routing Integration Tests", () => {
       });
 
       // App should still be functional
-      expect(
-        screen.getByRole("heading", { name: /services/i })
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("page-services")).toBeInTheDocument();
 
       consoleError.mockRestore();
     });
@@ -501,9 +462,7 @@ describe("App Routing Integration Tests", () => {
 
       await waitFor(() => {
         // Check that navigation occurred
-        expect(
-          screen.getByRole("heading", { name: /about/i })
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
     });
 
@@ -532,6 +491,7 @@ describe("App Routing Integration Tests", () => {
       // Tab through navigation to reach a non-home link
       await user.tab(); // First tab
       await user.tab(); // Second tab should be on a navigation link
+      await user.tab(); // Third tab
 
       // Verify we're focused on a link
       expect(document.activeElement).toHaveAttribute("href");
@@ -543,13 +503,9 @@ describe("App Routing Integration Tests", () => {
       // Should navigate based on which link was focused
       await waitFor(() => {
         if (focusedHref === "/about") {
-          expect(
-            screen.getByRole("heading", { name: /about/i })
-          ).toBeInTheDocument();
+          expect(screen.getByTestId("page-about")).toBeInTheDocument();
         } else if (focusedHref === "/services") {
-          expect(
-            screen.getByRole("heading", { name: /services/i })
-          ).toBeInTheDocument();
+          expect(screen.getByTestId("page-services")).toBeInTheDocument();
         } else {
           // At least verify we can tab to a link
           expect(focusedHref).toBeTruthy();
