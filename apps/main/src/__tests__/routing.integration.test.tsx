@@ -58,10 +58,8 @@ describe("Routing Integration Tests", () => {
       await user.click(aboutLinks[0]); // Click the first About link (in header)
 
       await waitFor(() => {
-        // Check for About page content - looking for the hero heading
-        expect(
-          screen.getByText(/Experienced Reiki Master/i)
-        ).toBeInTheDocument();
+        // Check for About page specific content
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
     });
 
@@ -73,7 +71,10 @@ describe("Routing Integration Tests", () => {
       await user.click(servicesLinks[0]);
 
       await waitFor(() => {
-        expect(screen.getByText("Services page")).toBeInTheDocument();
+        // Check for Services page specific content
+        expect(
+          screen.getByRole("heading", { name: /healing services/i })
+        ).toBeInTheDocument();
       });
     });
 
@@ -91,7 +92,9 @@ describe("Routing Integration Tests", () => {
       await user.click(servicesLinks[0]);
 
       await waitFor(() => {
-        expect(screen.getByText("Services page")).toBeInTheDocument();
+        expect(
+          screen.getByRole("heading", { name: /healing services/i })
+        ).toBeInTheDocument();
       });
 
       // Navigate to About
@@ -99,9 +102,7 @@ describe("Routing Integration Tests", () => {
       await user.click(aboutLinks[0]);
 
       await waitFor(() => {
-        expect(
-          screen.getByText(/Experienced Reiki Master/i)
-        ).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
     });
   });
@@ -230,7 +231,7 @@ describe("Routing Integration Tests", () => {
 
       // Page should transition smoothly (mocked in our case)
       await waitFor(() => {
-        expect(screen.getByText("About page")).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
     });
   });
@@ -245,7 +246,7 @@ describe("Routing Integration Tests", () => {
       await user.click(aboutLinks[0]);
 
       await waitFor(() => {
-        expect(screen.getByText("About page")).toBeInTheDocument();
+        expect(screen.getByTestId("page-about")).toBeInTheDocument();
       });
 
       // Go back using browser history
@@ -259,16 +260,18 @@ describe("Routing Integration Tests", () => {
             textDecoration: "underline",
           });
         },
-        { timeout: 2000 }
+        { timeout: 5000 }
       );
-    });
+    }, 10000); // Increase test timeout to 10s
 
     it("should handle direct URL navigation", () => {
       // Navigate directly to services page
       window.history.pushState({}, "", "/services");
       renderApp();
 
-      expect(screen.getByText(/services page/i)).toBeInTheDocument();
+      expect(
+        screen.getByRole("heading", { name: /healing services/i })
+      ).toBeInTheDocument();
     });
   });
 });

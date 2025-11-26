@@ -16,10 +16,18 @@ vi.mock("framer-motion", () => ({
   AnimatePresence: ({ children }: React.PropsWithChildren) => children,
 }));
 
-// Mock the AboutPage component from shared-components
+// Mock the components used in About.tsx
 vi.mock("@reiki-goddess/shared-components", () => ({
-  AboutPage: () => (
-    <div data-testid="about-page-component">AboutPage Component</div>
+  AboutHero: () => <div data-testid="about-hero">AboutHero</div>,
+  JourneySection: () => <div data-testid="journey-section">JourneySection</div>,
+  ContactCTA: () => <div data-testid="contact-cta">ContactCTA</div>,
+  ImageGallery: () => <div data-testid="image-gallery">ImageGallery</div>,
+  Testimonials: () => <div data-testid="testimonials">Testimonials</div>,
+  BookSessionCTA: () => (
+    <div data-testid="book-session-cta">BookSessionCTA</div>
+  ),
+  AnimatedSection: ({ children }: { children: React.ReactNode }) => (
+    <div>{children}</div>
   ),
 }));
 
@@ -29,19 +37,17 @@ describe("About Page Route Component", () => {
   };
 
   describe("Component Integration", () => {
-    it("should render AboutPage component", () => {
+    it("should render About page container", () => {
       renderWithRouter(<About />);
-
-      expect(screen.getByTestId("about-page-component")).toBeInTheDocument();
+      // Check for the main container test ID defined in About.tsx
+      expect(screen.getByTestId("page-about")).toBeInTheDocument();
     });
 
-    it("should wrap AboutPage with PageTransition", () => {
-      const { container } = renderWithRouter(<About />);
-
-      // PageTransition is a motion.div wrapper
-      // Since we mocked framer-motion, just verify the structure
-      expect(container.querySelector("div")).toBeInTheDocument();
-      expect(screen.getByTestId("about-page-component")).toBeInTheDocument();
+    it("should render child sections", () => {
+      renderWithRouter(<About />);
+      // Verify key sections are rendered
+      expect(screen.getByTestId("about-hero")).toBeInTheDocument();
+      expect(screen.getByTestId("journey-section")).toBeInTheDocument();
     });
   });
 
@@ -52,8 +58,6 @@ describe("About Page Route Component", () => {
 
     it("should be accessible", () => {
       const { container } = renderWithRouter(<About />);
-
-      // Basic accessibility check - component should render with proper structure
       expect(container.firstChild).toBeInTheDocument();
     });
   });
